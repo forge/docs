@@ -1,0 +1,45 @@
+== Testing your addons
+
+Forge offers several test harness to aid in writing tests for your addon. Each test harness has a specific role to play in testing your addon.
+
+This chapter assumes knowledge of Arquillian, so you might find it easier to read the Arquillian tutorials at http://arquillian.org if you're not acquainted with it.
+
+=== The Furnace test harness
+
+The Furnace test harness offers the capability to deploy your and test addon to Furnace.
+
+It is often included in your addon via the following dependencies:
+
+[source,xml]
+----
+<dependency>
+   <groupId>org.jboss.forge.furnace.test</groupId>
+   <artifactId>furnace-test-harness</artifactId>
+   <version>FURNACE_VERSION</version>
+   <scope>test</scope>
+</dependency>
+<dependency>
+   <groupId>org.jboss.forge.furnace.test</groupId>
+   <artifactId>arquillian-furnace-classpath</artifactId>
+   <version>FURNACE_VERSION</version>
+   <scope>test</scope>
+</dependency>
+----
+
+The `furnace-test-harness` artifact brings in the `junit` and `arquillian-junit-container` dependencies. You may recognize these two transitive dependencies if you're acquainted with Arquillian. They are crucial for writing and running JUnit based Arquillian tests.
+
+You may also notice a need for an Arquillian container for the Furnace runtime. This is provided by the `arquillian-furnace-classpath` artifact. It brings in the Furnace runtime, support for making deployments to the Furnace runtime and provides APIs for deploying Forge addon dependencies.
+
+With these two artifacts in your project, you will be able to test services offered by your addon.
+
+TBD
+
+You will not be able to write and execute end-to-end tests with the Furnace test harness. That responsibility is implemented in the Shell and UI test harnesses.
+
+=== The Shell test harness
+
+TBD
+
+=== The UI test harness
+
+TBD
