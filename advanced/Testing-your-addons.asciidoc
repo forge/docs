@@ -4,7 +4,7 @@ Forge offers several test harness to aid in writing tests for your addon. Each t
 
 This chapter assumes knowledge of Arquillian, so you might find it easier to read the Arquillian tutorials at http://arquillian.org if you're not acquainted with it.
 
-=== The Furnace test harness
+=== Setup the Furnace test harness in your project
 
 The Furnace test harness offers the capability to deploy your and test addon to Furnace.
 
@@ -32,7 +32,106 @@ You may also notice a need for an Arquillian container for the Furnace runtime. 
 
 With these two artifacts in your project, you will be able to test services offered by your addon.
 
-TBD
+==== Write your first test
+
+Now, you'll need to create a test class with the following layout, using the standard JUnit test APIs:
+
+[source,java]
+----
+package org.example;
+
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.forge.arquillian.archive.ForgeArchive;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+@RunWith(Arquillian.class)
+public class ExampleFurnaceTest {
+
+   @Deployment
+   public static ForgeArchive getDeployment() {
+      ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class);
+      return archive;
+   }
+
+   @Test
+   public void testSomething() throws Exception {
+      Assert.fail("Not implemented");
+   }
+}
+----
+
+Then you'll need to add some configuration so that your addon will be deployed to the test environment. This is done
+using the `@AddonDependency` annotation. You'll also need to add an addon dependency link from your test case
+to your addon (otherwise the test case will not be able to use any of your addon's classes or services.)
+
+[source,java]
+----
+@RunWith(Arquillian.class)
+public class ExampleFurnaceTest {
+
+   @Deployment
+   @Dependencies({
+       @AddonDependency(name = "org.example:example", version = "YOUR_VERSION")
+   })
+   public static ForgeArchive getDeployment() {
+      ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class)
+         .addBeansXML()
+         .addAsAddonDependencies(
+            AddonDependencyEntry.create("org.example:example", "YOUR_VERSION"),
+         );
+      return archive;
+   }
+
+   @Test
+   public void testSomething() throws Exception {
+      Assert.fail("Not implemented");
+   }
+}
+---- 
+
+NOTE: The `@Dependencies` annotation is used to specify addons that must be deployed before the addon-under-test is deployed in Furnace. The `AddonDependencyEntry.create(...)` method is used to specify addons that the addon-under-test depends on.
+
+Now that the test case deploys and depends on your addon, you may access services from it via injection:
+
+[source,java]
+----
+@RunWith(Arquillian.class)
+public class ExampleFurnaceTest {
+
+   @Deployment
+   @Dependencies({
+       @AddonDependency(name = "org.example:example", version = "YOUR_VERSION")
+   })
+   public static ForgeArchive getDeployment() {
+      ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class)
+         .addBeansXML()
+         .addAsAddonDependencies(
+            AddonDependencyEntry.create("org.example:example", "YOUR_VERSION"),
+         );
+      return archive;
+   }
+   
+   @Inject
+   private ExampleService service;
+
+   @Test
+   public void testSomething() throws Exception {
+      Assert.assertNotNull(service);
+      Assert.assertNotNull(service.doSomething());
+   }
+}
+---- 
+
+This is the basic premise of using the test-harness. For detailed examples, take a 
+https://github.com/forge/core/tree/2.0/resources/tests/src/test/java/org/jboss/forge/addon/resource[look at some of the existing
+Forge test cases] in our github repository.
+
+NOTE: The `version` parameter in `@AddonDependency` and in the `AddonDependencyEntry.create(...)` method are optional. By not specifying them means that the test harness 
+will attempt to find the version based on the tests' build descriptor (pom.xml). In this case, if the dependent addon is not present in the tests' build descriptor, the test execution should fail.
 
 You will not be able to write and execute end-to-end tests with the Furnace test harness. That responsibility is implemented in the Shell and UI test harnesses.
 
