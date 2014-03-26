@@ -339,7 +339,7 @@ public class ExampleFurnaceTest {
       ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class)
          .addBeansXML()
          .addAsAddonDependencies(
-            AddonDependencyEntry.create("org.example:example", "YOUR_VERSION"),
+            AddonDependencyEntry.create("org.example:example", "YOUR_VERSION")
          );
       return archive;
    }
@@ -367,6 +367,8 @@ public class ExampleFurnaceTest {
          .addBeansXML()
          .addAsAddonDependencies(
             AddonDependencyEntry.create("org.example:example", "YOUR_VERSION"),
+            // required to use CDI
+            AddonDependencyEntry.create("org.jboss.forge.furnace.container:cdi")
          );
       return archive;
    }
