@@ -1,0 +1,192 @@
+== Running Furnace as a standalone application
+
+Furnace can also be executed in a standalone app. 
+
+=== Setup your environment
+
+Configure your pom.xml like the following:
+
+[source,xml]
+----
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.george.app</groupId>
+   <artifactId>furnace-demo</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+   <properties>
+      <version.forge>2.4.1.Final</version.forge>
+   </properties>
+   <dependencyManagement>
+      <dependencies>
+         <dependency>
+            <groupId>org.jboss.forge</groupId>
+            <artifactId>forge-bom</artifactId>
+            <version>${version.forge}</version>
+            <type>pom</type>
+            <scope>import</scope>
+         </dependency>
+      </dependencies>
+   </dependencyManagement>
+   <dependencies>
+      <dependency>
+         <groupId>org.jboss.forge.furnace</groupId>
+         <artifactId>furnace-se</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge.addon</groupId>
+         <artifactId>projects-api</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge.addon</groupId>
+         <artifactId>dependencies-api</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge.addon</groupId>
+         <artifactId>parser-java-api</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge.addon</groupId>
+         <artifactId>resources-api</artifactId>
+         <exclusions>
+            <exclusion>
+               <artifactId>facets-impl</artifactId>
+               <groupId>org.jboss.forge.addon</groupId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.jboss.forge.furnace</groupId>
+            <artifactId>furnace-maven-plugin</artifactId>
+            <version>${version.forge}</version>
+            <executions>
+               <execution>
+                  <id>deploy-addons</id>
+                  <phase>prepare-package</phase>
+                  <goals>
+                     <goal>addon-install</goal>
+                  </goals>
+                  <inherited>false</inherited>
+                  <configuration>
+                     <addonRepository>${project.build.directory}/addons</addonRepository>
+                     <addonIds>
+                        <addonId>org.jboss.forge.addon:core,${version.forge}</addonId>
+                     </addonIds>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+   </build>
+</project>
+----
+
+
+== Bootstrap and lookup services from Furnace
+
+Now you can boot Furnace and lookup services from the configured addons: 
+
+[source,java]
+----
+/**
+ * Copyright 2014 Red Hat, Inc. and/or its affiliates.
+ *
+ * Licensed under the Eclipse Public License version 1.0, available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
+
+package org.george.app;
+
+import java.io.File;
+
+import org.jboss.forge.addon.parser.java.projects.JavaWebProjectType;
+import org.jboss.forge.addon.projects.Project;
+import org.jboss.forge.addon.projects.ProjectFactory;
+import org.jboss.forge.addon.projects.ProjectProvider;
+import org.jboss.forge.addon.projects.facets.MetadataFacet;
+import org.jboss.forge.addon.resource.Resource;
+import org.jboss.forge.addon.resource.ResourceFactory;
+import org.jboss.forge.furnace.Furnace;
+import org.jboss.forge.furnace.addons.AddonRegistry;
+import org.jboss.forge.furnace.repositories.AddonRepositoryMode;
+import org.jboss.forge.furnace.se.FurnaceFactory;
+import org.jboss.forge.furnace.util.OperatingSystemUtils;
+
+/**
+ * This is an example on how to start Furnace in a standalone app
+ *
+ * @author <a href="ggastald@redhat.com">George Gastaldi</a>
+ */
+public class Main
+{
+
+   public static void main(String[] args) throws Exception
+   {
+      Furnace furnace = startFurnace();
+      try
+      {
+         AddonRegistry addonRegistry = furnace.getAddonRegistry();
+         ProjectFactory projectFactory = addonRegistry.getServices(ProjectFactory.class).get();
+         ResourceFactory resourceFactory = addonRegistry.getServices(ResourceFactory.class).get();
+
+         // Create a temporary directory as an example
+         File underlyingResource = OperatingSystemUtils.createTempDir();
+
+         Resource<File> projectDir = resourceFactory.create(underlyingResource);
+
+         // This could return more than one provider, but since the maven addon is the only one deployed, this is ok
+         ProjectProvider projectProvider = addonRegistry.getServices(ProjectProvider.class).get();
+
+         // Creating WAR project
+         JavaWebProjectType javaWebProjectType = addonRegistry.getServices(JavaWebProjectType.class).get();
+         Project project = projectFactory.createProject(projectDir, projectProvider,
+                  javaWebProjectType.getRequiredFacets());
+
+         // Changing metadata
+         MetadataFacet facet = project.getFacet(MetadataFacet.class);
+         facet.setProjectName("my-demo-project");
+         facet.setProjectVersion("1.0.0-SNAPSHOT");
+         facet.setTopLevelPackage("com.mycompany.project");
+
+         System.out.println("Project Created in: " + project);
+      }
+      finally
+      {
+         furnace.stop();
+      }
+   }
+
+   static Furnace startFurnace()
+   {
+      // Create a Furnace instance. NOTE: This must be called only once
+      Furnace furnace = FurnaceFactory.getInstance();
+
+      // Add repository containing addons specified in pom.xml
+      furnace.addRepository(AddonRepositoryMode.IMMUTABLE, new File("target/addons"));
+
+      // Start Furnace in another thread
+      furnace.startAsync();
+
+      // Wait until Furnace is started
+      while (!furnace.getStatus().isStarted())
+      {
+         try
+         {
+            Thread.sleep(100);
+         }
+         catch (InterruptedException e)
+         {
+            break;
+         }
+      }
+      return furnace;
+   }
+}
+
+----
+
+
