@@ -158,17 +158,8 @@ public class Main
       furnace.startAsync();
 
       // Wait until Furnace is started
-      while (!furnace.getStatus().isStarted())
-      {
-         try
-         {
-            Thread.sleep(100);
-         }
-         catch (InterruptedException e)
-         {
-            break;
-         }
-      }
+      future.get();
+
       return furnace;
    }
 }
