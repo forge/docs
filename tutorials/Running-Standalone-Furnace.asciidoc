@@ -130,29 +130,7 @@ public class Main
       try
       {
          AddonRegistry addonRegistry = furnace.getAddonRegistry();
-         ProjectFactory projectFactory = addonRegistry.getServices(ProjectFactory.class).get();
-         ResourceFactory resourceFactory = addonRegistry.getServices(ResourceFactory.class).get();
-
-         // Create a temporary directory as an example
-         File underlyingResource = OperatingSystemUtils.createTempDir();
-
-         Resource<File> projectDir = resourceFactory.create(underlyingResource);
-
-         // This could return more than one provider, but since the maven addon is the only one deployed, this is ok
-         ProjectProvider projectProvider = addonRegistry.getServices(ProjectProvider.class).get();
-
-         // Creating WAR project
-         JavaWebProjectType javaWebProjectType = addonRegistry.getServices(JavaWebProjectType.class).get();
-         Project project = projectFactory.createProject(projectDir, projectProvider,
-                  javaWebProjectType.getRequiredFacets());
-
-         // Changing metadata
-         MetadataFacet facet = project.getFacet(MetadataFacet.class);
-         facet.setProjectName("my-demo-project");
-         facet.setProjectVersion("1.0.0-SNAPSHOT");
-         facet.setTopLevelPackage("com.mycompany.project");
-
-         System.out.println("Project Created in: " + project);
+         // Do something with AddonRegistry
       }
       finally
       {
@@ -189,4 +167,51 @@ public class Main
 
 ----
 
+=== Create a new Project
 
+[source,java]
+----
+   private static void createProject(AddonRegistry addonRegistry)
+   {
+      ProjectFactory projectFactory = addonRegistry.getServices(ProjectFactory.class).get();
+      ResourceFactory resourceFactory = addonRegistry.getServices(ResourceFactory.class).get();
+
+      // Create a temporary directory as an example
+      File underlyingResource = OperatingSystemUtils.createTempDir();
+
+      Resource<File> projectDir = resourceFactory.create(underlyingResource);
+
+      // This could return more than one provider, but since the maven addon is the only one deployed, this is ok
+      ProjectProvider projectProvider = addonRegistry.getServices(ProjectProvider.class).get();
+
+      // Creating WAR project
+      JavaWebProjectType javaWebProjectType = addonRegistry.getServices(JavaWebProjectType.class).get();
+      Project project = projectFactory.createProject(projectDir, projectProvider,
+               javaWebProjectType.getRequiredFacets());
+
+      // Changing metadata
+      MetadataFacet facet = project.getFacet(MetadataFacet.class);
+      facet.setProjectName("my-demo-project");
+      facet.setProjectVersion("1.0.0-SNAPSHOT");
+      facet.setTopLevelPackage("com.mycompany.project");
+
+      System.out.println("Project Created in: " + project);
+   }
+----
+
+=== Process a Freemarker Template
+
+[source,java]
+----
+   private static void createTemplate(AddonRegistry addonRegistry) throws Exception
+   {
+      ResourceFactory resourceFactory = addonRegistry.getServices(ResourceFactory.class).get();
+      TemplateFactory templateFactory = addonRegistry.getServices(TemplateFactory.class).get();
+      File tmpFile = File.createTempFile("template", ".tmp");
+      tmpFile.deleteOnExit();
+      Files.write(tmpFile.toPath(), "${name}".getBytes());
+      Template template = templateFactory.create(resourceFactory.create(tmpFile), FreemarkerTemplate.class);
+      String output = template.process(Collections.singletonMap("name", "JBoss Forge"));
+      System.out.println("Output: " + output);
+   }
+----
