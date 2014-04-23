@@ -14,7 +14,7 @@ Configure your pom.xml like the following:
    <artifactId>furnace-demo</artifactId>
    <version>0.0.1-SNAPSHOT</version>
    <properties>
-      <version.forge>2.4.1.Final</version.forge>
+      <version.forge>2.5.0.Final</version.forge>
    </properties>
    <dependencyManagement>
       <dependencies>
@@ -31,6 +31,14 @@ Configure your pom.xml like the following:
       <dependency>
          <groupId>org.jboss.forge.furnace</groupId>
          <artifactId>furnace-se</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge.addon</groupId>
+         <artifactId>templates-api</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge.addon</groupId>
+         <artifactId>templates-freemarker</artifactId>
       </dependency>
       <dependency>
          <groupId>org.jboss.forge.addon</groupId>
