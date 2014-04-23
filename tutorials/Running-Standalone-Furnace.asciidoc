@@ -155,7 +155,7 @@ public class Main
       furnace.addRepository(AddonRepositoryMode.IMMUTABLE, new File("target/addons"));
 
       // Start Furnace in another thread
-      furnace.startAsync();
+      Future<Void> future = furnace.startAsync();
 
       // Wait until Furnace is started
       future.get();
