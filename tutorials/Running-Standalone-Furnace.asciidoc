@@ -139,6 +139,7 @@ public class Main
       {
          AddonRegistry addonRegistry = furnace.getAddonRegistry();
          // Do something with AddonRegistry
+         // SEE EXAMPLES BELOW
       }
       finally
       {
