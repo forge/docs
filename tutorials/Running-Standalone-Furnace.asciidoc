@@ -1,3 +1,6 @@
+:toc:
+:toclevels: 4
+
 == Running Furnace as a standalone application
 
 Furnace can also be executed in a standalone app. 
