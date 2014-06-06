@@ -1,0 +1,50 @@
+== Writing a Basic Java EE REST Application
+
+If you just want to create REST endpoints on your entities, or if you want to add a REST endpoint on your existing Java EE web application, follow these steps.
+
+=== Create a new project
+
+----
+$ project-new --named conference
+----
+
+=== Create a new JPA entity
+
+----
+[conference]$ jpa-new-entity --named Speaker 
+[Speaker.java]$ jpa-new-field --named firstname 
+[Speaker.java]$ jpa-new-field --named surname 
+[Speaker.java]$ jpa-new-field --named bio --length 2000 
+[Speaker.java]$ jpa-new-field --named twitter 
+----
+
+=== Generate a REST endpoint
+
+Once you have created fields in the entity, it's time to generate a REST endpoint for `Speaker`.
+
+----
+[Speaker.java]$ rest-generate-endpoints-from-entities --targets org.example.model.Speaker
+***SUCCESS*** JAX-RS has been installed.
+***SUCCESS*** Endpoint created
+[SpeakerEndpoint.java]$
+----
+
+While "holding" most files, you may inspect them using `ls`. This also works on REST endpoints
+
+----
+[SpeakerEndpoint.java]$ ls
+
+[fields]
+em::javax.persistence.EntityManager
+
+[methods]
+create(org.example.model.Speaker)::javax.ws.rs.core.Response  findById(java.lang.Long)::javax.ws.rs.core.Response           update(org.example.model.Speaker)::javax.ws.rs.core.Response
+deleteById(java.lang.Long)::javax.ws.rs.core.Response         listAll(java.lang.Integer,java.lang.Integer)::java.util.List
+----
+
+
+=== That's it! Now build your project and deploy it onto your Java EE Application Server of choice
+
+----
+[Speaker.java]$ build
+----

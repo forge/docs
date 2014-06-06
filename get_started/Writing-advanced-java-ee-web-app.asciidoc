@@ -1,0 +1,98 @@
+== Writing a More Advanced Java EE Web Application
+
+Now that you know how to write a basic Java EE web application, you might want to go one step further, add more content and customize your configuration. This chapter will overview more advanced steps to generate such an application using Forge.
+
+=== Create a new project
+
+The `project-new` command takes a few parameters so you can customize the package, destination folder or the version of your artifact. 
+
+----
+$ project-new --named conference --topLevelPackage com.example.project --projectFolder /directory/path --finalName conferenceApp
+----
+
+=== Setup your JPA Provider
+
+If you do not wish to use the Java EE container default data-source, you can also specify additional connection parameters such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need configure your application server to provide this new data-source and/or database connection.
+
+----
+$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
+----
+
+=== Create a JPA entity with Bean Validation constraints
+
+On an entity, you can add Bean Validation constraints on properties with the `constraint-add` command.
+----
+$ jpa-new-entity --named Speaker 
+$ jpa-new-field --named firstname 
+$ jpa-new-field --named surname 
+$ jpa-new-field --named bio --length 2000 
+$ jpa-new-field --named twitter 
+
+$ constraint-add --onProperty firstname --constraint NotNull 
+$ constraint-add --onProperty surname --constraint NotNull 
+$ constraint-add --onProperty bio --constraint Size --max 2000
+----
+
+=== Create another JPA entity with a One-to-Many relationship
+
+By default a JPA field is of type `String`. With the `--type` parameter you can choose from basic datatypes (`int`, `byte`, `char`...) or from other entities and choosing your cardinality (`One-to-One`, `One-to-Many`, `Many-to-One`, `Many-to-Many`).
+----
+$ jpa-new-entity --named Talk 
+$ jpa-new-field --named title 
+$ jpa-new-field --named description --length 2000 
+$ jpa-new-field --named room 
+$ jpa-new-field --named date --type java.util.Date --temporalType DATE 
+$ jpa-new-field --named speakers --type com.example.project.model.Speaker --relationshipType One-to-Many 
+
+$ constraint-add --onProperty title --constraint NotNull 
+$ constraint-add --onProperty room --constraint NotNull 
+$ constraint-add --onProperty description --constraint Size --max 2000
+----
+
+=== Create a simple Java enum
+
+With Forge you can also quickly create Java classes or enums.
+
+----
+$ java-new-enum --named Language --targetPackage com.example.project.model 
+$ java-new-enum-const ENGLISH 
+$ java-new-enum-const FRENCH 
+----
+
+=== Create another JPA entity with an enumerated type
+
+An entity can use enumerated types, thanks to the `--type` parameter.
+
+----
+$ jpa-new-entity --named Book 
+$ jpa-new-field --named isbn 
+$ jpa-new-field --named title 
+$ jpa-new-field --named author 
+$ jpa-new-field --named description --length 2000 
+$ jpa-new-field --named price --type java.lang.Float 
+$ jpa-new-field --named nbOfPages --type java.lang.Integer 
+$ jpa-new-field --named publicationDate --typeName java.util.Date --temporalType DATE 
+$ jpa-new-field --named language --type com.example.project.model.Language 
+----
+
+=== Set up scaffolding
+
+By default Forge scaffolds a web application with JSF 2.0 but you can change this configuration by executing the `faces-setup` command. 
+
+----
+$ faces-setup --facesVersion 2.2
+----
+
+=== Generate scaffolding for all the entities
+
+Once you have created fields in the entities, it's time to generate some scaffolding. You can either scaffold per entity, or use a wildcard to let Forge know it can generate a UI for each entity 
+
+----
+$ scaffold-generate --targets org.example.model.*
+----
+
+That's it! Now build your project and deploy it onto your Java EE Application Server of choice:
+
+----
+$ build
+----
