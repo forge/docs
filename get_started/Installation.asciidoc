@@ -6,7 +6,7 @@ Installing Forge is a relatively short process, and this guide will take you thr
 
 Follow these steps to install a Forge distribution:
 
-*1. Ensure that you have already installed http://www.oracle.com/technetwork/java/javase/downloads/index.html[a Java 6+ JDK].*
+*1. Ensure that you have already installed http://www.oracle.com/technetwork/java/javase/downloads/index.html[a Java 7+ JDK].*
 
 *2. https://repository.jboss.org/nexus/index.html#nexus-search[Download] and Un-zip Forge (or a recent https://repository.jboss.org/nexus/index.html#nexus-search[snapshot build]) into a folder on your hard-disk, this folder will be your `FORGE_HOME`*
 
