@@ -1,4 +1,3 @@
 == New Website
 
-The Forge website now has a News section! 
-And here is a picture to make you happy: image::http://blogs.villagevoice.com/runninscared/b-410124-people_happy_.jpg[]
+The Forge website is up. Enjoy! 
