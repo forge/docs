@@ -26,7 +26,7 @@ While on Windows, you will need to right-click on open the "Control Panel", then
 You may also simply create a shortcut to `bin/forge` (Unix,) or `bin\forge.bat` (Windows,) and place it on your Desktop.
 ****
 
-*4. Consider installing http://git-scm.com/[Git] and http://maven.apache.org/[Maven 3.0+] (both optional)*
+*4. Consider installing http://git-scm.com/[Git] and http://maven.apache.org/[Maven 3.1+] (both optional)*
 
 *5. Open a command prompt and run `forge` (if you are on Windows, you will need to run `forge.bat` unless using a Unix-style terminal)*
 
