@@ -2,7 +2,9 @@
 
 Welcome to our new home! With the new release of Forge 2 comes a new home for our community; we're working hard to ensure that relevant information is presented clearly and efficiently.
 
-The basic idea:
+Our awesome idea:
+===============
+
  * link:/downloads[Downloads] - Ways to get Forge
  * link:/addons[Addons] - What can Forge do for you?
  * link:/documentation[Documentation] - Guides, Tutorials, and Quickstarts
