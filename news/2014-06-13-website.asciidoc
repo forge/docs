@@ -3,20 +3,20 @@
 Welcome to our new home! With the new release of Forge 2 comes a new home for our community; we're working hard to ensure that relevant information is presented clearly and efficiently.
 
 The basic idea:
- * /downloads[Downloads] - Ways to get Forge
- * /addons[Addons] - What can Forge do for you?
- * /documentation[Documentation] - Guides, Tutorials, and Quickstarts
- * /community[Community] - Ways to get involved
+ * link:/downloads[Downloads] - Ways to get Forge
+ * link:/addons[Addons] - What can Forge do for you?
+ * link:/documentation[Documentation] - Guides, Tutorials, and Quickstarts
+ * link:/community[Community] - Ways to get involved
  
 How can I get involved? 
 =======================
 
- * /document/contribute-documentation[Help us write documentation]
- * /document/contribute-code[Help us improve the code]
- * /document/develop-an-addon[Write an addon]
+ * link:/document/contribute-documentation[Help us write documentation]
+ * link:/document/contribute-code[Help us improve the code]
+ * link:/document/develop-an-addon[Write an addon]
  
 Let us know your thoughts
 =========================
- * https://issues.jboss.org/browse/FORGE[Submit your feedback]
+ * link:https://issues.jboss.org/browse/FORGE[Submit your feedback]
  
 If you would like to subscribe to our atom feed. Use the url: http://forge.jboss.org/atom.xml in your reader.
