@@ -17,6 +17,8 @@ Just hit Ctrl+4 (or Cmd + 4 if you're on MacOSX) and you're ready to go!
 
 Release Notes - Forge - Version 2.7.0.Final
 ============================================
+
+++++
 <h2>        Bug
 </h2>
 <ul>
@@ -138,3 +140,4 @@ Release Notes - Forge - Version 2.7.0.Final
 </li>
 </ul>
     
+++++
