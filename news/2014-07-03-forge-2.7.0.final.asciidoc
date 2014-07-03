@@ -7,11 +7,13 @@ What's new?
 
 We have fixed over 43 issues for this release. This makes it the best release ever launched.
 
-* Website: Yes, we have a new website with brand new content and targeted at Forge 2, with some bits of documentation supplied by Antonio Goncalves (Thanks!). 
+* *Website*: Yes, we have a new website with brand new content and targeted at Forge 2, with some bits of documentation supplied by Antonio Goncalves (Thanks!). 
 We're working hard on it and since we never stop innovating, there should be some design changes in the near future, so stay tuned!
-* JBoss Tools 4.2.0.Beta3: We are now included in JBoss Tools 4.2.0.Beta3, which means that if you use JBoss Developer Studio, you'll already have JBoss Forge 2.7.0.Final installed. 
+* *JBoss Tools 4.2.0.Beta3*: We are now included in JBoss Tools 4.2.0.Beta3, which means that if you use JBoss Developer Studio, you'll already have JBoss Forge 2.7.0.Final installed. 
 Just hit Ctrl+4 (or Cmd + 4 if you're on MacOSX) and you're ready to go! 
-
+* *JAX-RS Client*: We now provide a JAX-RS Client 2.0 implementation as an addon, so you can access REST resources directly from your addon.
+* *Upgrades*: We upgraded to the latest Roaster (2.6.0.Final) and Aesh (0.56) versions, so expect less bugs and more features! :)
+* *New Commands*: 
 
 Release Notes - Forge - Version 2.7.0.Final
 ============================================
