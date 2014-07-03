@@ -15,127 +15,76 @@ Just hit Ctrl+4 (or Cmd + 4 if you're on MacOSX) and you're ready to go!
 
 Release Notes - Forge - Version 2.7.0.Final
 ============================================
+** Bug
+    * [FORGE-1787] - When scaffolding with --webRoot parameter, pageTemplate.xhtml and search.xhtml are not right
+    * [FORGE-1888] - REST resource generation is aborted instead of gracefully failing for unsupported features.
+    * [FORGE-1891] - NPE while running Generate Entities from Tables command
+    * [FORGE-1898] - Dashes in the project name makes jpa-new-entity execution to fail
+    * [FORGE-1902] - Initial context in Forge Console appears to be incorrect
+    * [FORGE-1903] - Stale values are displayed in the property dropdown for the "Constraint: Add" command in Forge
+    * [FORGE-1904] - ConverterFactory can't handle primitive type conversion
+    * [FORGE-1910] - CLAC doesn't properly calculate calling classloader or strip CLACs from compatible results
+    * [FORGE-1912] - Embedded maven execution does not use the user settings file set as a system property
+    * [FORGE-1914] - Generated DTOs and REST resources contain compiler errors when underlying JPA entities have primitive Ids
 
-<h2>        Bug
-</h2>
-<ul>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1787'>FORGE-1787</a>] -         When scaffolding with --webRoot parameter, pageTemplate.xhtml and search.xhtml are not right
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1888'>FORGE-1888</a>] -         REST resource generation is aborted instead of gracefully failing for unsupported features.
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1891'>FORGE-1891</a>] -         NPE while running Generate Entities from Tables command
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1898'>FORGE-1898</a>] -         Dashes in the project name makes jpa-new-entity execution to fail
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1902'>FORGE-1902</a>] -         Initial context in Forge Console appears to be incorrect
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1903'>FORGE-1903</a>] -         Stale values are displayed in the property dropdown for the &quot;Constraint: Add&quot; command in Forge
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1904'>FORGE-1904</a>] -         ConverterFactory can&#39;t handle primitive type conversion
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1910'>FORGE-1910</a>] -         CLAC doesn&#39;t properly calculate calling classloader or strip CLACs from compatible results
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1912'>FORGE-1912</a>] -         Embedded maven execution does not use the user settings file set as a system property
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1914'>FORGE-1914</a>] -         Generated DTOs and REST resources contain compiler errors when underlying JPA entities have primitive Ids
-</li>
-</ul>
-        
-<h2>        Component  Upgrade
-</h2>
-<ul>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1832'>FORGE-1832</a>] -         Upgrade to Roaster 2.5.0.Final
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1857'>FORGE-1857</a>] -         Upgrade to Aesh 0.55
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1865'>FORGE-1865</a>] -         Upgrade to Roaster 2.5.1.Final
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1885'>FORGE-1885</a>] -         Upgrade to Aesh 0.56
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1889'>FORGE-1889</a>] -         Upgrade to Roaster 2.6.0.Final
-</li>
-</ul>
-            
-<h2>        Enhancement
-</h2>
-<ul>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-885'>FORGE-885</a>] -         Support Bean Validation 1.1 method constraints in plugins
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1804'>FORGE-1804</a>] -         Generated code is not properly indented
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1856'>FORGE-1856</a>] -         Allow execution of native commands
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1876'>FORGE-1876</a>] -         Addon services should be exposed through @Produces methods 
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1886'>FORGE-1886</a>] -         Scaffolding generates java.lang.Long for Ids
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1893'>FORGE-1893</a>] -         Rename --branch parameter to --ref in addon-install-from-git command
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1900'>FORGE-1900</a>] -         JSON should be the default content type when generating JAXRS Endpoints
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1906'>FORGE-1906</a>] -         Web Root path in Scaffold should be &quot;/&quot; by default in the UI input
-</li>
-</ul>
-        
-<h2>        Feature Request
-</h2>
-<ul>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1622'>FORGE-1622</a>] -         It would be good if Aesh had access to export variables
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1650'>FORGE-1650</a>] -         Support creation of JSON object models from application code through JSON-P APIs
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1776'>FORGE-1776</a>] -         Support the equivalent of git-patch in Forge 2
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1833'>FORGE-1833</a>] -         Provide a JAX-RS Client API implementation 
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1855'>FORGE-1855</a>] -         Simple Container should support singleton services
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1861'>FORGE-1861</a>] -         Having a cp command like in Forge 1.x
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1863'>FORGE-1863</a>] -         Create a GenerateHashcodeEquals command inside the dev-tools-java addon.
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1866'>FORGE-1866</a>] -         WriteableResource should expose the resource output stream
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1873'>FORGE-1873</a>] -         Cannot install Addon from git with branch
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1879'>FORGE-1879</a>] -         Missing a setter in the generated JSF Backing Bean
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1880'>FORGE-1880</a>] -         Being able to add @Named to an EJBs... or any annotation anywhere
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1883'>FORGE-1883</a>] -         Add resolveChildren(String) in Resource interface
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1887'>FORGE-1887</a>] -         Unable to install the Arquillian add-on from Git
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1894'>FORGE-1894</a>] -         AbstractFileResource.getChild() should not throw exceptions when children do not exist
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1895'>FORGE-1895</a>] -         Furnace maven plugin should provide an option to clean the target repository before deploying
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1916'>FORGE-1916</a>] -         Add versioning and exception handling to JAX-RS scaffolding
-</li>
-</ul>
-                
-<h2>        Quality Risk
-</h2>
-<ul>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1872'>FORGE-1872</a>] -         AddonRegistryIncompatibleServiceLookupTest fails when run in JDK 8
-</li>
-</ul>
-                        
-<h2>        Task
-</h2>
-<ul>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1836'>FORGE-1836</a>] -         Refactor towards JDK 1.7 enhancements
-</li>
-</ul>
-                
-<h2>        Sub-task
-</h2>
-<ul>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1398'>FORGE-1398</a>] -         Being able to create embeddables
-</li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-1821'>FORGE-1821</a>] -         Download links on Forge 2 website should actually work and probably should automatically point to the latest release
-</li>
-</ul>
-    
 
-Check it out: http://forge.jboss.org
+** Component  Upgrade
+    * [FORGE-1832] - Upgrade to Roaster 2.5.0.Final
+    * [FORGE-1857] - Upgrade to Aesh 0.55
+    * [FORGE-1865] - Upgrade to Roaster 2.5.1.Final
+    * [FORGE-1885] - Upgrade to Aesh 0.56
+    * [FORGE-1889] - Upgrade to Roaster 2.6.0.Final
+
+
+
+** Enhancement
+    * [FORGE-885] - Support Bean Validation 1.1 method constraints in plugins
+    * [FORGE-1804] - Generated code is not properly indented
+    * [FORGE-1856] - Allow execution of native commands
+    * [FORGE-1876] - Addon services should be exposed through @Produces methods 
+    * [FORGE-1886] - Scaffolding generates java.lang.Long for Ids
+    * [FORGE-1893] - Rename --branch parameter to --ref in addon-install-from-git command
+    * [FORGE-1900] - JSON should be the default content type when generating JAXRS Endpoints
+    * [FORGE-1906] - Web Root path in Scaffold should be "/" by default in the UI input
+
+
+** Feature Request
+    * [FORGE-1622] - It would be good if Aesh had access to export variables
+    * [FORGE-1650] - Support creation of JSON object models from application code through JSON-P APIs
+    * [FORGE-1776] - Support the equivalent of git-patch in Forge 2
+    * [FORGE-1833] - Provide a JAX-RS Client API implementation 
+    * [FORGE-1855] - Simple Container should support singleton services
+    * [FORGE-1861] - Having a cp command like in Forge 1.x
+    * [FORGE-1863] - Create a GenerateHashcodeEquals command inside the dev-tools-java addon.
+    * [FORGE-1866] - WriteableResource should expose the resource output stream
+    * [FORGE-1873] - Cannot install Addon from git with branch
+    * [FORGE-1879] - Missing a setter in the generated JSF Backing Bean
+    * [FORGE-1880] - Being able to add @Named to an EJBs... or any annotation anywhere
+    * [FORGE-1883] - Add resolveChildren(String) in Resource interface
+    * [FORGE-1887] - Unable to install the Arquillian add-on from Git
+    * [FORGE-1894] - AbstractFileResource.getChild() should not throw exceptions when children do not exist
+    * [FORGE-1895] - Furnace maven plugin should provide an option to clean the target repository before deploying
+    * [FORGE-1916] - Add versioning and exception handling to JAX-RS scaffolding
+
+
+
+
+** Quality Risk
+    * [FORGE-1872] - AddonRegistryIncompatibleServiceLookupTest fails when run in JDK 8
+
+
+
+
+
+
+** Task
+    * [FORGE-1836] - Refactor towards JDK 1.7 enhancements
+
+
+
+
+** Sub-task
+    * [FORGE-1398] - Being able to create embeddables
+    * [FORGE-1821] - Download links on Forge 2 website should actually work and probably should automatically point to the latest release
+
+
