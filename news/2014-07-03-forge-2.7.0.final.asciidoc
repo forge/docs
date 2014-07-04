@@ -2,6 +2,8 @@
 
 After almost two months of hard work, the Forge team is proud to inform that Forge 2.7.0.Final is now available, and with a new website!
 
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
 What's new? 
 ============
 
@@ -15,7 +17,7 @@ Just hit Ctrl+4 (or Cmd + 4 if you're on MacOSX) and you're ready to go!
 * *Upgrades*: We've upgraded to the latest Roaster (2.6.0.Final) and Aesh (0.56) versions, so expect less bugs and more features! :)
 * *New Commands*: _run_ command now supports native command execution (using -c), _cp_, and many more
 
-Acknowledgements
+Contributors
 ================
 
 Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
@@ -156,3 +158,7 @@ Release Notes - Forge - Version 2.7.0.Final
 </ul>
     
 ++++
+
+
+
+
