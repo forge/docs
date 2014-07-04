@@ -18,7 +18,7 @@ Just hit Ctrl+4 (or Cmd + 4 if you're on MacOSX) and you're ready to go!
 * *New Commands*: _run_ command now supports native command execution (using -c), _cp_, and many more
 
 Contributors
-================
+=============
 
 Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
 
@@ -32,8 +32,9 @@ Many thanks to the following contributors (in alphabetical order) who helped to 
 - Robert Balent
 
 
+
 Release Notes - Forge - Version 2.7.0.Final
-============================================
+===========================================
 
 ++++
 <h2>        Bug
