@@ -21,34 +21,14 @@ Acknowledgements
 Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
 
 
-* Antonio Goncalves
-** Implemented FORGE-1879
+- Antonio Goncalves
+- Daniel Cunha
+- Erik Jan de Wit
+- Ivan St. Ivannov
+- Jesse Sightler
+- Matej Briskar
+- Robert Balent
 
-* Daniel Cunha
-** [FORGE-1857] Updated aesh version
-** [FORGE-1836] Refactor towards JDK 1.7 enhancements
-** [FORGE-1832] Upgrade to Roaster 2.5.0.Final
-** Added new argument to forge command line
-** Adjust touch description
-** [FORGE-1622] It would be good if Aesh had access to export variables
-
-* Erik Jan de Wit
-** FORGE-1916: added handling for OptimisticLock exception
-
-* Ivan St. Ivannov
-** FORGE-1787 Reflect an explicit webroot, entered in the scaffold-generate command, to search.xhtml and view.xhtml
-
-* Jesse Sightler
-** Fix for typo
-
-* Matej Briskar
-** FORGE-1670: JPA Setup Command should allow explicitly overwriting existing persistence units
-** FORGE-1863: Create a GenerateHashcodeEquals command inside the dev-tools-java addon
-** FORGE-451: Warn a user if generating relationship CRUD screens and HashCode/Equals are missing
-** FORGE-1398: Being able to create embeddables
-
-* Robert Balent
-** FORGE-1880 - Command which adds annotation with parameters to class, field or method
 
 Release Notes - Forge - Version 2.7.0.Final
 ============================================
