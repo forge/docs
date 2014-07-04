@@ -1,4 +1,4 @@
-== Forge 2.7.0.Final (Stoked) is here!
+== Forge 2.7.0.Final (Stoked) is here
 
 After almost two months of hard work, the Forge team is proud to inform that Forge 2.7.0.Final is now available, and with a new website!
 
