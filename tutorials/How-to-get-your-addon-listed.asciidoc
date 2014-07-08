@@ -36,3 +36,10 @@ where:
 - ref: the branch name where your addon should be fetch (default is master)
 - tags: any tags that would allow to find your addon in the search feature in the website
 - logo: (Optional) a URL specifying a logo for your addon
+
+====
+
+* Submit a Pull-request with your changes
+** We'll review it and merge
+* Have a beer!
+
