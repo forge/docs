@@ -23,7 +23,7 @@ tags: Twitter
 logo: https://abs.twimg.com/a/1403183846/images/oauth_application.png
 ---
 ----
---
+
 - id:  an unique ID for your addon. Make sure it doesn't conflict with other IDs 
 - name: the name of your addon
 - description: A short description of what your addon is about
