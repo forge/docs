@@ -5,9 +5,8 @@
 
 Getting your addon listed in the website is easy:
 
-* Fork the link:https://github.com/forge/website-data/fork[forge/website-data] repository
-* Add the necessary addon info in the *addons-community.yaml* file
-** eg: 
+. Fork the link:https://github.com/forge/website-data/fork[forge/website-data] repository
+. Add the necessary addon info in the *addons-community.yaml* file
 [source,yaml]
 ----
 ---
@@ -37,9 +36,8 @@ where:
 - tags: any tags that would allow to find your addon in the search feature in the website
 - logo: (Optional) a URL specifying a logo for your addon
 
-====
 
-* Submit a Pull-request with your changes
-** We'll review it and merge
-* Have a beer!
+. Submit a Pull-request with your changes3
+.. We'll review it and merge
+. Have a beer!
 
