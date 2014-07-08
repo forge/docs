@@ -5,9 +5,11 @@
 
 Getting your addon listed in the website is easy:
 
-# Fork the forge/website-data repository (Link link:https://github.com/forge/website-data/fork[here])
-# Add the necessary addon info in the *addons-community.yaml* file
-## eg: 
+* Fork the link:https://github.com/forge/website-data/fork[forge/website-data] repository
+* Add the necessary addon info in the *addons-community.yaml* file
+** eg: 
+[source,yaml]
+----
 ---
 id: org.george.twitter:twitter
 name: Twitter
@@ -20,6 +22,7 @@ ref: master
 tags: Twitter
 logo: https://abs.twimg.com/a/1403183846/images/oauth_application.png
 ---
+----
 
 where: 
 
