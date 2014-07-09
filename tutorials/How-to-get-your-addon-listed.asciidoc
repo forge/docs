@@ -3,8 +3,6 @@
 
 == How to get your addon listed in the website
 
-Getting your addon listed in the website is easy:
-
 . Fork the link:https://github.com/forge/website-data/fork[forge/website-data] repository
 . Add the necessary addon info in the *addons-community.yaml* file:
 +
