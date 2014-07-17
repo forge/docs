@@ -1,0 +1,101 @@
+== Forge 2.7.1.Final (Cup) is here!
+
+Following our release schedule, the Forge team is proud to inform that Forge 2.7.1.Final is now available
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new? 
+============
+
+We have fixed 20 issues for this release. This makes it the best release ever launched.
+
+* *CORS creation*: Do you want to enable CORS (http://www.w3.org/TR/cors/) in your REST application ? We included the "Rest: New Cross Origin Resource Sharing Filter" command to get your JAX-RS 2.0 application configured in no time.
+* *Upgrades*: We've upgraded our dependencies to Arquillian 1.1.5.Final, Roaster 2.7.0.Final and Maven 3.2.2
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Daniel Cunha
+- Jason Porter
+
+
+Release Notes - Forge - Version 2.7.1.Final
+===========================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1925'>FORGE-1925</a>] -         Forge fails to assign values to UIInputMany instances
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1933'>FORGE-1933</a>] -         Unhandled event loop exception during onclick UISelectMany
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1940'>FORGE-1940</a>] -         forge --help shows two times.
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1942'>FORGE-1942</a>] -         Shell gives weird output when executing a command unavailable in the current context
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1936'>FORGE-1936</a>] -         Upgrade to Roaster 2.7.0.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1939'>FORGE-1939</a>] -         Upgrade to Maven 3.2.2
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1943'>FORGE-1943</a>] -         Upgrade to jboss-parent 15
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1228'>FORGE-1228</a>] -         increase conversation timeout to 30 minutes
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1935'>FORGE-1935</a>] -         Don&#39;t validate UIInput components with &#39;null&#39; values (or don&#39;t fail parsing)
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1627'>FORGE-1627</a>] -         Executing Forge scripts
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1892'>FORGE-1892</a>] -         REST endpoint should also consume/produce JSon
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1923'>FORGE-1923</a>] -         Upgrade to Arquillian 1.1.5.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1929'>FORGE-1929</a>] -         Create command to create a CrossOriginResourceSharingFilter
+</li>
+</ul>
+                                        
+<h2>        Task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1168'>FORGE-1168</a>] -         Perform a UX review of the organization of commands and wizards in Forge 2
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1318'>FORGE-1318</a>] -         Create a project governance page on the new 2.0 website
+</li>
+</ul>
+                
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1630'>FORGE-1630</a>] -         The path is not right
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1640'>FORGE-1640</a>] -         Cannot execute a command on several lines
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1802'>FORGE-1802</a>] -         Console hangs when running an invalid script
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1816'>FORGE-1816</a>] -         Display all contributors on the community page
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1820'>FORGE-1820</a>] -         Include document that describes how to get your addon listed in the Forge 2 addon repository
+</li>
+</ul>    
+++++
+
+
+
+
