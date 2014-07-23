@@ -1,0 +1,45 @@
+== Forge 2.7.2.Final (Steamed) is here!
+
+As part of our commitment in making Forge 2 stable and ready to use in JBoss Developer Studio (as part of JBoss Tools), the Forge team is proud to announce that Forge 2.7.2.Final is now available
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new? 
+============
+
+We have fixed a major bug that was causing the JPA: Generate Entities from Tables to freeze Eclipse. 
+We have also fixed an issue when using the furnace-simple container in Windows environments and a minor issue with our proxy library. 
+
+
+Release Notes - Forge - Version 2.7.2.Final
+===========================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1947'>FORGE-1947</a>] -         SimpleContainer fails to return services on Windows causing InflectorServiceTest to fail
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1949'>FORGE-1949</a>] -         Generate Entities from Tables is blocked
+</li>
+</ul>
+                            
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1877'>FORGE-1877</a>] -         Default implementation of .equals fails with Proxy objects
+</li>
+</ul>
+                                        
+<h2>        Task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1945'>FORGE-1945</a>] -         Display current Forge version on downloads page
+</li>
+</ul>
+                    
+++++
+
+
+
+
