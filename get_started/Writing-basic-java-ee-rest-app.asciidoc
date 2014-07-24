@@ -2,7 +2,7 @@
 
 If you just want to create REST endpoints on your entities, or if you want to add a REST endpoint on your existing Java EE web application, follow these steps.
 
-=== Create a new project
+=== Create a new project (skip this if you already have a Project)
 
 ----
 $ project-new --named conference
