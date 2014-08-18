@@ -1,0 +1,97 @@
+== Forge 2.8.0.Final (Boilerplate) is here!
+
+Following our monthly release schedule as planned, the Forge team is proud to announce that Forge 2.8.0.Final is now available! Monthly releases help keep the progress coming, and get the latest features and fixes into your hands sooner.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new? 
+============
+
+We have fixed 25 issues for this release. And like all of our previous releases, this is the best version we've ever produced!
+
+* *Archetypes Support*: We now support project creation from maven archetypes, as well as from archetype catalogs.
+* *Build Output*: We now display the build output in the shell, so it should be easier to see what your projects are actually doing when the "build" command is issued.
+* *Exception logging*: When developing addons, the root cause of deployment errors while running tests will now be shown.
+* *Fixes! Fixes everywhere!*: We've fixed a bunch of stability issues in Furnace and in Forge core (check the release notes below).
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Mahmoud Ben Hassine
+- Pedro Igor
+
+Release Notes - Forge - Version 2.8.0.Final
+===========================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-750'>FORGE-750</a>] -         DependencyFacet.addXDependency ignores order
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1199'>FORGE-1199</a>] -         Cannot use JAXB inside a plugin
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1488'>FORGE-1488</a>] -         Build command does not display build&#39;s log
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1853'>FORGE-1853</a>] -         Commands run and touch disappearing after entering a class
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1952'>FORGE-1952</a>] -         Git commands need to be stoppable/cancellable
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1961'>FORGE-1961</a>] -         Incorrect default value for database in JPA:Setup when JBoss Enterprise Application Server is chosen
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1962'>FORGE-1962</a>] -         CLAC throws NPE with proxied ArrayList
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1967'>FORGE-1967</a>] -         UIInput/UISelectOne&lt;String&gt; should return false for hasValue()/hasDefaultValue() if the value/defaultValue is an empty string
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1968'>FORGE-1968</a>] -         Misleading exception message when CDI dependency is not found
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1971'>FORGE-1971</a>] -         Configuration subset issues
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1979'>FORGE-1979</a>] -         FacetNotFoundException: No Facet of type [interface org.jboss.forge.addon.javaee.servlet.ServletFacet] is installed. when scaffold-setup is executed
+</li>
+</ul>
+                    
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1957'>FORGE-1957</a>] -         Remove &quot;throws FileNotFoundException&quot; declaration from JavaSourceFacet
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-273'>FORGE-273</a>] -         Create project from Maven archetype
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1712'>FORGE-1712</a>] -         Create composite command for Java EE setup
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1951'>FORGE-1951</a>] -         Implement Browse button for &#39;JDBC Driver&#39; in JPA: Setup wizard
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1953'>FORGE-1953</a>] -         Add command to list JVM system properties
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1954'>FORGE-1954</a>] -         Add command to show the current date
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1955'>FORGE-1955</a>] -         New Addon project type should add core by default and CDI as the default container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1956'>FORGE-1956</a>] -         New Test command should add core by default
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1959'>FORGE-1959</a>] -         Use current furnace version when installing addons from GIT
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1965'>FORGE-1965</a>] -         Add InputComponents.setDescription(Callable&lt;String&gt;)
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1972'>FORGE-1972</a>] -         Recognize buggy CommandExecutionListener
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1973'>FORGE-1973</a>] -         Introduce a --quiet flag to Build command
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1977'>FORGE-1977</a>] -         Introduce VERBOSE export option for stacktraces
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1980'>FORGE-1980</a>] -         Change Scaffold pageTemplate.xml to display the user name
+</li>
+</ul>
+                                                            
+++++
+
+
+
