@@ -22,7 +22,7 @@ logo: https://abs.twimg.com/a/1403183846/images/oauth_application.png
 ---
 ----
 
-- id:  an unique ID for your addon. Make sure it doesn't conflict with other IDs 
+- id: the groupId:artifactId of your addon
 - name: the name of your addon
 - description: A short description of what your addon is about
 - author: the author's name (can be an organization name)
