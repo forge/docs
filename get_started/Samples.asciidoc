@@ -55,7 +55,7 @@ $ rest-generate-endpoints-from-entities --targets org.example.model.SampleEntity
 
 ----
 $ project-new --named example
-$ jpa-generate-entities-from-tables --jdbcUrl jdbc:postgresql://localhost:5432/mydb --userName user --userPassword pwd --driverLocation /Users/bob/.m2/repository/org/postgresql/postgresql/9.3-1100-jdbc3/postgresql-9.3-1100-jdbc3.jar --hibernateDialect PostgreSQL\ :\ org.hibernate.dialect.PostgreSQLDialect
+$ jpa-generate-entities-from-tables --jdbcUrl jdbc:postgresql://localhost:5432/mydb --userName user --userPassword pwd --driverLocation /Users/bob/.m2/repository/org/postgresql/postgresql/9.3-1100-jdbc3/postgresql-9.3-1100-jdbc3.jar --hibernateDialect org.hibernate.dialect.PostgreSQLDialect
 ----
 
 === Create a Java enum
