@@ -1,0 +1,55 @@
+== Forge 2.8.1.Final (Bronzed) is here!
+
+In order to follow the new JBoss Tools release, we are proud to announce that Forge 2.8.1.Final is now available! 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new? 
+============
+
+We have fixed 6 issues for this release. And like all of our previous releases, this is the best version we've ever produced!
+
+* *forge --evaluate*: You may now run commands directly from the system terminal, using the `forge -e "command-to-run --args"` feature. (Your addons must still be installed.)
+* *jpa-generate-entities-from-tables hibernateDialect change*: We've removed the descriptive text in the value for the parameter `hibernateDialect` in the `jpa-generate-entities-from-tables` command. 
+This change will break existing scripts, so make sure to update them if you use this command.
+* *Component Upgrades*: We've upgraded to Maven 3.2.3, Hibernate Tools 4.3.1.CR1 and Roaster 2.7.1.Final
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Daniel Cunha
+
+
+Release Notes - Forge - Version 2.8.1.Final
+===========================================
+
+++++
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1983'>FORGE-1983</a>] -         Upgrade to Maven 3.2.3
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1985'>FORGE-1985</a>] -         Upgrade to Hibernate Tools 4.3.1.CR1
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1986'>FORGE-1986</a>] -         Upgrade to Roaster 2.7.1.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1984'>FORGE-1984</a>] -         jpa-generate-entities-from-tables add parameter to select all tables without prompting
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1989'>FORGE-1989</a>] -         Connection-create-profile shouldn&#39;t need to add the descriptive text in the hibernateDialect parameter
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-422'>FORGE-422</a>] -         creating a new option &quot;evaluate&quot;
+</li>
+</ul>                                                                                                            
+++++
