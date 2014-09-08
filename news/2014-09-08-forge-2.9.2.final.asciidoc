@@ -15,7 +15,7 @@ Contributors
 
 Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
 
-- Maxime Gréau
+- Maxime Gr&eacute;au
 
 
 Release Notes - Forge - Version 2.9.2.Final
