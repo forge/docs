@@ -1,0 +1,49 @@
+== Forge 2.9.2.Final (Gauge Meter) is here!
+
+In order to follow the new JBoss Tools release, we are proud to announce that Forge 2.9.2.Final is now available! 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+Originally this release was meant to be 2.9.0.Final, but due to some release issues (twice!), we decided to make this 2.9.2.Final. And like all of our previous releases, this is the best version we've ever produced!
+We made some major changes in the shell addon API (hence the minor version increase) and added support for plugin manipulation in profiles in MavenPluginFacet.
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Maxime Gréau
+
+
+Release Notes - Forge - Version 2.9.2.Final
+===========================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1990'>FORGE-1990</a>] -         connection-create-profile fails to retain the database connection password
+</li>
+</ul>
+                    
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1993'>FORGE-1993</a>] -         Switch off escape sequences for `forge --evaluate`
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1995'>FORGE-1995</a>] -         Furnace should not check for changes in immutable repositories
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1997'>FORGE-1997</a>] -         Move ShellHandle to shell-spi
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1994'>FORGE-1994</a>] -         MavenPluginFacet should allow operations in plugins in profiles
+</li>
+</ul>
+++++
