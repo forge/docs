@@ -51,4 +51,5 @@ Release Notes - Forge - Version 2.10.1.Final
 <ul>
 <li>[<a href='https://issues.jboss.org/browse/FORGE-2005'>FORGE-2005</a>] -         Display the project build errors after a command is executed when in a project context
 </li>
-</ul>++++
+</ul>
+++++
