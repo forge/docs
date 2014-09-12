@@ -1,0 +1,54 @@
+== Forge 2.10.1.Final (Blazed) is here!
+
+The Forge Team is working hard to make sure you have the best and most stable release ever, that's why we are proud to announce that we are proud to announce that Forge 2.10.1.Final is now available! 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Classpath Resolver now works for optional dependencies*: Having a test class that deploys an addon in the full structure mode (api/impl/spi/tests modules), it is now possible to run it without requiring mvn clean install in the impl module first.
+* *Windows fixes*: We fixed some issues in the console when using Windows. 
+* *Component Upgrade*: We've upgraded to Roaster 2.8.0.Final. See the release notes ink:https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12315122&version=12325556[here]
+
+Release Notes - Forge - Version 2.10.1.Final
+===========================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2003'>FORGE-2003</a>] -         Forge workspace resolver fails to resolve local resource dependencies that are specified as &lt;optional&gt;
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2008'>FORGE-2008</a>] -         Broken history in Forge console
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2011'>FORGE-2011</a>] -         AddonManager installs old addon versions of existing addons
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2009'>FORGE-2009</a>] -         Upgrade to Roaster 2.8.0.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2002'>FORGE-2002</a>] -         javaee-setup adds JavaEE 6 POM as a managed dependency when --javaEEVersion 7 is chosen
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2004'>FORGE-2004</a>] -         UIContext.getSelection() should return a UISelection object
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2006'>FORGE-2006</a>] -         Add @PreMatching to the CORS Filter
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2007'>FORGE-2007</a>] -         JPA: Generate Entities From Tables wizard should tell people when something has gone wrong 
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2005'>FORGE-2005</a>] -         Display the project build errors after a command is executed when in a project context
+</li>
+</ul>++++
