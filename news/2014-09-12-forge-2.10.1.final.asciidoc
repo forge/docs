@@ -1,6 +1,6 @@
 == Forge 2.10.1.Final (Blazed) is here!
 
-The Forge Team is working hard to make sure you have the best and most stable release ever, that's why we are proud to announce that we are proud to announce that Forge 2.10.1.Final is now available! 
+The Forge Team is working hard to make sure you have the best and most stable release ever, that's why we are proud to announce that Forge 2.10.1.Final is now available! 
 
 Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
 
