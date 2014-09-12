@@ -9,7 +9,7 @@ What's new and noteworthy?
 
 * *Classpath Resolver now works for optional dependencies*: Having a test class that deploys an addon in the full structure mode (api/impl/spi/tests modules), it is now possible to run it without requiring mvn clean install in the impl module first.
 * *Windows fixes*: We fixed some issues in the console when using Windows. 
-* *Component Upgrade*: We've upgraded to Roaster 2.8.0.Final. See the release notes ink:https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12315122&version=12325556[here]
+* *Component Upgrade*: We've upgraded to Roaster 2.8.0.Final. See the release notes link:https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12315122&version=12325556[here]
 
 Release Notes - Forge - Version 2.10.1.Final
 ===========================================
