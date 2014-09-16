@@ -158,7 +158,7 @@ public class ExampleServiceImpl implements ExampleService
 
 === Include functionality from standard Java libraries
 
-TIP: (See also <<_re-use_functionality_from_other_addons>>.) 
+TIP: (See also <<_re_use_functionality_from_other_addons>>.) 
 
 Forge addons are no different from any other Java project, in the sense that they can include and re-use functionality from other Java projects' JAR files. In order to achieve this, you must add jar-dependencies in your addon's `pom.xml` file. Consider the following example:
 
