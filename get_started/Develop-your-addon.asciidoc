@@ -50,7 +50,7 @@ Forge Addons must be JARs published with a 'forge-addon' classifier. Add this pl
 </build>
 ----
 
----- Add a Furnace container
+==== Add a Furnace container
 
 _(Skip this step if you used the `Project: New` command from the previous step.)_
 
