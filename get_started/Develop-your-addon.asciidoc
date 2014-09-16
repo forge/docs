@@ -158,7 +158,7 @@ public class ExampleServiceImpl implements ExampleService
 
 === Include functionality from standard Java libraries
 
-TIP: (See also <<Re-use functionality from other addons>>.) 
+TIP: (See also <<_re-use_functionality_from_other_addons>>.) 
 
 Forge addons are no different from any other Java project, in the sense that they can include and re-use functionality from other Java projects' JAR files. In order to achieve this, you must add jar-dependencies in your addon's `pom.xml` file. Consider the following example:
 
@@ -201,7 +201,7 @@ If your addon exposes the library in its public API, the library should be `<sco
 If your addon consumes the library in its private implementation, and does *NOT* expose the library in public APIs, then the library should be `<optional>true</optional>`.
 ----
 
-TIP:: These settings apply only to the `pom.xml` in `forge-addon` classified artifact. (See: <<Create a Forge Addon Maven project>>.)
+TIP:: These settings apply only to the `pom.xml` in `forge-addon` classified artifact. (See: <<_create_a_forge_addon_maven_project>>.)
 
 
 In this example, the `TypeFromLibary` class comes from the `org.example:libary:1.0.0` dependency, and `YourPublicApi` is a type defined within the addon under development.
@@ -250,7 +250,7 @@ public class YourPublicApi {
 
 Forge has a modular architecture that enables you to re-use functionality from other addons, directly in your own addon code. This is useful for including things like common Java libraries, or libraries specific to your addon's behavior. In order to achieve this, you must add addon-dependencies in your `pom.xml` file.
 
-TIP: (See also: <<Include functionality from standard Java libraries>>)
+TIP: (See also: <<_include_functionality_from_standard_java_libraries>>)
 
 [source,xml]
 ----
