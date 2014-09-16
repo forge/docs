@@ -11,9 +11,19 @@ For now, however, just treat your first addon as if it were any other Java proje
 "traditional" environment are not as great as you might think, and the Furnace development model has been created in
 a way that should make these differences seem natural, almost transparent. 
 
-=== Create a Maven project
+=== Create a Forge Addon Maven project
 
-Forge Addons must be JARs published with a 'forge-addon' classifier. Add this plugin configuration to your pom.xml:
+[TIP]
+====
+This can be done using the Forge `Project: New` command.
+
+[source,forge]
+----
+project-new --named example --type addon
+----
+====
+
+Forge Addons must be JARs published with a 'forge-addon' classifier. Add this plugin configuration to your pom.xml _(if it is not already there)_:
 
 [source,xml]
 ----
@@ -40,7 +50,13 @@ Forge Addons must be JARs published with a 'forge-addon' classifier. Add this pl
 </build>
 ----
 
-In order to use CDI and services from other addons in your addon, you'll need to reference the Furnace CDI container addon as a dependency your _pom.xml_ file:
+---- Add a Furnace container
+
+_(Skip this step if you used the `Project: New` command from the previous step.)_
+
+In order to use CDI and services from other addons in your addon, you'll need to reference the Furnace CDI container addon as a dependency your _pom.xml_ file. Your choice of default Furnace container (CDI or Simple) will control your addon's lifecycle.
+
+You may also choose to omit a Furance container - this means your addon will not produce any services, will not start any jobs, and can only be used as a modular library by other addons. Alternatively, you can implement your own Furnace container, but that is a discussion for link:https://github.com/forge/furnace/blob/master/container-api/src/main/java/org/jboss/forge/furnace/lifecycle/AddonLifecycleProvider.java#L20[another document].
 
 [source,xml]
 ----
@@ -68,6 +84,8 @@ Your complete POM should now look something like this:
    <name>My First Addon</name>
 
    <dependencies>
+   
+      <!-- Furnace Container -->
       <dependency>
          <groupId>org.jboss.forge.furnace.container</groupId>
          <artifactId>cdi</artifactId>
@@ -136,9 +154,13 @@ public class ExampleServiceImpl implements ExampleService
 }
 ----
 
-=== Re-use functionality from other addons:
 
-Forge has a modular architecture that enables you to re-use functionality from other addons, directly in your own addon code. In order to achieve this, you must add addon-dependencies in your `pom.xml` file.
+
+=== Include functionality from standard Java libraries
+
+TIP: (See also <<Re-use functionality from other addons>>.) 
+
+Forge addons are no different from any other Java project, in the sense that they can include and re-use functionality from other Java projects' JAR files. In order to achieve this, you must add jar-dependencies in your addon's `pom.xml` file. Consider the following example:
 
 [source,xml]
 ----
@@ -146,6 +168,99 @@ Forge has a modular architecture that enables you to re-use functionality from o
    ...
    
    <dependencies>
+      <!-- Local Dependencies -->
+      <dependency>
+         <groupId>org.example</groupId>
+         <artifactId>library</artifactId>
+         <version>1.0.0</version>
+      </dependency>
+      
+      <!-- Addon Dependencies -->
+      ...
+
+      <!-- Furnace Container -->   
+      <dependency>
+         <groupId>org.jboss.forge.furnace.container</groupId>
+         <artifactId>cdi</artifactId>
+         <classifier>forge-addon</classifier>
+         <scope>provided</scope>
+      </dependency>
+   </dependencies>
+   
+   ...
+</project>
+----
+
+
+==== What scope should my library dependencies be?
+
+There are is a simple rule that makes this decision easy:
+
+----
+If your addon exposes the library in its public API, the library should be `<scope>compile</scope>` and `<optional>false</optional>` (this is the default).
+If your addon consumes the library in its private implementation, and does *NOT* expose the library in public APIs, then the library should be `<optional>true</optional>`.
+----
+
+TIP:: These settings apply only to the `pom.xml` in `forge-addon` classified artifact. (See: <<Create a Forge Addon Maven project>>.)
+
+
+In this example, the `TypeFromLibary` class comes from the `org.example:libary:1.0.0` dependency, and `YourPublicApi` is a type defined within the addon under development.
+
+[cols="1a,2,3", options="header"]
+|===
+|Example |Scope should be |Explanation
+
+|
+[source,java]
+----
+import org.example.TypeFromLibrary;
+
+public class YourPublicApi {
+   public TypeFromLibary getResult() {
+      return new TypeFromLibrary("exposed");
+   }
+}
+----
+|`compile` (*not* `optional`)
+|Types from the library are published in your addon's public API. Consumers of your addon compile against classes or interfaces from the included library.
+
+In this example, the `TypeFromLibary` class comes from the `org.example:libary:1.0.0` dependency.
+
+|
+[source,java]
+----
+import org.example.TypeFromLibrary;
+
+public class YourPublicApi {
+   public String getResult() {
+      return new TypeFromLibrary("internal")
+         .toString();
+   }
+}
+----
+|`compile` *and* `optional`
+|Types from the library are *NOT* published in your addon's public API, and are only used internally as an implementation detail. Consumers of your addon do *NOT* compile against classes or interfaces from the included library.
+
+|===   
+
+
+
+
+=== Re-use functionality from other addons
+
+Forge has a modular architecture that enables you to re-use functionality from other addons, directly in your own addon code. This is useful for including things like common Java libraries, or libraries specific to your addon's behavior. In order to achieve this, you must add addon-dependencies in your `pom.xml` file.
+
+TIP: (See also: <<Include functionality from standard Java libraries>>)
+
+[source,xml]
+----
+<project>
+   ...
+   
+   <dependencies>
+      <!-- Local Dependencies -->
+      ...
+      
       <!-- Addon Dependencies -->
       <dependency>
          <groupId>org.jboss.forge.addon</groupId>
@@ -178,17 +293,14 @@ Forge has a modular architecture that enables you to re-use functionality from o
 There is a simple rule that will make this an easy decision:  
 
 ____
-"`compile` if it shows, `provided` if nobody knows."
+"`compile` if it shows, `provided` if nobody knows, `optional` if it comes and goes"
 ____
 
-To explain, if you never publicly expose types (classes, interfaces, etc...) from another addon in the outward-facing APIs of your addon, then you should include 
-that addon as `provided` scope. If you do, however, expose classes from that addon in the public APIs of your code,
-then that addon should be labeled as `compile` scope (default,) which means that this dependency will be *'exported'*
-to consumers that depend on your addon.
+To explain, if you never publicly expose types (classes, interfaces, etc...) from another addon in the outward-facing APIs of your addon, then you should include that addon as `provided` scope. If you do, however, expose classes from that addon in the public APIs of your code, then that addon should be labeled as `compile` scope (default,) which means that this dependency will be *'exported'* to consumers that depend on your addon.
 
 Addon dependencies may also be made `optional` if consumers of your addon should be able to choose whether or not
 certain functionality is enabled, or if your addon behaves differently when other addons are already deployed to the
-container. 
+container. E.g. Your addon may enable additional features if an `<optional>` addon becomes installed into the Furnace runtime.
 
 The following chart explains this in detail. Assume that our addon depends on the `resources` addon, which provides
 the `ResourceFactory` and `FileResource` classes:
@@ -294,6 +406,14 @@ to the addon you wish to test (you can test anything you like.)
 
 Now, you'll need to create a test class with the following layout, using the standard JUnit test APIs:
 
+[TIP]
+====
+This can be done using the Forge `Addon: New Test" command:
+----
+addon-new-test --named MyServiceTest
+----
+====
+
 [source,java]
 ----
 package org.example;
@@ -307,14 +427,24 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
-public class ExampleFurnaceTest {
+public class ExampleAddonTest
+{
 
    @Deployment
-   public static ForgeArchive getDeployment() {
-      ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class);
+   @Dependencies({
+         @AddonDependency(name = "org.jboss.forge.furnace.container:cdi"),
+         @AddonDependency(name = "org.jboss.forge.addon:core") })
+   public static ForgeArchive getDeployment()
+   {
+      ForgeArchive archive = ShrinkWrap
+            .create(ForgeArchive.class)
+            .addBeansXML()
+            .addAsAddonDependencies(
+                  AddonDependencyEntry.create("org.jboss.forge.furnace.container:cdi"),
+                  AddonDependencyEntry.create("org.jboss.forge.addon:core"));
       return archive;
    }
-
+   
    @Test
    public void testSomething() throws Exception {
       Assert.fail("Not implemented");
@@ -333,13 +463,15 @@ public class ExampleFurnaceTest {
 
    @Deployment
    @Dependencies({
-       @AddonDependency(name = "org.example:example", version = "YOUR_VERSION")
+      @AddonDependency(name = "org.jboss.forge.furnace.container:cdi"),
+      @AddonDependency(name = "org.example:example")
    })
    public static ForgeArchive getDeployment() {
       ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class)
          .addBeansXML()
          .addAsAddonDependencies(
-            AddonDependencyEntry.create("org.example:example", "YOUR_VERSION")
+            AddonDependencyEntry.create("org.jboss.forge.furnace.container:cdi"),
+            AddonDependencyEntry.create("org.example:example")
          );
       return archive;
    }
@@ -351,7 +483,7 @@ public class ExampleFurnaceTest {
 }
 ---- 
 
-Now that the test case deploys and depends on your addon, you may access services from it via injection:
+Now that the test case deploys and depends on your addon, you may access services from it via injection (because your test deployment also depends on the Furnace CDI container):
 
 [source,java]
 ----
@@ -360,14 +492,14 @@ public class ExampleFurnaceTest {
 
    @Deployment
    @Dependencies({
-       @AddonDependency(name = "org.example:example", version = "YOUR_VERSION")
+       @AddonDependency(name = "org.example:example"),
+       @AddonDependency(name = "org.jboss.forge.furnace.container:cdi")
    })
    public static ForgeArchive getDeployment() {
       ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class)
          .addBeansXML()
          .addAsAddonDependencies(
-            AddonDependencyEntry.create("org.example:example", "YOUR_VERSION"),
-            // required to use CDI
+            AddonDependencyEntry.create("org.example:example"),
             AddonDependencyEntry.create("org.jboss.forge.furnace.container:cdi")
          );
       return archive;
@@ -388,8 +520,7 @@ This is the basic premise of using the test-harness. For detailed examples, take
 https://github.com/forge/core/tree/2.0/resources/tests/src/test/java/org/jboss/forge/addon/resource[look at some of the existing
 Forge test cases] in our github repository.
 
-NOTE: The `version` parameter in `@AddonDependency` and in the `AddonDependencyEntry.create(...)` method are optional. By not specifying them means that the test harness 
-will attempt to find the version based on the tests' build descriptor (pom.xml). In this case, if the dependent addon is not present in the tests' build descriptor, the test execution should fail.
+NOTE: The `version` parameter in `@AddonDependency` and in the `AddonDependencyEntry.create(...)` method are optional. Omitting the version means that the test harness will attempt to resolve the version based on the tests' build descriptor (pom.xml). In this case, if the dependent addon is not present in the tests' `pom.xml`, the test execution will fail, and you must specify a version in the test, or add the dependency to the `pom.xml`.
 
 === Install your addon in the local maven repository:
 
@@ -411,6 +542,10 @@ WARNING: This coordinate is *NOT* the same as maven's. You MUST use a comma (,) 
  
 Depending on the Forge environment in which you are running, installation steps will differ. 
 
-For Eclipse:: Open the Forge quick-assist menu, select either "Build and install an Addon" or "Install an addon" to build and install your project, or install a pre-built maven artifact.
+From Eclipse:: Open the Forge quick-assist menu, select either "Build and install an Addon" or "Install an addon" to build and install your project, or install a pre-built maven artifact.
 
-For the Shell:: Make sure that you have run a _mvn install_ prior to executing _forge --install groupId:artifactId,version_ on the native system terminal command line.
+From the system Shell:: Make sure that you have run a _mvn install_ prior to executing _forge --install groupId:artifactId,version_ on the native system terminal command line.
+
+From the Forge Shell:: Make sure that you have run a _mvn install_ prior to executing _addon-install --coordinate groupId:artifactId,version_ on the Forge shell command line.
+
+From the Forge Shell (During development):: Run _addon-build-and-install --projectRoot /path/to/addon-source-project_ (or if you are currently cd'd into the addon project structure, simply run _addon-build-and-install_, and Forge will automatically install the current project as an addon.)
