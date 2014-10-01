@@ -11,7 +11,7 @@ For now, however, just treat your first addon as if it were any other Java proje
 "traditional" environment are not as great as you might think, and the Furnace development model has been created in
 a way that should make these differences seem natural, almost transparent. 
 
-=== Create a Forge Addon Maven project NOW!
+=== Create a Forge Addon Maven project
 
 [TIP]
 ====
