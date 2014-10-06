@@ -1,0 +1,87 @@
+== Forge 2.12.0.Final (Hearth) is here!
+
+The Forge Team is proud to announce that Forge 2.12.0.Final is now available! 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Better Performance*: You should notice a slight performance improvement in the shell and the UI in Eclipse
+* *Component Upgrade*: We've upgraded to Roaster 2.8.2.Final. See the release notes link:https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12315122&version=12325803[here]
+* *Bug Fixes*: We fixed 10 bugs, resolved 11 feature requests and 3 enhancements. Check the release notes below for more information.
+
+Release Notes - Forge - Version 2.12.0.Final (including 2.11.0.Final)
+=====================================================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2015'>FORGE-2015</a>] -         Connection Profile Details step should probably not show full stack traces in JBT wizards
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2016'>FORGE-2016</a>] -         Stale table data shown when switching form working to invalid connection profiles in jpa-generate-entities-from-tables
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2017'>FORGE-2017</a>] -         Errors in Rest Endpoint generation with Root and nested DTOs
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2022'>FORGE-2022</a>] -         AnnotationCommandAdapter throws exception if @Option is boolean and is not populated
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2024'>FORGE-2024</a>] -         ConverterFactory can&#39;t handle primitive type conversion from String
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2025'>FORGE-2025</a>] -         Top level package still causes Java package calculation/class generation failures
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2027'>FORGE-2027</a>] -         java.util.ArrayList cannot be cast to org.jboss.forge.addon.resource.Resource when scaffolding REST
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2036'>FORGE-2036</a>] -         Forge does not start debug mode with -d parameter.
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2038'>FORGE-2038</a>] -         Forge New Project wizard - field names should have the same case
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2049'>FORGE-2049</a>] -         &quot;Overwrite Persistence Unit&quot; in JPA:Setup does not work
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2037'>FORGE-2037</a>] -         Upgrade to Roaster 2.8.2.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1788'>FORGE-1788</a>] -         DOT generation should be part of the release process 
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2028'>FORGE-2028</a>] -         Connection: Create Profile should allow to not save the DB password
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2029'>FORGE-2029</a>] -         Default ConnectionProfileManager implementation should encrypt passwords
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1996'>FORGE-1996</a>] -         JPA Setup should allow for optionally omitting the create-drop parameter
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2005'>FORGE-2005</a>] -         Display the project build errors after a command is executed when in a project context
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2012'>FORGE-2012</a>] -         Input components with facets as the value type should have the default value set to the facet configured in the current project
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2021'>FORGE-2021</a>] -         Forge UI should not call UICommand.validate() if required inputs are not populated
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2023'>FORGE-2023</a>] -         Introduce commands to maintain Forge&#39;s Configuration
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2030'>FORGE-2030</a>] -         Update Hibernate provider to HibernatePersistenceProvider
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2032'>FORGE-2032</a>] -         org.jboss.forge.addon.maven.plugins.ConfigurationElement should support attributes
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2034'>FORGE-2034</a>] -         Support Glassfish 4.x
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2040'>FORGE-2040</a>] -         man page for project-new is not particularly helpful
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2046'>FORGE-2046</a>] -         &#39;ls&#39; command throws un-useful error when child directory does not exist.
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2055'>FORGE-2055</a>] -         Introduce caching in CommandFactory to improve performance
+</li>
+</ul>
+++++
