@@ -1,0 +1,18 @@
+== Using Forge
+
+
+=== Installing JBoss Forge
+
+=== Creating a new project
+
+Setting up a new project involves a lot of activities. You basically rely on a build and dependency management framework such as Maven and Gradle. Even if you feel comfortable reading the configuration files, i.e. pom.xml or build.gradle for those, it takes some time to write them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste them from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configurate, that you will usually delete.
+
+=== Setting up persistence and validation
+
+=== Scaffolding JSF
+
+=== Deploying on JBoss
+
+=== Creating Arquillian tests
+
+=== Scaffolding AngularJS
