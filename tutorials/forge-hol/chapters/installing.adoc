@@ -1,0 +1,21 @@
+== Installing Forge
+
+
+=== Installing Forge CLI
+
+=== Installing JBDS 8.0 with EAP
+
+Installing JBDS is a piece of cake. Just download the installer from the 
+http://www.jboss.org/download-manager/file/jboss-devstudio-8.0.0.GA-jar_universal.jar[JBoss website] 
+and in the target folder you issue:
+
+[source]
+--
+java -jar jboss-devstudio-<version>-installer-eap.jar
+--
+
+This will launch the installation process for your platform. Windows, Linux and OSX 
+are supported. The wizard will take you through a number of consecutive steps that are
+illustrated using screenshots below.
+
+image::installing/jbds-install-1.png[title="JBDS Installation Step 1"]

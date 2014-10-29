@@ -4,8 +4,11 @@ v0.1, Oct 28, 2014
 :doctype: book
 :toc:
 :toclevels: 3
+:imagesdir: images
 
 include::chapters/introduction.adoc[]
+
+include::chapters/installing.adoc[]
 
 include::chapters/using.adoc[]
 
