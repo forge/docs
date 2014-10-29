@@ -3,6 +3,32 @@
 
 === JBoss Forge
 
+It's not so easy to explain what Forge is in a few paragraphs. 
+That is why we will re-use the introduction from http://www.amazon.com/Continuous-Enterprise-Development-Andrew-Rubinger/dp/1449328296[Continuous Enterprise Development] book:
+
+If you’ve spent any time developing Java EE–based projects (or any nontrivial application,
+for that matter!), you’ve likely invested a good amount of energy in creating the
+project layout, defining dependencies, and informing the build system of the relevant
+class paths to be used in compilation and execution. Although Maven enables us to
+reduce that load as compared with undertaking project setup manually, there’s typically
+quite a bit of boilerplate involved in the pom.xml defining your requirements.
+
+JBoss Forge offers “incremental project enhancement for Java EE.” Implemented as a
+command shell and integration with some IDE, Forge gives us the ability to alter project files and folders. 
+
+- Some concrete tasks we might use Forge to handle are:
+  * Adding Java Persistence API (JPA) entities and describing their model
+  * Configuring Maven dependencies
+  * Setting up project scaffolding
+  * Generating a view layer, reverse-engineered from a domain model
+  * Deploying to an application server
+
+Because Forge is built atop a modular, plug-in-based architecture, it’s extensible to additional
+tasks that may be specific to your application.
+Overall, the goal of Forge is to ease project setup at all stages of development, so we’ll
+be employing it in this text to speed along the construction of our examples.
+
+
 === What's this HoL about?
 
 === How it works?
