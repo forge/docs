@@ -1,0 +1,6 @@
+Hands on Lab
+====
+
+This material helps you to setup a hands on lab on JBoss Forge. You will learn how to set it up, use it, and develop addons.
+
+Do not hesitate to run this lab at your local JUG, any conference or with friends at home. And, as usual, do not hesitate to contribute so this hands on lab gets better.
