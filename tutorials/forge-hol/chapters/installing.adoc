@@ -19,3 +19,18 @@ are supported. The wizard will take you through a number of consecutive steps th
 illustrated using screenshots below.
 
 image::installing/jbds-install-1.png[title="JBDS Installation Step 1"]
+image::installing/jbds-install-2.png[title="JBDS Installation Step 2"]
+image::installing/jbds-install-3.png[title="JBDS Installation Step 3"]
+image::installing/jbds-install-4.png[title="JBDS Installation Step 4"]
+image::installing/jbds-install-5.png[title="JBDS Installation Step 5"]
+image::installing/jbds-install-6.png[title="JBDS Installation Step 6"]
+image::installing/jbds-install-7.png[title="JBDS Installation Step 7"]
+image::installing/jbds-install-9.png[title="JBDS Installation Step 9"]
+
+Congratulations! Now you are all set! Pressing `Done` will automatically launch JBDS.
+
+image::installing/workspace.png[title="Choose Workspace"]
+
+Choose an appropriate workspace and press `OK` to see JBDS in all its glory.
+
+image::installing/jbds-welcome.png[title="JBDS Welcome"]
