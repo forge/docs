@@ -4,6 +4,7 @@
 
 [width="15%"]
 |=======
+|Category |Command | Comment
 |Configuration |config-clear |
 |Configuration |config-list |
 |Configuration |config-set |
@@ -32,11 +33,21 @@
 |Java EE |javaee-setup | Setup Java EE in your project
 |Java EE/Bean Validation |constraint-add | Add a Bean Validation constraint
 |Java EE/Bean Validation |constraint-setup | Setup Bean Validation in your project
+|Java EE/Bean Validation |constraint-new-annotation | Create a Bean Validation constraint annotation
+|Java EE/Bean Validation |constraint-new-group | Create a Bean Validation group
 |Java EE/CDI |cdi-list-alternatives |
 |Java EE/CDI |cdi-list-decorators |
 |Java EE/CDI |cdi-list-interceptors |
 |Java EE/CDI |cdi-new-producer-field | Creates a new producer field
 |Java EE/CDI |cdi-setup | Setup CDI in your project
+|Java EE/CDI |cdi-new-bean | Creates a new CDI Managed bean
+|Java EE/CDI |cdi-new-conversation | Creates a conversation block in the specified method
+|Java EE/CDI |cdi-new-decorator | Creates a new CDI Decorator
+|Java EE/CDI |cdi-new-interceptor | Creates a new CDI Interceptor
+|Java EE/CDI |cdi-new-interceptor-binding | Creates a new CDI Interceptor Binding annotation
+|Java EE/CDI |cdi-new-qualifier | Creates a new CDI Qualifier annotation
+|Java EE/CDI |cdi-new-scope | Creates a new CDI Scope annotation
+|Java EE/CDI |cdi-new-stereotype | Creates a new CDI Stereotype annotation
 |Java EE/EJB |ejb-new-bean | Create a new EJB
 |Java EE/EJB |ejb-set-class-transaction-attribute | Set the transaction type of a given EJB
 |Java EE/EJB |ejb-set-method-transaction-attribute | Set the transaction type of a given EJB method
@@ -63,15 +74,6 @@
 |Java EE/JTA |jta-setup | Setup JTA in your project
 |Java EE/Servlet |servlet-setup | Setup Servlet API in your project
 |Java EE/WebSocket |websocket-setup | Setup WebSocket API in your project
-|Java/Bean Validation |constraint-new-annotation | Create a Bean Validation constraint annotation
-|Java/Bean Validation |constraint-new-group | Create a Bean Validation group
-|Java/CDI |cdi-new-bean | Creates a new CDI Managed bean
-|Java/CDI |cdi-new-decorator | Creates a new CDI Decorator
-|Java/CDI |cdi-new-interceptor | Creates a new CDI Interceptor
-|Java/CDI |cdi-new-interceptor-binding | Creates a new CDI Interceptor Binding annotation
-|Java/CDI |cdi-new-qualifier | Creates a new CDI Qualifier annotation
-|Java/CDI |cdi-new-scope | Creates a new CDI Scope annotation
-|Java/CDI |cdi-new-stereotype | Creates a new CDI Stereotype annotation
 |Java/ServiceLoader |service-register-as-serviceloader | Register a Java type as a service implementation.
 |Maven |archetype-add |
 |Maven |archetype-list |
@@ -120,12 +122,11 @@
 |Shell |transaction-rollback | Rollbacks a transaction
 |Shell |transaction-start | Starts a transaction
 |Shell |wait | Wait for ENTER.
-|Uncategorized |about | Display information about this forge.
-|Uncategorized |command-list | List all available commands.
-|Uncategorized |date | print current date
-|Uncategorized |system-property-get | Get one or all system properties
-|Uncategorized |system-property-set | Set a system property
-|Uncategorized |version | Displays the current Forge version.
-|Uncategorized |wait | Wait for ENTER.
-|Uncategorized/CDI |cdi-new-conversation | Creates a conversation block in the specified method
+|Shell |about | Display information about this forge.
+|Shell |command-list | List all available commands.
+|Shell |date | print current date
+|Shell |system-property-get | Get one or all system properties
+|Shell |system-property-set | Set a system property
+|Shell |version | Displays the current Forge version.
+|Shell |wait | Wait for ENTER.
 |=======
