@@ -36,3 +36,8 @@ be employing it in this text to speed along the construction of our examples.
 === What do you have to do?
 
 === Software requirements
+
+The following software needs to be downloaded and installed:
+- JDK 7 from http://www.oracle.com/technetwork/java/javase/downloads/index.html
+- Maven 3.2.x from http://maven.apache.org/download.cgi
+- JBoss Forge from http://forge.jboss.org/download
