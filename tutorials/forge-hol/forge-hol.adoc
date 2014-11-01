@@ -1,5 +1,5 @@
 = JBoss Forge Hands on Lab
-Antonio Goncalves, Koen Aers, Ivan St. Ivanov
+Antonio Goncalves, Koen Aers, Ivan St. Ivanov, Daniel Cunha
 v0.1, Oct 28, 2014
 :doctype: book
 :toc:
