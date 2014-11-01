@@ -1,5 +1,31 @@
 == Appendix
 
+=== Acknowledgements
+
+The following JBoss Forge community members have contributed, one way or another, to this hands-on lab:
+
+- Antonio Goncalves (@agoncal)
+- Daniel Cunha (@dvlc_)
+- Ivan St. Ivanov (@ivan_stefanov)
+- Koen Aers (@koentsje)
+- Lincoln Baxter III (@lincolnthree)
+- George Gastaldi (@gegastaldi)
+
+=== Revision History
+
+==== Version 0.1
+
+- Creation of this material
+- Using JBoss Forge 2.12.x
+- Used during the conference Devoxx Belgium 2014
+- JIRA https://issues.jboss.org/browse/FORGE-2102
+
+=== Material
+
+- The latest version of this document can be downloaded from https://github.com/forge/docs/tree/master/tutorials/forge-hol
+- The PDF version is at https://github.com/forge/docs/blob/master/tutorials/forge-hol/forge-hol.pdf
+- The JIRA for this hands on lab is at 
+
 === CLI Commands
 
 [width="15%"]
