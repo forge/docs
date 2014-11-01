@@ -13,7 +13,7 @@ image::installing/windows/forge-cli-install1.png[title="Installing Forge CLI Ste
 
 In the same dialog, add the FORGE_HOME environment variable in the user variables with the value %FORGE_HOME%\bin.
 
-image::installing/windows/forge-cli-install1.png[title="Installing Forge CLI Step 2"]
+image::installing/windows/forge-cli-install2.png[title="Installing Forge CLI Step 2"]
 
 On Mac OS X or Linux, you can do: +
 Extract the distribution archive, to the directory you wish to install Forge. +
