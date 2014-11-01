@@ -24,7 +24,6 @@ The following JBoss Forge community members have contributed, one way or another
 
 - The latest version of this document can be downloaded from https://github.com/forge/docs/tree/master/tutorials/forge-hol
 - The PDF version is at https://github.com/forge/docs/blob/master/tutorials/forge-hol/forge-hol.pdf
-- The JIRA for this hands on lab is at 
 
 === CLI Commands
 
