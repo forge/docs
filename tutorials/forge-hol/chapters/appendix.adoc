@@ -6,10 +6,10 @@ The following JBoss Forge community members have contributed, one way or another
 
 - Antonio Goncalves (@agoncal)
 - Daniel Cunha (@dvlc_)
+- George Gastaldi (@gegastaldi)
 - Ivan St. Ivanov (@ivan_stefanov)
 - Koen Aers (@koentsje)
 - Lincoln Baxter III (@lincolnthree)
-- George Gastaldi (@gegastaldi)
 
 === Revision History
 
