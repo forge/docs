@@ -9,11 +9,11 @@ Just download the https://repository.jboss.org/nexus/service/local/artifact/mave
 
 On Windows, you can do: + 
 Extract the distribution archive, to the directory you wish to install Forge. + 
-Add the FORGE_HOME environment variable.
+Add the `FORGE_HOME` environment variable.
 
 image::installing/windows/forge-cli-install1.png[title="Installing Forge CLI Step 1"]
 
-In the same dialog, add %FORGE_HOME%\bin to the system path.
+In the same dialog, add `%FORGE_HOME%\bin` to the system path.
 
 image::installing/windows/forge-cli-install2.png[title="Installing Forge CLI Step 2"]
 
@@ -21,7 +21,7 @@ image::installing/windows/forge-cli-install2.png[title="Installing Forge CLI Ste
 
 On Mac OS X or Linux, you can do: + 
 Extract the distribution archive, to the directory you wish to install Forge. + 
-In a command terminal, add the FORGE_HOME environment variable, e.g: 
+In a command terminal, add the `FORGE_HOME` environment variable, e.g: 
 [source]
 --
 export FORGE_HOME=/usr/local/jboss/forge-distribution-2.12.1.Final
