@@ -28,12 +28,21 @@ tasks that may be specific to your application.
 Overall, the goal of Forge is to ease project setup at all stages of development, so we’ll
 be employing it in this text to speed along the construction of our examples.
 
-
 === What's this HoL about?
 
-This hands-on lab give you a good practical introduction to JBoss Forge. You will first install JBoss Forge, use it and then create addons to extend the capabilities of Forge. Forge can either by used with an IDE, or directly with a command line interface (CLI). 
+This hands-on lab (HoL) give you a good practical introduction to JBoss Forge. You will first install JBoss Forge, use it and then create addons to extend the capabilities of Forge. Forge can either by used with an IDE, or directly with a command line interface (CLI). 
 
-=== How does it work?
+The idea is that you leave this hands on lab (HoL) with a good understanding of what JBoss is, what it is not, and how it can help you in your projects. Then, you'll have your entire time to investigate a big more and, hopefully,  http://forge.jboss.org/community[contribute] ;o)
+
+=== How does this HoL work?
+
+You have this material in your hands (either https://github.com/forge/docs/blob/master/tutorials/forge-hol/forge-hol.pdf[electronically] or printed) and you can now follow it step by step or choose any section "à la carte". The structure of this hands on lab is as follow :
+
+- Installing Forge : in this section you will install JBoss Forge, either on a standalone mode, or with JBDS (JBoss Developer Studio)
+- Using Forge : in this section you will play with Forge, create a project, add entities, scaffold a JSF and AngularJS web application, generate some Arquillian tests and deploy it on WildFly
+- Developing Forge : in this section you will quickly create a full web application, build extensions, and add these extensions to the application
+
+If Forge is already installed, just go to the "Using Forge" section ans tart using it. If you already know JBoss Forge a bit, jump to the section on "Developing Forge" and start hacking some addons. This "à la carte" mode allows you to make the most of this 3 hours long hands on lab.
 
 === What do you have to do?
 
