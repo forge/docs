@@ -1,5 +1,5 @@
 == Installing Forge
-
+[[installing-forge]]
 
 === Installing Forge CLI
 It's very simple install Forge CLI.

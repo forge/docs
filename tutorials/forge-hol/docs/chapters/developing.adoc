@@ -5,4 +5,379 @@
 
 === Developing Hibernate Envers addon
 
+http://envers.jboss.org/[Hibernate Envers] is a Hibernate core module that enables auditing of persistence classes.
+If you want to audit the history of all the changes made to a certain entity or one of its fields during the web
+application runtime, you just need to audit that with `@Audited`. Envers will create a separate table for each such
+entity, which will hold the changes made to it. +
+
+In this lab we will develop a Forge addon with the following features:
+
+* Setup Envers for the following project by adding its dependency to the POM
+* Enable auditing an entity by adding the `@Audited` annotation on class level
+
+==== Creating a new Forge addon
+
+Creating a new Forge addon is similar to any new project that you want to create. You can do it manually, you can copy
+and modify an existing project of the same type or you can use a wizard to do it for you. We would certainly recommend
+using Forge to help you bootstrap everything for several reasons. It knows what exactly which dependencies and artifacts
+you need as a start so you will not miss anything. Forge will also not create any garbage in your new project. +
+
+Before creating the Envers addon, you need to start Forge. Please make sure that you have followed the instructions
+in <<installing-forge>> before that. You can create a new addon if you run the following command in the Forge CLI: +
+
+[code, script]
+----
+project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon --addons org.jboss.forge.addon:javaee,2.12.0.Final
+----
+
+If you run Forge from JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) then select _Project: New_ and specify
+_envers_ as project name, _org.jboss.forge.addon_ as top level package, enter project location per your preference and
+as a Project type select _Forge Addon_:
+
+image::developing/forge-new-project.png[title="Creating new addon project"]
+
+This will create an empty Maven project that has the following artifacts:
+
+* *pom.xml* where the top level package is the group ID and the project name is the artifact ID. Besides the minimum
+Forge dependencies, the command will add also those that you have specified with the `--addons` option in the format
+<group-id>:<artifact-id>,<version>
+* *Standard maven directory structure* plus the top level package
+* *Empty +beans.xml+* in the +src/main/resources/META-INF+ directory. This is because Forge and its addons strongly
+rely on the CDI development model
+* *README.asciidoc* file with a standard skeleton for documenting Forge addons
+
+==== Developing the "Envers: Setup" command
+
+The first command that we are going to create will set up Envers for a project. This basically means that the command
+will simply add the Envers library dependency to the current project POM. As with the new Forge addon, we can manually
+write the command class, copy and modify an existing command or let Forge itself generated it for us. Here we will go
+for the third option.
+
+If you are running from the command line interface, type in: +
+
+[code, script]
+----
+addon-new-ui-command --named EnversSetupCommand --commandName "Envers: Setup" --categories "Auditing"
+----
+
+While from the JBDS, after opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), you should choose _Addon: New UI Command_
+and enter _EnversSetupCommand_ in the Type Name field, _Envers: Setup_ in the Command name field and add _Auditing_ to
+the Categories list box: +
+
+image::developing/forge-envers-setup-command.png[title="Creating _Envers: Setup_ command"]
+
+This will generate `EnversSetupCommand` class in the `org.jboss.forge.addon.commands` package (unless you didn't specify
+explicitly anything else). Forge makes this class extend `AbstractUICommand`, which provides some basic functionality
+like configuring the command name, the command dialog and the command execution. We will go through these in this and
+the next few sections. +
+
+The `getMetadata()` method should be already implemented by Forge:
+
+[source, java]
+----
+   @Override
+   public UICommandMetadata getMetadata(UIContext context)
+   {
+      return Metadata.forCommand(EnversSetupCommand.class).name(
+            "Envers: Setup").category(Categories.create("Auditing"));
+   }
+----
+
+This will basically create a command that can be called _envers-setup_ from the CLI (note the substitution of colons and
+spaces by hyphens) and as _Envers: Setup_ in the _Auditing_ category in the Forge wizard: +
+
+image::developing/forge-envers-setup-command-wizard.png[title="_Envers: Setup_ command in the _Auditing_ category"]
+
+As the newly created command will not require any input from the user, we will leave the `initializeUI` method empty.
+However, in order to implement the command execution, we will need to change a little bit our class. More precisely we
+will have to extend from another abstract command class. The rationale behind this is that we want to update the
+*current* project POM. Extending `AbstractProjectCommand` instead of `AbstractUICommand` will give us some handy
+methods to access and manipulate the project configuration:
+
+[source, java]
+----
+public class EnversSetupCommand extends AbstractProjectCommand
+{
+----
+
+We will have to implement two more abstract methods coming from this parent class:
+
+[source, java]
+----
+   @Override
+   protected boolean isProjectRequired() 
+   {
+      return true;
+   }
+
+   @Inject
+   private ProjectFactory projectFactory;
+
+   @Override
+   protected ProjectFactory getProjectFactory() 
+   {
+       return projectFactory;
+   }
+----
+
+After having specified _Envers: Setup_ as a project command, we can proceed to implementing the `execute` method.
+Usually this is called when the user clicks Finish on the command dialog or in our case where we don't require input:
+when the user selects the command from the Forge wizard. +
+
+As we mentioned earlier, the command will have to add the Hibernate Envers dependency to the project. We are going to
+build the Forge representation of this dependency using the DependencyBuilder's utility methods:
+
+[source, java]
+----
+   @Override
+   public Result execute(UIExecutionContext context) throws Exception
+   {
+      Dependency dependency = 
+            DependencyBuilder.create("org.hibernate")
+                             .setArtifactId("hibernate-envers")
+                             .setVersion("4.3.6.Final")
+                             .setScopeType("provided");
+   }
+
+----
+
+Speaking in Maven terms, this is a dependency to artifact with ID +hibernate-envers+, coming from the +org.hibernate+
+group, having version 4.3.6.Final and going into the project's _provided_ scope. +
+
+After we have specified our dependency, we will have to add it to the project model. For that purpose we will use the
+`DependencyInstaller` utility, coming from the projects addon:
+
+[source, java]
+----
+   @Inject
+   private DependencyInstaller dependencyInstaller;
+----
+
+Forge 2.0 is based on modular runtime called _Furnace_. The core of Furnace itself is not bound to any development model,
+so the addons can decide which of the Furnace implementations it wants to use. We created our addon with the default
+configuration which enables the CDI development model. That is why we asked in the code snippet above Forge to provide
+us with the dependency installer for the current project build system. +
+
+Now it is time to install our dependency:
+
+[source, java]
+----
+   @Override
+   public Result execute(UIExecutionContext context) throws Exception
+   {
+      Dependency dependency =
+            DependencyBuilder.create("org.hibernate")
+                             .setArtifactId("hibernate-envers")
+                             .setVersion("4.3.6.Final")
+                             .setScopeType("provided");
+      dependencyInstaller.install(getSelectedProject(context), dependency);
+
+   }
+----
+
+We are using here one of the helper methods provided by the `AbstractProjectCommand`: `getSelectedProject()`. +
+
+Now our job is done, so it is time to report what we did. We do it by returning the result:
+
+[source, java]
+----
+   @Override
+   public Result execute(UIExecutionContext context) throws Exception
+   {
+      Dependency dependency =
+            DependencyBuilder.create("org.hibernate")
+                             .setArtifactId("hibernate-envers")
+                             .setVersion("4.3.6.Final")
+                             .setScopeType("provided");
+      dependencyInstaller.install(getSelectedProject(context), dependency);
+      return Results.success("Envers was successfully setup for the current project!");
+   }
+----
+
+This will result in a SUCCESS: message in the command line interface and a green popup in the JDBS after our command is
+executed. +
+
+Now that we have a command the enables Hibernate Envers, it is time to add another command that will turn on auditing
+for a given JPA entity.
+
+==== Developing the "Envers: Audit entity" command
+
+We will create the class for the new command in the same way that we created the one for "Envers: Setup": with the help
+of Forge. If you are running the CLI, then simply type:
+
+[code, script]
+----
+addon-new-ui-command --named EnversAuditEntityCommand --commandName "Envers: Audit entity" --categories "Auditing"
+----
+
+Or alternatively in the JBDS choose _Addon: New UI Command_, enter _EnversAuditEntityCommand_ in the Type Name field,
+_Envers: Audit entity_ in the Command name field and add _Auditing_ to the Categories list box: +
+
+image::developing/forge-envers-audit-entity-command.png[title="Creating _Envers: Audit entity_ command"]
+
+Then open the newly created class and make it extend `AbstractProjectCommand` instead of `AbstractUICommand` and also
+add the unimplemented methods the way you did it in the setup command. +
+
+This command will have to receive as input the entity class that has to be audited. To achieve this, we need to do two
+things:
+
+. Obtain and configure a `UIInput` object from Furnace
+. Add our input to the `UIBuilder` in the `initializeUI` method
+
+Starting from number one, we should add the following member field to our command class:
+
+[source, java]
+----
+   @Inject
+   @WithAttributes(label = "Entity to audit", required = true)
+   private UIInput<JavaResource> auditEntity;
+----
+
+Here we call our field auditEntity. This automatically will add a `--auditEntity` option to our command in the CLI.
+The type of the field is `UIInput<JavaResource>`, which means a few things:
+
+* The JBDS integration will create a text box control for the audit entity, while the command line interface will expect
+a single unbounded value
+* The type of the value for this option should be a file that represents a Java type (class, interface or enumeration)
+
+We have also specified some additional attributes with the `@WithAttributes` annotation:
+
+* The `label` attribute tells Forge's JBDS integration to override the field name (`auditEntity` in this case) with
+_Entity to audit_. This will be the actual label of the text box in the IDE. This will not however change the option
+name on the command line
+* The `required` attribute will not let the user complete the dialog without entering a value for the entity. The well
+known asterisk character will be displayed along the label in JBDS
+
+After we defined the input field, it is time to add it to the command dialog. In order to do that, we should edit the
+`initializeUI` method:
+
+[source, java]
+----
+   @Override
+   public void initializeUI(UIBuilder builder) throws Exception
+   {
+      builder.add(auditEntity);
+   }
+----
+
+We can tell now Forge to show a _Browse_ button to the right of the input field, which will open the well known
+type picker of Eclipse:
+
+[source, java]
+----
+   @Override
+   public void initializeUI(UIBuilder builder) throws Exception
+   {
+      auditEntity.getFacet(HintsFacet.class).setInputType(InputType.JAVA_CLASS_PICKER);
+      builder.add(auditEntity);
+   }
+----
+
+In Forge you can also set default values for a certain input. This way you can omit specifying its value on the command
+line and in the IDE it will be pre-filled in the command dialog. You can do that with the `setDefaultValue` method of the
+`UIInput`. In our case the UIInput is generified over the JavaResource class. So we'll have to check whether the current
+selection in the UI (being the CLI or JBDS) is a file that represents a Java type. If yes, we will set it as the default
+value of the text field:
+
+[source, java]
+----
+   @Override
+   public void initializeUI(UIBuilder builder) throws Exception
+   {
+      auditEntity.getFacet(HintsFacet.class).setInputType(InputType.JAVA_CLASS_PICKER);
+      Object selection = builder.getUIContext().getInitialSelection().get();
+      if (selection instanceof JavaResource)
+         auditEntity.setDefaultValue((JavaResource) selection);
+      builder.add(auditEntity);
+   }
+----
+
+Now the UI of the command is ready. We can go on and implement the `execute` method. First we should get the value
+entered in the text field and convert it to `JavaResource`. Then we will extract the `JavaClassSource` out of it so
+that we can manipulate things like annotations:
+
+[source, java]
+----
+   @Override
+   public Result execute(UIExecutionContext context) throws Exception
+   {
+      JavaResource javaResource = auditEntity.getValue().reify(JavaResource.class);
+      JavaClassSource javaClass = javaResource.getJavaType();
+
+   }
+----
+
+Next we will check whether the chosen class has already the `Audited` annotation and if not, will add it to that. At the
+end we'll save the new content and will return successful result:
+
+[source, java]
+----
+   @Override
+   public Result execute(UIExecutionContext context) throws Exception
+   {
+      JavaResource javaResource = auditEntity.getValue().reify(JavaResource.class);
+      JavaClassSource javaClass = javaResource.getJavaType();
+      if (!javaClass.hasAnnotation("org.hibernate.envers.Audited")) {
+         javaClass.addAnnotation("org.hibernate.envers.Audited");
+      }
+      javaResource.setContents(javaClass);
+      return Results.success(
+          "Entity " + javaClass.getQualifiedName() + " was successfully audited");
+   }
+----
+
+But what if the user enters invalid input? This could be a file that does not exist, or is not a class or is not a JPA
+entity. We'll implement the `validate(UIValidationContext validator)` method to handle such situations. Whenever it
+finds illegal input, it will add a validation error to the `validator` parameter. This will bring an error message if
+the command executes in the CLI and in JBDS will disable the Finish button of the dialog, showing the error message in
+its well known location. This is how we implement the method:
+
+[source, java]
+----
+   @Override
+   public void validate(UIValidationContext validator)
+   {
+      super.validate(validator);
+      try
+      {
+         if (!auditEntity.getValue().reify(JavaResource.class).getJavaType()
+               .hasAnnotation(Entity.class))
+         {
+            validator.addValidationError(auditEntity,
+                  "The selected class has to be JPA entity");
+         }
+      }
+      catch (FileNotFoundException e)
+      {
+         validator.addValidationError(auditEntity,
+               "You must select existing JPA entity to audit");
+      }
+   }
+----
+
+Finally, we want to avoid some compilation errors in the project where we will run this command. So it should be only
+available for execution if the user has called the setup command first, i.e. if the current project has dependency to
+Hibernate Envers. You can implement this enabling and disabling in several ways. We will show one of these: by
+implementing the `isEnabled` method. There we will again obtain the `DependencyFacet` and will ask it whether the
+desired dependency is installed. If this method returns false, the Forge commands wizard will not list the Audit entity
+command and it will not be available in the command completion in CLI. This is the implementation:
+
+[source, java]
+----
+   @Override
+   public boolean isEnabled(UIContext context)
+   {
+      Dependency dependency = DependencyBuilder
+                               .create("org.hibernate")
+                               .setArtifactId("hibernate-envers")
+      return getSelectedProject(context).getFacet(DependencyFacet.class)
+               .hasEffectiveDependency(dependency);
+   }
+----
+
+Our first addon is ready. We can now build it, deploy it and run it on the Java EE project that we created in the
+beginning of this chapter.
+
+==== Installing and trying the Envers addon
+
 === Developing Logger addon
