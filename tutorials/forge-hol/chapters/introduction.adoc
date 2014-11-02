@@ -46,11 +46,13 @@ If Forge is already installed, just go to the "Using Forge" section ans tart usi
 
 === What do you have to do?
 
+This hands on lab should be as self explanatory as possible. So your job is to follow the instructions by yourself, do what you are suppose to do, and do not hesitate to ask for any precision, that's why the team is here. Make sure you have the needed software installed (see below) and be ready to get some fun.
+
 === Software requirements
 
 The following software needs to be downloaded and installed:
 
-- JDK 7 from http://www.oracle.com/technetwork/java/javase/downloads/index.html
-- Maven 3.2.x from http://maven.apache.org/download.cgi
-- JBoss Forge 2.12.x from http://forge.jboss.org/download
-- WildFly 8.1 from http://wildfly.org/downloads/
+- http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 7]
+- http://maven.apache.org/download.cgi[Maven 3.2.x]
+- http://forge.jboss.org/download[JBoss Forge 2.12.x]
+- http://wildfly.org/downloads/[WildFly 8.1]
