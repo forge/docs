@@ -2,12 +2,10 @@
 
 
 === Installing Forge CLI
-It's very simple install Forge CLI.
-Just download the https://repository.jboss.org/nexus/service/local/artifact/maven/redirect?r=releases&g=org.jboss.forge&a=forge-distribution&v=LATEST&e=zip&c=offline[ZIP] to install Forge natively on your preferred Operation System.
+Download the https://repository.jboss.org/nexus/service/local/artifact/maven/redirect?r=releases&g=org.jboss.forge&a=forge-distribution&v=LATEST&e=zip&c=offline[ZIP] to install Forge natively on your preferred operating system.
 
 ==== Windows 
 
-On Windows, you can do: + 
 Extract the distribution archive, to the directory you wish to install Forge. + 
 Add the `FORGE_HOME` environment variable.
 
@@ -19,7 +17,6 @@ image::installing/windows/forge-cli-install2.png[title="Installing Forge CLI Ste
 
 ==== Mac OS X or Linux
 
-On Mac OS X or Linux, you can do: + 
 Extract the distribution archive, to the directory you wish to install Forge. + 
 In a command terminal, add the `FORGE_HOME` environment variable, e.g: 
 [source]
@@ -35,9 +32,8 @@ or install via
 [source]
 --
 curl http://forge.jboss.org/sh | sh
---
-You have another alternative to install Forge on Mac OS X. + 
-Use Homebrew to install Forge natively for use on the command-line, via:
+-- 
+or use Homebrew to install Forge natively for use on the command-line, via:
 [source]
 --
 brew install jboss-forge
