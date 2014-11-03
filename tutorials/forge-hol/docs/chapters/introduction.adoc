@@ -3,7 +3,7 @@
 
 === JBoss Forge
 
-It's not so easy to explain what Forge is in a few paragraphs. 
+It's not so easy to explain what Forge is in a few paragraphs.
 That is why we will re-use the introduction from http://www.amazon.com/Continuous-Enterprise-Development-Andrew-Rubinger/dp/1449328296[Continuous Enterprise Development] book:
 
 If you’ve spent any time developing Java EE–based projects (or any nontrivial application,
@@ -14,7 +14,7 @@ reduce that load as compared with undertaking project setup manually, there’s 
 quite a bit of boilerplate involved in the pom.xml defining your requirements.
 
 JBoss Forge offers “incremental project enhancement for Java EE.” Implemented as a
-command shell and integration with some IDE, Forge gives us the ability to alter project files and folders. 
+command shell and integration with some IDE, Forge gives us the ability to alter project files and folders.
 
 - Some concrete tasks we might use Forge to handle are:
   * Adding Java Persistence API (JPA) entities and describing their model
@@ -30,7 +30,7 @@ be employing it in this text to speed along the construction of our examples.
 
 === What's this HoL about?
 
-This hands-on lab (HoL) give you a good practical introduction to JBoss Forge. You will first install JBoss Forge, use it and then create addons to extend the capabilities of Forge. Forge can either by used with an IDE, or directly with a command line interface (CLI). 
+This hands-on lab (HoL) give you a good practical introduction to JBoss Forge. You will first install JBoss Forge, use it and then create addons to extend the capabilities of Forge. Forge can either by used with an IDE, or directly with a command line interface (CLI).
 
 The idea is that you leave this hands on lab (HoL) with a good understanding of what JBoss is, what it is not, and how it can help you in your projects. Then, you'll have your entire time to investigate a big more and, hopefully,  http://forge.jboss.org/community[contribute] ;o)
 
@@ -42,7 +42,7 @@ You have this material in your hands (either https://github.com/forge/docs/blob/
 - Using Forge : in this section you will play with Forge, create a project, add entities, scaffold a JSF and AngularJS web application, generate some Arquillian tests and deploy it on WildFly
 - Developing Forge : in this section you will quickly create a full web application, build extensions, and add these extensions to the application
 
-If Forge is already installed, just go to the "Using Forge" section ans tart using it. If you already know JBoss Forge a bit, jump to the section on "Developing Forge" and start hacking some addons. This "à la carte" mode allows you to make the most of this 3 hours long hands on lab.
+If Forge is already installed, just go to the "Using Forge" section and start using it. If you already know JBoss Forge a bit, jump to the section on "Developing Forge" and start hacking some addons. This "à la carte" mode allows you to make the most of this 3 hours long hands on lab.
 
 === What do you have to do?
 
