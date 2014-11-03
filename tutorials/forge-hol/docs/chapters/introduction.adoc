@@ -32,7 +32,7 @@ be employing it in this text to speed along the construction of our examples.
 
 This hands-on lab (HoL) should give you a good practical introduction to JBoss Forge. You will first install JBoss Forge, use it and then create addons to extend the capabilities of Forge. Forge can either be used with an IDE, or directly with a command line interface (CLI).
 
-The idea is that you leave this hands on lab (HoL) with a good understanding of what JBoss Forge is, what it is not, and how it can help you in your projects. Then, you'll have your entire time to investigate a bit more and, hopefully,  http://forge.jboss.org/community[contribute] ;o)
+The idea is that you leave this hands on lab (HoL) with a good understanding of what JBoss Forge is, what it is not, and how it can help you in your projects. Then, you'll have your entire time to investigate a bit more and, hopefully,  http://forge.jboss.org/community[contribute].
 
 === How does this HoL work?
 
