@@ -1,5 +1,5 @@
 == Installing Forge
-
+[[installing-forge]]
 
 === Installing Forge CLI
 Download the http://red.ht/1vEB0v0[ZIP] to install Forge natively on your preferred operating system.
