@@ -2,7 +2,7 @@
 
 
 === Installing Forge CLI
-Download the https://repository.jboss.org/nexus/service/local/artifact/maven/redirect?r=releases&g=org.jboss.forge&a=forge-distribution&v=LATEST&e=zip&c=offline[ZIP] to install Forge natively on your preferred operating system.
+Download the http://red.ht/1vEB0v0[ZIP] to install Forge natively on your preferred operating system.
 
 ==== Windows 
 
