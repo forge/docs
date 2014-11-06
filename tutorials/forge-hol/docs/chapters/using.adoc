@@ -21,6 +21,12 @@ Setting up a new project involves a lot of activities. You basically rely on a b
 
 ==== JBDS
 
+=== Scaffolding RESTEndpoints
+
+==== CLI
+
+==== JBDS
+
 === Deploying on JBoss
 
 ==== CLI
