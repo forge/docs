@@ -140,7 +140,31 @@ getPrice()::java.lang.Float                        setId(java.lang.Long)::void  
 
 === Scaffolding JSF
 
+JSF is the default Java EE user interface framework, and so, JBoss Forge has a great support for it. In fact, Forge can scaffold an entire CRUD web application very easily. The JSF generated application follows several patterns and best practices : usage of CDI conversation, extended persistence context, JSF converters and so on. If you don't believe it, just try it. 
+
 ==== CLI
+
+Now that we have created fields in the entities, it’s time to scaffold web pages for these entities. We can either scaffold per entity, or use a wildcard to let Forge know it can generate a UI for each entity
+
+[code, script]
+----
+[model]$ scaffold-generate --targets org.cdbookstore.model.*
+----
+
+This has the same effect of scaffolding per entity :
+
+[code, script]
+----
+[model]$ scaffold-generate --targets org.cdbookstore.model.Book
+[model]$ scaffold-generate --targets org.cdbookstore.model.Author
+----
+
+By default Forge scaffolds a web application with JSF 2.0 but you can change this configuration by executing the `faces-setup` command. In fact, most of the Forge commands can be setup (e.g. `jpa-setup`, `servlet-setup`...)
+
+[code, script]
+----
+$ faces-setup --facesVersion 2.2
+----
 
 ==== JBDS
 
