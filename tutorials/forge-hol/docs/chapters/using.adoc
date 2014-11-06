@@ -1,5 +1,13 @@
 == Using Forge
 
+Forge is a code generator engine and it can be used through multiple UIs such as
+
+- Command Line Interface (CLI)
+- JBoss Developer Studio (JBDS)
+
+In this section you will be getting used to Forge by doing small tasks, either with CLI, JBDS, or both. JBoss Forge doesn't create any dependency on your code, it just generates it. So you can switch from CLI, to JBDS, to your own IDE without getting on Forge's way.
+
+But let's get started.
 
 === Creating a new project
 
