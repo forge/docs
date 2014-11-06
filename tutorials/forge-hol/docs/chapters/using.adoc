@@ -354,7 +354,8 @@ Enough, talking, let's install the http://forge.jboss.org/addon/org.jboss.forge.
 
 [code, console]
 ----
-[cdbookstore]$ addon-install-from-git --url https://github.com/jerr/as-forge-addon.git --coordinate org.jboss.forge.addon:as --ref forge2
+[cdbookstore]$ addon-install-from-git --url https://github.com/jerr/as-addon  --coordinate org.jboss.forge.addon:as,2.0.0-SNAPSHOT
+[cdbookstore]$ addon-install-from-git --url https://github.com/jerr/jboss-as-addon  --coordinate org.jboss.forge.addon:jboss-as-wf8,2.0.0-SNAPSHOT
 ----
 
 Now that you installed this new add-on, you get new `as-setup` command : 
