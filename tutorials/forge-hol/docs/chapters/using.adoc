@@ -170,6 +170,8 @@ $ faces-setup --facesVersion 2.2
 
 === Scaffolding RESTEndpoints
 
+REST is a very popular technology nowadays. If you want to create REST endpoints on our entities, or if you want to add a REST endpoint on your existing Java EE web application, Forge is there to help. Forge can quickly scaffold REST endpoints for each entity, giving you a set of CRUD methods. And again, generating all the code plumbing and following best practices. 
+
 ==== CLI
 
 ==== JBDS
