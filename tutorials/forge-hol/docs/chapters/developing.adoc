@@ -25,7 +25,7 @@ you need as a start so you will not miss anything. Forge will also not create an
 Before creating the Envers addon, you need to start Forge. Please make sure that you have followed the instructions
 in <<installing-forge>> before that. You can create a new addon if you run the following command in the Forge CLI: +
 
-[code, script]
+[source, console]
 ----
 project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon --addons org.jboss.forge.addon:javaee,2.12.0.Final
 ----
@@ -55,7 +55,7 @@ for the third option.
 
 If you are running from the command line interface, type in: +
 
-[code, script]
+[source, console]
 ----
 addon-new-ui-command --named EnversSetupCommand --commandName "Envers: Setup" --categories "Auditing"
 ----
@@ -200,12 +200,12 @@ executed. +
 Now that we have a command the enables Hibernate Envers, it is time to add another command that will turn on auditing
 for a given JPA entity.
 
-==== Developing the "Envers: Audit entity" command
+==== Adding some UI with the "Envers: Audit entity" command
 
 We will create the class for the new command in the same way that we created the one for "Envers: Setup": with the help
 of Forge. If you are running the CLI, then simply type:
 
-[code, script]
+[source, console]
 ----
 addon-new-ui-command --named EnversAuditEntityCommand --commandName "Envers: Audit entity" --categories "Auditing"
 ----
@@ -380,4 +380,105 @@ beginning of this chapter.
 
 ==== Installing and trying the Envers addon
 
-=== Developing Logger addon
+==== Forge configuration and Forge command execution listeners
+
+In this final section of this chapter we will show you some more features that you could use when developing Forge
+addons. In order to showcase those, we will add a new requirement to the envers addon. Suppose that we want when we
+set it up to state that we want every new JPA entity that we create to be automatically audited. This means that the
+Envers: Setup command should be executable more than once, but it should add the Hibernate Envers dependency in the POM
+only the first time it was executed. +
+
+So, our first job is to enhance our setup command with UI in the form of a checkbox that asks the user whether they
+want their JPA entities to be automatically auditable. We'll use again the familiar `UIInput` class, but this time
+we'll generify it with Boolean. This will tell the IDE integration of Forge to automatically create a checkbox:
+
+[source, java]
+----
+   @Inject
+   @WithAttributes(label = "Audit automatically new entities",
+      description = "Automatically make an entity auditable after it is created")
+   private UIInput<Boolean> enableAutoAudit;
+----
+
+Let's now add the checkbox to the command dialog using the `UIBuilder`:
+
+[source, java]
+----
+   @Override
+   public void initializeUI(UIBuilder builder) throws Exception
+   {
+      builder.add(enableAutoAudit);
+   }
+----
+
+Next, we are going to make it possible running the setup command numerous times without polluting our POM file with as
+many dependencies to Hibernate Envers. For that we are going to use something as familiar - the DependencyFacet:
+
+[source, java]
+----
+   @Override
+   public Result execute(UIExecutionContext context) throws Exception
+   {
+      Dependency dependency = DependencyBuilder
+                     .create(HIBERNATE_GROUP_ID)
+                     .setArtifactId(ENVERS_ARTIFACT_ID)
+                     .setVersion("4.3.6.Final")
+                     .setScopeType("provided");
+      if (!getSelectedProject(context).getFacet(DependencyFacet.class)
+                                      .hasDirectDependency(dependency))
+      {
+         dependencyInstaller.install(getSelectedProject(context), dependency);
+      }
+
+      return Results.success("Envers was successfully setup for the current project!");
+   }
+----
+
+Finally we want to tell potentially other addons and commands whether the user wants or not to automatically add
+auditing to newly created JPA entities. For that we can use Forge's configuration. It is file based key-value-pair API,
+which can be used for storing project or Forge settings. The pairs are stored in forge.xml file. Depending whether the
+config concerns the project or Forge itself, it is located either in the project root directory (this is the only
+non-project artifact that Forge creates) or under ~/.forge directory respectively. +
+
+In order to get hold of the project configuration, you need to ask the `ConfigurationFacet` for it:
+[source, java]
+----
+      Configuration config = getSelectedProject(context)
+               .getFacet(ConfigurationFacet.class)
+               .getConfiguration();
+----
+
+Just for the sake of completeness, the global Forge configuration is available through CDI injection:
+
+[source, java]
+----
+   @Inject
+   private Configuration config;
+----
+
+Using the configuration API is as straightforward as using the `Hashtable` API for example. We can add this line in the
+`execute` method just before the return statement:
+
+[source, java]
+----
+      config.setProperty("autoAudit", enableAutoAudit.getValue());
+----
+
+Now, whenever and wherever we want to find whether the user has decided to automatically audit new JPA entities, we'll
+just need to lookup the _autoAudit_ entry in the project configuration. +
+
+We can furthermore enhance the UI of our command by reading the configuration upon building it and finding out what is
+the current value of _autoAudit_. Based on that we can change the default value of our checkbox. For example, if the
+user has already run the setup command and has checked the checkbox, the next time when they run it, we want it checked
+rather than unchecked. As usually we want to take care of the situation when the entry is not available at all, i.e. the
+property is null:
+
+[source, java]
+----
+      Configuration config = getSelectedProject(builder)
+               .getFacet(ConfigurationFacet.class)
+               .getConfiguration();
+      Object auditSettings = config.getProperty(AUTO_AUDIT_CONFIG_ENTRY);
+      enableAutoAudit.setDefaultValue(
+               auditSettings == null ? false : (Boolean) auditSettings);
+----
