@@ -1,6 +1,6 @@
 == Using Forge
 
-Forge is a code generator engine and it can be used through multiple UIs such as
+Forge is a code generator engine and it can be used through multiple UIs such as:
 
 - Command Line Interface (CLI)
 - JBoss Developer Studio (JBDS)
