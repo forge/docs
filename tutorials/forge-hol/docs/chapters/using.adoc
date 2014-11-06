@@ -15,6 +15,20 @@ Setting up a new project involves a lot of activities. You basically rely on a b
 
 ==== CLI
 
+The `project-new` is the one we need to quick start a project :
+
+[code, script]
+----
+project-new --named cdbookstore
+----
+
+This will create an empty Maven project structure and a `pom.xml` file. The default `groupId` is `org.cdbookstore`, `artifactId` is `cdbookstore` and version number `1.0.0-SNAPSHOT`. Also, the default project created is a web application, that's why you can see a `packaging` of type `war` and `maven-war-plugin` defined. If you want to change any of these parameters, just press `TAB` after a command and you will get all the parameters :
+
+[code, script]
+----
+project-new --named cdbookstore --topLevelPackage com.example.project --projectFolder /directory/path --finalName cdbookwebapp --version 1.0.0.Final
+----
+
 ==== JBDS
 
 === Setting up persistence and validation
