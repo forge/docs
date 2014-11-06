@@ -279,6 +279,21 @@ $ faces-setup --facesVersion 2.2
 
 ==== JBDS
 
+In JBDS it's simple too. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Scaffold: Generate_, choose _Faces_ as Scaffold Type:
+
+image::using/faces-scaffold.png[title="Configuring Faces Scaffold"]
+
+The next step you can see a configuration winzard:
+
+image::using/faces-configuration-scaffold.png[title="Setup Facets"]
+
+By default Forge scaffolds set this values, but you can change this configuration as well. +
+In next step you can select that entity you want generate scaffold, this case we'll generate for all:
+
+image:using/select-jpa-entities.png[title="Selecting JPA entities"]
+
+click in finish and JBoss Forge will create all it needs.
+
 === Scaffolding RESTEndpoints
 
 REST is a very popular technology nowadays. If you want to create REST endpoints on our entities, or if you want to add a REST endpoint on your existing Java EE web application, Forge is there to help. Forge can quickly scaffold REST endpoints for each entity, giving you a set of CRUD methods. And again, generating all the code plumbing and following best practices. 
