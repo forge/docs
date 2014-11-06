@@ -19,21 +19,58 @@ The `project-new` is the one we need to quick start a project :
 
 [code, script]
 ----
-project-new --named cdbookstore
+$ project-new --named cdbookstore
 ----
 
 This will create an empty Maven project structure and a `pom.xml` file. The default `groupId` is `org.cdbookstore`, `artifactId` is `cdbookstore` and version number `1.0.0-SNAPSHOT`. Also, the default project created is a web application, that's why you can see a `packaging` of type `war` and `maven-war-plugin` defined. If you want to change any of these parameters, just press `TAB` after a command and you will get all the parameters :
 
 [code, script]
 ----
-project-new --named cdbookstore --topLevelPackage com.example.project --projectFolder /directory/path --finalName cdbookwebapp --version 1.0.0.Final
+$ project-new --named cdbookstore --topLevelPackage com.example.project --projectFolder /directory/path --finalName cdbookwebapp --version 1.0.0.Final
 ----
 
 ==== JBDS
 
 === Setting up persistence and validation
 
+Most of the Java EE applications need a relational database, map entities to it and do some sort of validation. Again, with JBoss Forge it is very easy to setup the persistence configuration, create an entity (or an embeddable), add fields to it and Bean Validation constraints. 
+
 ==== CLI
+
+To create a new JPA entity, let's use the `jpa-new-entity` command : 
+
+[code, script]
+----
+$ jpa-new-entity --named Book
+----
+
+This command has several effects. First of all, it has created a `persistence.xml` file in the right place (under the `META-INF` directory) with all the default configuration for Hibernate. Then, it has created a `Book` entity under the subpackage `model`. Notice that this entity already has an `id` and `version` with its getters/setters. As you can see, the good thing with Forge is that with only one command all is setup and ready to go. 
+
+If you do not wish to use the Java EE container default data-source, you can also specify additional connection parameters such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need configure your application server to provide this new data-source and/or database connection.
+
+[code, script]
+----
+$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
+----
+
+Then, let's create a few fields. Again, one single command end Forge will do its best to simplify our lives :
+
+[code, script]
+----
+$ jpa-new-field --named title
+----
+
+This creates an attribute called `title` of type `String` with get/set methods. Notice that Forge has also updated the `toString` method. Let's add more commands with different parameters (remember to press `TAB` to get the parameters) :
+
+[code, script]
+----
+$ jpa-new-field --named description --length 2000
+$ jpa-new-field --named price --type java.lang.Float
+$ jpa-new-field --named nbOfPages --type java.lang.Integer
+$ jpa-new-field --named publicationDate --typeName java.util.Date --temporalType DATE
+----
+
+As you can see, Forge has a all set of parameters to quickly create attributes and customize their JPA mapping.
 
 ==== JBDS
 
