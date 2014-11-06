@@ -41,7 +41,7 @@ To create a new JPA entity, let's use the `jpa-new-entity` command :
 
 [code, script]
 ----
-$ jpa-new-entity --named Book
+[cdbookstore]$ jpa-new-entity --named Book
 ----
 
 This command has several effects. First of all, it has created a `persistence.xml` file in the right place (under the `META-INF` directory) with all the default configuration for Hibernate. Then, it has created a `Book` entity under the subpackage `model`. Notice that this entity already has an `id` and `version` with its getters/setters. As you can see, the good thing with Forge is that with only one command all is setup and ready to go. 
@@ -50,24 +50,24 @@ If you do not wish to use the Java EE container default data-source, you can als
 
 [code, script]
 ----
-$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
+[cdbookstore]$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
 ----
 
 Then, let's create a few fields. Again, one single command end Forge will do its best to simplify our lives :
 
 [code, script]
 ----
-$ jpa-new-field --named title
+[Book.java]$ jpa-new-field --named title
 ----
 
 This creates an attribute called `title` of type `String` with get/set methods. Notice that Forge has also updated the `toString` method. Let's add more commands with different parameters (remember to press `TAB` to get the parameters) :
 
 [code, script]
 ----
-$ jpa-new-field --named description --length 2000
-$ jpa-new-field --named price --type java.lang.Float
-$ jpa-new-field --named nbOfPages --type java.lang.Integer
-$ jpa-new-field --named publicationDate --typeName java.util.Date --temporalType DATE
+[Book.java]$ jpa-new-field --named description --length 2000
+[Book.java]$ jpa-new-field --named price --type java.lang.Float
+[Book.java]$ jpa-new-field --named nbOfPages --type java.lang.Integer
+[Book.java]$ jpa-new-field --named publicationDate --typeName java.util.Date --temporalType DATE
 ----
 
 As you can see, Forge has a all set of parameters to quickly create attributes and customize their JPA mapping.
