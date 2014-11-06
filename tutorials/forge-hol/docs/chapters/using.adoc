@@ -207,6 +207,21 @@ deleteById(java.lang.Long)::javax.ws.rs.core.Response          listAll(java.lang
 
 === Creating Arquillian tests
 
+http://arquillian.org/[Arquillian] is an innovative and highly extensible testing platform for the JVM that enables developers to easily create automated integration, functional and acceptance tests for Java middleware. Picking up where unit tests leave off, Arquillian handles all the plumbing of container management, deployment and framework initialization so you can focus on the task at hand, writing your tests. Real tests. In short…
+
+Arquillian brings the test to the runtime so you don’t have to manage the runtime from the test (or the build). Arquillian eliminates this burden by covering all aspects of test execution, which entails:
+
+- Managing the lifecycle of the container (or containers)
+- Bundling the test case, dependent classes and resources into a ShrinkWrap archive (or archives)
+- Deploying the archive (or archives) to the container (or containers)
+- Enriching the test case by providing dependency injection and other declarative services
+- Executing the tests inside (or against) the container
+- Capturing the results and returning them to the test runner for reporting
+
+To avoid introducing unnecessary complexity into the developer’s build environment, Arquillian integrates seamlessly with familiar testing frameworks (e.g., JUnit 4, TestNG 5), allowing tests to be launched using existing IDE, Ant and Maven test plugins — without any add-ons.
+
+==== Installing the Arquillian Forge addon
+
 ==== CLI
 
 ==== JBDS
