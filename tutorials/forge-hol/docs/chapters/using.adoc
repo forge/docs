@@ -104,7 +104,7 @@ By default a JPA field is of type `String`. With the `--type` parameter we can c
 
 [code, script]
 ----
-Book.java]$ jpa-new-entity --named Author
+[Book.java]$ jpa-new-entity --named Author
 [Author.java]$ jpa-new-field --named firstName
 [Author.java]$ cd ../Book.java
 [Book.java]$ jpa-new-field --named author --type org.cdbookstore.model.Author --relationshipType Many-to-One
@@ -142,6 +142,112 @@ getPrice()::java.lang.Float                        setId(java.lang.Long)::void  
 
 
 ==== JBDS
+
+While from the JBDS, after opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), 
+you should choose _JPA: New Entity_ and you'll see a configuration window. 
+This window come configured with Java EE container default data-source, but if you not do wish to use it, you can change your configuration as specified before with CLI.
+In first step you need setup JPA in your project:
+
+image::using/jpa-setup.png[title="Setup JPA"]
+
+The next step you need configure your connection settings:
+
+image::using/configure-connection-settings.png[title="Configuring Connection Settings"]
+
+After the configuration step, you can create your first entity. +
+Enter _Book_ as Entity name, _org.cdbookstore.model_ in Target package and click in finish.
+
+image::using/jpa-new-entity.png[title="Creating a new Entity"]
+
+Then you need add fields to your Entity. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), you should
+choose _JPA: New Field_ and select the _Book_ as Target entity, _title_ as Field Name, _String_ as Type and click in 
+finish:
+
+image::using/new-field.png[title="Creating a new field in Entity"]
+
+Repeat the step to create all field's Book class:
+[source]
+--
+Field name: description | Length: 2000
+Field name: price | Type: java.lang.Float
+Field name: nbOfPages | Type: java.lang.Integer
+Field name: publicationDate | Type java.util.Date | Temporal Type: DATE
+--
+
+Now you need to specify that a book is written in a certain language. 
+We'll create a Java enum and then have it as a JPA Enumerated in the Book entity. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), you should
+choose _Java: New Enum_ and enter _org.cdbookstore.model_ in Package name and _Language_ in Type Name:
+
+image::using/new-enum.png[title="Creating a new Enum"]
+
+Now you need add new constants to it. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Java: New Enum Const_
+and add all consts, this case:
+[source]
+--
+ENGLISH
+FRENCH
+--
+
+and click finish:
+
+image::using/new-enum-const.png[title="Creating a new Enum Constant"]
+
+Now, you need add this enum as field in book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _JPA: New Field_ 
+and select the _Book_ as Target Entity, enter _language_ as Field name and select _org.cdbookstore.model.Language_ as Field Type:
+
+image:using/new-enum-jpa-field.png[title="Creating a new Enum field in Entity"]
+
+Now you need create a new Entity (Same that you did with Book):
+[source]
+--
+Entity Name: Author
+--
+
+and create a new field to it (Same that you did in Book):
+[source]
+--
+Field Name: firstName | Type: String
+--
+
+Then you need to have a Many-to-One relationship with `Book`. 
+After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _JPA: New Field_ select the _Book_ as Target Entity
+enter _language_ as Field name, select _org.cdbookstore.model.Language_ as Field Type and mark _Many-to-One_ as Relationship Type and click finish:
+
+image::using/new-relationship.png[title="Creating a new relationship"]
+
+You can configure your relationship in next step as well:
+
+image::using/relationship-configuration.png[title="Configuring relationship"]
+
+Forge takes care of all the JPA relational mapping between both entities. +
+Now, on an entity, we can add Bean Validation constraints. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Constrait: Add_,
+you'll see a configuration window as in first step of the _JPA: New Entity_ that you did before:
+
+image::using/configure-constraint.png[title="Configuring Constraint"]
+
+You should choose the _Generic Java EE_ as Bean Validation provider and checked in Provided by Application Server?. 
+If you don't want the default configuration provided by Application Server you can change your 
+configurations as well. The next step you need choose _org.cdbookstore.model.Book_ as Class:
+
+image::using/add-constraint.png[title="Adding Constraint"]
+
+In next step you need specify what's _Property_ and what's _Constraint_. 
+This case will need add NotNull on _title_ property:
+
+image::using/add-notnull-constraint.png[title="Adding NotNull Constraint"]
+
+You can define if you want on property or on property accessor.
+The next step you can configure _payload_, _groups_ and _message_:
+
+image:using/configure-constraint.png[title="Configuring Constraint"]
+
+click in finish. You need add more two constraints:
+[source]
+--
+Constraint: Past | Property: publicationDate
+Constraint: Size | Max: 3000 |  Property: description
+--
+
 
 === Scaffolding JSF
 
