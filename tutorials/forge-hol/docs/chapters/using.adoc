@@ -325,9 +325,66 @@ deleteById(java.lang.Long)::javax.ws.rs.core.Response          listAll(java.lang
 
 ==== JBDS
 
-=== Deploying on JBoss
+=== Deploying on WildFly
 
-==== CLI
+Do we need to introduce http://wildfly.org/[WildFly]? Quickly then. WildFly is a flexible, lightweight, managed application runtime that helps you build amazing applications... and we going to need it to deploy our web application and REST endpoints. For that, we have several options : http://wildfly.org/downloads/[download] it, install, execute and deploy our web application, or use a JBoss Forge addon. Let's try that.
+
+==== Installing the JBoss AS Forge addon
+
+The beauty of JBoss Forge is that it's extensible. In fact, Forge is a add-on container (called Furnace) and everything is seen as an extension (as a matter of fact, the CLI is an add-on!). To see the list of add-ons, juste visit the Forge documentation(http://forge.jboss.org/addons). And if you want to see all the already installed add-ons, execute the following command : 
+
+[code, console]
+----
+[cdbookstore]$ addon-list
+Currently installed addons:
+org.arquillian.forge:arquillian-addon,1.0.0-SNAPSHOT
+org.jboss.forge.addon:addon-manager,2.12.2-SNAPSHOT
+org.jboss.forge.addon:addon-manager-spi,2.12.2-SNAPSHOT
+org.jboss.forge.addon:addons,2.12.2-SNAPSHOT
+org.jboss.forge.addon:as,2.0.0-SNAPSHOT
+org.jboss.forge.addon:as-jboss-as7,2.0.0-SNAPSHOT
+org.jboss.forge.addon:as-jboss-wf8,2.0.0-SNAPSHOT
+org.jboss.forge.addon:as-spi,2.0.0-SNAPSHOT
+org.jboss.forge.addon:bean-validation,2.12.2-SNAPSHOT
+org.jboss.forge.addon:configuration,2.12.2-SNAPSHOT
+...
+----
+
+Enough, talking, let's install the http://forge.jboss.org/addon/org.jboss.forge.addon:as[WildFly add-on]. For that, in the Forge console just type the following command (and wait for Maven to download the Internet) :
+
+[code, console]
+----
+[cdbookstore]$ addon-install-from-git --url https://github.com/jerr/as-forge-addon.git --coordinate org.jboss.forge.addon:as --ref forge2
+----
+
+Now that you installed this new add-on, you get new `as-setup` command : 
+
+[code, console]
+----
+[cdbookstore]$ as-setup --server wildfly8
+----
+
+Wait a bit until WildFly is downloaded.... (in the meantime you can go to `~/.forge/addons` and have a look at what's happening... you can even check the logs under `~/.forge/addons`)... ok, now that JBoss is downloaded into your local Maven directory... there it is.... just enter `as`, press `TAB` and you will see new commands : 
+
+[code, console]
+----
+[cdbookstore]$ as-
+as-deploy  as-setup  as-shutdown  as-start  as-undeploy
+----
+
+So let's build the application, start JBoss with `as-start` and deploy our application with `as-deploy` :
+
+[code, console]
+----
+[cdbookstore]$ build
+[cdbookstore]$ as-start
+(...)
+JBoss logs
+(...)
+[cdbookstore]$ as-deploy
+----
+
+WildFly is started, the application is deployed, you can now go to http://localhost:8080/cdbookstore and create new books and authors. 
 
 ==== JBDS
 
