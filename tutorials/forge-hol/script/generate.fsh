@@ -2,7 +2,7 @@
 #  Install Addons  #
 #  ##############  #
 #  If the following plugins are not installed
-#  forge install-plugin arquillian
+#  addon-install-from-git --url https://github.com/forge/addon-arquillian.git --coordinate org.arquillian.forge:arquillian-addon
 
 
 
@@ -379,21 +379,31 @@ rest-generate-endpoints-from-entities --targets org.jboss.forge.hol.petstore.mod
 
 # JSF Beacking Beans
 # ##################
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/view/CountryBean.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/view/CustomerBean.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/view/CategoryBean.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/view/ProductBean.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/view/ItemBean.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/view/OrderLineBean.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/view/PurchaseOrderBean.java ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.view.CountryBean ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.view.CustomerBean ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.view.CategoryBean ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.view.ProductBean ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.view.ItemBean ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.view.OrderLineBean ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.view.PurchaseOrderBean ;
 
 # REST Endpoints
 # ##############
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/rest/CountryEndpoint.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/rest/CustomerEndpoint.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/rest/CategoryEndpoint.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/rest/ProductEndpoint.java ;
-arquillian-create-test --value petstore/src/main/java/org/jboss/forge/hol/petstore/rest/ItemEndpoint.java ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.CountryEndpoint ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.CustomerEndpoint ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.CategoryEndpoint ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.ProductEndpoint ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.ItemEndpoint ;
+
+# Services
+# ##############
+arquillian-create-test --targets org.jboss.forge.hol.petstore.service.CountryService ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.service.CustomerService ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.service.CategoryService ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.service.ProductService ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.service.ItemService ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.service.PurchaseOrderService ;
+arquillian-create-test --targets org.jboss.forge.hol.petstore.service.OrderLineService ;
 
 
 
