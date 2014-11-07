@@ -26,7 +26,7 @@ This will create an empty Maven project structure and a `pom.xml` file. The defa
 
 [source, console]
 ----
-$ project-new --named cdbookstore --topLevelPackage com.example.project --projectFolder /directory/path --finalName cdbookwebapp --version 1.0.0.Final
+$ project-new --named cdbookstore --topLevelPackage com.example.project --targetLocation /directory/path --finalName cdbookwebapp --version 1.0.0.Final
 ----
 
 ==== JBDS
@@ -58,7 +58,9 @@ If you do not wish to use the Java EE container default data-source, you can als
 [cdbookstore]$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
 ----
 
-Then, let's create a few fields. Again, one single command end Forge will do its best to simplify our lives :
+If you have executed the `jpa-setup` command, you've noticed that the prompt has changed: you went from `[cdbookstore]` to `[persistence.xml]`. In Forge, the prompt always tells you where you are. You can even enter the command `pwd` or `ls`. For now, let's go back into the `Book` entity: enter `cd~~` brings you to the root directory, and then `cd src/main/java/org/cdbookstore/model/Book.java`. 
+
+So, let's create a few fields in the `Book` entity. Again, one single command end Forge will do its best to simplify our lives :
 
 [source, console]
 ----
@@ -72,7 +74,7 @@ This creates an attribute called `title` of type `String` with get/set methods. 
 [Book.java]$ jpa-new-field --named description --length 2000
 [Book.java]$ jpa-new-field --named price --type java.lang.Float
 [Book.java]$ jpa-new-field --named nbOfPages --type java.lang.Integer
-[Book.java]$ jpa-new-field --named publicationDate --typeName java.util.Date --temporalType DATE
+[Book.java]$ jpa-new-field --named publicationDate --type java.util.Date --temporalType DATE
 ----
 
 As you can see, Forge has a all set of parameters to quickly create attributes and customize their JPA mapping. Now let's say we want to specify that a book is written in a certain language. We can use Forge to quickly create a Java enum and then have it as a JPA Enumerated in the `Book` entity :
@@ -313,6 +315,7 @@ While "holding" most files, you may inspect them using ls. This also works on RE
 
 [source, console]
 ----
+[model]$ cd ../rest/BookEndpoint.java
 [BookEndpoint.java]$ ls
 
 [fields]
