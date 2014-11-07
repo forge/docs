@@ -50,9 +50,7 @@ public class EnversSetupCommand extends AbstractProjectCommand
       Configuration config = getSelectedProject(builder)
                .getFacet(ConfigurationFacet.class)
                .getConfiguration();
-      Object auditSettings = config.getProperty(AUTO_AUDIT_CONFIG_ENTRY);
-      enableAutoAudit.setDefaultValue(
-               auditSettings == null ? false : (Boolean) auditSettings);
+      enableAutoAudit.setDefaultValue(config.getBoolean(AUTO_AUDIT_CONFIG_ENTRY, false));
       builder.add(enableAutoAudit);
    }
 
