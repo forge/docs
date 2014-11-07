@@ -17,14 +17,14 @@ Setting up a new project involves a lot of activities. You basically rely on a b
 
 The `project-new` is the one we need to quick start a project :
 
-[code, console]
+[source, console]
 ----
 $ project-new --named cdbookstore
 ----
 
 This will create an empty Maven project structure and a `pom.xml` file. The default `groupId` is `org.cdbookstore`, `artifactId` is `cdbookstore` and version number `1.0.0-SNAPSHOT`. Also, the default project created is a web application, that's why you can see a `packaging` of type `war` and `maven-war-plugin` defined. If you want to change any of these parameters, just press `TAB` after a command and you will get all the parameters :
 
-[code, console]
+[source, console]
 ----
 $ project-new --named cdbookstore --topLevelPackage com.example.project --projectFolder /directory/path --finalName cdbookwebapp --version 1.0.0.Final
 ----
@@ -44,7 +44,7 @@ Most of the Java EE applications need a relational database, map entities to it 
 
 To create a new JPA entity, let's use the `jpa-new-entity` command : 
 
-[code, console]
+[source, console]
 ----
 [cdbookstore]$ jpa-new-entity --named Book
 ----
@@ -53,21 +53,21 @@ This command has several effects. First of all, it has created a `persistence.xm
 
 If you do not wish to use the Java EE container default data-source, you can also specify additional connection parameters such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need configure your application server to provide this new data-source and/or database connection.
 
-[code, console]
+[source, console]
 ----
 [cdbookstore]$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
 ----
 
 Then, let's create a few fields. Again, one single command end Forge will do its best to simplify our lives :
 
-[code, console]
+[source, console]
 ----
 [Book.java]$ jpa-new-field --named title
 ----
 
 This creates an attribute called `title` of type `String` with get/set methods. Notice that Forge has also updated the `toString` method. Let's add more commands with different parameters (remember to press `TAB` to get the parameters) :
 
-[code, console]
+[source, console]
 ----
 [Book.java]$ jpa-new-field --named description --length 2000
 [Book.java]$ jpa-new-field --named price --type java.lang.Float
@@ -77,7 +77,7 @@ This creates an attribute called `title` of type `String` with get/set methods. 
 
 As you can see, Forge has a all set of parameters to quickly create attributes and customize their JPA mapping. Now let's say we want to specify that a book is written in a certain language. We can use Forge to quickly create a Java enum and then have it as a JPA Enumerated in the `Book` entity :
 
-[code, console]
+[source, console]
 ----
 [Book.java]$ java-new-enum --named Language --targetPackage org.cdbookstore.model
 [Language.java]$ java-new-enum-const ENGLISH
@@ -86,7 +86,7 @@ As you can see, Forge has a all set of parameters to quickly create attributes a
 
 This creates a Java enum, but notice the path on the left side : Forge CLI was set on the `Book` class (that's why you could read `[Book.java]$`). When we created the enum, the path changed to `[Language.java]$`. Like any other shell script, Forge has a certain number of commands to navigate between directories, classes or files (you will find the full list of commands in the Appendix). So, to go back to the `Book` entity we just use the `cd` command :
 
-[code, console]
+[source, console]
 ----
 [Language.java]$ cd ..
 [model]$ cd Book.java
@@ -95,14 +95,14 @@ This creates a Java enum, but notice the path on the left side : Forge CLI was s
 
 Now that we are in the `Book` entity, we can create a new enum field with the following command : 
 
-[code, console]
+[source, console]
 ----
 [Book.java]$ jpa-new-field --named language --type org.cdbookstore.model.Language
 ----
 
 By default a JPA field is of type `String`. With the `--type` parameter we can choose from basic datatypes (`int`, `byte`, `char`…), enum, or from other entities and choosing your cardinality (One-to-One, One-to-Many, Many-to-One, Many-to-Many). So let's create a new `Author` entity and have a Many-to-One relationship with `Book` :
 
-[code, console]
+[source, console]
 ----
 [Book.java]$ jpa-new-entity --named Author
 [Author.java]$ jpa-new-field --named firstName
@@ -112,7 +112,7 @@ By default a JPA field is of type `String`. With the `--type` parameter we can c
 
 Forge takes care of all the JPA relational mapping between both entities. Now, on an entity, we can add Bean Validation constraints on properties with the `constraint-add` command.
 
-[code, console]
+[source, console]
 ----
 [Book.java]$ constraint-add --constraint NotNull --onProperty title
 [Book.java]$ constraint-add --constraint Past --onProperty publicationDate
@@ -121,7 +121,7 @@ Forge takes care of all the JPA relational mapping between both entities. Now, o
 
 Behind the scenes Forge as created a `validation.xml` file, added the Bean Validation dependency and the needed constraints. BTW if you want to have a quick look at your code, you can use the `more` command or even `ls` your class :
 
-[code, console]
+[source, console]
 ----
 [Book.java]$ ls
 
@@ -257,14 +257,14 @@ JSF is the default Java EE user interface framework, and so, JBoss Forge has a g
 
 Now that we have created fields in the entities, it’s time to scaffold web pages for these entities. We can either scaffold per entity, or use a wildcard to let Forge know it can generate a UI for each entity
 
-[code, console]
+[source, console]
 ----
 [model]$ scaffold-generate --targets org.cdbookstore.model.*
 ----
 
 This has the same effect of scaffolding per entity :
 
-[code, console]
+[source, console]
 ----
 [model]$ scaffold-generate --targets org.cdbookstore.model.Book
 [model]$ scaffold-generate --targets org.cdbookstore.model.Author
@@ -272,7 +272,7 @@ This has the same effect of scaffolding per entity :
 
 By default Forge scaffolds a web application with JSF 2.0 but you can change this configuration by executing the `faces-setup` command. In fact, most of the Forge commands can be setup (e.g. `jpa-setup`, `servlet-setup`...)
 
-[code, console]
+[source, console]
 ----
 $ faces-setup --facesVersion 2.2
 ----
@@ -302,7 +302,7 @@ REST is a very popular technology nowadays. If you want to create REST endpoints
 
 Now that we have a few entities (`Book` and `Author`), it’s time to generate REST endpoints. Like for JSF, it is just a matter of executing one single command :
 
-[code, console]
+[source, console]
 ----
 [model]$ rest-generate-endpoints-from-entities --targets org.cdbookstore.model.*
 ----
@@ -311,7 +311,7 @@ This is the easiest command to generate the REST endpoints, but like most Forge 
 
 While "holding" most files, you may inspect them using ls. This also works on REST endpoints. So, if you `cd` `BookEndpoint.java` and execute the command `ls`, this is what you get :
 
-[code, console]
+[source, console]
 ----
 [BookEndpoint.java]$ ls
 
@@ -344,7 +344,7 @@ Do we need to introduce http://wildfly.org/[WildFly]? Quickly then. WildFly is a
 
 The beauty of JBoss Forge is that it's extensible. In fact, Forge is a add-on container (called Furnace) and everything is seen as an extension (as a matter of fact, the CLI is an add-on!). To see the list of add-ons, juste visit the Forge documentation(http://forge.jboss.org/addons). And if you want to see all the already installed add-ons, execute the following command : 
 
-[code, console]
+[source, console]
 ----
 [cdbookstore]$ addon-list
 Currently installed addons:
@@ -363,7 +363,7 @@ org.jboss.forge.addon:configuration,2.12.2-SNAPSHOT
 
 Enough, talking, let's install the http://forge.jboss.org/addon/org.jboss.forge.addon:as[WildFly add-on]. For that, in the Forge console just type the following command (and wait for Maven to download the Internet) :
 
-[code, console]
+[source, console]
 ----
 [cdbookstore]$ addon-install-from-git --url https://github.com/jerr/as-addon  --coordinate org.jboss.forge.addon:as,2.0.0-SNAPSHOT
 [cdbookstore]$ addon-install-from-git --url https://github.com/jerr/jboss-as-addon  --coordinate org.jboss.forge.addon:jboss-as-wf8,2.0.0-SNAPSHOT
@@ -371,14 +371,14 @@ Enough, talking, let's install the http://forge.jboss.org/addon/org.jboss.forge.
 
 Now that you installed this new add-on, you get new `as-setup` command : 
 
-[code, console]
+[source, console]
 ----
 [cdbookstore]$ as-setup --server wildfly8
 ----
 
 Wait a bit until WildFly is downloaded.... (in the meantime you can go to `~/.forge/addons` and have a look at what's happening... you can even check the logs under `~/.forge/addons`)... ok, now that JBoss is downloaded into your local Maven directory... there it is.... just enter `as`, press `TAB` and you will see new commands : 
 
-[code, console]
+[source, console]
 ----
 [cdbookstore]$ as-
 as-deploy  as-setup  as-shutdown  as-start  as-undeploy
@@ -386,7 +386,7 @@ as-deploy  as-setup  as-shutdown  as-start  as-undeploy
 
 So let's build the application, start JBoss with `as-start` and deploy our application with `as-deploy` :
 
-[code, console]
+[source, console]
 ----
 [cdbookstore]$ build
 [cdbookstore]$ as-start
