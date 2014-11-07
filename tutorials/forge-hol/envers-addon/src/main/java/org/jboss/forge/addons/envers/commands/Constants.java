@@ -8,5 +8,6 @@ public class Constants
    static final String AUDITED_ANNOTATION = "org.hibernate.envers.Audited";
    static final String HIBERNATE_GROUP_ID = "org.hibernate";
    static final String ENVERS_ARTIFACT_ID = "hibernate-envers";
+   static final String AUTO_AUDIT_CONFIG_ENTRY = "autoAudit";
 
 }
