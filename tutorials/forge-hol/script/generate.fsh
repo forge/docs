@@ -46,9 +46,9 @@ constraint-new-annotation --named Price ;
 #  Country entity
 #  ############
 jpa-new-entity --named Country ;
-jpa-new-field --named isoCode --length 2 --columnName iso_code ;
-jpa-new-field --named name --length 80 ;
-jpa-new-field --named printableName --length 80 --columnName printable_name ;
+jpa-new-field --named isoCode --length 2 --columnName iso_code --not-nullable ;
+jpa-new-field --named name --length 80 --not-nullable ;
+jpa-new-field --named printableName --length 80 --columnName printable_name --not-nullable ;
 jpa-new-field --named iso3 --length 3 ;
 jpa-new-field --named numcode --length 3 ;
 # Constraints
@@ -69,11 +69,11 @@ java-add-annotation --annotation javax.persistence.Cacheable ;
 #  Address embeddable
 #  ############
 jpa-new-embeddable --named Address ;
-jpa-new-field --named street1 --length 50 ;
+jpa-new-field --named street1 --length 50 --not-nullable ;
 jpa-new-field --named street2 ;
-jpa-new-field --named city  --length 50 ;
+jpa-new-field --named city  --length 50 --not-nullable ;
 jpa-new-field --named state ;
-jpa-new-field --named zipcode --columnName zip_code --length 10 ;
+jpa-new-field --named zipcode --columnName zip_code --length 10 --not-nullable ;
 # Relationships
 jpa-new-field --named country --type org.jboss.forge.hol.petstore.model.Country --relationshipType Many-to-One
 # Constraints
@@ -88,10 +88,10 @@ constraint-add --onProperty zipcode --constraint NotNull ;
 #  Customer entity
 #  ############
 jpa-new-entity --named Customer ;
-jpa-new-field --named login --length 10 ;
-jpa-new-field --named password --length 256 ;
-jpa-new-field --named firstName --length 50 --columnName first_name ;
-jpa-new-field --named lastName --length 50 --columnName last_name ;
+jpa-new-field --named login --length 10 --not-nullable ;
+jpa-new-field --named password --length 256 --not-nullable ;
+jpa-new-field --named firstName --length 50 --columnName first_name --not-nullable ;
+jpa-new-field --named lastName --length 50 --columnName last_name --not-nullable ;
 jpa-new-field --named telephone ;
 jpa-new-field --named email ;
 jpa-new-field --named dateOfBirth --type java.util.Date --temporalType DATE --columnName date_of_birth ;
@@ -115,8 +115,8 @@ constraint-add --onProperty dateOfBirth --constraint Past ;
 #  Category entity
 #  ############
 jpa-new-entity  --named Category ;
-jpa-new-field --named name --length 30 ;
-jpa-new-field --named description --length 3000 ;
+jpa-new-field --named name --length 30 --not-nullable ;
+jpa-new-field --named description --length 3000 --not-nullable ;
 # Constraints
 constraint-add --onProperty name --constraint NotNull ;
 constraint-add --onProperty name --constraint Size --min 1 --max 30 ;
@@ -129,8 +129,8 @@ java-add-annotation --annotation javax.persistence.Cacheable ;
 #  Product entity
 #  ############
 jpa-new-entity --named Product ;
-jpa-new-field --named name --length 30 ;
-jpa-new-field --named description --length 3000 ;
+jpa-new-field --named name --length 30 --not-nullable ;
+jpa-new-field --named description --length 3000 --not-nullable ;
 # Relationships
 jpa-new-field --named category --type org.jboss.forge.hol.petstore.model.Category --relationshipType Many-to-One ;
 # Constraints
@@ -145,8 +145,8 @@ java-add-annotation --annotation javax.persistence.Cacheable ;
 #  Item entity
 #  ############
 jpa-new-entity --named Item ;
-jpa-new-field --named name --length 30 ;
-jpa-new-field --named description --length 3000 ;
+jpa-new-field --named name --length 30 --not-nullable ;
+jpa-new-field --named description --length 3000 --not-nullable ;
 jpa-new-field --named imagePath --columnName image_path ;
 jpa-new-field --named unitCost --type java.lang.Float --columnName unit_cost ;
 # Relationships
@@ -174,9 +174,9 @@ java-new-class --named CreditCardConverter --targetPackage org.jboss.forge.hol.p
 # CreditCard embeddable
 # ############
 jpa-new-embeddable --named CreditCard ;
-jpa-new-field --named creditCardNumber --columnName credit_card_number --length 30 ;
+jpa-new-field --named creditCardNumber --columnName credit_card_number --length 30 --not-nullable ;
 jpa-new-field --named creditCardType --type org.jboss.forge.hol.petstore.model.CreditCardType --columnName credit_card_type ;
-jpa-new-field --named creditCardExpDate --columnName credit_card_expiry_date --length 5 ;
+jpa-new-field --named creditCardExpDate --columnName credit_card_expiry_date --length 5 --not-nullable ;
 # Constraints
 constraint-add --onProperty creditCardNumber --constraint NotNull ;
 constraint-add --onProperty creditCardNumber --constraint Size --min 1 --max 30 ;
@@ -188,9 +188,11 @@ constraint-add --onProperty creditCardExpDate --constraint Size --min 1 --max 5 
 #  OrderLine entity
 #  ############
 jpa-new-entity --named OrderLine --tableName order_line ;
-jpa-new-field --named quantity --type java.lang.Integer ;
+jpa-new-field --named quantity --type java.lang.Integer --not-nullable ;
 # Relationships
 jpa-new-field --named item --type org.jboss.forge.hol.petstore.model.Item --relationshipType Many-to-One ;
+# Constraints
+constraint-add --onProperty quantity --constraint Min --value 1 ;
 
 
 #  PurchaseOrder entity
