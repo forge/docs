@@ -398,7 +398,40 @@ JBoss logs
 
 WildFly is started, the application is deployed, you can now go to http://localhost:8080/cdbookstore and create new books and authors. 
 
-==== JBDS
+==== Installing the JBoss AS Forge addon on JBDS
+
+After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Install an Addon from GIT_, enter
+_https://github.com/jerr/as-addon_ as GIT Repository URL ad _org.jboss.forge.addon:as,2.0.0-SNAPSHOT_ as Coordinate:
+
+image::using/addon-install.png[title="Installing an Addon"]
+
+You need to do the same action for:
+[source]
+--
+GIT Repository: https://github.com/jerr/jboss-as-addon | Coordinate: org.jboss.forge.addon:jboss-as-wf8,2.0.0-SNAPSHOT
+--
+
+Now, you can setup your server. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose
+_AS: Setup_, select wildfly8:
+
+image::using/as-setup.png[title="AS Setup"]
+
+The next step you can to configure the _Install directory_, _Port_ and so on:
+
+image::using/as-configuration.png[title="Configuration AS"]
+
+So let's build the application, start JBoss with `AS: Start` and deploy our application with `AS: Deploy`:
+
+Select the option _Build_ in Forge Wizard (Ctrl + 4 or CMD + 4 on Mac):
+
+image::using/build.png[title="Building"]
+
+Now start server with option _AS: Start_ and deploy application with _AS: Deploy_:
+
+image::using/as-deploy.png[title="Deployinig"]
+
+Only click finish and your application will be deployed on WildFly.
+
 
 === Creating Arquillian tests
 
