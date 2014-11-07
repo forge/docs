@@ -31,6 +31,14 @@ You will see Forge executing line by line each command in a few seconds. So what
 
 ==== The famous Java Petsore is back
 
+The good think about the http://www.oracle.com/technetwork/java/petstore1-3-1-02-139690.html[Java Petstore] is that we don't have to explain it much: most of us have heard about it. You don't? 
+
+The Java Petstore was a sample application created by Sun for its http://www.oracle.com/technetwork/java/javaee/blueprints/index.html[Java BluePrints] program. The Java Petstore was designed to illustrate how J2EE (and then Java EE) could be used to develop an eCommerce web application. Yes, the point of the Petstore is to sell pets online. The Petstore had a huge momentum and we started to see plenty of Petstore-like applications flourish. The idea was to build an application with a certain technology. Let's face it, the J2EE version was far too complex using plenty of (today outdated) http://java.sun.com/blueprints/corej2eepatterns/[design patterns]. 
+
+With a single Forge script, you will generate a CRUD application that will let you manage the Pet's catalog. 
+
+==== Executing the script
+
 Download the script https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/generate.fsh
 
 === Developing Hibernate Envers addon
