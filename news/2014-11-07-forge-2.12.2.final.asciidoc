@@ -1,0 +1,76 @@
+== Forge 2.12.2.Final (Hearth) is here!
+
+The Forge Team is proud to announce that Forge 2.12.2.Final is now available! 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Install Forge from cURL*: If you're in a MacOSX/Linux environment, you can now install Forge using: curl http://forge.jboss.org/sh | sh
+* *Component Upgrades*: We've upgraded Roaster to 2.9.0.Final, which now supports JavaDoc generation/parsing. 
+* *More commands*: You can now create exception classes, CDI decorators and even DAOs from entity classes. Check the release notes below for more info.
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Antonio Goncalves
+- Devanshu
+- Salem Elrahal
+
+Release Notes - Forge - Version 2.12.2.Final
+=====================================================================
+++++
+
+        Release Notes - Forge - Version 2.12.2.Final
+    
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2113'>FORGE-2113</a>] -         command-list throws java.lang.IllegalStateException: A project is required in the current context
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2127'>FORGE-2127</a>] -         rest-setup --jaxrsVersion 2.0  adds jboss-javaee-6.0 to javaee 7.0 projects
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2137'>FORGE-2137</a>] -         Running Forge -e sets INTERACTIVE flag to false permanently
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2100'>FORGE-2100</a>] -         Upgrade to Roaster 2.9.0.Final
+</li>
+</ul>
+                    
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1896'>FORGE-1896</a>] -         Install Forge from CURL
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2076'>FORGE-2076</a>] -         Add command to generate DAOs from JPA Entities
+</li>
+</ul>
+                                                        
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2058'>FORGE-2058</a>] -         Being able to create fields with generics types
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2065'>FORGE-2065</a>] -         CDI commands should have implicit setup
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2066'>FORGE-2066</a>] -         In jta-setup version should be renamed to jtaVersion
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2068'>FORGE-2068</a>] -         When creating a new field, updating toString should be optional
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2078'>FORGE-2078</a>] -         Being able to create a new CDI decorator
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2085'>FORGE-2085</a>] -         Improving the cdi-new-bean command
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2091'>FORGE-2091</a>] -         Being able to create a new Java exception
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2101'>FORGE-2101</a>] -         jpa-new-field command should have a --not-nullable attribute
+</li>
+</ul>
+++++
