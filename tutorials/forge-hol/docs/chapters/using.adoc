@@ -15,6 +15,12 @@ Setting up a new project involves a lot of activities. You basically rely on a b
 
 ==== CLI
 
+To run Forge :
+[code, console]
+----
+$ forge
+----
+
 The `project-new` is the one we need to quick start a project :
 
 [code, console]
