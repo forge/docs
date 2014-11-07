@@ -20,8 +20,10 @@ Many thanks to the following contributors (in alphabetical order) who helped to 
 - Devanshu
 - Salem Elrahal
 
+
 Release Notes - Forge - Version 2.12.2.Final
-=====================================================================
+============================================
+
 ++++
 <h2>        Bug
 </h2>
