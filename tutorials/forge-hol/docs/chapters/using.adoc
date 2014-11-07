@@ -34,6 +34,7 @@ This will create an empty Maven project structure and a `pom.xml` file. The defa
 ----
 $ project-new --named cdbookstore --topLevelPackage com.example.project --projectFolder /directory/path --finalName cdbookwebapp --version 1.0.0.Final
 ----
+projetFolder doesn't exist, targetLocation ?
 
 ==== JBDS
 
