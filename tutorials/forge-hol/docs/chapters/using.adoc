@@ -92,6 +92,7 @@ Maybe, add cd command to be in the correct folder "Book.java", or add precisions
 [Book.java]$ jpa-new-field --named nbOfPages --type java.lang.Integer
 [Book.java]$ jpa-new-field --named publicationDate --typeName java.util.Date --temporalType DATE
 ----
+Does the parameter  "--temporalType DATE" really exist ?
 
 As you can see, Forge has a all set of parameters to quickly create attributes and customize their JPA mapping. Now let's say we want to specify that a book is written in a certain language. We can use Forge to quickly create a Java enum and then have it as a JPA Enumerated in the `Book` entity :
 
