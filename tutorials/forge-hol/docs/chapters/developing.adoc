@@ -86,9 +86,7 @@ The `getMetadata()` method should be already implemented by Forge:
 ----
 
 This will basically create a command that can be called _envers-setup_ from the CLI (note the substitution of colons and
-spaces by hyphens) and as _Envers: Setup_ in the _Auditing_ category in the Forge wizard: +
-
-image::developing/forge-envers-setup-command-wizard.png[title="_Envers: Setup_ command in the _Auditing_ category"]
+spaces by hyphens) and as _Envers: Setup_ in the _Auditing_ category in the Forge wizard +
 
 As the newly created command will not require any input from the user, we will leave the `initializeUI` method empty.
 However, in order to implement the command execution, we will need to change a little bit our class. More precisely we
@@ -382,6 +380,51 @@ beginning of this chapter.
 
 ==== Installing and trying the Envers addon
 
+Once we have our basic functionality, we can build and install our new addon. For that we should use Forge's addons
+addon. It has a very handy command: _Addon: Build and install_. You can run it from the command line by just replacing
+the spaces with hyphens and removing the colon:
+
+[source, console]
+----
+addon-build-and-install
+----
+
+If you don't specify the `projectRoot` parameter, Forge will look for the sources of your addon in the current folder.
+If this is not the intended behavior, in the CLI run the command like that:
+
+[source, console]
+----
+addon-build-and-install --projectRoot <path-to-the-addon-sources>
+----
+
+In JBDS just specify the path in the command dialog:
+
+image::developing/addon-project-root.png[title="Specifying the addon project location"]
+
+This will trigger the Maven build of the addon and if it is successful, Forge will install it in its addon repository.
+You don't have to restart the tool after that, it will automatically load the new software once it is deployed. After
+you see the success message, you can load the Forge wizard and will see the new command there:
+
+image::developing/forge-envers-setup-command-wizard.png[title="_Envers: Setup_ command in the _Auditing_ category"]
+
+Now you can set Hibernate Envers up and open one of your JPA entities, that you generated before starting to develop
+this addon, e.g. Country. You should be able to call now the other command. In the CLI:
+
+[source, console]
+----
+envers-audit-entity
+----
+
+Or in JBDS press Ctrl + 4 (or CMD + 4 on Mac) and then pick the _Envers: Audit entity_ from the wizard. Notice
+that the class that you opened in the editor (`org.jboss.forge.hol.petstore.model.Country`) was selected automatically
+for you:
+
+image::developing/audit-entity.png[title="_Envers: Audit entity_ command dialog"]
+
+Just hit Enter and the entity will get the `@Audited` annotation. +
+
+Voila! :)
+
 ==== Forge configuration and Forge command execution listeners
 
 In this final section of this chapter we will show you some more features that you could use when developing Forge
@@ -438,9 +481,9 @@ many dependencies to Hibernate Envers. For that we are going to use something as
 
 Finally we want to tell potentially other addons and commands whether the user wants or not to automatically add
 auditing to newly created JPA entities. For that we can use Forge's configuration. It is file based key-value-pair API,
-which can be used for storing project or Forge settings. The pairs are stored in forge.xml file. Depending whether the
-config concerns the project or Forge itself, it is located either in the project root directory (this is the only
-non-project artifact that Forge creates) or under ~/.forge directory respectively. +
+which can be used for storing project or Forge settings. The pairs are stored in .forge_settings file in the project
+root directory (this is the only non-project artifact that Forge creates) or in ~/.forge/forge.xml directory
+if it is the global Forge configuration. +
 
 In order to get hold of the project configuration, you need to ask the `ConfigurationFacet` for it:
 [source, java]
@@ -450,16 +493,15 @@ In order to get hold of the project configuration, you need to ask the `Configur
                .getConfiguration();
 ----
 
-Just for the sake of completeness, the global Forge configuration is available through CDI injection:
-
+TIP: the global Forge configuration is available through CDI injection:
 [source, java]
 ----
    @Inject
    private Configuration config;
 ----
 
-Using the configuration API is as straightforward as using the `Hashtable` API for example. We can add this line in the
-`execute` method just before the return statement:
+Using the configuration API is straightforward. We can add this line in the `execute` method just before the return
+statement and it will add the boolean value of the checkbox to the project configuration file:
 
 [source, java]
 ----
@@ -473,14 +515,116 @@ We can furthermore enhance the UI of our command by reading the configuration up
 the current value of _autoAudit_. Based on that we can change the default value of our checkbox. For example, if the
 user has already run the setup command and has checked the checkbox, the next time when they run it, we want it checked
 rather than unchecked. As usually we want to take care of the situation when the entry is not available at all, i.e. the
-property is null:
+property is null, by providing a default value to the `getBoolean` method:
 
 [source, java]
 ----
       Configuration config = getSelectedProject(builder)
                .getFacet(ConfigurationFacet.class)
                .getConfiguration();
-      Object auditSettings = config.getProperty(AUTO_AUDIT_CONFIG_ENTRY);
-      enableAutoAudit.setDefaultValue(
-               auditSettings == null ? false : (Boolean) auditSettings);
+      enableAutoAudit.setDefaultValue(config.getBoolean(AUTO_AUDIT_CONFIG_ENTRY, false));
 ----
+
+Now it is time for the final step in our journey: implementing automatic auditing of JPA entities. What we want now is
+every time the user creates a new entity class using Forge's _JPA: New Entity_ command, to instrument that class with
+the `@Audited` annotation. +
+
+If you want to react on the execution of a Forge command, you should implement the `CommandExecutionListener`
+interface. Its methods give you hooks to the point before a certain command is executed as well as after the execution
+completes. There are a couple of methods for the latter: once for successful and another one for erroneous outcome:
+
+[source, java]
+----
+public class JpaEntityCreationListener implements CommandExecutionListener
+{
+   @Override public void preCommandExecuted(UICommand uiCommand,
+         UIExecutionContext uiExecutionContext)
+   {
+   }
+
+   @Override public void postCommandExecuted(UICommand uiCommand,
+         UIExecutionContext uiExecutionContext, Result result)
+   {
+   }
+
+   @Override public void postCommandFailure(UICommand uiCommand,
+         UIExecutionContext uiExecutionContext, Throwable throwable)
+   {
+   }
+}
+----
+
+In our case we'll just want to implement the `postCommandExecuted` method. We want it to do its work only if the
+current command is _JPA: New Entity_
+
+[source, java]
+----
+      String commandName = uiCommand
+               .getMetadata(uiExecutionContext.getUIContext())
+               .getName();
+      if (commandName.equals("JPA: New Entity"))
+      {
+      }
+----
+
+Next we want to get hold of the project configuration to check whether automatic auditing was selected by the user. It
+was easy in the `AbstractProjectCommand` descendants to get the selected project with the respective utility method and
+then to obtain the configuration facet from there. Now we have to go through the `Projects.getSelectedProject` static
+factory method for that. It needs to get a project factory, which luckily we can inject. It would be also safe to check
+whether it is null and only then proceed to the entity instrumentation:
+
+[source, java]
+----
+   @Inject
+   private ProjectFactory projectFactory;
+
+   @Override public void postCommandExecuted(UICommand uiCommand,
+         UIExecutionContext uiExecutionContext, Result result)
+   {
+      String commandName = uiCommand
+               .getMetadata(uiExecutionContext.getUIContext())
+               .getName();
+      if (commandName.equals("JPA: New Entity") && projectFactory != null)
+      {
+         Configuration configuration = Projects
+                  .getSelectedProject(projectFactory, uiExecutionContext.getUIContext())
+                  .getFacet(ConfigurationFacet.class)
+                  .getConfiguration();
+      }
+   }
+----
+
+Now with the `Configuration` instance at hand we can go on and check what the user preference is:
+[source, java]
+----
+         if (configuration.getBoolean(AUTO_AUDIT_CONFIG_ENTRY, false))
+         {
+         }
+----
+
+We'll finally take advantage of the fact that Forge automatically selects a newly created class as the current
+resource. So, we'll get it from the current selection, we'll cast it to `JavaResource` and we'll basically do the
+same thing we did in the _Envers: Audit entity_ command:
+
+[source, java]
+----
+         if (configuration.getBoolean(AUTO_AUDIT_CONFIG_ENTRY, false))
+         {
+            try {
+               JavaResource resource = (JavaResource) uiExecutionContext
+                        .getUIContext().getSelection().get();
+               JavaClassSource javaClass = resource.getJavaType();
+               if (!javaClass.hasAnnotation(AUDITED_ANNOTATION)) {
+                  javaClass.addAnnotation(AUDITED_ANNOTATION);
+               }
+               resource.setContents(javaClass);
+            } catch (FileNotFoundException fnfe) {
+               fnfe.printStackTrace();
+            }
+         }
+----
+
+That's it. You can now try what you have done. +
+
+For your reference, the full source code of the Forge Envers addon can be download from
+https://github.com/forge/docs/tree/master/tutorials/forge-hol/envers-addon[here].
