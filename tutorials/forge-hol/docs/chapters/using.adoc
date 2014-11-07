@@ -420,7 +420,7 @@ The next step you can to configure the _Install directory_, _Port_ and so on:
 
 image::using/as-configuration.png[title="Configuration AS"]
 
-So let's build the application, start JBoss with `AS: Start` and deploy our application with `AS: Deploy`:
+So let's build the application:
 
 Select the option _Build_ in Forge Wizard (Ctrl + 4 or CMD + 4 on Mac):
 
