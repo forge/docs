@@ -1,7 +1,35 @@
 == Developing Forge
 
+Now that you've installed JBoss Forge, played with it a bit (either with CLI or JBDS), it's time to quickly develop a real web application and extend it by adding Hibernate Envers. In this section you will execute a JBoss Forge script and learn how to develop add-ons.
 
-=== Developing a web application in few seconds
+=== Developing a Java EE 7 web application in few seconds
+
+As you've seen in the previous section, with Forge you can enter a few commands, and you'll get code generated. With scaffolding you can even quickly generate a set of JSF page to have CRUD capabilities. So, even if you type on your keyboard very quickly, how can you develop an entire Java EE 7 web application in a few seconds? The answer is simple: by running a Forge script! 
+
+A forge script is just a file that contains a set of commands. The commands below create a new `Country` entity with a set of fields. As you can see we can even have comments that start with the `#` symbol. You can end you lines with a `;` but you don't have to :
+
+[source, console]
+----
+#  Country entity
+#  ############
+jpa-new-entity --named Country ;
+jpa-new-field --named isoCode --length 2 --columnName iso_code --not-nullable ;
+jpa-new-field --named name --length 80 --not-nullable ;
+jpa-new-field --named printableName --length 80 --columnName printable_name --not-nullable ;
+jpa-new-field --named iso3 --length 3 ;
+jpa-new-field --named numcode --length 3 ;
+----
+
+If you save these commands into a file called `country.fsh` then, you just have to execute it by executing : 
+
+[source, console]
+----
+[cdbookstore]$ run country.fsh
+----
+
+You will see Forge executing line by line each command in a few seconds. So what about running a bigger script?
+
+==== The famous Java Petsore is back
 
 Download the script https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/generate.fsh
 
