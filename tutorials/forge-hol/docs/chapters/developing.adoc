@@ -3,6 +3,8 @@
 
 === Developing a web application in few seconds
 
+Download the script https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/generate.fsh
+
 === Developing Hibernate Envers addon
 
 http://envers.jboss.org/[Hibernate Envers] is a Hibernate core module that enables auditing of persistence classes.
