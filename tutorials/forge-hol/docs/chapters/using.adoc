@@ -74,6 +74,16 @@ Then, let's create a few fields. Again, one single command end Forge will do its
 
 This creates an attribute called `title` of type `String` with get/set methods. Notice that Forge has also updated the `toString` method. Let's add more commands with different parameters (remember to press `TAB` to get the parameters) :
 
+
+[code, console]
+----
+[persistence.xml]$ jpa-new-field --named title
+[0] - com.example.project.model.book
+Target Entity (The targetEntity which the field will be created): [0-0] 0
+----
+I have to write '0' here because I was in "persistence.xml" folder an not "Book.java" after executing "jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource"
+Maybe, add cd command to be in the correct folder "Book.java", or add precisions
+
 [code, console]
 ----
 [Book.java]$ jpa-new-field --named description --length 2000
