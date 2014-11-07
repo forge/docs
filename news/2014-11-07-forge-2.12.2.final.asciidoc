@@ -1,4 +1,4 @@
-== Forge 2.12.2.Final (Hearth) is here!
+== Forge 2.12.2.Final (Pins) is here!
 
 The Forge Team is proud to announce that Forge 2.12.2.Final is now available! 
 
