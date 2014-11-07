@@ -325,6 +325,17 @@ deleteById(java.lang.Long)::javax.ws.rs.core.Response          listAll(java.lang
 
 ==== JBDS
 
+After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _REST: Generate Endpoints from Entities_, the first step, you need to configure the REST in your application, enter all information such as:
+
+image::using/rest-setup.png[title="Configuring REST"]
+
+The next step you'll have a list of the all entity that your application has, select all and click finish:
+
+image::using/rest-entities.png[title="Generating RESTEndpoints from JPA entities"]
+
+You can customize some values if you prefer, such as _Configuration Strategy_, _Class Name_, _Content Type_ and so on.
+
+
 === Deploying on WildFly
 
 Do we need to introduce http://wildfly.org/[WildFly]? Quickly then. WildFly is a flexible, lightweight, managed application runtime that helps you build amazing applications... and we going to need it to deploy our web application and REST endpoints. For that, we have several options : http://wildfly.org/downloads/[download] it, install, execute and deploy our web application, or use a JBoss Forge addon. Let's try that.
