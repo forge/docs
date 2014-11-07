@@ -331,6 +331,7 @@ While "holding" most files, you may inspect them using ls. This also works on RE
 
 [code, console]
 ----
+[model]$ cd ../rest/BookEndpoint.java
 [BookEndpoint.java]$ ls
 
 [fields]
