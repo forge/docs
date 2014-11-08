@@ -462,3 +462,7 @@ To avoid introducing unnecessary complexity into the developer’s build environ
 ==== CLI
 
 ==== JBDS
+
+=== Keep on playing
+
+Here we just show you a subset of JBoss Features, but don't hesitate to keep on playing with other commands (full list in appendix). Now that you feel confortable with Forge, let's jump to the next section.
