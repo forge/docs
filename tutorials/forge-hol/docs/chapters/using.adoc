@@ -453,6 +453,17 @@ To avoid introducing unnecessary complexity into the developer’s build environ
 
 ==== Installing the Arquillian Forge addon
 
+Like the WildFly add-on we just installed and used, bringing Arquillian capabilities to Forge is just a matter of installing one add-on. The easiest is to install it from a Git repository by executing the following command in the Forge console:
+
+[source, console]
+----
+[cdbookstore]$ addon-install-from-git --url https://github.com/forge/addon-arquillian.git --coordinate org.arquillian.forge:arquillian-addon
+----
+
+To make sure the add-on is properly installed, enter `arq` and press `TAB`, you should see the command `arquillian-setup`. Now, let's use it.
+
+NOTE: Don't forget to have a look at the available add-ons on http://forge.jboss.org/addons
+
 ==== CLI
 
 ==== JBDS
