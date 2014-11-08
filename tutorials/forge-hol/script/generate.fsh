@@ -273,9 +273,9 @@ cdi-new-qualifier --named Discount --targetPackage org.jboss.forge.hol.petstore.
 java-new-class --named NumberProducer --targetPackage org.jboss.forge.hol.petstore.util ;
 
 java-new-field --named vatRate --type java.lang.Float --generateGetter=false --generateSetter=false --updateToString=false ;
-java-add-annotation --annotation javax.enterprise.inject.Produces --onProperty vat ;
-java-add-annotation --annotation org.jboss.forge.hol.petstore.util.Vat --onProperty vat ;
-java-add-annotation --annotation javax.inject.Named --onProperty vat ;
+java-add-annotation --annotation javax.enterprise.inject.Produces --onProperty vatRate ;
+java-add-annotation --annotation org.jboss.forge.hol.petstore.util.Vat --onProperty vatRate ;
+java-add-annotation --annotation javax.inject.Named --onProperty vatRate ;
 
 java-new-field --named discountRate --type java.lang.Float --generateGetter=false --generateSetter=false --updateToString=false ;
 java-add-annotation --annotation javax.enterprise.inject.Produces --onProperty discountRate ;
@@ -299,6 +299,7 @@ ejb-new-bean --named OrderLineService ;
 java-new-class --named InventoryService --targetPackage org.jboss.forge.hol.petstore.service ;
 java-new-class --named ShippingService --targetPackage org.jboss.forge.hol.petstore.service ;
 java-new-class --named StatisticService --targetPackage org.jboss.forge.hol.petstore.service ;
+java-new-interface --named ComputablePurchaseOrder --targetPackage org.jboss.forge.hol.petstore.service ;
 cdi-new-decorator --named PurchaseOrderDecorator --delegate org.jboss.forge.hol.petstore.service.ComputablePurchaseOrder --targetPackage org.jboss.forge.hol.petstore.service ;
 
 
@@ -336,9 +337,10 @@ faces-new-bean --named ShoppingCartBean --targetPackage org.jboss.forge.hol.pets
 # java-add-annotation --annotation javax.enterprise.context.ConversationScoped ;
 
 java-new-class --named ShoppingCartItem --targetPackage org.jboss.forge.hol.petstore.view.shopping ;
-java-new-field --named book --type org.jboss.forge.hol.petstore.model.Book ;
-constraint-add --constraint NotNull --onProperty book ;
+java-new-field --named item --type org.jboss.forge.hol.petstore.model.Item ;
 java-new-field --named quantity --type java.lang.Integer ;
+# Constraints
+constraint-add --constraint NotNull --onProperty item ;
 constraint-add --constraint NotNull --onProperty quantity ;
 constraint-add --constraint Min --onProperty quantity --value 1 ;
 
@@ -375,40 +377,6 @@ rest-generate-endpoints-from-entities --targets org.jboss.forge.hol.petstore.mod
 
 
 
-#  #########################  #
-#  Generate Arquillian tests
-#  #########################  #
-
-# JSF Beacking Beans
-# ##################
-arquillian-create-test --targets org.jboss.forge.hol.petstore.view.CountryBean ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.view.CustomerBean ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.view.CategoryBean ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.view.ProductBean ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.view.ItemBean ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.view.OrderLineBean ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.view.PurchaseOrderBean ;
-
-# REST Endpoints
-# ##############
-arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.CountryEndpoint ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.CustomerEndpoint ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.CategoryEndpoint ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.ProductEndpoint ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.rest.ItemEndpoint ;
-
-# Services
-# ##############
-arquillian-create-test --targets org.jboss.forge.hol.petstore.service.CountryService ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.service.CustomerService ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.service.CategoryService ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.service.ProductService ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.service.ItemService ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.service.PurchaseOrderService ;
-arquillian-create-test --targets org.jboss.forge.hol.petstore.service.OrderLineService ;
-
-
-
 #  ##################  #
 #  Cleans the pom.xml  #
 #  ##################  #
@@ -432,6 +400,7 @@ project-remove-managed-dependencies org.jboss.spec:jboss-javaee-6.0:pom::3.0.2.F
 
 #  Adding Java EE and Web Jars dependencies
 #  ############################
+project-add-dependencies org.apache.logging.log4j:log4j-core:2.0.2 ;
 project-add-dependencies org.webjars:bootstrap:2.3.2 ;
 project-add-dependencies org.primefaces:primefaces:5.1 ;
 project-add-dependencies org.jboss.spec:jboss-javaee-7.0:1.0.1.Final:provided:pom ;
