@@ -466,6 +466,48 @@ NOTE: Don't forget to have a look at the available add-ons on http://forge.jboss
 
 ==== CLI
 
+The first thing to do is to setup Arquillian for WildFly by execute the following command: 
+
+[source, console]
+----
+[cdbookstore]$ arquillian-setup --arquillianVersion 1.1.5.Final --testFramework junit --testFrameworkVersion 4.11 --containerAdapter wildfly-remote --containerAdapterVersion 8.1.0.Final
+----
+
+This command adds all the needed dependencies in our `pom.xml` (JUnit, Arquillian core, Arquillian extension for WildFly) and Maven Profile (`arquillian-wildfly-remote`) to run the Arquillian tests. This command has also created an `arquillian.xml` file where all the Arquillian configuration goes. As you can see, with a single command, JBoss Forge has dealt with all the plumbing configuration. 
+
+To create an Arquillian tests, it is as easy: we use the `arquillian-create-test` command and target a specific bean. For example, in our example we can create a test for the `BookBean` as follow: 
+
+[source, console]
+----
+[cdbookstore]$ arquillian-create-test --targets org.cdbookstore.view.BookBean
+----
+
+This creates the `BookBeanTest` under `src/test/java`. The way to run this test is first, make sure WildFly is up and running, second, use the right Maven profile: 
+
+[source, console]
+----
+mvn install -Parquillian-wildfly-remote
+----
+
+The test might not work and you should look at the stack trace on the server side. If you get any `java.lang.ClassNotFoundException` (example `org.cdbookstore.model.Book`) that's because you need to fix the http://arquillian.org/guides/shrinkwrap_introduction/[Shrinkwrap] packaging by adding the missing class. And if the persistent unit is unknown, you need to package it explicitly under the `META-INF` directory. For example, in the code below, Shrinkwrap wraps the `BookBean` and `Book` class into 
+
+[source, java]
+----
+   @Deployment
+   public static JavaArchive createDeployment()
+   {
+      return ShrinkWrap.create(JavaArchive.class)
+            .addClass(Book.class)
+            .addClass(BookBean.class)
+            .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+            .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+   }
+----
+
+The test should be green. Isn't it? 
+
+Again, with a few Forge commands you manage to setup Arquillian, generate a test and execute it. You have no more excuse for not testing. 
+
 ==== JBDS
 
 === Scaffolding AngularJS
