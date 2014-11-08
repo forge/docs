@@ -260,7 +260,6 @@ java-add-annotation --annotation javax.persistence.PersistenceContext --onProper
 cdi-new-interceptor-binding --named Loggable --targetPackage org.jboss.forge.hol.petstore.util ;
 cdi-new-interceptor --named LoggingInterceptor --interceptorBinding org.jboss.forge.hol.petstore.util.Loggable --targetPackage org.jboss.forge.hol.petstore.util ;
 java-new-field --named logger --type org.apache.logging.log4j.Logger --generateGetter=false --generateSetter=false --updateToString=false --updateToString=false ;
-java-add-annotation --annotation javax.inject.Inject --onProperty logger ;
 
 #  Logging Producer
 #  ############
@@ -308,13 +307,13 @@ cdi-new-decorator --named PurchaseOrderDecorator --delegate org.jboss.forge.hol.
 #  Generates JSF beans and pages  #
 #  #############################  #
 
-scaffold-generate --webRoot /admin --targets org.jboss.forge.hol.petstore.model.Country ;
-scaffold-generate --webRoot /admin --targets org.jboss.forge.hol.petstore.model.Customer ;
-scaffold-generate --webRoot /admin --targets org.jboss.forge.hol.petstore.model.Category ;
-scaffold-generate --webRoot /admin --targets org.jboss.forge.hol.petstore.model.Product ;
-scaffold-generate --webRoot /admin --targets org.jboss.forge.hol.petstore.model.Item ;
-scaffold-generate --webRoot /admin --targets org.jboss.forge.hol.petstore.model.OrderLine ;
-scaffold-generate --webRoot /admin --targets org.jboss.forge.hol.petstore.model.PurchaseOrder ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Country ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Customer ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Category ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Product ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Item ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.OrderLine ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.PurchaseOrder ;
 
 #  AbstractBean
 #  ############
@@ -354,14 +353,13 @@ constraint-add --constraint Min --onProperty quantity --value 1 ;
 #  ############
 java-new-class --named FacesProducer --targetPackage org.jboss.forge.hol.petstore.view.util ;
 java-new-field --named facesContext --type javax.faces.context.FacesContext --generateGetter=false --generateSetter=false --updateToString=false ;
-java-add-annotation --annotation javax.inject.Inject --onProperty facesContext ;
+java-add-annotation --annotation javax.enterprise.inject.Produces --onProperty facesContext ;
 
 #  Exception
 #  ############
 cdi-new-interceptor-binding --named CatchException --targetPackage org.jboss.forge.hol.petstore.view.util ;
 cdi-new-interceptor --named ExceptionInterceptor --interceptorBinding org.jboss.forge.hol.petstore.view.util.CatchException  --targetPackage org.jboss.forge.hol.petstore.view.util ;
 java-new-field --named logger --type org.apache.logging.log4j.Logger --generateGetter=false --generateSetter=false --updateToString=false ;
-java-add-annotation --annotation javax.inject.Inject --onProperty logger ;
 
 
 
