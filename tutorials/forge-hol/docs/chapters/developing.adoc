@@ -501,8 +501,8 @@ many dependencies to Hibernate Envers. For that we are going to use something as
    public Result execute(UIExecutionContext context) throws Exception
    {
       Dependency dependency = DependencyBuilder
-                     .create(HIBERNATE_GROUP_ID)
-                     .setArtifactId(ENVERS_ARTIFACT_ID)
+                     .create("org.hibernate")
+                     .setArtifactId("hibernate-envers")
                      .setVersion("4.3.6.Final")
                      .setScopeType("provided");
       if (!getSelectedProject(context).getFacet(DependencyFacet.class)
@@ -558,7 +558,7 @@ property is null, by providing a default value to the `getBoolean` method:
       Configuration config = getSelectedProject(builder)
                .getFacet(ConfigurationFacet.class)
                .getConfiguration();
-      enableAutoAudit.setDefaultValue(config.getBoolean(AUTO_AUDIT_CONFIG_ENTRY, false));
+      enableAutoAudit.setDefaultValue(config.getBoolean("autoAudit", false));
 ----
 
 Now it is time for the final step in our journey: implementing automatic auditing of JPA entities. What we want now is
@@ -633,25 +633,25 @@ whether it is null and only then proceed to the entity instrumentation:
 Now with the `Configuration` instance at hand we can go on and check what the user preference is:
 [source, java]
 ----
-         if (configuration.getBoolean(AUTO_AUDIT_CONFIG_ENTRY, false))
+         if (configuration.getBoolean("autoAudit", false))
          {
          }
 ----
 
 We'll finally take advantage of the fact that Forge automatically selects a newly created class as the current
-resource. So, we'll get it from the current selection, we'll cast it to `JavaResource` and we'll basically do the
-same thing we did in the _Envers: Audit entity_ command:
+resource. So, we'll get the current selection, we'll cast it to `JavaResource` and we'll basically do the same thing we
+did in the _Envers: Audit entity_ command:
 
 [source, java]
 ----
-         if (configuration.getBoolean(AUTO_AUDIT_CONFIG_ENTRY, false))
+         if (configuration.getBoolean("autoAudit", false))
          {
             try {
                JavaResource resource = (JavaResource) uiExecutionContext
                         .getUIContext().getSelection().get();
                JavaClassSource javaClass = resource.getJavaType();
-               if (!javaClass.hasAnnotation(AUDITED_ANNOTATION)) {
-                  javaClass.addAnnotation(AUDITED_ANNOTATION);
+               if (!javaClass.hasAnnotation("org.hibernate.envers.Audited")) {
+                  javaClass.addAnnotation("org.hibernate.envers.Audited");
                }
                resource.setContents(javaClass);
             } catch (FileNotFoundException fnfe) {
