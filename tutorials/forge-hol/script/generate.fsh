@@ -75,7 +75,7 @@ jpa-new-field --named city  --length 50 --not-nullable ;
 jpa-new-field --named state ;
 jpa-new-field --named zipcode --columnName zip_code --length 10 --not-nullable ;
 # Relationships
-jpa-new-field --named country --type org.jboss.forge.hol.petstore.model.Country --relationshipType Many-to-One
+jpa-new-field --named country --type org.jboss.forge.hol.petstore.model.Country --relationshipType Many-to-One ;
 # Constraints
 constraint-add --onProperty street1 --constraint Size --min 5 --max 50 ;
 constraint-add --onProperty street1 --constraint NotNull ;
@@ -88,12 +88,12 @@ constraint-add --onProperty zipcode --constraint NotNull ;
 #  Customer entity
 #  ############
 jpa-new-entity --named Customer ;
-jpa-new-field --named login --length 10 --not-nullable ;
-jpa-new-field --named password --length 256 --not-nullable ;
 jpa-new-field --named firstName --length 50 --columnName first_name --not-nullable ;
 jpa-new-field --named lastName --length 50 --columnName last_name --not-nullable ;
 jpa-new-field --named telephone ;
 jpa-new-field --named email ;
+jpa-new-field --named login --length 10 --not-nullable ;
+jpa-new-field --named password --length 256 --not-nullable ;
 jpa-new-field --named dateOfBirth --type java.util.Date --temporalType DATE --columnName date_of_birth ;
 jpa-new-field --named age --type java.lang.Integer --transient ;
 # Address embeddable
@@ -101,7 +101,9 @@ jpa-new-field --named street1 --length 50 ;
 jpa-new-field --named street2 ;
 jpa-new-field --named city --length 50 ;
 jpa-new-field --named state ;
-jpa-new-field --named zipcode --length 10 ;
+jpa-new-field --named zipcode --columnName zip_code --length 10 ;
+# Relationships
+jpa-new-field --named country --type org.jboss.forge.hol.petstore.model.Country --relationshipType Many-to-One ;
 # Constraints
 constraint-add --onProperty password --constraint NotNull ;
 constraint-add --onProperty password --constraint Size --min 1 --max 256 ;
@@ -211,7 +213,9 @@ jpa-new-field --named street1 --length 50 ;
 jpa-new-field --named street2 ;
 jpa-new-field --named city --length 50 ;
 jpa-new-field --named state ;
-jpa-new-field --named zipcode --length 10 ;
+jpa-new-field --named zipcode --columnName zip_code --length 10 ;
+# Relationships
+jpa-new-field --named country --type org.jboss.forge.hol.petstore.model.Country --relationshipType Many-to-One ;
 # Credit card embeddable
 jpa-new-field --named creditCardNumber --columnName credit_card_number ;
 jpa-new-field --named creditCardType --type org.jboss.forge.hol.petstore.model.CreditCardType --columnName credit_card_type ;
