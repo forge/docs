@@ -39,7 +39,38 @@ With a single Forge script, you will generate a CRUD application that will let y
 
 ==== Executing the script
 
-Download the script https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/generate.fsh
+First of all, download the script from https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/generate.fsh. You can have a look into it. As you can see, the script:
+
+- creates and sets up the project (a Java EE 7 one)
+- creates the domain model with entities, embeddables, constraints and enums. Most of the entities have relationships (One-to-One, Many-to-One...) with others
+- creates utility classes, exceptions, CDI qualifiers, interceptors
+- adds a service layer with EJBs
+- scaffolds JSF pages and creates new JSF beans
+- generates REST endpoints
+- cleans the pom.xml to get rid of some dependencies and add new ones
+
+Now execute the script with :
+
+[source, console]
+----
+[temps]$ run generate.fsh
+----
+
+Depending on the location of the script file, you can also run : 
+
+[source, console]
+----
+[temps]$ run ../../code/script/generate.fsh
+----
+
+You will see hundreds of lines of code scrolling. Once the project is successfully created, have a look at the thousands of lines of code (Java, XML, HTML, CSS...) that Forge generated. The only missing feature today is the ability to generate methods. That's why some classes are just empty (e.g. the service tier). But adding method is in the roadmap. 
+
+And the best of all, is that it works! To build the application, just do it Forge :
+
+[source, console]
+----
+[petstore]$ build
+----
 
 === Developing Hibernate Envers addon
 
