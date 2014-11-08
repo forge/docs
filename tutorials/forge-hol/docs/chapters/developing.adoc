@@ -31,7 +31,7 @@ You will see Forge executing line by line each command in a few seconds. So what
 
 ==== The famous Java Petstore is back
 
-The good thing about the http://www.oracle.com/technetwork/java/petstore1-3-1-02-139690.html[Java Petstore] is that we don't have to explain it much: most of us have heard about it. You don't? 
+The good thing about the http://www.oracle.com/technetwork/java/petstore1-3-1-02-139690.html[Java Petstore] is that we don't have to explain it much: most of us have heard about it. Haven't You? 
 
 image::developing/petstore-splash.png[title="Petstore splash" align="center"]
 
@@ -73,6 +73,40 @@ And the best of all, is that it works! To build the application, just do it Forg
 ----
 [petstore]$ build
 ----
+
+==== Running the application
+
+Before deploying the application on http://www.wildfly.org/[WildFly] you can grab the SQL script https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/import.sql and copy it to `petstore/src/main/resources`. This will add data to the database.
+
+Then, just deploy the war file into WildFly, go to the URL http://localhost:8080/petstore and you should see the following homepage :
+
+image::developing/petstore-forge.png[title="Petstore home page" align="center"]
+
+Do not hesitate to browse the database content, create new items, remove customers, filter addresses, update categories... JBoss Forge has just created an entire CRUD web application for our domain model dealing with all the many-to-one, one-to-one... relationships.
+
+Also check the REST interfaces. You can use any REST client (such as Postman for example) to GET/POST/PUT/DELETE data to the database. Got to the following URLs to get a clue :
+
+- http://localhost:8080/petstore/rest/customers
+- http://localhost:8080/petstore/rest/customers/1000
+- http://localhost:8080/petstore/rest/countries
+- http://localhost:8080/petstore/rest/countries/1000
+- http://localhost:8080/petstore/rest/countries?max=5
+
+Now that you've seen it running, it's time to take a break, fill up a cup of coffee and have a look at the code. This is what you will find in the packages :
+
+- `constraints` : Bean validation constraints.
+- `exceptions` : Application exceptions.
+- `model`: The entities, embeddables, enums.
+- `rest` : The REST endpoint doing GET/POST/PUT/DELETE operations. Also check the `RestApplication` class.
+- `security` : Classes for security mater
+- `service` : EJB layer
+- `util` : Some CDi qualifiers, interceptors, producers
+- `view` : JSF backing beans using CDI conversation, extended persistence context
+- `webapp` : JSF pages, Bootstrap 2, templates, css files, images
+
+NOTE: Some of the classes that you've seen are empty or not totally implemented. When you go back home and have time to dig this topic, you can check the final application at https://github.com/agoncal/agoncal-application-petstore-ee7
+
+Now that you have a real application up and running, let's use JBoss Forge to extend it by developping a few add-ons and applying them to the Petstore application.
 
 === Developing Hibernate Envers addon
 
