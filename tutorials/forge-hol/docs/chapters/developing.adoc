@@ -29,9 +29,11 @@ If you save these commands into a file called `country.fsh` then, you just have 
 
 You will see Forge executing line by line each command in a few seconds. So what about running a bigger script?
 
-==== The famous Java Petsore is back
+==== The famous Java Petstore is back
 
 The good think about the http://www.oracle.com/technetwork/java/petstore1-3-1-02-139690.html[Java Petstore] is that we don't have to explain it much: most of us have heard about it. You don't? 
+
+image::developing/petstore-splash.gif[title="Petstore splash"]
 
 The Java Petstore was a sample application created by Sun for its http://www.oracle.com/technetwork/java/javaee/blueprints/index.html[Java BluePrints] program. The Java Petstore was designed to illustrate how J2EE (and then Java EE) could be used to develop an eCommerce web application. Yes, the point of the Petstore is to sell pets online. The Petstore had a huge momentum and we started to see plenty of Petstore-like applications flourish. The idea was to build an application with a certain technology. Let's face it, the J2EE version was far too complex using plenty of (today outdated) http://java.sun.com/blueprints/corej2eepatterns/[design patterns]. 
 
