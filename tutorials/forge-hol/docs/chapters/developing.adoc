@@ -4,7 +4,7 @@ Now that you've installed JBoss Forge, played with it a bit (either with CLI or 
 
 === Developing a Java EE 7 web application in few seconds
 
-As you've seen in the previous section, with Forge you can enter a few commands, and you'll get code generated. With scaffolding you can even quickly generate a set of JSF page to have CRUD capabilities. So, even if you type on your keyboard very quickly, how can you develop an entire Java EE 7 web application in a few seconds? The answer is simple: by running a Forge script! 
+As you've seen in the previous section, with Forge you can enter a few commands, and you'll get code generated. With scaffolding you can even quickly generate a set of JSF pages and REST endpoints to have CRUD capabilities. So, even if you type on your keyboard very quickly, how can you develop an entire Java EE 7 web application in a few seconds? The answer is simple: by running a Forge script! 
 
 A forge script is just a file that contains a set of commands. The commands below create a new `Country` entity with a set of fields. As you can see we can even have comments that start with the `#` symbol. You can end you lines with a `;` but you don't have to :
 
@@ -20,7 +20,7 @@ jpa-new-field --named iso3 --length 3 ;
 jpa-new-field --named numcode --length 3 ;
 ----
 
-If you save these commands into a file called `country.fsh` then, you just have to execute it by executing : 
+If you save these commands into a file called `country.fsh` then, you just have to execute with : 
 
 [source, console]
 ----
@@ -37,7 +37,7 @@ image::developing/petstore-splash.png[title="Petstore splash" align="center"]
 
 The Java Petstore was a sample application created by Sun for its http://www.oracle.com/technetwork/java/javaee/blueprints/index.html[Java BluePrints] program. The Java Petstore was designed to illustrate how J2EE (and then Java EE) could be used to develop an eCommerce web application. Yes, the point of the Petstore is to sell pets online. The Petstore had a huge momentum and we started to see plenty of Petstore-like applications flourish. The idea was to build an application with a certain technology. Let's face it, the J2EE version was far too complex using plenty of (today outdated) http://java.sun.com/blueprints/corej2eepatterns/[design patterns]. 
 
-With a single Forge script, you will generate a CRUD application that will let you manage the Pet's catalog. 
+With a single Forge script, you will generate a CRUD application that will let you manage the Pet's back-end catalog. 
 
 ==== Executing the script
 
@@ -49,7 +49,7 @@ First of all, download the script from https://github.com/forge/docs/blob/master
 - adds a service layer with EJBs
 - scaffolds JSF pages and creates new JSF beans
 - generates REST endpoints
-- cleans the pom.xml to get rid of some dependencies and add new ones
+- cleans the `pom.xml` to get rid of some dependencies and add new ones
 
 Now execute the script with :
 
@@ -65,9 +65,9 @@ Depending on the location of the script file, you can also run :
 [temps]$ run ../../code/script/generate.fsh
 ----
 
-You will see hundreds of lines of code scrolling. Once the project is successfully created, have a look at the thousands of lines of code (Java, XML, HTML, CSS...) that Forge generated. The only missing feature today is the ability to generate methods. That's why some classes are just empty (e.g. the service tier). But adding method is in the roadmap. 
+You will see hundreds of lines of code scrolling. Once the project is successfully created, have a look at the thousands of lines of code (Java, XML, HTML, CSS...) that Forge generated. The only missing feature today in Forge is the ability to generate methods. That's why some classes are just empty (e.g. the service tier). But adding method is in the roadmap. 
 
-And the best of all, is that it works! To build the application, just do it Forge :
+And the best of all, is that it works! To build the application, just do it in Forge :
 
 [source, console]
 ----
@@ -92,7 +92,9 @@ Also check the REST interfaces. You can use any REST client (such as Postman for
 - http://localhost:8080/petstore/rest/countries/1000
 - http://localhost:8080/petstore/rest/countries?max=5
 
-Now that you've seen it running, it's time to take a break, fill up a cup of coffee and have a look at the code. This is what you will find in the packages :
+==== Looking at the generated code
+
+Now that you've seen it running, it's time to take a break, fill up a cup of coffee and have a look at the code. This is what you will find in the following packages :
 
 - `constraints` : Bean validation constraints.
 - `exceptions` : Application exceptions.
