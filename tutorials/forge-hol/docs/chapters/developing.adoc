@@ -495,7 +495,7 @@ the spaces with hyphens and removing the colon:
 
 [source, console]
 ----
-addon-build-and-install
+$ addon-build-and-install
 ----
 
 If you don't specify the `projectRoot` parameter, Forge will look for the sources of your addon in the current folder.
@@ -503,7 +503,7 @@ If this is not the intended behavior, in the CLI run the command like that:
 
 [source, console]
 ----
-addon-build-and-install --projectRoot <path-to-the-addon-sources>
+$ addon-build-and-install --projectRoot <path-to-the-addon-sources>
 ----
 
 In JBDS just specify the path in the command dialog:
@@ -521,7 +521,7 @@ this addon, e.g. Country. You should be able to call now the other command. In t
 
 [source, console]
 ----
-envers-audit-entity
+[Country.java]$ envers-audit-entity
 ----
 
 Or in JBDS press Ctrl + 4 (or CMD + 4 on Mac) and then pick the _Envers: Audit entity_ from the wizard. Notice
