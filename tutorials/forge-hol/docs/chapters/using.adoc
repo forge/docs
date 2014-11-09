@@ -510,14 +510,6 @@ The test should be green. Isn't it?
 
 Again, with a few Forge commands you manage to setup Arquillian, generate a test and execute it. You have no more excuse for not testing. 
 
-==== JBDS
-
-=== Scaffolding AngularJS
-
-==== CLI
-
-==== JBDS
-
 === Keep on playing
 
 Here we just show you a subset of JBoss Features, but don't hesitate to keep on playing with other commands (full list in appendix). Now that you feel confortable with Forge, let's jump to the next section.
