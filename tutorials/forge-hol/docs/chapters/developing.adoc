@@ -328,8 +328,8 @@ add the unimplemented methods the way you did it in the setup command. +
 This command will have to receive as input the entity class that has to be audited. To achieve this, we need to do two
 things:
 
-. Obtain and configure a `UIInput` object from Furnace
-. Add our input to the `UIBuilder` in the `initializeUI` method
+. Obtain and configure a `org.jboss.forge.addon.ui.input.UIInput` object from Furnace
+. Add our input to the `org.jboss.forge.addon.ui.context.UIBuilder` in the `initializeUI` method
 
 Starting from number one, we should add the following member field to our command class:
 
@@ -340,7 +340,7 @@ Starting from number one, we should add the following member field to our comman
    private UIInput<JavaResource> auditEntity;
 ----
 
-Here we call our field auditEntity. This automatically will add a `--auditEntity` option to our command in the CLI.
+Here we call our field `auditEntity`. This automatically will add a `--auditEntity` option to our command in the CLI.
 The type of the field is `UIInput<JavaResource>`, which means a few things:
 
 * The JBDS integration will create a text box control for the audit entity, while the command line interface will expect
