@@ -1,8 +1,17 @@
 == Installing Forge
 [[installing-forge]]
 
+Installing Forge is a relatively short process, and this section will take you through the fundamentals (providing links to external materials if required) however, if you encounter any issues with this process, please ask in the team.
+
+Depending if you are a command line adict or are more confortable with a Eclipse, you can either install JBoss Forge CLI or JBDS.
+
 === Installing Forge CLI
-Download the http://red.ht/1vEB0v0[ZIP] to install Forge natively on your preferred operating system.
+
+Follow these steps to install a Forge distribution:
+
+- Ensure that you have already installed a http://www.oracle.com/technetwork/java/javase/downloads/index.html[Java 7+ JDK].
+- http://red.ht/1vEB0v0[Download] and Un-zip Forge into a folder on your hard-disk, this folder will be your `FORGE_HOME`
+- Add `$FORGE_HOME/bin` to your path (windows, linux, mac osx)
 
 ==== Windows 
 
@@ -17,24 +26,25 @@ image::installing/windows/forge-cli-install2.png[title="Installing Forge CLI Ste
 
 ==== Mac OS X or Linux
 
-Extract the distribution archive, to the directory you wish to install Forge. + 
-In a command terminal, add the `FORGE_HOME` environment variable, e.g: 
-[source]
+The easiest way to install Forge is to extract the distribution archive, to the directory you wish to install Forge. In a command terminal, add the `FORGE_HOME` environment variable, e.g: 
+
+[source, console]
 --
 export FORGE_HOME=/usr/local/jboss/forge-distribution-2.12.1.Final
 --
 Add FORGE_HOME/bin environment variable to your path, e.g: 
-[source]
+[source, console]
 --
-export PATH=$FORGE_HOME/bin:$PATH.
+export PATH=$FORGE_HOME/bin:$PATH
 --
-or install via
-[source]
+You can also install Forge via cURL
+
+[source, console]
 --
 curl http://forge.jboss.org/sh | sh
 -- 
-or use Homebrew to install Forge natively for use on the command-line, via:
-[source]
+or use Homebrew to install Forge natively, via:
+[source, console]
 --
 brew install jboss-forge
 --
@@ -44,15 +54,15 @@ brew install jboss-forge
 
 Installing JBDS is a piece of cake. Just download the installer from the 
 http://www.jboss.org/download-manager/file/jboss-devstudio-8.0.0.GA-jar_universal.jar[JBoss website] 
-and in the target folder you issue:
+and in the target folder you enter:
 
-[source]
+[source, console]
 --
 java -jar jboss-devstudio-<version>-installer-eap.jar
 --
 
-This will launch the installation process for your platform. Windows, Linux and OSX 
-are supported. The wizard will take you through a number of consecutive steps that are
+This will launch the installation process for your platform (Windows, Linux and OSX 
+are supported). The wizard will take you through a number of consecutive steps that are
 illustrated using screenshots below.
 
 image::installing/jbds-install-1.png[title="JBDS Installation Step 1"]
