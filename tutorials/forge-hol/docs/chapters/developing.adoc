@@ -225,6 +225,8 @@ We will have to implement two more abstract methods coming from this parent clas
    }
 ----
 
+The `org.jboss.forge.addon.projects.ProjectFactory` interface is used to create new or obtain references to existing project.
+
 After having specified _Envers: Setup_ as a project command, we can proceed to implementing the `execute` method.
 Usually this is called when the user clicks _Finish_ on the command dialog or in our case where we don't require input:
 when the user selects the command from the Forge wizard. +
@@ -250,7 +252,7 @@ Speaking in Maven terms, this is a dependency to artifact with ID +hibernate-env
 group, having version 4.3.6.Final and going into the project's _provided_ scope. +
 
 After we have specified our dependency, we will have to add it to the project model. For that purpose we will use the
-`org.jboss.forge.addon.projects.dependencies.DependencyInstaller` utility, coming from the projects addon:
+`org.jboss.forge.addon.projects.dependencies.DependencyInstaller` utility, responsible for installing a given dependency into the project :
 
 [source, java]
 ----
