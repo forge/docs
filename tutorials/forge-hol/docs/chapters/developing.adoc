@@ -590,8 +590,8 @@ many dependencies to Hibernate Envers. For that we are going to use something as
 
 Finally we want to tell potentially other addons and commands whether the user wants or not to automatically add
 auditing to newly created JPA entities. For that we can use Forge's configuration. It is file based key-value-pair API,
-which can be used for storing project or Forge settings. The pairs are stored in .forge_settings file in the project
-root directory (this is the only non-project artifact that Forge creates) or in ~/.forge/forge.xml directory
+which can be used for storing project or Forge settings. The pairs are stored in `.forge_settings` file in the project
+root directory (this is the only non-project artifact that Forge creates) or in `~/.forge/forge.xml` directory
 if it is the global Forge configuration. +
 
 In order to get hold of the project configuration, you need to ask the `ConfigurationFacet` for it:
@@ -602,7 +602,7 @@ In order to get hold of the project configuration, you need to ask the `Configur
                .getConfiguration();
 ----
 
-TIP: the global Forge configuration is available through CDI injection:
+TIP: the global Forge configuration is available through CDI injection. Just inject the `org.jboss.forge.addon.configuration.Configuration` API:
 [source, java]
 ----
    @Inject
