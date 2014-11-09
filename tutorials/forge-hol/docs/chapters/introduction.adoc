@@ -32,6 +32,8 @@ This hands-on lab (HoL) should give you a good practical introduction to http://
 
 The idea is that you leave this hands on lab (HoL) with a good understanding of what JBoss Forge is, what it is not, and how it can help you in your projects. Then, you'll have your entire time to investigate a bit more and, hopefully,  http://forge.jboss.org/community[contribute].
 
+NOTE: Get this tutorial from https://github.com/forge/docs/tree/master/tutorials/forge-hol
+
 === How does this HoL work?
 
 You have this material in your hands (either https://github.com/forge/docs/blob/master/tutorials/forge-hol/forge-hol.pdf[electronically] or printed) and you can now follow it step by step or choose any section "à la carte". The structure of this hands on lab is as follow :
