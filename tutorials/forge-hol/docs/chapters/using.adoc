@@ -287,7 +287,7 @@ In JBDS it's simple too. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on 
 
 image::using/faces-scaffold.png[title="Configuring Faces Scaffold"]
 
-The next step you can see a configuration winzard:
+The next step you can see a configuration wizard:
 
 image::using/faces-configuration-scaffold.png[title="Setup Facets"]
 
