@@ -232,7 +232,7 @@ Usually this is called when the user clicks _Finish_ on the command dialog or in
 when the user selects the command from the Forge wizard. +
 
 As we mentioned earlier, the command will have to add the Hibernate Envers dependency to the project. We are going to
-build the Forge representation of this dependency using the DependencyBuilder's utility methods:
+build the Forge representation of this dependency using the `org.jboss.forge.addon.dependencies.builder.DependencyBuilder` utility methods:
 
 [source, java]
 ----
