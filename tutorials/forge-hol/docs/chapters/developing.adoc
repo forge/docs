@@ -345,7 +345,7 @@ The type of the field is `UIInput<JavaResource>`, which means a few things:
 
 * The JBDS integration will create a text box control for the audit entity, while the command line interface will expect
 a single unbounded value
-* The type of the value for this option should be a file that represents a Java type (class, interface or enumeration)
+* The type of the value for this option should be a file that represents a `JavaResource` (class, interface or enumeration)
 
 We have also specified some additional attributes with the `@WithAttributes` annotation:
 
@@ -382,7 +382,7 @@ type picker of Eclipse:
 
 In Forge you can also set default values for a certain input. This way you can omit specifying its value on the command
 line and in the IDE it will be pre-filled in the command dialog. You can do that with the `setDefaultValue` method of the
-`UIInput`. In our case the UIInput is generified over the JavaResource class. So we'll have to check whether the current
+`UIInput`. In our case the UIInput is generified over the `org.jboss.forge.addon.parser.java.resources.JavaResource` class. So we'll have to check whether the current
 selection in the UI (being the CLI or JBDS) is a file that represents a Java type. If yes, we will set it as the default
 value of the text field:
 
