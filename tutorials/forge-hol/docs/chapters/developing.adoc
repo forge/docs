@@ -485,6 +485,8 @@ command and it will not be available in the command completion in CLI. This is t
 Our first addon is ready. We can now build it, deploy it and run it on the Java EE project that we created in the
 beginning of this chapter.
 
+NOTE: All the code manipulation that you've just seen come from an API called https://github.com/forge/roaster[Roaster]. Roaster is a library that allows easy parsing of java source files, introducing a fluent interface to manipulate Java source files, like adding fields, methods, annotations and so on. You can use it outside Forge if you want. It's just an external API, smart enough to parse and manage Java source files. Give it a try.
+
 ==== Installing and trying the Envers addon
 
 Once we have our basic functionality, we can build and install our new addon. For that we should use Forge's addons
