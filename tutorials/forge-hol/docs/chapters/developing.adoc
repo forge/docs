@@ -117,7 +117,7 @@ If you want to audit the history of all the changes made to a certain entity or 
 application runtime, you just need to audit that with `@Audited`. Envers will create a separate table for each such
 entity, which will hold the changes made to it. +
 
-In this lab we will develop a Forge addon with the following features:
+In this section we will develop a Forge addon with the following features:
 
 * Setup Envers for the following project by adding its dependency to the POM
 * Enable auditing an entity by adding the `@Audited` annotation on class level
@@ -126,7 +126,7 @@ In this lab we will develop a Forge addon with the following features:
 
 Creating a new Forge addon is similar to any new project that you want to create. You can do it manually, you can copy
 and modify an existing project of the same type or you can use a wizard to do it for you. We would certainly recommend
-using Forge to help you bootstrap everything for several reasons. It knows what exactly which dependencies and artifacts
+using Forge to help you bootstrap everything for several reasons. It knows exactly which dependencies and artifacts
 you need as a start so you will not miss anything. Forge will also not create any garbage in your new project. +
 
 Before creating the Envers addon, you need to start Forge. Please make sure that you have followed the instructions
@@ -134,7 +134,7 @@ in <<installing-forge>> before that. You can create a new addon if you run the f
 
 [source, console]
 ----
-project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon --addons org.jboss.forge.addon:javaee,2.12.0.Final
+$ project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon --addons org.jboss.forge.addon:javaee,2.12.0.Final
 ----
 
 If you run Forge from JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) then select _Project: New_ and specify
@@ -145,13 +145,13 @@ image::developing/forge-new-project.png[title="Creating new addon project"]
 
 This will create an empty Maven project that has the following artifacts:
 
-* *pom.xml* where the top level package is the group ID and the project name is the artifact ID. Besides the minimum
+* `pom.xml` where the top level package is the group ID and the project name is the artifact ID. Besides the minimum
 Forge dependencies, the command will add also those that you have specified with the `--addons` option in the format
 <group-id>:<artifact-id>,<version>
-* *Standard maven directory structure* plus the top level package
-* *Empty +beans.xml+* in the +src/main/resources/META-INF+ directory. This is because Forge and its addons strongly
+* Standard maven directory structure plus the top level package
+* *Empty `beans.xml` in the `src/main/resources/META-INF` directory. This is because Forge and its addons strongly
 rely on the CDI development model
-* *README.asciidoc* file with a standard skeleton for documenting Forge addons
+* `README.asciidoc` file with a standard skeleton for documenting Forge addons
 
 ==== Developing the "Envers: Setup" command
 
@@ -164,7 +164,7 @@ If you are running from the command line interface, type in: +
 
 [source, console]
 ----
-addon-new-ui-command --named EnversSetupCommand --commandName "Envers: Setup" --categories "Auditing"
+[envers]$ addon-new-ui-command --named EnversSetupCommand --commandName "Envers: Setup" --categories "Auditing"
 ----
 
 While from the JBDS, after opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), you should choose _Addon: New UI Command_
@@ -226,7 +226,7 @@ We will have to implement two more abstract methods coming from this parent clas
 ----
 
 After having specified _Envers: Setup_ as a project command, we can proceed to implementing the `execute` method.
-Usually this is called when the user clicks Finish on the command dialog or in our case where we don't require input:
+Usually this is called when the user clicks _Finish_ on the command dialog or in our case where we don't require input:
 when the user selects the command from the Forge wizard. +
 
 As we mentioned earlier, the command will have to add the Hibernate Envers dependency to the project. We are going to
@@ -299,7 +299,7 @@ Now our job is done, so it is time to report what we did. We do it by returning 
    }
 ----
 
-This will result in a SUCCESS: message in the command line interface and a green popup in the JDBS after our command is
+This will result in a _SUCCESS_: message in the command line interface and a green popup in the JDBS after our command is
 executed. +
 
 Now that we have a command the enables Hibernate Envers, it is time to add another command that will turn on auditing
