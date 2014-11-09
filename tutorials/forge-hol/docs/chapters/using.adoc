@@ -11,7 +11,7 @@ But let's get started.
 
 === Creating a new project
 
-Setting up a new project involves a lot of activities. You basically rely on a build and dependency management framework such as Maven and Gradle. Even if you feel comfortable reading the configuration files, i.e. pom.xml or build.gradle for those, it takes some time to write them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste them from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configurate, that you will usually delete.
+Setting up a new project involves a lot of activities. You basically rely on a build and dependency management framework such as Maven and Gradle. Even if you feel comfortable reading the configuration files, i.e. `pom.xml` or `build.gradle` for those, it takes some time to write them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste them from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configurate, that you will usually delete.
 
 ==== CLI
 
@@ -271,6 +271,8 @@ This has the same effect of scaffolding per entity :
 [model]$ scaffold-generate --targets org.cdbookstore.model.Book
 [model]$ scaffold-generate --targets org.cdbookstore.model.Author
 ----
+
+In a single command Forge has generated configurations files (`web.xml`, `faces-config.xml`, ...), JSF pages for both `Book` and `Author`, images, CSS and added Bootstrap for the layout.
 
 By default Forge scaffolds a web application with JSF 2.0 but you can change this configuration by executing the `faces-setup` command. In fact, most of the Forge commands can be setup (e.g. `jpa-setup`, `servlet-setup`...)
 
