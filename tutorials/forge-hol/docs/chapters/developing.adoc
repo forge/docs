@@ -737,3 +737,9 @@ That's it. You can now try what you have done. +
 
 For your reference, the full source code of the Forge Envers addon can be download from
 https://github.com/forge/docs/tree/master/tutorials/forge-hol/envers-addon[here].
+
+== The end
+
+This is the end of our hands on lab, we hope you enjoyed it and that it helped you in discovering or learning more about JBoss Forge. 
+
+This it the end of our hands on lab.... but it's the begining of a new journey: a world of productivity... even with Java EE ;o)
