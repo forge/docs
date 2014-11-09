@@ -11,6 +11,19 @@ The following JBoss Forge community members have contributed, one way or another
 - Koen Aers (@koentsje)
 - Lincoln Baxter III (@lincolnthree)
 
+=== References
+
+- JBoss Forge home page (https://github.com/forge)
+- JBoss Forge Github repository (https://github.com/forge)
+- JBoss Forge forum (https://developer.jboss.org/en/forge)
+- JBoss Forge add-ons (http://forge.jboss.org/addons)
+- Roaster (https://github.com/forge/roaster)
+- Hand-on-lab Github repository (https://github.com/forge/docs/tree/master/tutorials/forge-hol)
+- Hand-on-lab PDF (https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf)
+- Hand-on-lab Envers add-on (https://github.com/forge/docs/tree/master/tutorials/forge-hol/envers-addon)
+- Hand-on-lab Petstore script (https://github.com/forge/docs/tree/master/tutorials/forge-hol/script)
+- Petstore Java EE 7 (https://github.com/agoncal/agoncal-application-petstore-ee7)
+
 === Revision History
 
 ==== Version 0.1
@@ -19,11 +32,6 @@ The following JBoss Forge community members have contributed, one way or another
 - Using JBoss Forge 2.12.x
 - Used during the conference Devoxx Belgium 2014
 - JIRA https://issues.jboss.org/browse/FORGE-2102
-
-=== Material
-
-- The latest version of this document can be downloaded from https://github.com/forge/docs/tree/master/tutorials/forge-hol
-- The PDF version is at https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf
 
 === CLI Commands
 
