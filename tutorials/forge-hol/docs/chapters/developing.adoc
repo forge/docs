@@ -476,7 +476,7 @@ command and it will not be available in the command completion in CLI. This is t
    {
       Dependency dependency = DependencyBuilder
                                .create("org.hibernate")
-                               .setArtifactId("hibernate-envers")
+                               .setArtifactId("hibernate-envers");
       return getSelectedProject(context).getFacet(DependencyFacet.class)
                .hasEffectiveDependency(dependency);
    }
