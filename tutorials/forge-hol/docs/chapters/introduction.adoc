@@ -11,26 +11,24 @@ for that matter!), you’ve likely invested a good amount of energy in creating 
 project layout, defining dependencies, and informing the build system of the relevant
 class paths to be used in compilation and execution. Although Maven enables us to
 reduce that load as compared with undertaking project setup manually, there’s typically
-quite a bit of boilerplate involved in the pom.xml defining your requirements.
+quite a bit of boilerplate involved in the `pom.xml` defining your requirements.
 
-JBoss Forge offers “incremental project enhancement for Java EE.” Implemented as a
-command shell and integration with some IDE, Forge gives us the ability to alter project files and folders.
+JBoss Forge offers “incremental project enhancement for Java EE.” Implemented as a command shell and integration with some IDE, Forge gives us the ability to alter project files and folders. Some concrete tasks we might use Forge to handle are:
 
-- Some concrete tasks we might use Forge to handle are:
-  * Adding Java Persistence API (JPA) entities and describing their model
-  * Configuring Maven dependencies
-  * Setting up project scaffolding
-  * Generating a view layer, reverse-engineered from a domain model
-  * Deploying to an application server
+- Adding Java Persistence API (JPA) entities and describing their model
+- Configuring Maven dependencies
+- Setting up project scaffolding
+- Generating a view layer, reverse-engineered from a domain model
+- Deploying to an application server
 
 Because Forge is built atop a modular, plug-in-based architecture, it’s extensible to additional
 tasks that may be specific to your application.
 Overall, the goal of Forge is to ease project setup at all stages of development, so we’ll
-be employing it in this text to speed along the construction of our examples.
+be employing it in this guide to speed along the construction of our examples.
 
 === What's this HoL about?
 
-This hands-on lab (HoL) should give you a good practical introduction to JBoss Forge. You will first install JBoss Forge, use it and then create addons to extend the capabilities of Forge. Forge can either be used with an IDE, or directly with a command line interface (CLI).
+This hands-on lab (HoL) should give you a good practical introduction to http://forge.jboss.org[JBoss Forge]. You will first install JBoss Forge, use it and then develop and entire Java EE application and create addons to extend the capabilities of Forge. Forge can either be used with an IDE, or directly with a command line interface (CLI).
 
 The idea is that you leave this hands on lab (HoL) with a good understanding of what JBoss Forge is, what it is not, and how it can help you in your projects. Then, you'll have your entire time to investigate a bit more and, hopefully,  http://forge.jboss.org/community[contribute].
 
@@ -38,15 +36,15 @@ The idea is that you leave this hands on lab (HoL) with a good understanding of 
 
 You have this material in your hands (either https://github.com/forge/docs/blob/master/tutorials/forge-hol/forge-hol.pdf[electronically] or printed) and you can now follow it step by step or choose any section "à la carte". The structure of this hands on lab is as follow :
 
-- Installing Forge : in this section you will install JBoss Forge, either on a standalone mode, or with JBDS (JBoss Developer Studio)
-- Using Forge : in this section you will play with Forge, create a project, add entities, scaffold a JSF and AngularJS web application, generate some Arquillian tests and deploy it on WildFly
-- Developing Forge : in this section you will quickly create a full web application, build extensions, and add these extensions to the application
+- _Installing Forge_ : in this section you will install JBoss Forge, either on a standalone mode, or with JBDS (JBoss Developer Studio)
+- _Using Forge_ : in this section you will play with Forge, create a project, add entities, scaffold a JSF web application, REST endpoints, generate some Arquillian tests and deploy them on WildFly
+- _Developing Forge_ : in this section you will quickly create a full web application, build extensions, and add these extensions to the application
 
-If Forge is already installed, just go to the "Using Forge" section and start using it. If you already know JBoss Forge a bit, jump to the section on "Developing Forge" and start hacking some addons. This "à la carte" mode allows you to make the most of this 3 hours long hands on lab.
+If you have Forge already installed, just go to the _Using Forge_ section and start using it. If you already know JBoss Forge a bit, jump to the section on _Developing Forge_ and start hacking some addons. This "à la carte" mode allows you to make the most of this 3 hours long hands on lab.
 
 === What do you have to do?
 
-This hands on lab should be as self explanatory as possible. So your job is to follow the instructions by yourself, do what you are supposed to do, and do not hesitate to ask for any precision, that's why the team is here. Make sure you have the needed software installed (see below) and be ready to get some fun.
+This hands on lab should be as self explanatory as possible. So your job is to follow the instructions by yourself, do what you are supposed to do, and do not hesitate to ask for any precision, that's why the team is here for. Make sure you have the needed software installed (see below) and be ready to get some fun.
 
 === Software requirements
 
@@ -54,5 +52,5 @@ The following software needs to be downloaded and installed:
 
 - http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 7]
 - http://maven.apache.org/download.cgi[Maven 3.2.x]
-- http://forge.jboss.org/download[JBoss Forge 2.12.x]
+- http://forge.jboss.org/download[JBoss Forge 2.12.2] or higher
 - http://wildfly.org/downloads/[WildFly 8.1]
