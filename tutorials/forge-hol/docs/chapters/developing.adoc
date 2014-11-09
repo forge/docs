@@ -196,7 +196,7 @@ spaces by hyphens) and as _Envers: Setup_ in the _Auditing_ category in the Forg
 As the newly created command will not require any input from the user, we will leave the `initializeUI` method empty.
 However, in order to implement the command execution, we will need to change a little bit our class. More precisely we
 will have to extend from another abstract command class. The rationale behind this is that we want to update the
-*current* project POM. Extending `AbstractProjectCommand` instead of `AbstractUICommand` will give us some handy
+*current* project POM. Extending `org.jboss.forge.addon.projects.ui.AbstractProjectCommand` instead of `AbstractUICommand` will give us some handy
 methods to access and manipulate the project configuration:
 
 [source, java]
@@ -250,7 +250,7 @@ Speaking in Maven terms, this is a dependency to artifact with ID +hibernate-env
 group, having version 4.3.6.Final and going into the project's _provided_ scope. +
 
 After we have specified our dependency, we will have to add it to the project model. For that purpose we will use the
-`DependencyInstaller` utility, coming from the projects addon:
+`org.jboss.forge.addon.projects.dependencies.DependencyInstaller` utility, coming from the projects addon:
 
 [source, java]
 ----
