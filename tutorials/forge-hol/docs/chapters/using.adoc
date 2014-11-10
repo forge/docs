@@ -512,4 +512,4 @@ Again, with a few Forge commands you manage to setup Arquillian, generate a test
 
 === Keep on playing
 
-Here we just show you a subset of JBoss Features, but don't hesitate to keep on playing with other commands (full list in appendix). Now that you feel confortable with Forge, let's jump to the next section.
+Here we just show you a subset of the JBoss Forge features, but don't hesitate to keep on playing with other commands (full list in appendix). Now that you feel confortable with Forge, let's jump to the next section.
