@@ -1,28 +1,31 @@
 == Using Forge
 
-Forge is a code generator engine and it can be used through multiple UIs such as:
+Forge can be used as a code generation engine, and can be accessed through multiple user interfaces (UIs) such as:
 
 - Command Line Interface (CLI)
 - JBoss Developer Studio (JBDS)
+- IntelliJ IDEA (not shown in this lab)
 
-In this section you will be getting used to Forge by doing small tasks, either with CLI, JBDS, or both. JBoss Forge doesn't create any dependency on your code, it just generates it. So you can switch from CLI, to JBDS, to your own IDE without getting on Forge's way.
+In this section you will be getting used to Forge by performing smaller tasks, either with CLI, JBDS, or both. It is worth noting that JBoss Forge doesn't create introduce any special or proprietary dependencies in your code, it just generates a functional starting point, and lets you continue as neede. This means you can switch from CLI, to JBDS, to your own IDE (unrelated to Forge) without getting in Forge's way, and without Forge getting in the way of your IDE. 
 
-But let's get started.
+NOTE: In this section and the following sections, We will assume that you have already intstalled JBoss Forge.
+
+Let's get started!
 
 === Creating a new project
 
-Setting up a new project involves a lot of activities. You basically rely on a build and dependency management framework such as Maven and Gradle. Even if you feel comfortable reading the configuration files, i.e. `pom.xml` or `build.gradle` for those, it takes some time to write them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste them from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configurate, that you will usually delete.
+Setting up a new project can involve quite a few activities. Typically, projects require a build and dependency management framework such as Maven, or Gradle. Even if you feel comfortable reading the respective configuration files, i.e. `pom.xml` or `build.gradle`, it can takes some time to create them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste them from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configurate - garbage that you will usually delete.
 
 ==== CLI
 
-The `project-new` is the one we need to quick start a project :
+The `project-new` command is what we will use to quick start a project :
 
 [source, console]
 ----
 $ project-new --named cdbookstore
 ----
 
-This will create an empty Maven project structure and a `pom.xml` file. The default `groupId` is `org.cdbookstore`, `artifactId` is `cdbookstore` and version number `1.0.0-SNAPSHOT`. Also, the default project created is a web application, that's why you can see a `packaging` of type `war` and `maven-war-plugin` defined. If you want to change any of these parameters, just press `TAB` after a command and you will get all the parameters :
+This will create an empty Maven project structure and a `pom.xml` file. The default `groupId` is `org.cdbookstore`, `artifactId` is `cdbookstore` and version number `1.0.0-SNAPSHOT`. Also, the default project created is a web application, that's why you can see a `packaging` of type `war` and `maven-war-plugin` defined. If you want to change any of these options, just press `TAB` after a command and you will get all the command options:
 
 [source, console]
 ----
@@ -42,7 +45,7 @@ Most of the Java EE applications need a relational database, map entities to it 
 
 ==== CLI
 
-To create a new JPA entity, let's use the `jpa-new-entity` command : 
+To set up JPA and create a new JPA entity, let's use the `jpa-new-entity` command : 
 
 [source, console]
 ----
@@ -51,7 +54,7 @@ To create a new JPA entity, let's use the `jpa-new-entity` command :
 
 This command has several effects. First of all, it has created a `persistence.xml` file in the right place (under the `META-INF` directory) with all the default configuration for Hibernate. Then, it has created a `Book` entity under the subpackage `model`. Notice that this entity already has an `id` and `version` with its getters/setters. As you can see, the good thing with Forge is that with only one command all is setup and ready to go. 
 
-If you do not wish to use the Java EE container default data-source, you can also specify additional connection parameters such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need configure your application server to provide this new data-source and/or database connection.
+If you do not wish to use the Java EE container default data-source, you can also specify additional connection options such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need configure your application server to provide this new data-source and/or database connection.
 
 [source, console]
 ----
@@ -67,7 +70,7 @@ So, let's create a few fields in the `Book` entity. Again, one single command en
 [Book.java]$ jpa-new-field --named title
 ----
 
-This creates an attribute called `title` of type `String` with get/set methods. Notice that Forge has also updated the `toString` method. Let's add more commands with different parameters (remember to press `TAB` to get the parameters) :
+This creates an attribute called `title` of type `String` with get/set methods. Notice that Forge has also updated the `toString` method. Let's add more commands with different options (remember to press `TAB` to get the options) :
 
 [source, console]
 ----
@@ -77,7 +80,7 @@ This creates an attribute called `title` of type `String` with get/set methods. 
 [Book.java]$ jpa-new-field --named publicationDate --type java.util.Date --temporalType DATE
 ----
 
-As you can see, Forge has a all set of parameters to quickly create attributes and customize their JPA mapping. Now let's say we want to specify that a book is written in a certain language. We can use Forge to quickly create a Java enum and then have it as a JPA Enumerated in the `Book` entity :
+As you can see, Forge has a set of options to quickly create attributes and customize their JPA mappings. Now let's say we want to specify that a book is written in a certain language. We can use Forge to quickly create a Java enum and then have it as a JPA Enumerated in the `Book` entity :
 
 [source, console]
 ----
@@ -102,7 +105,7 @@ Now that we are in the `Book` entity, we can create a new enum field with the fo
 [Book.java]$ jpa-new-field --named language --type org.cdbookstore.model.Language
 ----
 
-By default a JPA field is of type `String`. With the `--type` parameter we can choose from basic datatypes (`int`, `byte`, `char`…), enum, or from other entities and choosing your cardinality (One-to-One, One-to-Many, Many-to-One, Many-to-Many). So let's create a new `Author` entity and have a Many-to-One relationship with `Book` :
+By default, a JPA field is of type `String`. With the `--type` option we can choose from basic datatypes (`int`, `byte`, `char`…), enum, or from other entities and entity cardinality (One-to-One, One-to-Many, Many-to-One, Many-to-Many). So let's create a new `Author` entity, and add a Many-to-One relationship with `Book` :
 
 [source, console]
 ----
@@ -121,7 +124,7 @@ Forge takes care of all the JPA relational mapping between both entities. Now, o
 [Book.java]$ constraint-add --onProperty description --constraint Size --max 3000
 ----
 
-Behind the scenes Forge as created a `validation.xml` file, added the Bean Validation dependency and the needed constraints. BTW if you want to have a quick look at your code, you can use the `more` command or even `ls` your class :
+Behind the scenes Forge as created a `validation.xml` file, added the Bean Validation dependency and the needed constraints. If you want to take a glance at the code, and see a summary of progress, you can use the `more` command or even `ls` your class :
 
 [source, console]
 ----
@@ -143,11 +146,11 @@ getPrice()::java.lang.Float                        setId(java.lang.Long)::void  
 ----
 
 
-==== JBDS
+==== JBoss Developer Studio (JBDS)
 
-While from the JBDS, after opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), 
-you should choose _JPA: New Entity_ and you'll see a configuration window. 
-This window come configured with Java EE container default data-source, but if you not do wish to use it, you can change your configuration as specified before with CLI.
+While working from JBoss Developer Studio (JBDS), after opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), 
+you should choose _JPA: New Entity_ and you'll see a JPA configuration window. This window provides default values for the Java EE container default data-source, but if you not do wish to use it, you can change your configuration as specified before with CLI. 
+
 In first step you need setup JPA in your project:
 
 image::using/jpa-setup.png[title="Setup JPA"]
@@ -157,13 +160,13 @@ The next step you need configure your connection settings:
 image::using/configure-connection-settings.png[title="Configuring Connection Settings"]
 
 After the configuration step, you can create your first entity. +
-Enter _Book_ as Entity name, _org.cdbookstore.model_ in Target package and click in finish.
+Enter _Book_ as Entity name, _org.cdbookstore.model_ in Target package and click Finish.
 
 image::using/jpa-new-entity.png[title="Creating a new Entity"]
 
 Then you need add fields to your Entity. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), you should
-choose _JPA: New Field_ and select the _Book_ as Target entity, _title_ as Field Name, _String_ as Type and click in 
-finish:
+choose _JPA: New Field_ and select the _Book_ as Target entity, _title_ as Field Name, _String_ as Type and click 
+Finish:
 
 image::using/new-field.png[title="Creating a new field in Entity"]
 
@@ -190,12 +193,11 @@ ENGLISH
 FRENCH
 --
 
-and click finish:
+and click Finish:
 
 image::using/new-enum-const.png[title="Creating a new Enum Constant"]
 
-Now, you need add this enum as field in book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _JPA: New Field_ 
-and select the _Book_ as Target Entity, enter _language_ as Field name and select _org.cdbookstore.model.Language_ as Field Type:
+Now, you need add this enum as field in book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _JPA: New Field_ and select the _Book_ as Target Entity, enter _language_ as Field name and select _org.cdbookstore.model.Language_ as Field Type:
 
 image:using/new-enum-jpa-field.png[title="Creating a new Enum field in Entity"]
 
@@ -211,39 +213,41 @@ and create a new field to it (Same that you did in Book):
 Field Name: firstName | Type: String
 --
 
-Then you need to have a Many-to-One relationship with `Book`. 
-After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _JPA: New Field_ select the _Book_ as Target Entity
-enter _language_ as Field name, select _org.cdbookstore.model.Language_ as Field Type and mark _Many-to-One_ as Relationship Type and click finish:
+Now you need to add a Many-to-One relationship with `Book`. 
+
+Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _JPA: New Field_, select the _Book_ as Target Entity. Enter _language_ as Field name, select _org.cdbookstore.model.Language_ as Field Type and mark _Many-to-One_ as Relationship Type and click Finish (or Next):
 
 image::using/new-relationship.png[title="Creating a new relationship"]
 
-You can configure your relationship in next step as well:
+If you choose Next instead of Finish, You can configure your relationship:
 
 image::using/relationship-configuration.png[title="Configuring relationship"]
 
 Forge takes care of all the JPA relational mapping between both entities. +
-Now, on an entity, we can add Bean Validation constraints. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Constrait: Add_,
-you'll see a configuration window as in first step of the _JPA: New Entity_ that you did before:
+Now, on an entity, we can add Bean Validation constraints. Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _Constrait: Add_. You'll see a configuration window, just like first step of the _JPA: New Entity_ that you executed before:
 
 image::using/configure-constraint.png[title="Configuring Constraint"]
 
-You should choose the _Generic Java EE_ as Bean Validation provider and checked in Provided by Application Server?. 
-If you don't want the default configuration provided by Application Server you can change your 
-configurations as well. The next step you need choose _org.cdbookstore.model.Book_ as Class:
+You should choose the _Generic Java EE_ as Bean Validation provider and check "Provided by Application Server?". 
+If you don't want the default configuration provided by Application Server you are free to change your 
+configurations. Click Next, and choose _org.cdbookstore.model.Book_ as Class:
 
 image::using/add-constraint.png[title="Adding Constraint"]
 
-In next step you need specify what's _Property_ and what's _Constraint_. 
-This case will need add NotNull on _title_ property:
+In next step you need specify the property on which to operate _Property_ and the _Constraint_ to configure. 
+In this case, let's add NotNull on _title_ property:
 
 image::using/add-notnull-constraint.png[title="Adding NotNull Constraint"]
 
-You can define if you want on property or on property accessor.
-The next step you can configure _payload_, _groups_ and _message_:
+Once the constraint is selected, you can also specify if you want the constraint to appear on the property itself, or on the property accessor (getter method).
+
+Click Next to configure _payload_, _groups_ and _message_:
 
 image:using/configure-constraint.png[title="Configuring Constraint"]
 
-click in finish. You need add more two constraints:
+Click Finish. 
+
+Now add two more constraints to the Book class:
 [source]
 --
 Constraint: Past | Property: publicationDate
@@ -253,7 +257,7 @@ Constraint: Size | Max: 3000 |  Property: description
 
 === Scaffolding JSF
 
-JSF is the default Java EE user interface framework, and so, JBoss Forge has a great support for it. In fact, Forge can scaffold an entire CRUD web application very easily. The JSF generated application follows several patterns and best practices : usage of CDI conversation, extended persistence context, JSF converters and so on. If you don't believe it, just try it. 
+JSF is the default Java EE user interface framework, and consequently JBoss Forge has a great support for it. In fact, Forge can scaffold an entire CRUD web application from JPA entities very easily, with only a single command. The JSF generated application follows several patterns and best practices: usage of CDI conversation scope, the extended persistence context, JSF converters and so on. If you don't believe it, just try it. 
 
 ==== CLI
 
@@ -287,16 +291,17 @@ In JBDS it's simple too. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on 
 
 image::using/faces-scaffold.png[title="Configuring Faces Scaffold"]
 
-The next step you can see a configuration wizard:
+Click Next to configure the Faces Scaffold:
 
 image::using/faces-configuration-scaffold.png[title="Setup Facets"]
 
-By default Forge scaffolds set this values, but you can change this configuration as well. +
-In next step you can select that entity you want generate scaffold, this case we'll generate for all:
+By default Forge scaffolds set suggested values for Java EE specification versions, but you can change this configuration as well.
+
+Click Next to continue to select entities for which you want to generate scaffolding. In this case we'll generate for all entities:
 
 image:using/select-jpa-entities.png[title="Selecting JPA entities"]
 
-click in finish and JBoss Forge will create all it needs.
+Click Finish and JBoss Forge will create your user interface.
 
 === Scaffolding RESTEndpoints
 
@@ -304,16 +309,16 @@ REST is a very popular technology nowadays. If you want to create REST endpoints
 
 ==== CLI
 
-Now that we have a few entities (`Book` and `Author`), it’s time to generate REST endpoints. Like for JSF, it is just a matter of executing one single command :
+Now that we have a few entities (`Book` and `Author`), it’s time to generate REST endpoints. Like for JSF, it is just a matter of executing one single command:
 
 [source, console]
 ----
 [model]$ rest-generate-endpoints-from-entities --targets org.cdbookstore.model.*
 ----
 
-This is the easiest command to generate the REST endpoints, but like most Forge commands, you can customize a few paramaters if you want, such as package name and so on.
+This is the easiest command to generate the REST endpoints, but like most Forge commands, you can customize a few options if you want, such as package name and so on.
 
-While "holding" most files, you may inspect them using ls. This also works on REST endpoints. So, if you `cd` `BookEndpoint.java` and execute the command `ls`, this is what you get :
+While "holding" most files as the current resource, you may inspect them using ls. This also works on REST endpoints. So, if you `cd` `BookEndpoint.java` and execute the command `ls`, this is what you get :
 
 [source, console]
 ----
@@ -330,43 +335,40 @@ deleteById(java.lang.Long)::javax.ws.rs.core.Response          listAll(java.lang
 
 ==== JBDS
 
-After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _REST: Generate Endpoints from Entities_, the first step, you need to configure the REST in your application, enter all information such as:
+Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _REST: Generate Endpoints from Entities_, the first step, you need to configure the REST in your application, enter all information such as:
 
 image::using/rest-setup.png[title="Configuring REST"]
 
-The next step you'll have a list of the all entity that your application has, select all and click finish:
+Click next to select the entities for which endpoints should be generated, select all, and click Finish (or click Next for more options):
 
 image::using/rest-entities.png[title="Generating RESTEndpoints from JPA entities"]
 
-You can customize some values if you prefer, such as _Configuration Strategy_, _Class Name_, _Content Type_ and so on.
+You can customize some options if you prefer, such as _Configuration Strategy_, _Class Name_, _Content Type_ and so on.
 
 
 === Deploying on WildFly
 
-Do we need to introduce http://wildfly.org/[WildFly]? Quickly then. WildFly is a flexible, lightweight, managed application runtime that helps you build amazing applications... and we going to need it to deploy our web application and REST endpoints. For that, we have several options : http://wildfly.org/downloads/[download] it, install, execute and deploy our web application, or use a JBoss Forge addon. Let's try that.
+Does the WildFly application server need much of an introduction? http://wildfly.org/[WildFly]? Quickly then. WildFly is a flexible, lightweight, managed application runtime that helps you build amazing applications... and we are going to need it to deploy our web application and REST endpoints. For that, we have several options : http://wildfly.org/downloads/[download] it, install, execute and deploy our web application, or use a JBoss Forge addon. Let's try that.
 
 ==== Installing the JBoss AS Forge addon
 
-The beauty of JBoss Forge is that it's extensible. In fact, Forge is a add-on container (called Furnace) and everything is seen as an extension (as a matter of fact, the CLI is an add-on!). To see the list of add-ons, juste visit the Forge documentation(http://forge.jboss.org/addons). And if you want to see all the already installed add-ons, execute the following command : 
+The beauty of JBoss Forge is that it's extensible. In fact, Forge is a add-on container (called Furnace) and everything is seen as an extension (as a matter of fact, the CLI itself is an add-on!). To see the list of add-ons, juste visit the Forge documentation(http://forge.jboss.org/addons). And if you want to see all the already installed add-ons, execute the following command : 
 
 [source, console]
 ----
 [cdbookstore]$ addon-list
 Currently installed addons:
-org.arquillian.forge:arquillian-addon,1.0.0-SNAPSHOT
 org.jboss.forge.addon:addon-manager,2.12.2-SNAPSHOT
 org.jboss.forge.addon:addon-manager-spi,2.12.2-SNAPSHOT
 org.jboss.forge.addon:addons,2.12.2-SNAPSHOT
-org.jboss.forge.addon:as,2.0.0-SNAPSHOT
-org.jboss.forge.addon:as-jboss-as7,2.0.0-SNAPSHOT
-org.jboss.forge.addon:as-jboss-wf8,2.0.0-SNAPSHOT
-org.jboss.forge.addon:as-spi,2.0.0-SNAPSHOT
 org.jboss.forge.addon:bean-validation,2.12.2-SNAPSHOT
 org.jboss.forge.addon:configuration,2.12.2-SNAPSHOT
 ...
+etc
+...
 ----
 
-Enough, talking, let's install the http://forge.jboss.org/addon/org.jboss.forge.addon:as[WildFly add-on]. For that, in the Forge console just type the following command (and wait for Maven to download the Internet) :
+Enough, talking, let's install the http://forge.jboss.org/addon/org.jboss.forge.addon:as[WildFly add-on]. For that, in the Forge console just type the following commands (and wait for Maven to download the Internet) :
 
 [source, console]
 ----
@@ -374,14 +376,14 @@ Enough, talking, let's install the http://forge.jboss.org/addon/org.jboss.forge.
 [cdbookstore]$ addon-install-from-git --url https://github.com/jerr/jboss-as-addon  --coordinate org.jboss.forge.addon:jboss-as-wf8,2.0.0-SNAPSHOT
 ----
 
-Now that you installed this new add-on, you get new `as-setup` command : 
+Now that you installed these new add-on, you get new `as-setup` command : 
 
 [source, console]
 ----
 [cdbookstore]$ as-setup --server wildfly8
 ----
 
-Wait a bit until WildFly is downloaded.... (in the meantime you can go to `~/.forge/addons` and have a look at what's happening... you can even check the logs under `~/.forge/addons`)... ok, now that JBoss is downloaded into your local Maven directory... there it is.... just enter `as`, press `TAB` and you will see new commands : 
+Wait a bit until WildFly is downloaded.... (in the meantime you can go to `~/.forge/addons` and have a look at what's happening... you can even check the logs under `~/.forge/log/forge.log`)... ok, now that JBoss is downloaded into your local Maven directory... there it is.... just type `as`, press `TAB` and you will see new commands : 
 
 [source, console]
 ----
@@ -405,37 +407,42 @@ WildFly is started, the application is deployed, you can now go to http://localh
 
 ==== Installing the JBoss AS Forge addon on JBDS
 
-After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Install an Addon from GIT_, enter
+Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _Install an Addon from GIT_, enter
 _https://github.com/jerr/as-addon_ as GIT Repository URL ad _org.jboss.forge.addon:as,2.0.0-SNAPSHOT_ as Coordinate:
+
+[source]
+--
+GIT Repository: https://github.com/jerr/as-addon | Coordinate: org.jboss.forge.addon:as,2.0.0-SNAPSHOT
+--
 
 image::using/addon-install.png[title="Installing an Addon"]
 
-You need to do the same action for:
+Now perform the same action for:
 [source]
 --
 GIT Repository: https://github.com/jerr/jboss-as-addon | Coordinate: org.jboss.forge.addon:jboss-as-wf8,2.0.0-SNAPSHOT
 --
 
-Now, you can setup your server. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose
-_AS: Setup_, select wildfly8:
+It's now time to set up your server. Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose
+_AS: Setup_, then select _wildfly8_:
 
 image::using/as-setup.png[title="AS Setup"]
 
-The next step you can to configure the _Install directory_, _Port_ and so on:
+Click next to configure the _Install directory_, _Port_ and so on:
 
 image::using/as-configuration.png[title="Configuration AS"]
 
-So let's build the application:
+Now let's build the application:
 
-Select the option _Build_ in Forge Wizard (Ctrl + 4 or CMD + 4 on Mac):
+Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _Build_:
 
 image::using/build.png[title="Building"]
 
-Now start server with option _AS: Start_ and deploy application with _AS: Deploy_:
+Now start server with the _AS: Start_ command and deploy application with _AS: Deploy_:
 
 image::using/as-deploy.png[title="Deployinig"]
 
-Only click finish and your application will be deployed on WildFly.
+Click Finish, and your application will be deployed on WildFly.
 
 
 === Creating Arquillian tests
@@ -455,7 +462,7 @@ To avoid introducing unnecessary complexity into the developer’s build environ
 
 ==== Installing the Arquillian Forge addon
 
-Like the WildFly add-on we just installed and used, bringing Arquillian capabilities to Forge is just a matter of installing one add-on. The easiest is to install it from a Git repository by executing the following command in the Forge console:
+Like the WildFly add-on we just installed and used, bringing Arquillian capabilities to Forge is just a matter of installing one add-on. The easiest installation method is to install directly from a Git repository by executing the following command in the Forge console:
 
 [source, console]
 ----
