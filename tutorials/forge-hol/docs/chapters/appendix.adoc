@@ -13,15 +13,15 @@ The following JBoss Forge community members have contributed, one way or another
 
 === References
 
-- JBoss Forge home page (https://github.com/forge)
+- JBoss Forge home page (https://forge.jboss.org)
 - JBoss Forge Github repository (https://github.com/forge)
 - JBoss Forge forum (https://developer.jboss.org/en/forge)
 - JBoss Forge add-ons (http://forge.jboss.org/addons)
 - Roaster (https://github.com/forge/roaster)
-- Hand-on-lab Github repository (https://github.com/forge/docs/tree/master/tutorials/forge-hol)
-- Hand-on-lab PDF (https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf)
-- Hand-on-lab Envers add-on (https://github.com/forge/docs/tree/master/tutorials/forge-hol/envers-addon)
-- Hand-on-lab Petstore script (https://github.com/forge/docs/tree/master/tutorials/forge-hol/script)
+- Hands-on-lab Github repository (https://github.com/forge/docs/tree/master/tutorials/forge-hol)
+- Hands-on-lab PDF (https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf)
+- Hands-on-lab Envers add-on (https://github.com/forge/docs/tree/master/tutorials/forge-hol/envers-addon)
+- Hands-on-lab Petstore script (https://github.com/forge/docs/tree/master/tutorials/forge-hol/script)
 - Petstore Java EE 7 (https://github.com/agoncal/agoncal-application-petstore-ee7)
 
 === Revision History
