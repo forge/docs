@@ -39,7 +39,7 @@ NOTE: Get this tutorial from https://github.com/forge/docs/tree/master/tutorials
 
 === How does this lab work?
 
-You have this material in your hands (either https://github.com/forge/docs/blob/master/tutorials/forge-hol/forge-hol.pdf[electronically] or printed) and you can now follow it step by step or choose any section "à la carte". The structure of this hands on lab is as follow :
+You have this material in your hands (either https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf[electronically] or printed) and you can now follow it step by step or choose any section "à la carte". The structure of this hands on lab is as follow :
 
 - _Installing Forge_ : in this section you will install JBoss Forge, either on a standalone mode, or with JBDS (JBoss Developer Studio)
 - _Using Forge_ : in this section you will play with Forge, create a project, add entities, scaffold a JSF web application, REST endpoints, generate some Arquillian tests and deploy them on WildFly
