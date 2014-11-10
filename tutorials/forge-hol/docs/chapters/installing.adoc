@@ -1,9 +1,9 @@
 == Installing Forge
 [[installing-forge]]
 
-Installing Forge is a relatively short process, and this section will take you through the fundamentals (providing links to external materials if required) however, if you encounter any issues with this process, please ask in the team.
+Installing Forge is a relatively short process, and this section will take you through the fundamentals (providing links to external materials if required); however, if you encounter any issues with this process, please ask in the team.
 
-Depending if you are a command line adict or are more confortable with a Eclipse, you can either install JBoss Forge CLI or JBDS.
+If you are a command line addict or are more confortable with a Eclipse, you can choose to install JBoss Forge CLI or JBDS.
 
 === Installing Forge CLI
 
@@ -12,6 +12,7 @@ Follow these steps to install a Forge distribution:
 - Ensure that you have already installed a http://www.oracle.com/technetwork/java/javase/downloads/index.html[Java 7+ JDK].
 - http://red.ht/1vEB0v0[Download] and Un-zip Forge into a folder on your hard-disk, this folder will be your `FORGE_HOME`
 - Add `$FORGE_HOME/bin` to your path (windows, linux, mac osx)
+- Run JBoss Forge by typing the `forge` command in your system terminal.
 
 ==== Windows 
 
@@ -23,6 +24,8 @@ image::installing/windows/forge-cli-install1.png[title="Installing Forge CLI Ste
 In the same dialog, add `%FORGE_HOME%\bin` to the system path.
 
 image::installing/windows/forge-cli-install2.png[title="Installing Forge CLI Step 2"]
+
+Now open a system `cmd` or `command` prompt and run JBoss Forge by typing the `forge` command.
 
 ==== Mac OS X or Linux
 
@@ -49,6 +52,7 @@ or use Homebrew to install Forge natively, via:
 brew install jboss-forge
 --
 
+Run JBoss Forge by typing the `forge` command in your system terminal.
 
 === Installing JBDS 8.0 with EAP
 
