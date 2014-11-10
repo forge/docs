@@ -134,7 +134,7 @@ in <<installing-forge>> before that. You can create a new addon if you run the f
 
 [source, console]
 ----
-project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon --addons org.jboss.forge.addon:core,2.12.0.Final
+$ project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon --addons org.jboss.forge.addon:core,2.12.0.Final
 ----
 
 If you run Forge from JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) then select _Project: New_ and specify
@@ -149,7 +149,7 @@ This will create an empty Maven project that has the following artifacts:
 Forge dependencies, the command will add also those that you have specified with the `--addons` option in the format
 <group-id>:<artifact-id>,<version>
 * Standard maven directory structure plus the top level package
-* *Empty `beans.xml` in the `src/main/resources/META-INF` directory. This is because Forge and its addons strongly
+* Empty `beans.xml` in the `src/main/resources/META-INF` directory. This is because Forge and its addons strongly
 rely on the CDI development model
 * `README.asciidoc` file with a standard skeleton for documenting Forge addons
 
@@ -314,7 +314,7 @@ of Forge. If you are running the CLI, then simply type:
 
 [source, console]
 ----
-addon-new-ui-command --named EnversAuditEntityCommand --commandName "Envers: Audit entity" --categories "Auditing"
+[envers]$ addon-new-ui-command --named EnversAuditEntityCommand --commandName "Envers: Audit entity" --categories "Auditing"
 ----
 
 Or alternatively in the JBDS choose _Addon: New UI Command_, enter _EnversAuditEntityCommand_ in the Type Name field,
