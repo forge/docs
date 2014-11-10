@@ -33,7 +33,7 @@ The following JBoss Forge community members have contributed, one way or another
 - Used during the conference Devoxx Belgium 2014
 - JIRA https://issues.jboss.org/browse/FORGE-2102
 
-=== CLI Commands
+=== CLI Commands Quick Reference
 
 [width="15%"]
 |=======
