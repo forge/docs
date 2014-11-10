@@ -740,6 +740,5 @@ https://github.com/forge/docs/tree/master/tutorials/forge-hol/envers-addon[here]
 
 == The end
 
-This is the end of our hands on lab, we hope you enjoyed it and that it helped you in discovering or learning more about JBoss Forge. 
-
-This it the end of our hands on lab.... but it's the begining of a new journey: a world of productivity... even with Java EE ;o)
+This is the end of our hands on lab, but it's the begining of a new journey: a world of productivity... even with Java EE.
+We hope you enjoyed it and that it helped you in discovering and learning more about JBoss Forge. 
