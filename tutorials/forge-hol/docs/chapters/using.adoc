@@ -352,7 +352,7 @@ Does the WildFly application server need much of an introduction? http://wildfly
 
 ==== Installing the JBoss AS Forge addon
 
-The beauty of JBoss Forge is that it's extensible. In fact, Forge is a add-on container (called Furnace) and everything is seen as an extension (as a matter of fact, the CLI itself is an add-on!). To see the list of add-ons, juste visit the Forge documentation(http://forge.jboss.org/addons). And if you want to see all the already installed add-ons, execute the following command : 
+The beauty of JBoss Forge is that it's extensible. In fact, Forge is a add-on container (called Furnace) and everything is seen as an extension (as a matter of fact, the CLI itself is an add-on!). To see the list of add-ons, visit the Forge documentation(http://forge.jboss.org/addons). And if you want to see all the already installed add-ons, execute the following command : 
 
 [source, console]
 ----
