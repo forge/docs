@@ -1,10 +1,3 @@
-#  ##############  #
-#  Install Addons  #
-#  ##############  #
-#  If the following plugins are not installed
-#  addon-install-from-git --url https://github.com/forge/addon-arquillian.git --coordinate org.arquillian.forge:arquillian-addon
-
-
 
 #  #####################  #
 #  Creates a new project  #
@@ -21,10 +14,6 @@ ejb-setup --ejbVersion 3.2 ;
 faces-setup --facesVersion 2.2 ;
 servlet-setup --servletVersion 3.1 ;
 rest-setup --jaxrsVersion 2.0 ;
-
-#  Setup Arquillian
-#  ############
-arquillian-setup --arquillianVersion 1.1.5.Final --testFramework junit --testFrameworkVersion 4.11 --containerAdapter wildfly-remote --containerAdapterVersion 8.1.0.Final ;
 
 
 
