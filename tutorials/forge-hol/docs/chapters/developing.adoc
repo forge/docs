@@ -131,7 +131,7 @@ Before creating the Envers addon, you need to start Forge. Before you continue, 
 
 [source, console]
 ----
-$ project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon --addons org.jboss.forge.addon:core,2.12.0.Final
+$ project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon
 ----
 
 If you run Forge from JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) then select _Project: New_ and specify _envers_ as project name, _org.jboss.forge.addon_ as top level package, enter project location per your preference and as a Project type select _Forge Addon_:
