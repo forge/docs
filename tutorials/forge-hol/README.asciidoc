@@ -4,3 +4,5 @@ Hands on Lab
 This material helps you to setup a hands on lab on JBoss Forge. You will learn how to set it up, use it, and develop addons.
 
 Do not hesitate to run this lab at your local JUG, any conference or with friends at home. And, as usual, do not hesitate to contribute so this hands on lab gets better.
+
+https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf?raw=true[Get the PDF of the hands-on-lab]
