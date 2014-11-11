@@ -27,6 +27,8 @@ image::installing/windows/forge-cli-install2.png[title="Installing Forge CLI Ste
 
 Now open a system `cmd` or `command` prompt and run JBoss Forge by typing the `forge` command.
 
+TIP: If you have installed Forge 1.x before, make sure to remove all the files from the `~/.forge` directory
+
 ==== Mac OS X or Linux
 
 The easiest way to install Forge is to extract the distribution archive, to the directory you wish to install Forge. In a command terminal, add the `FORGE_HOME` environment variable, e.g: 
