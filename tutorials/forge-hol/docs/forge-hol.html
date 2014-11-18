@@ -1213,8 +1213,11 @@ FRENCH</code></pre>
 <div class="paragraph">
 <p>Now, you need add this enum as field in book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose <em>JPA: New Field</em> and select the <em>Book</em> as Target Entity, enter <em>language</em> as Field name and select <em>org.cdbookstore.model.Language</em> as Field Type:</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/using/new-enum-jpa-field.png" alt="new-enum-jpa-field" title="Creating a new Enum field in Entity"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/using/new-enum-jpa-field.png" alt="new enum jpa field">
+</div>
+<div class="title">Figure 20. Creating a new Enum field in Entity</div>
 </div>
 <div class="paragraph">
 <p>Now you need create a new Entity (Same that you did with Book):</p>
@@ -1236,13 +1239,13 @@ FRENCH</code></pre>
 <p>Now you need to add a Many-to-One relationship with <code>Book</code>.</p>
 </div>
 <div class="paragraph">
-<p>Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose <em>JPA: New Field</em>, select the <em>Book</em> as Target Entity. Enter <em>language</em> as Field name, select <em>org.cdbookstore.model.Language</em> as Field Type and mark <em>Many-to-One</em> as Relationship Type and click Finish (or Next):</p>
+<p>Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose <em>JPA: New Field</em>, select the <em>Book</em> as Target Entity. Enter <em>author</em> as Field name, select <em>org.cdbookstore.model.Author</em> as Field Type and mark <em>Many-to-One</em> as Relationship Type and click Finish (or Next):</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/using/new-relationship.png" alt="new relationship">
 </div>
-<div class="title">Figure 20. Creating a new relationship</div>
+<div class="title">Figure 21. Creating a new relationship</div>
 </div>
 <div class="paragraph">
 <p>If you choose Next instead of Finish, You can configure your relationship:</p>
@@ -1251,17 +1254,19 @@ FRENCH</code></pre>
 <div class="content">
 <img src="images/using/relationship-configuration.png" alt="relationship configuration">
 </div>
-<div class="title">Figure 21. Configuring relationship</div>
+<div class="title">Figure 22. Configuring relationship</div>
 </div>
 <div class="paragraph">
-<p>Forge takes care of all the JPA relational mapping between both entities.<br>
-Now, on an entity, we can add Bean Validation constraints. Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose <em>Constrait: Add</em>. You&#8217;ll see a configuration window, just like first step of the <em>JPA: New Entity</em> that you executed before:</p>
+<p>Forge takes care of all the JPA relational mapping between both entities.<br></p>
+</div>
+<div class="paragraph">
+<p>Now, on an entity, we can add Bean Validation constraints. Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose <em>Constrait: Add</em>. You&#8217;ll see a configuration window, just like first step of the <em>JPA: New Entity</em> that you executed before:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/using/configure-constraint.png" alt="configure constraint">
+<img src="images/using/setup-constraint.png" alt="setup constraint">
 </div>
-<div class="title">Figure 22. Configuring Constraint</div>
+<div class="title">Figure 23. Setup Bean Validation</div>
 </div>
 <div class="paragraph">
 <p>You should choose the <em>Generic Java EE</em> as Bean Validation provider and check "Provided by Application Server?".
@@ -1272,7 +1277,7 @@ configurations. Click Next, and choose <em>org.cdbookstore.model.Book</em> as Cl
 <div class="content">
 <img src="images/using/add-constraint.png" alt="add constraint">
 </div>
-<div class="title">Figure 23. Adding Constraint</div>
+<div class="title">Figure 24. Adding Constraint</div>
 </div>
 <div class="paragraph">
 <p>In next step you need specify the property on which to operate <em>Property</em> and the <em>Constraint</em> to configure.
@@ -1282,7 +1287,7 @@ In this case, let&#8217;s add NotNull on <em>title</em> property:</p>
 <div class="content">
 <img src="images/using/add-notnull-constraint.png" alt="add notnull constraint">
 </div>
-<div class="title">Figure 24. Adding NotNull Constraint</div>
+<div class="title">Figure 25. Adding NotNull Constraint</div>
 </div>
 <div class="paragraph">
 <p>Once the constraint is selected, you can also specify if you want the constraint to appear on the property itself, or on the property accessor (getter method).</p>
@@ -1290,8 +1295,11 @@ In this case, let&#8217;s add NotNull on <em>title</em> property:</p>
 <div class="paragraph">
 <p>Click Next to configure <em>payload</em>, <em>groups</em> and <em>message</em>:</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/using/configure-constraint.png" alt="configure-constraint" title="Configuring Constraint"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/using/configure-constraint.png" alt="configure constraint">
+</div>
+<div class="title">Figure 26. Configuring Constraint</div>
 </div>
 <div class="paragraph">
 <p>Click Finish.</p>
@@ -1352,7 +1360,7 @@ Constraint: Size | Max: 3000 |  Property: description</code></pre>
 <div class="content">
 <img src="images/using/faces-scaffold.png" alt="faces scaffold">
 </div>
-<div class="title">Figure 25. Configuring Faces Scaffold</div>
+<div class="title">Figure 27. Configuring Faces Scaffold</div>
 </div>
 <div class="paragraph">
 <p>Click Next to configure the Faces Scaffold:</p>
@@ -1361,7 +1369,7 @@ Constraint: Size | Max: 3000 |  Property: description</code></pre>
 <div class="content">
 <img src="images/using/faces-configuration-scaffold.png" alt="faces configuration scaffold">
 </div>
-<div class="title">Figure 26. Setup Facets</div>
+<div class="title">Figure 28. Setup Facets</div>
 </div>
 <div class="paragraph">
 <p>By default Forge scaffolds set suggested values for Java EE specification versions, but you can change this configuration as well.</p>
@@ -1369,8 +1377,11 @@ Constraint: Size | Max: 3000 |  Property: description</code></pre>
 <div class="paragraph">
 <p>Click Next to continue to select entities for which you want to generate scaffolding. In this case we&#8217;ll generate for all entities:</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/using/select-jpa-entities.png" alt="select-jpa-entities" title="Selecting JPA entities"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/using/select-jpa-entities.png" alt="select jpa entities">
+</div>
+<div class="title">Figure 29. Selecting JPA entities</div>
 </div>
 <div class="paragraph">
 <p>Click Finish and JBoss Forge will create your user interface.</p>
@@ -1421,7 +1432,7 @@ deleteById(java.lang.Long)::javax.ws.rs.core.Response          listAll(java.lang
 <div class="content">
 <img src="images/using/rest-setup.png" alt="rest setup">
 </div>
-<div class="title">Figure 27. Configuring REST</div>
+<div class="title">Figure 30. Configuring REST</div>
 </div>
 <div class="paragraph">
 <p>Click next to select the entities for which endpoints should be generated, select all, and click Finish (or click Next for more options):</p>
@@ -1430,7 +1441,7 @@ deleteById(java.lang.Long)::javax.ws.rs.core.Response          listAll(java.lang
 <div class="content">
 <img src="images/using/rest-entities.png" alt="rest entities">
 </div>
-<div class="title">Figure 28. Generating RESTEndpoints from JPA entities</div>
+<div class="title">Figure 31. Generating RESTEndpoints from JPA entities</div>
 </div>
 <div class="paragraph">
 <p>You can customize some options if you prefer, such as <em>Configuration Strategy</em>, <em>Class Name</em>, <em>Content Type</em> and so on.</p>
@@ -1519,7 +1530,7 @@ JBoss logs
 <div class="content">
 <img src="images/using/addon-install.png" alt="addon install">
 </div>
-<div class="title">Figure 29. Installing an Addon</div>
+<div class="title">Figure 32. Installing an Addon</div>
 </div>
 <div class="paragraph">
 <p>Now perform the same action for:</p>
@@ -1537,7 +1548,7 @@ JBoss logs
 <div class="content">
 <img src="images/using/as-setup.png" alt="as setup">
 </div>
-<div class="title">Figure 30. AS Setup</div>
+<div class="title">Figure 33. AS Setup</div>
 </div>
 <div class="paragraph">
 <p>Click next to configure the <em>Install directory</em>, <em>Port</em> and so on:</p>
@@ -1546,7 +1557,7 @@ JBoss logs
 <div class="content">
 <img src="images/using/as-configuration.png" alt="as configuration">
 </div>
-<div class="title">Figure 31. Configuration AS</div>
+<div class="title">Figure 34. Configuration AS</div>
 </div>
 <div class="paragraph">
 <p>Now let&#8217;s build the application:</p>
@@ -1558,7 +1569,7 @@ JBoss logs
 <div class="content">
 <img src="images/using/build.png" alt="build">
 </div>
-<div class="title">Figure 32. Building</div>
+<div class="title">Figure 35. Building</div>
 </div>
 <div class="paragraph">
 <p>Now start server with the <em>AS: Start</em> command and deploy application with <em>AS: Deploy</em>:</p>
@@ -1567,7 +1578,7 @@ JBoss logs
 <div class="content">
 <img src="images/using/as-deploy.png" alt="as deploy">
 </div>
-<div class="title">Figure 33. Deployinig</div>
+<div class="title">Figure 36. Deployinig</div>
 </div>
 <div class="paragraph">
 <p>Click Finish, and your application will be deployed on WildFly.</p>
@@ -1740,7 +1751,7 @@ jpa-new-field --named numcode --length 3 ;</code></pre>
 <div class="content">
 <img src="images/developing/petstore-splash.png" alt="petstore splash">
 </div>
-<div class="title">Figure 34. Petstore splash</div>
+<div class="title">Figure 37. Petstore splash</div>
 </div>
 <div class="paragraph">
 <p>The Java Petstore was a sample application created by Sun for its <a href="http://www.oracle.com/technetwork/java/javaee/blueprints/index.html">Java BluePrints</a> program. The Java Petstore was designed to illustrate how J2EE (and then Java EE) could be used to develop an eCommerce web application. Yes, the point of the Petstore is to sell pets online. The Petstore had a huge momentum and we started to see plenty of Petstore-like applications flourish. The idea was to build an application with a certain technology. Let&#8217;s face it, the J2EE version was far too complex using plenty of (today outdated) <a href="http://java.sun.com/blueprints/corej2eepatterns/">design patterns</a>.</p>
@@ -1819,7 +1830,7 @@ jpa-new-field --named numcode --length 3 ;</code></pre>
 <div class="content">
 <img src="images/developing/petstore-forge.png" alt="petstore forge">
 </div>
-<div class="title">Figure 35. Petstore home page</div>
+<div class="title">Figure 38. Petstore home page</div>
 </div>
 <div class="paragraph">
 <p>Do not hesitate to browse the database content, create new items, remove customers, filter addresses, update categories&#8230;&#8203; JBoss Forge has just created an entire CRUD web application for our domain model dealing with all the many-to-one, one-to-one&#8230;&#8203; relationships.</p>
@@ -1942,7 +1953,7 @@ and modifying an existing project of the same type, or you can use a Forge wizar
 <div class="content">
 <img src="images/developing/forge-new-project.png" alt="forge new project">
 </div>
-<div class="title">Figure 36. Creating new addon project</div>
+<div class="title">Figure 39. Creating new addon project</div>
 </div>
 <div class="paragraph">
 <p>This will create a skeleton Maven project that has the following artifacts:</p>
@@ -1987,7 +1998,7 @@ and enter <em>EnversSetupCommand</em> in the Type Name field, <em>Envers: Setup<
 <div class="content">
 <img src="images/developing/forge-envers-setup-command.png" alt="forge envers setup command">
 </div>
-<div class="title">Figure 37. Creating <em>Envers: Setup</em> command</div>
+<div class="title">Figure 40. Creating <em>Envers: Setup</em> command</div>
 </div>
 <div class="paragraph">
 <p>This will generate the <code>EnversSetupCommand</code> class in the <code>org.jboss.forge.addon.commands</code> package (unless you specify a different package). Forge makes this new command class extend <code>AbstractUICommand</code>, which provides some basic functionality like configuring the command name, the command dialog and the command execution. We will go through these in this and the next few sections.<br></p>
@@ -2140,7 +2151,7 @@ As we mentioned earlier, the command needs to add the Hibernate Envers dependenc
 <div class="content">
 <img src="images/developing/forge-envers-audit-entity-command.png" alt="forge envers audit entity command">
 </div>
-<div class="title">Figure 38. Creating <em>Envers: Audit entity</em> command</div>
+<div class="title">Figure 41. Creating <em>Envers: Audit entity</em> command</div>
 </div>
 <div class="paragraph">
 <p>Then open the newly created class and make it extend <code>AbstractProjectCommand</code> instead of <code>AbstractUICommand</code> and also add the unimplemented methods the way you did it in the setup command.<br></p>
@@ -2355,7 +2366,7 @@ All the code manipulation that you&#8217;ve just seen come from an API called <a
 <div class="content">
 <img src="images/developing/addon-project-root.png" alt="addon project root">
 </div>
-<div class="title">Figure 39. Specifying the addon project location</div>
+<div class="title">Figure 42. Specifying the addon project location</div>
 </div>
 <div class="paragraph">
 <p>This will trigger a build of the addon, and if it is successful, Forge will install it in its addon repository. You don&#8217;t have to restart the tool; Forge it will automatically load the new software once it is deployed. After
@@ -2365,7 +2376,7 @@ you see the success message, you can re-run the Forge quick access menu and will
 <div class="content">
 <img src="images/developing/forge-envers-setup-command-wizard.png" alt="forge envers setup command wizard">
 </div>
-<div class="title">Figure 40. <em>Envers: Setup</em> command in the <em>Auditing</em> category</div>
+<div class="title">Figure 43. <em>Envers: Setup</em> command in the <em>Auditing</em> category</div>
 </div>
 <div class="paragraph">
 <p>Now you can set up Hibernate Envers and open one of the JPA entities that you generated before starting to develop
@@ -2383,7 +2394,7 @@ this addon, e.g. Country. You should be able to call now the other command. In t
 <div class="content">
 <img src="images/developing/audit-entity.png" alt="audit entity">
 </div>
-<div class="title">Figure 41. <em>Envers: Audit entity</em> command dialog</div>
+<div class="title">Figure 44. <em>Envers: Audit entity</em> command dialog</div>
 </div>
 <div class="paragraph">
 <p>Just hit Enter and the entity will get the <code>@Audited</code> annotation.<br></p>
