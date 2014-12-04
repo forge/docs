@@ -8,7 +8,10 @@ What's new and noteworthy?
 ===========================
 
 * *Docker as a distribution format*: Forge is now Dockerized! If you have Docker installed, run *docker run -it jboss/forge* to try it! 
-* *Better shell interactivity*: If you type a command without providing the requiring inputs, Forge will now prompt you for each input in a wizard-like style. link:https://asciinema.org/a/14431[Check this out]
+* *Better shell interactivity*: If you type a command without providing the requiring inputs, Forge will now prompt you for each input in a wizard-like style.
+++++
+<script type="text/javascript" src="https://asciinema.org/a/14431.js" id="asciicast-14431" async></script>
+++++
 * *Component Upgrades*: We've upgraded Roaster to 2.10.0.Final, which now supports source formatting. 
 * *New Commands*: It's now possible to create JPA Named queries on JPA entities.
 
