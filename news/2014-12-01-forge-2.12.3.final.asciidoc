@@ -1,0 +1,84 @@
+== Forge 2.12.3.Final (Needles) is here!
+
+The Forge Team is proud to announce that Forge 2.12.3.Final is now available! 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Docker as a distribution format*: Forge is now Dockerized! If you have Docker installed, run *docker run -it jboss/forge* to try it! 
+* *Better shell interactivity*: If you type a command without providing the requiring inputs, Forge will now prompt you for each input in a wizard-like style.
+++++
+<script type="text/javascript" src="https://asciinema.org/a/14431.js" id="asciicast-14431" async></script>
+++++
+* *Component Upgrades*: We've upgraded Roaster to 2.10.0.Final, which now supports source formatting. 
+* *New Commands*: It's now possible to create JPA Named queries on JPA entities.
+
+Contributors
+=============
+
+Many thanks to the following contributors who helped to make this release better than ever
+
+- Antonio Goncalves
+
+Release Notes - Forge - Version 2.12.3.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2026'>FORGE-2026</a>] -         Scaffold setup fails on Windows
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2147'>FORGE-2147</a>] -         Error messages are displayed twice in the console when an exception is thrown from a UICommand
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2151'>FORGE-2151</a>] -         cdi-new-interceptor doesn&#39;t generate an @AroundInvoke on the method
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2154'>FORGE-2154</a>] -         Cannot add two dependencies that differ only in the &#39;type&#39; attribute to a new Maven project&#39;s POM.
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2156'>FORGE-2156</a>] -         Shell fails parsing of command when using VirtualResources
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2158'>FORGE-2158</a>] -         org.jboss.forge.addon.dependencies.Dependency.getArtifact() always returns null
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2155'>FORGE-2155</a>] -         Upgrade to Roaster 2.10.0.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2142'>FORGE-2142</a>] -         Prompt for UISelectMany should allow unselecting values
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2157'>FORGE-2157</a>] -         Make JSF 2.1 the default version on Faces Setup
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1669'>FORGE-1669</a>] -         Allow alternative Interactive Wizard execution style
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2041'>FORGE-2041</a>] -         parameterless wizards are not friendly
+</li>
+</ul>
+                                        
+<h2>        Task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2159'>FORGE-2159</a>] -         Create a Docker image to run Forge
+</li>
+</ul>
+                
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2138'>FORGE-2138</a>] -         Being able to add a @NamedQuery to an existing entity
+</li>
+</ul>
+++++
