@@ -5,9 +5,9 @@
 * We are now officially included in link:https://www.jboss.org/products/devstudio/overview/[JBoss Developer Studio];
 * We have a an link:http://plugins.jetbrains.com/plugin/7515[Intellij IDEA plugin]; 
 * We have been link:https://github.com/JBoss-Dockerfiles/forge[dockerized];
-* And even an excellent link:https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf?raw=true[Hands-on Lab] available to evangelize Forge in your JUG!
+* We even produced a link:https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf?raw=true[Hands-on Lab], which you can use to evangelize Forge in your JUG!
 
-May you also have a great year, as we had! We wish you happy holidays, and as usual, we are more than proud to announce that Forge 2.13.0.Final is now available! 
+We hope you have had a great year, just as as we have! We wish you happy holidays, and as usual, we are proud to announce that Forge 2.13.0.Final is now available! 
 
 Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
 
@@ -16,9 +16,7 @@ What's new and noteworthy?
 
 * *Conflict detection on REST endpoints*: Our REST endpoints are smarter! Now it checks if the provided ID matches with the entity/DTO submitted in the PUT request.
 * *UI API improvements*: We have introduced an awesome extension point (_UIDesktop_) that allows better control when opening files inside your IDE (eg: typing _open pom.xml_ will now use the IDE's editor and _open https://github.com/JBoss-Dockerfiles/forge _ will use the IDE's browser configuration).
-* *Component Upgrades*: We've upgraded Roaster to 2.11.0.Final
-
-And much more! Check the release notes below
+* *Component Upgrades*: We've upgraded Roaster to 2.11.0.Final (which includes support for JavaDoc editing on Enum constants, and a new API for working with Annotations.
 
 Release Notes - Forge - Version 2.13.0.Final
 ============================================
