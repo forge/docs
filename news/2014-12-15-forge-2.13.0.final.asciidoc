@@ -1,0 +1,46 @@
+== Forge 2.13.0.Final (Flange) is here!
+
+2014 was an excellent year for JBoss Forge. We are now officially included in link:https://www.jboss.org/products/devstudio/overview/[JBoss Developer Studio], got an link:http://plugins.jetbrains.com/plugin/7515[Intellij IDEA plugin], have been link:https://github.com/JBoss-Dockerfiles/forge[dockerized] and even an excellent link:https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf?raw=true[Hands-on Lab] available to evangelize Forge in your JUG!  
+May you also have a great year, as we had! We wish you happy holidays, and as usual, we are more than proud to announce that Forge 2.13.0.Final is now available! 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Conflict detection on REST endpoints*: Our REST endpoints are smarter! Now it checks if the provided ID matches with the entity/DTO submitted in the PUT request.
+* *UI API improvements*: We have introduced an awesome extension point (_UIDesktop_) that allows better control when opening files inside your IDE (eg: typing _open pom.xml_ will now use the IDE's editor and _open https://github.com/JBoss-Dockerfiles/forge _ will use the IDE's browser configuration).
+* *Component Upgrades*: We've upgraded Roaster to 2.11.0.Final
+
+And much more! Check the release notes below
+
+Release Notes - Forge - Version 2.13.0.Final
+============================================
+
+++++
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2166'>FORGE-2166</a>] -         Upgrade to Roaster 2.11.0.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2160'>FORGE-2160</a>] -         Projects must check the current selection instead of the initial selection
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1911'>FORGE-1911</a>] -         @PUT method should return a HTTP 409 for ID mismatch
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2161'>FORGE-2161</a>] -         Provide an extension point for Desktop actions
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2165'>FORGE-2165</a>] -         Add InputComponents.setRequiredMessage(Callable&lt;String&gt;)
+</li>
+</ul>
+                                                            
+++++
