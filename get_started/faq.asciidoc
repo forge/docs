@@ -1,0 +1,5 @@
+== How do I...
+
+=== Store state between command invocations? 
+
+You can use the *Configuration* addon for that. See link:https://github.com/forge/core/tree/master/configuration#features[this link] for an example.
