@@ -1,6 +1,12 @@
 == Forge 2.13.0.Final (Flange) is here!
 
-2014 was an excellent year for JBoss Forge. We are now officially included in link:https://www.jboss.org/products/devstudio/overview/[JBoss Developer Studio], got an link:http://plugins.jetbrains.com/plugin/7515[Intellij IDEA plugin], have been link:https://github.com/JBoss-Dockerfiles/forge[dockerized] and even an excellent link:https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf?raw=true[Hands-on Lab] available to evangelize Forge in your JUG!  
+2014 was an excellent year for JBoss Forge: 
+
+* We are now officially included in link:https://www.jboss.org/products/devstudio/overview/[JBoss Developer Studio];
+* We have a an link:http://plugins.jetbrains.com/plugin/7515[Intellij IDEA plugin]; 
+* We have been link:https://github.com/JBoss-Dockerfiles/forge[dockerized];
+* And even an excellent link:https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf?raw=true[Hands-on Lab] available to evangelize Forge in your JUG!
+
 May you also have a great year, as we had! We wish you happy holidays, and as usual, we are more than proud to announce that Forge 2.13.0.Final is now available! 
 
 Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
