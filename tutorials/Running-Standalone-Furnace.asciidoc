@@ -17,7 +17,7 @@ Configure your pom.xml like the following:
    <artifactId>furnace-demo</artifactId>
    <version>0.0.1-SNAPSHOT</version>
    <properties>
-      <version.forge>2.5.0.Final</version.forge>
+      <version.forge>2.13.0.Final</version.forge>
    </properties>
    <dependencyManagement>
       <dependencies>
