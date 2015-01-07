@@ -114,6 +114,8 @@ package org.george.app;
 
 import java.io.File;
 
+import java.util.concurrent.Future;
+
 import org.jboss.forge.addon.parser.java.projects.JavaWebProjectType;
 import org.jboss.forge.addon.projects.Project;
 import org.jboss.forge.addon.projects.ProjectFactory;
@@ -150,7 +152,7 @@ public class Main
       }
    }
 
-   static Furnace startFurnace()
+   static Furnace startFurnace() throws Exception
    {
       // Create a Furnace instance. NOTE: This must be called only once
       Furnace furnace = FurnaceFactory.getInstance();
