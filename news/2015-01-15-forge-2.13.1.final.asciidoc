@@ -1,0 +1,63 @@
+== Forge 2.13.1.Final (Ingot) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.13.1.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Format Sources*: We now have a command to format Java sources using Roaster. 
+* *JDK 8 Ready*: Although the minimum version for JBoss Forge is still JDK 7, Forge now compiles and run on JDK 8. 
+* *Component Upgrades*: We've upgraded Roaster to 2.11.1.Final.
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Daniel Cunha
+- Devanshu Singh
+
+
+Release Notes - Forge - Version 2.13.1.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1645'>FORGE-1645</a>] -         JavaResource resolve to wrong path after CD
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2072'>FORGE-2072</a>] -         Setting servletVersion to 3.1 generate as many &lt;error-page&gt; as entity scaffolds
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2170'>FORGE-2170</a>] -         Forge addon-build-and-install doesn&#39;t work with wildcards &quot;.&quot; &quot;~&quot; 
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2180'>FORGE-2180</a>] -         Display the FORGE_HOME variable when Forge boots up
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2172'>FORGE-2172</a>] -         Upgrade to Roaster to 2.11.1.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2019'>FORGE-2019</a>] -         Compilation errors in JDK 1.8.0_20+
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2073'>FORGE-2073</a>] -         File input should be relative to current directory, not ${user.dir}
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1950'>FORGE-1950</a>] -         command to format a file (or folder recursively) of Java source files
+</li>
+</ul>
+                                                            
+++++
