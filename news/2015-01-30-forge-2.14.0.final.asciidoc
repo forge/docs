@@ -1,0 +1,83 @@
+== Forge 2.14.0.Final (Sword) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.14.0.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Goodbye Illegal Brick Road*: We got rid of some nasty IllegalStateExceptions that used to happen when you run Furnace tests. Thanks goes to Matej Briskar and Lincoln Baxter, III for finding out the issue and fixing it appropriately. 
+* *Use your own formatting rules*: now it's possible to specify a default formatter profile. Use the "Java: Set Default Formatter" command to choose an exported Eclipse XML Formatter file to be used whenever a Java artifact is produced (JPA Entity, REST endpoint created, etc) 
+* *Component Upgrades*: We've upgraded Roaster to 2.12.0.Final, Maven to 3.2.5,  Aether to 1.0 and jGit to 3.6.1.201501031845-r (fixes security flaws).
+For this reason, it's highly recommended that you upgrade to this version and use Maven 3.2.5 if you plan to use the furnace-maven-plugin.
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Devanshu Singh
+- Lincoln Baxter, III
+- Matej Briskar
+
+
+Release Notes - Forge - Version 2.13.1.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2125'>FORGE-2125</a>] -         Frequent errors like this &quot;java.lang.IllegalStateException: Test runner could not locate test class [org.jboss.windup.reporting.FreeMarkerIterationOperationTest] in any deployed Addon.&quot;
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2184'>FORGE-2184</a>] -         GenerateDot fails with Maven 3.2.5: NoClassDefFoundError: org/eclipse/aether/spi/connector/Transfer$State
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2190'>FORGE-2190</a>] -         Addon: New UI Command throws java.lang.IllegalArgumentException: Invalid identifier : &gt;&lt; on empty class name
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2186'>FORGE-2186</a>] -         Upgrade to Maven 3.2.5 and Aether 1.0
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2193'>FORGE-2193</a>] -         Upgrade jGit to 3.6.1.201501031845-r
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2214'>FORGE-2214</a>] -         Upgrade to Roaster 2.12.0.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2204'>FORGE-2204</a>] -         Furnace CDI container should not depend on Groovy
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-212'>FORGE-212</a>] -         Classload dependencies of current project when performing certain operations 
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2105'>FORGE-2105</a>] -          Develop a NetBeans plugin as a Forge 2 UI Provider 
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2106'>FORGE-2106</a>] -         Expose the underlying Project&#39;s ClassLoader via a new ProjectFacet
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2191'>FORGE-2191</a>] -         Support UIDesktop as a reserved parameter in annotated UI commands
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2202'>FORGE-2202</a>] -         Provide formatter configuration when using Forge
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2205'>FORGE-2205</a>] -         Furnace runtime should warn when not loading addons due to API version incompatibility
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2207'>FORGE-2207</a>] -         Introduce ContainerLifecycleListener.afterStart()
+</li>
+</ul>
+                                        
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1842'>FORGE-1842</a>] -         Being able to generate methods on a Java class
+</li>
+</ul>
+    
+++++
