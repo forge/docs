@@ -17,6 +17,7 @@ Contributors
 Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
 
 - Devanshu Singh
+- George Gastaldi
 - Lincoln Baxter, III
 - Matej Briskar
 
