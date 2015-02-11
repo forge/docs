@@ -15,3 +15,7 @@ If you would like to watch the plugin in action, watch this video:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sPVh6-CZWfA" frameborder="0" allowfullscreen></iframe>
 ++++
  
+Other Resources
+===============
+- link:https://netbeans.org/community/news/newsletter/2015-02-10.html[NetBeans newsletter]
+- link:https://www.facebook.com/NetBeans/posts/728259867288822[NetBeans Facebook post]
