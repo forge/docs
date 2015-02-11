@@ -1,17 +1,17 @@
- == JBoss Forge Netbeans plugin is now available
+== JBoss Forge Netbeans plugin is now available
  
- The Forge Team is proud to announce the immediate availability of the JBoss Forge Netbeans plugin. 
- 
- Installation
- ============
- 
- The plugin can be downloaded directly from link:http://plugins.netbeans.org/plugin/57296[the Netbeans plugin portal].
- 
- Tutorial
- ========
- 
- If you would like to watch the plugin in action, watch this video:
-  ++++
- <iframe width="560" height="315" src="https://www.youtube.com/embed/sPVh6-CZWfA" frameborder="0" allowfullscreen></iframe>
- ++++
+The Forge Team is proud to announce the immediate availability of the JBoss Forge Netbeans plugin. 
+
+Installation
+============
+
+The plugin can be downloaded directly from link:http://plugins.netbeans.org/plugin/57296[the Netbeans plugin portal].
+
+Tutorial
+========
+
+If you would like to watch the plugin in action, watch this video:
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sPVh6-CZWfA" frameborder="0" allowfullscreen></iframe>
+++++
  
