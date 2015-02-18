@@ -358,9 +358,13 @@ The `Facet` class comes from the `facets` addon and is used in the public APIs o
 [source,java]
 ----
 @Singleton
-public class OptionalListener implements ListenerX {
+public class OptionalListener
+   implements ListenerX {
+   
    public void handleEvent(EventX event) {
-      System.out.println("I am an event from optional addon X! " + event);
+      System.out
+         .println("From optional addon X! " 
+         + event);
    }
 }
 ----
