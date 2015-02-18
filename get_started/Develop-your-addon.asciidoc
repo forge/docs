@@ -357,19 +357,17 @@ The `Facet` class comes from the `facets` addon and is used in the public APIs o
 |
 [source,java]
 ----
-@Singleton
 public class OptionalListener
    implements ListenerX {
    
    public void handleEvent(EventX event) {
-      System.out
-         .println("From optional addon X! " 
+      System.out.println("I got an event! " 
          + event);
    }
 }
 ----
 |`provided` and `optional`
-|Your addon compiles against classes from the `events` addon, but does not expose it to dependents. Your addon still functions without `events`, but new behavior is activated when `events` is present.
+|Your addon compiles against classes from the `events` addon, but does not expose it to dependents. Your addon still functions without `events`, but new behavior is activated when `events` is present. Any classes you define containing references to classes defined in the `events` addon will be disabled (fail to load) if `events` is not present.
 
 The `EventX` and `ListenerX` classes come from the `events` addon.
 
