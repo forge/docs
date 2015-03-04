@@ -1,0 +1,114 @@
+== Forge 2.15.0.Final (Shield) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.15.0.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Improved test harness*: This release adds significant changes to the existing test harness. We deprecated `ForgeArchive` and `@Dependencies` in favor of `AddonArchive` and `@AddonDependencies` respectively. 
++
+That means that you no longer need to call `ForgeArchive.addAddonDependencyEntry` when using this annotation, as the test harness will set them automatically for you. If you still want to preserve the old behavior of deploying dependent addons without any relation to the tested addon, use the new annotation `@AddonDeployment`.
+* *Support for custom Addon Compatibility Strategies*: So far Furnace only loaded addons which had a compatible API version set. Now it is possible to override this by calling `org.jboss.forge.furnace.Furnace.setAddonCompatibilityStrategy(AddonCompatibilityStrategy)`. Furnace provides `AddonCompatibilityStrategies.STRICT` and `AddonCompatibilityStrategies.LENIENT` loading strategies and also a `furnace.addons.compatibility` system property to override the default behavior.
+* *InputComponent.setNote*: Ever wanted to display a note below a input component when rendering in GUI environments? Now it's possible. 
++
+Here is an example: image:https://issues.jboss.org/secure/attachment/12387948/m9PPrba.png[]
++
+link:https://github.com/forge/core/blob/master/addon-manager/impl/src/main/java/org/jboss/forge/addon/manager/impl/ui/AddonInstallCommand.java#L46[Here is] the source code (the note attribute in the @WithAttributes annotation): 
+
+* *Component Upgrades*: We've upgraded Roaster to 2.13.0.Final and Arquillian to 1.1.7.Final.
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Antonio Goncalves
+- Daniel Cunha (soro)
+- Ludovic Bertin
+- Paulo Jerônimo
+
+Release Notes - Forge - Version 2.15.0.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2125'>FORGE-2125</a>] -         Frequent errors like this &quot;java.lang.IllegalStateException: Test runner could not locate test class [org.jboss.windup.reporting.FreeMarkerIterationOperationTest] in any deployed Addon.&quot;
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2219'>FORGE-2219</a>] -         Problem with NonSnapshotDependencyFilter activation criteria
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2239'>FORGE-2239</a>] -         Auto pickup of ArchetypeCatalogFactory instances from AddonRegistry is not working
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2241'>FORGE-2241</a>] -         Configuration.clearProperty() does not work for multilevel subsets
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2242'>FORGE-2242</a>] -         Programmatically adding maven archetype catalog - is shown as unknown in archetype-list
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2252'>FORGE-2252</a>] -         Command execution exception stacktrace is not displayed even with export VERBOSE=true
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2253'>FORGE-2253</a>] -         Artifact resolution does not fallback to Central
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2258'>FORGE-2258</a>] -         Generated man page does not use the appropriate label converter
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2215'>FORGE-2215</a>] -         Upgrade to Arquillian 1.1.7.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2236'>FORGE-2236</a>] -         Upgrade to JavaEE Descriptors 0.0.5.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2237'>FORGE-2237</a>] -         Upgrade to Roaster 2.13.0.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1897'>FORGE-1897</a>] -         Show the file extension of a project type when creating a new project
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2240'>FORGE-2240</a>] -         project-new - Do not show from-archetype-catalog if there are no catalogs
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2257'>FORGE-2257</a>] -         Introduce initial (NEW) status for newly deployed addons
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1790'>FORGE-1790</a>] -         Make adding addon deps easier in getDeployment().
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2247'>FORGE-2247</a>] -         Introduce InputComponent.setNote()
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2259'>FORGE-2259</a>] -         Furnace should support disabling strict loading of addons based on API version
+</li>
+</ul>
+                                        
+<h2>        Task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2267'>FORGE-2267</a>] -         Upgrade to jboss parent 17
+</li>
+</ul>
+                
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2248'>FORGE-2248</a>] -         Support InputComponent.getNote() in Eclipse
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2255'>FORGE-2255</a>] -         Adding helper methods in CommandController
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2256'>FORGE-2256</a>] -         Strengthen test harness on JPA Commands
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2260'>FORGE-2260</a>] -         Strengthen test harness on Bean Validation Commands
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2261'>FORGE-2261</a>] -         Refactoring the Bean Validation Commands
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2263'>FORGE-2263</a>] -         Strengthen test harness on CDI Commands
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2265'>FORGE-2265</a>] -         Refactoring the CDI Commands
+</li>
+</ul>
+++++
