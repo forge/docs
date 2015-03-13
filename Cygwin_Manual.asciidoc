@@ -21,14 +21,19 @@ have them.
 1. Start ConEmu64
 2. Run Cygwin.bat
 3. Download forge: 
+
 ---
  $ wget forge-distribution-2.15*.zip
 ---
+
 4. Unzip it anywhere you want:
+
 ---
  $ unzip forge-dis*.zip
 ---
+
 5. Change to the unzipped folder: 
+
 ---
  $ cd  forge-dist*
 ---
@@ -47,10 +52,13 @@ lead to headaches.
 === Start forging!
 
 10. Run GNU screen. This will handle some strange characters. Maybe tmux also does the trick.
+
 ---
  $ screen
 ---
+
 11. Run forge, wrapping it with rlwrap:
+
 ---
  $ rlwrap forge
 ---
