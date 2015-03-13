@@ -88,7 +88,7 @@ $ faces-setup --facesVersion 2.2
 Once you have created fields in the entities, it's time to generate some scaffolding. You can either scaffold per entity, or use a wildcard to let Forge know it can generate a UI for each entity 
 
 ----
-$ scaffold-generate --targets com.example.projectmodel.*
+$ scaffold-generate --targets com.example.project.model.*
 ----
 
 That's it! Now build your project and deploy it onto your Java EE Application Server of choice:
