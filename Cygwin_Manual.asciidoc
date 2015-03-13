@@ -1,0 +1,62 @@
+== Forge shell with Cygwin
+
+This configuration works with Windows 8.1 64-bit and CONEMU64 instead of PowerShell. ConEmu64 works best with Cygwin than Powershell.
+
+=== Packages needed
+
+You will need the following Cygwin packages:
+
+rlwrap
+GNU Screen (maybe tmux can also deal with funny characters)
+
+=== Removing every .forge folder
+
+If you have installed a previous version, delete every .forge
+folder. This is commonly under c:\Users\<YourUser>\.forge, but it probably
+includes $HOME/.forge under cygwin also. So, delete the two of these if you
+have them.
+
+=== Installing forge 
+
+1. Start ConEmu64
+2. Run Cygwin.bat
+3. Download forge: 
+---
+ $ wget forge-distribution-2.15*.zip
+---
+4. Unzip it anywhere you want:
+---
+ $ unzip forge-dis*.zip
+---
+5. Change to the unzipped folder: 
+---
+ $ cd  forge-dist*
+---
+
+=== Configuring FORGE_HOME and PATH
+
+6. Do NOT copy the path of FORGE_HOME from the Cygwin terminal. This will only
+lead to headaches.
+
+7. Do NOT configure FORGE_HOME and PATH from .bashrc. Use the environment variables of Windows.
+
+8. Set FORGE_HOME and PATH  as the environment variables FOR WINDOWS: ( Win+Pause, System Configuration, Environment Variables, create a new environment variable).
+
+9. Restart cygwin (close Cygwin, start ConEmu64, run Cygwin64.bat).
+
+=== Start forging!
+
+10. Run GNU screen. This will handle some strange characters. Maybe tmux also does the trick.
+---
+ $ screen
+---
+11. Run forge, wrapping it with rlwrap:
+---
+ $ rlwrap forge
+---
+
+=== Additional notes
+
+If you use EMACS-MODE or VI-MODE, configure .inputrc as you wish and rlwrap will do the job instead forge.
+
+Too long commands from the shell will render in the same line at the time you write it. This won't affect the command.
