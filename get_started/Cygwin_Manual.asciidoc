@@ -1,0 +1,100 @@
+== Forge shell with Cygwin + Wildfly
+
+This configuration works with Windows 8.1 64-bit, WildFly 8.2, Forge 2.15.1.Final and CONEMU64 instead of PowerShell. http://sourceforge.net/projects/conemu/[Download] ConEmu64, which works best with Cygwin than Microsoft's Powershell. It will also allow you to use Wildfly's jboss-cli.bat (see the end of this article).
+
+=== Packages needed
+
+You will need the following Cygwin packages:
+
+rlwrap
+GNU Screen (maybe tmux can also deal with funny characters)
+
+=== Removing every .forge folder
+
+If you have installed a previous version, delete every .forge
+folder. This is commonly under c:\Users\<YourUser>\.forge, but it probably
+includes $HOME/.forge under cygwin also. So, delete the two of these if you
+have them.
+
+=== Installing forge 
+
+1. http://forge.jboss.org/download[Download] forge (ZIP version)
+2. Start ConEmu64
+3. Run Cygwin.bat
+4. Unzip forge anywhere you want:
+----
+ $ unzip forge-dis*.zip
+----
+5. Change to the unzipped folder: 
+----
+ $ cd  forge-dist*
+----
+
+=== Configuring FORGE_HOME and PATH
+
+6. Do NOT copy the path of FORGE_HOME from the Cygwin terminal. This will only
+lead to headaches.
+
+7. Do NOT configure FORGE_HOME and PATH from .bashrc. Use the environment variables of Windows.
+
+8. Set FORGE_HOME and PATH  as the environment variables FOR WINDOWS: ( Win+Pause, System Configuration, Environment Variables, create a new environment variable). If you will use Wildfly, also create a variable JBOSS_HOME and set it properly, and add Wildfly's bin folder to PATH.
+
+9. Restart cygwin (close Cygwin, start ConEmu64, run Cygwin64.bat).
+
+=== Start forging!
+
+10. Run GNU screen. This will handle some strange characters. Maybe tmux also does the trick.
+----
+ $ screen
+----
+11. Run forge, wrapping it with rlwrap:
+----
+ $ rlwrap forge
+----
+
+=== Additional notes
+
+A. If you use EMACS-MODE or VI-MODE, configure .inputrc as you wish and rlwrap will do the job instead forge.
+
+B. Too long commands from the shell will render in the same line at the time you write it. This won't affect the command.
+
+=== Wildfly notes
+
+C. jboss-cli.sh won't work with cywgin and GNU Screen, even if you try to use rlwrap to wrap it. Use ConEmu64 with jboss-cli.bat instead. Press WIN+n and select {cmd} on the menu. Run jboss-cli.bat from that console. To return to your cygwin console press CTRL-TAB.
+
+D. (Jboss-cli): Take care of the setup of your JPA Provider when creating your forge application, since DefaultDataSource doesn't exist as the default Datasource provider (Wildfly 8.2.0.Final.zip). 
+
+Instead this:
+
+----
+$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
+----
+
+You must do this:
+
+----
+$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:jboss/datasources/ExampleDS
+----
+
+E. (Jboss-cli): In the Advanced Tutorial for forge, PostgreSQL is used. In Wildfly, this jdbc is not registered. You can register it as a module and create the datasource driver with:
+
+----
+module add --name=org.postgres --resources=<YOUR_PG_JDBC_FOLDER>\postgresql-9.4-1201.jdbc41.jar --dependencies=javax.api,javax.transaction.api
+
+/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver)
+----
+
+F. (Jboss-cli): If you want to use the datasource name "DefaultDataSource" for the advanced tutorial, please note that java:comp/DefaultDataSource is not valid on Wildfly 8.2. Create a similar one with:
+
+----
+data-source add --jndi-name=java:jboss/datasources/DefaultDataSource --name=DefaultDS --connection-url=jdbc:postgresql://localhost/<your-postgres-application-db> --driver-name=postgres --user-name=<your-postgres-user> --password=<your-postgres-password>
+----
+
+G. (Jboss-cli): Yoy can list and delete datasources if you accidentally fail with the creation:
+
+----
+/subsystem=datasources:read-resource(recursive=true)
+
+data-source remove --name=ConferenceDS
+----
+
