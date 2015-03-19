@@ -1,0 +1,69 @@
+== Forge 2.15.2.Final (Morning Star) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.15.2.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Wildcard for package names*: Now it's possible to use "~" as a wildcard for the base package. Eg.
+[source,cmd]
+----
+    java-new-class --named MyClass --targetPackage ~.model
+----
+* *Component Upgrades*: We've upgraded Furnace to 2.15.3.Final.
+
+And some bug fixes, just in time for JBoss Tools 4.2.3.Final. 
+
+Contributors
+=============
+
+Many thanks to Antonio Goncalves who helped to make this release better than ever
+
+Release Notes - Forge - Version 2.15.2.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2289'>FORGE-2289</a>] -         [ERROR] Non-resolvable import POM: Could not find artifact org.jboss.forge:forge-bom:pom:2.15.2.Final in redhat-techpreview-all-repository (http://maven.repository.redhat.com/techpreview/all/) @ line 16, column 19
+</li>
+</ul>
+        
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2282'>FORGE-2282</a>] -         Upgrade to Furnace 2.15.3.Final
+</li>
+</ul>
+            
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2228'>FORGE-2228</a>] -         Cannot create a method on a Java Interface
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2273'>FORGE-2273</a>] -         MavenFacet - Write properties sorted A..Z
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1751'>FORGE-1751</a>] -         Support Wildcards for package and class names
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2287'>FORGE-2287</a>] -         Support injection of UIContextProvider
+</li>
+</ul>
+                                                        
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2249'>FORGE-2249</a>] -         Support InputComponent.getNote() in NetBeans
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2275'>FORGE-2275</a>] -         Refactor the Java EE Tests with new @AddonDependency
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2286'>FORGE-2286</a>] -         Shell does not log validation exceptions
+</li>
+</ul>
+++++
