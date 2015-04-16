@@ -16,7 +16,7 @@ And some bug fixes, just in time for JBoss Tools 4.3.0.Alpha2.
 Contributors
 =============
 
-Many thanks to Matej Briškár who helped to make this release better than ever
+Many thanks to Matej Briskar who helped to make this release better than ever
 
 Release Notes - Forge - Version 2.16.0.Final
 ============================================
