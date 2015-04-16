@@ -1,0 +1,59 @@
+== Forge 2.16.0.Final (Spear) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.16.0.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Addon installation performance enhancement*: We tuned the addon resolution installation algorithm . Now addons depending on transitive addons should be installed faster than our previous versions.
+* *Addon Update command*: You can update specific addons by invoking the addon-update command
+* *Home and End buttons now work in Shell*: You can now use the Home and End buttons to navigate to the beginning and the end of the command line thanks to Stale Pedersen and his Aesh update.  
+* *Component Upgrades*: We've upgraded Furnace, Roaster and Aesh. Check the release notes below.
+
+And some bug fixes, just in time for JBoss Tools 4.3.0.Alpha2. 
+
+Contributors
+=============
+
+Many thanks to Matej Briškár who helped to make this release better than ever
+
+Release Notes - Forge - Version 2.16.0.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2298'>FORGE-2298</a>] -         AddonGitBuildAndInstallCommand does not use the Forge version
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2299'>FORGE-2299</a>] -         No such child when doing a --targetClass
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2300'>FORGE-2300</a>] -         When using &quot;JPA: New Entity&quot; it&#39;s not possible to choose a package, it&#39;s always &quot;model&quot;
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2302'>FORGE-2302</a>] -         Cat -c always chops the last line
+</li>
+</ul>
+            
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2295'>FORGE-2295</a>] -         Upgrade to Furnace 2.16.0.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2301'>FORGE-2301</a>] -         Upgrade to Roaster 2.13.1.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2304'>FORGE-2304</a>] -         Upgrade to Aesh 0.56.2
+</li>
+</ul>
+                        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1610'>FORGE-1610</a>] -         Introduce an Update addon
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2268'>FORGE-2268</a>] -         allow wizards in the CLI to let the user configure non-required inputs
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2296'>FORGE-2296</a>] -         Forge - Shell in CLI interactive mode, show * for required option and ? for optional
+</li>
+</ul>
+++++
