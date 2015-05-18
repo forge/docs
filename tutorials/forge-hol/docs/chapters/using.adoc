@@ -441,7 +441,7 @@ image::../images/using/build.png[title="Building"]
 
 Now start server with the _AS: Start_ command and deploy application with _AS: Deploy_:
 
-image::../images/using/as-deploy.png[title="Deployinig"]
+image::../images/using/as-deploy.png[title="Deploying"]
 
 Click Finish, and your application will be deployed on WildFly.
 
