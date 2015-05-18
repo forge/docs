@@ -37,7 +37,7 @@ $ project-new --named cdbookstore --topLevelPackage com.example.project --target
 If you run Forge from JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) then select Project: New and specify _cdbookstore_ as project name, 
 _com.example_ as top level package, enter project location per your preference:
 
-image::using/new-project.png[title="Creating new project"]
+image::../images/using/new-project.png[title="Creating new project"]
 
 === Setting up persistence and validation
 
@@ -153,22 +153,22 @@ you should choose _JPA: New Entity_ and you'll see a JPA configuration window. T
 
 In first step you need setup JPA in your project:
 
-image::using/jpa-setup.png[title="Setup JPA"]
+image::../images/using/jpa-setup.png[title="Setup JPA"]
 
 The next step you need configure your connection settings:
 
-image::using/configure-connection-settings.png[title="Configuring Connection Settings"]
+image::../images/using/configure-connection-settings.png[title="Configuring Connection Settings"]
 
 After the configuration step, you can create your first entity. +
 Enter _Book_ as Entity name, _org.cdbookstore.model_ in Target package and click Finish.
 
-image::using/jpa-new-entity.png[title="Creating a new Entity"]
+image::../images/using/jpa-new-entity.png[title="Creating a new Entity"]
 
 Then you need add fields to your Entity. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), you should
 choose _JPA: New Field_ and select the _Book_ as Target entity, _title_ as Field Name, _String_ as Type and click 
 Finish:
 
-image::using/new-field.png[title="Creating a new field in Entity"]
+image::../images/using/new-field.png[title="Creating a new field in Entity"]
 
 Repeat the step to create all field's Book class:
 [source]
@@ -183,7 +183,7 @@ Now you need to specify that a book is written in a certain language.
 We'll create a Java enum and then have it as a JPA Enumerated in the Book entity. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), you should
 choose _Java: New Enum_ and enter _org.cdbookstore.model_ in Package name and _Language_ in Type Name:
 
-image::using/new-enum.png[title="Creating a new Enum"]
+image::../images/using/new-enum.png[title="Creating a new Enum"]
 
 Now you need add new constants to it. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Java: New Enum Const_
 and add all consts, this case:
@@ -195,11 +195,11 @@ FRENCH
 
 and click Finish:
 
-image::using/new-enum-const.png[title="Creating a new Enum Constant"]
+image::../images/using/new-enum-const.png[title="Creating a new Enum Constant"]
 
 Now, you need add this enum as field in book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _JPA: New Field_ and select the _Book_ as Target Entity, enter _language_ as Field name and select _org.cdbookstore.model.Language_ as Field Type:
 
-image::using/new-enum-jpa-field.png[title="Creating a new Enum field in Entity"]
+image::../images/using/new-enum-jpa-field.png[title="Creating a new Enum field in Entity"]
 
 Now you need create a new Entity (Same that you did with Book):
 [source]
@@ -217,34 +217,34 @@ Now you need to add a Many-to-One relationship with `Book`.
 
 Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _JPA: New Field_, select the _Book_ as Target Entity. Enter _author_ as Field name, select _org.cdbookstore.model.Author_ as Field Type and mark _Many-to-One_ as Relationship Type and click Finish (or Next):
 
-image::using/new-relationship.png[title="Creating a new relationship"]
+image::../images/using/new-relationship.png[title="Creating a new relationship"]
 
 If you choose Next instead of Finish, You can configure your relationship:
 
-image::using/relationship-configuration.png[title="Configuring relationship"]
+image::../images/using/relationship-configuration.png[title="Configuring relationship"]
 
 Forge takes care of all the JPA relational mapping between both entities. +
 
 Now, on an entity, we can add Bean Validation constraints. Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _Constrait: Add_. You'll see a configuration window, just like first step of the _JPA: New Entity_ that you executed before:
 
-image::using/setup-constraint.png[title="Setup Bean Validation"]
+image::../images/using/setup-constraint.png[title="Setup Bean Validation"]
 
 You should choose the _Generic Java EE_ as Bean Validation provider and check "Provided by Application Server?". 
 If you don't want the default configuration provided by Application Server you are free to change your 
 configurations. Click Next, and choose _org.cdbookstore.model.Book_ as Class:
 
-image::using/add-constraint.png[title="Adding Constraint"]
+image::../images/using/add-constraint.png[title="Adding Constraint"]
 
 In next step you need specify the property on which to operate _Property_ and the _Constraint_ to configure. 
 In this case, let's add NotNull on _title_ property:
 
-image::using/add-notnull-constraint.png[title="Adding NotNull Constraint"]
+image::../images/using/add-notnull-constraint.png[title="Adding NotNull Constraint"]
 
 Once the constraint is selected, you can also specify if you want the constraint to appear on the property itself, or on the property accessor (getter method).
 
 Click Next to configure _payload_, _groups_ and _message_:
 
-image::using/configure-constraint.png[title="Configuring Constraint"]
+image::../images/using/configure-constraint.png[title="Configuring Constraint"]
 
 Click Finish. 
 
@@ -290,17 +290,17 @@ $ faces-setup --facesVersion 2.2
 
 In JBDS it's simple too. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Scaffold: Generate_, choose _Faces_ as Scaffold Type:
 
-image::using/faces-scaffold.png[title="Configuring Faces Scaffold"]
+image::../images/using/faces-scaffold.png[title="Configuring Faces Scaffold"]
 
 Click Next to configure the Faces Scaffold:
 
-image::using/faces-configuration-scaffold.png[title="Setup Facets"]
+image::../images/using/faces-configuration-scaffold.png[title="Setup Facets"]
 
 By default Forge scaffolds set suggested values for Java EE specification versions, but you can change this configuration as well.
 
 Click Next to continue to select entities for which you want to generate scaffolding. In this case we'll generate for all entities:
 
-image::using/select-jpa-entities.png[title="Selecting JPA entities"]
+image::../images/using/select-jpa-entities.png[title="Selecting JPA entities"]
 
 Click Finish and JBoss Forge will create your user interface.
 
@@ -338,11 +338,11 @@ deleteById(java.lang.Long)::javax.ws.rs.core.Response          listAll(java.lang
 
 Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _REST: Generate Endpoints from Entities_, the first step, you need to configure the REST in your application, enter all information such as:
 
-image::using/rest-setup.png[title="Configuring REST"]
+image::../images/using/rest-setup.png[title="Configuring REST"]
 
 Click next to select the entities for which endpoints should be generated, select all, and click Finish (or click Next for more options):
 
-image::using/rest-entities.png[title="Generating RESTEndpoints from JPA entities"]
+image::../images/using/rest-entities.png[title="Generating RESTEndpoints from JPA entities"]
 
 You can customize some options if you prefer, such as _Configuration Strategy_, _Class Name_, _Content Type_ and so on.
 
@@ -416,7 +416,7 @@ _https://github.com/jerr/as-addon_ as GIT Repository URL ad _org.jboss.forge.add
 GIT Repository: https://github.com/jerr/as-addon | Coordinate: org.jboss.forge.addon:as,2.0.0-SNAPSHOT
 --
 
-image::using/addon-install.png[title="Installing an Addon"]
+image::../images/using/addon-install.png[title="Installing an Addon"]
 
 Now perform the same action for:
 [source]
@@ -427,21 +427,21 @@ GIT Repository: https://github.com/jerr/jboss-as-addon | Coordinate: org.jboss.f
 It's now time to set up your server. Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose
 _AS: Setup_, then select _wildfly8_:
 
-image::using/as-setup.png[title="AS Setup"]
+image::../images/using/as-setup.png[title="AS Setup"]
 
 Click next to configure the _Install directory_, _Port_ and so on:
 
-image::using/as-configuration.png[title="Configuration AS"]
+image::../images/using/as-configuration.png[title="Configuration AS"]
 
 Now let's build the application:
 
 Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _Build_:
 
-image::using/build.png[title="Building"]
+image::../images/using/build.png[title="Building"]
 
 Now start server with the _AS: Start_ command and deploy application with _AS: Deploy_:
 
-image::using/as-deploy.png[title="Deployinig"]
+image::../images/using/as-deploy.png[title="Deployinig"]
 
 Click Finish, and your application will be deployed on WildFly.
 
