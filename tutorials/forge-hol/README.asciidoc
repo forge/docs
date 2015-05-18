@@ -6,3 +6,6 @@ This material helps you to setup a hands on lab on JBoss Forge. You will learn h
 Do not hesitate to run this lab at your local JUG, any conference or with friends at home. And, as usual, do not hesitate to contribute so this hands on lab gets better.
 
 https://github.com/forge/docs/blob/master/tutorials/forge-hol/docs/forge-hol.pdf?raw=true[Get the PDF of the hands-on-lab]
+or generate it with asscidoctor, looks instruction to install asciidoctor-pdf http://asciidoctor.org/docs/convert-asciidoc-to-pdf/[here] and run: 
+
+ ruby ASCIIDOCTOR_PDF/bin/asciidoctor-pdf FORGE_HOL_PATH/forge-hol.adoc
