@@ -1,0 +1,80 @@
+== Forge 2.16.1.Final (Club) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.16.1.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *New Commands*: It's now possible to create CDI extensions, observer methods, annotation literals, injection points, servlets, rest endpoints and much more!
+* *Component Upgrades*: We've upgraded Furnace and Roaster. Check the release notes below.
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever:
+
+- Antonio Goncalves
+- Daniel Cunha (soro)
+
+Release Notes - Forge - Version 2.16.1.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2221'>FORGE-2221</a>] -         No indication Forge is loading in console
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2306'>FORGE-2306</a>] -         Support empty @AddonDependencies declaration in NewFurnaceTestCommand
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2322'>FORGE-2322</a>] -         faces-new-validator generates a @FacesConverter
+</li>
+</ul>
+            
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2310'>FORGE-2310</a>] -         Upgrade to Roaster 2.13.2.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2311'>FORGE-2311</a>] -         Upgrade to Furnace 2.18.1.Final
+</li>
+</ul>
+                
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2317'>FORGE-2317</a>] -         Improve delete recursive.
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2321'>FORGE-2321</a>] -         Refactor common code into the xxxOperations classes
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2309'>FORGE-2309</a>] -         Create mv (Move) command
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2315'>FORGE-2315</a>] -         Add move for FileResources
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2327'>FORGE-2327</a>] -         Being able to create CDI AnnotationLiterals
+</li>
+</ul>
+                                                            
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2082'>FORGE-2082</a>] -         Being able to add a new CDI event observer to an existing class
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2086'>FORGE-2086</a>] -         Being able to create a new CDI extension
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2177'>FORGE-2177</a>] -         Being able to create a new REST endpoint
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2226'>FORGE-2226</a>] -         Being able to add a CDI injection point
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2323'>FORGE-2323</a>] -         Being able to create a new servlet
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2325'>FORGE-2325</a>] -         JSF converter and validator should be under the view package
+</li>
+</ul>
+++++
