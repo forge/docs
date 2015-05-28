@@ -1647,7 +1647,7 @@ Don&#8217;t forget to have a look at the available add-ons on <a href="http://fo
 <div class="sect3">
 <h4 id="_cli_5">CLI</h4>
 <div class="paragraph">
-<p>The first thing to do is to setup Arquillian for WildFly by execute the following command:</p>
+<p>The first thing to do is to setup Arquillian for WildFly by executing the following command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1714,10 +1714,10 @@ Don&#8217;t forget to have a look at the available add-ons on <a href="http://fo
 <div class="sect2">
 <h3 id="_developing_a_java_ee_7_web_application_in_few_seconds">Developing a Java EE 7 web application in few seconds</h3>
 <div class="paragraph">
-<p>As you&#8217;ve seen in the previous section, with Forge you can enter a few commands, and you&#8217;ll get code generated. With scaffolding you can even quickly generate a set of JSF pages and REST endpoints to have CRUD capabilities. So, even if you type on your keyboard very quickly, how can you develop an entire Java EE 7 web application in a few seconds? The answer is simple: by running a Forge script!</p>
+<p>As you&#8217;ve seen in the previous section, with Forge you can enter a few commands, and you&#8217;ll get code generated. With scaffolding you can even quickly generate a set of JSF pages and REST endpoints to have CRUD capabilities. So, even if you type on your keyboard very quickly, how would you be able to develop an entire Java EE 7 web application in a few seconds? The answer is simple: by running a Forge script!</p>
 </div>
 <div class="paragraph">
-<p>A forge script is just a file that contains a set of commands. The commands below create a new <code>Country</code> entity with a set of fields. As you can see we can even have comments that start with the <code>#</code> symbol. You can end you lines with a <code>;</code> but you don&#8217;t have to :</p>
+<p>A forge script is just a file that contains a set of commands. The commands below create a new <code>Country</code> entity with a set of fields. As you can see we can even have comments that start with the <code>#</code> symbol. You can end your lines with a <code>;</code> but you don&#8217;t have to :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1763,7 +1763,7 @@ jpa-new-field --named numcode --length 3 ;</code></pre>
 <div class="sect3">
 <h4 id="_executing_the_script">Executing the script</h4>
 <div class="paragraph">
-<p>First of all, download the script from <a href="https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/generate.fsh" class="bare">https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/generate.fsh</a>. You can have a look into it. As you can see, the script:</p>
+<p>First of all, download the script from <a href="https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/generate.fsh" class="bare">https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/generate.fsh</a>. You can have a look into it. As you can see, the script:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1803,7 +1803,7 @@ jpa-new-field --named numcode --length 3 ;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="console">[temps]$ run ../../code/script/generate.fsh</code></pre>
+<pre class="CodeRay highlight"><code data-lang="console">[temps]$ run ../../code/scripts/generate.fsh</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1821,7 +1821,7 @@ jpa-new-field --named numcode --length 3 ;</code></pre>
 <div class="sect3">
 <h4 id="_running_the_application">Running the application</h4>
 <div class="paragraph">
-<p>Before deploying the application on <a href="http://www.wildfly.org/">WildFly</a> you can grab the SQL script <a href="https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/import.sql" class="bare">https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/import.sql</a> and copy it to <code>petstore/src/main/resources</code>. This will add data to the database.</p>
+<p>Before deploying the application on <a href="http://www.wildfly.org/">WildFly</a> you can grab the SQL script <a href="https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/import.sql" class="bare">https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/import.sql</a> and copy it to <code>petstore/src/main/resources</code>. This will add data to the database.</p>
 </div>
 <div class="paragraph">
 <p>Then, just deploy the war file into WildFly, go to the URL <a href="http://localhost:8080/petstore" class="bare">http://localhost:8080/petstore</a> and you should see the following homepage :</p>
@@ -1878,7 +1878,7 @@ jpa-new-field --named numcode --length 3 ;</code></pre>
 <p><code>rest</code> : The REST endpoint doing GET/POST/PUT/DELETE operations. Also check the <code>RestApplication</code> class.</p>
 </li>
 <li>
-<p><code>security</code> : Classes for security mater</p>
+<p><code>security</code> : Classes for security matter</p>
 </li>
 <li>
 <p><code>service</code> : EJB layer</p>
@@ -1962,7 +1962,7 @@ and modifying an existing project of the same type, or you can use a Forge wizar
 <ul>
 <li>
 <p><code>pom.xml</code> where the top level package is the group ID and the project name is the artifact ID. Besides the minimum
-Forge dependencies, the command will add also add dependencies on any addons that you chose by using thethe <code>--addons</code> option. Addons specified in this way must use the following format: <em>&lt;group-id&gt;:&lt;artifact-id&gt;,&lt;version&gt;</em></p>
+Forge dependencies, the command will add also dependencies on any addons that you chose by using the <code>--addons</code> option. Addons specified in this way must use the following format: <em>&lt;group-id&gt;:&lt;artifact-id&gt;,&lt;version&gt;</em></p>
 </li>
 <li>
 <p>Standard maven directory structure plus the top level package</p>
@@ -1980,7 +1980,7 @@ rely on the CDI development model</p>
 <div class="sect3">
 <h4 id="_developing_the_envers_setup_command">Developing the "Envers: Setup" command</h4>
 <div class="paragraph">
-<p>The first command that we are going to create will set up Envers for a project. This basically means that the command will add the Envers library dependency to the current project POM (but will not actually directly edit the file, because Forge supports multiple build systems!). As with the new Forge addon, we can manually write the command class, copy and modify an existing command or let Forge itself generated it for us. Here we will go for the third option.</p>
+<p>The first command that we are going to create will set up Envers for a project. This basically means that the command will add the Envers library dependency to the current project POM (but will not actually directly edit the file, because Forge supports multiple build systems!). As with the new Forge addon, we can manually write the command class, copy and modify an existing command or let Forge itself generate it for us. Here we will go for the third option.</p>
 </div>
 <div class="paragraph">
 <p>If you are running from the command line interface, type in:<br></p>
@@ -2688,7 +2688,7 @@ resource. So, we&#8217;ll get the current selection, we&#8217;ll cast it to <cod
 <p>Hands-on-lab Envers add-on (<a href="https://github.com/forge/docs/tree/master/tutorials/forge-hol/envers-addon" class="bare">https://github.com/forge/docs/tree/master/tutorials/forge-hol/envers-addon</a>)</p>
 </li>
 <li>
-<p>Hands-on-lab Petstore script (<a href="https://github.com/forge/docs/tree/master/tutorials/forge-hol/script" class="bare">https://github.com/forge/docs/tree/master/tutorials/forge-hol/script</a>)</p>
+<p>Hands-on-lab Petstore scripts (<a href="https://github.com/forge/docs/tree/master/tutorials/forge-hol/scripts" class="bare">https://github.com/forge/docs/tree/master/tutorials/forge-hol/scripts</a>)</p>
 </li>
 <li>
 <p>Petstore Java EE 7 (<a href="https://github.com/agoncal/agoncal-application-petstore-ee7" class="bare">https://github.com/agoncal/agoncal-application-petstore-ee7</a>)</p>
