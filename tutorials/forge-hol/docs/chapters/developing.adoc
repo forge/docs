@@ -4,9 +4,9 @@ Now that you've installed JBoss Forge, played with it a bit (either with CLI or 
 
 === Developing a Java EE 7 web application in few seconds
 
-As you've seen in the previous section, with Forge you can enter a few commands, and you'll get code generated. With scaffolding you can even quickly generate a set of JSF pages and REST endpoints to have CRUD capabilities. So, even if you type on your keyboard very quickly, how can you develop an entire Java EE 7 web application in a few seconds? The answer is simple: by running a Forge script! 
+As you've seen in the previous section, with Forge you can enter a few commands, and you'll get code generated. With scaffolding you can even quickly generate a set of JSF pages and REST endpoints to have CRUD capabilities. So, even if you type on your keyboard very quickly, how would you be able to develop an entire Java EE 7 web application in a few seconds? The answer is simple: by running a Forge script! 
 
-A forge script is just a file that contains a set of commands. The commands below create a new `Country` entity with a set of fields. As you can see we can even have comments that start with the `#` symbol. You can end you lines with a `;` but you don't have to :
+A forge script is just a file that contains a set of commands. The commands below create a new `Country` entity with a set of fields. As you can see we can even have comments that start with the `#` symbol. You can end your lines with a `;` but you don't have to :
 
 [source, console]
 ----
@@ -41,7 +41,7 @@ With a single Forge script, you will generate a CRUD application that will let y
 
 ==== Executing the script
 
-First of all, download the script from https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/generate.fsh. You can have a look into it. As you can see, the script:
+First of all, download the script from https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/generate.fsh. You can have a look into it. As you can see, the script:
 
 - creates and sets up the project (a Java EE 7 one)
 - creates the domain model with entities, embeddables, constraints and enums. Most of the entities have relationships (One-to-One, Many-to-One...) with others
@@ -100,7 +100,7 @@ Now that you've seen it running, it's time to take a break, fill up a cup of cof
 - `exceptions` : Application exceptions.
 - `model`: The entities, embeddables, enums.
 - `rest` : The REST endpoint doing GET/POST/PUT/DELETE operations. Also check the `RestApplication` class.
-- `security` : Classes for security mater
+- `security` : Classes for security matter
 - `service` : EJB layer
 - `util` : Some CDi qualifiers, interceptors, producers
 - `view` : JSF backing beans using CDI conversation, extended persistence context
@@ -141,7 +141,7 @@ image::../images/developing/forge-new-project.png[title="Creating new addon proj
 This will create a skeleton Maven project that has the following artifacts:
 
 * `pom.xml` where the top level package is the group ID and the project name is the artifact ID. Besides the minimum
-Forge dependencies, the command will add also add dependencies on any addons that you chose by using thethe `--addons` option. Addons specified in this way must use the following format: _<group-id>:<artifact-id>,<version>_
+Forge dependencies, the command will add also dependencies on any addons that you chose by using the `--addons` option. Addons specified in this way must use the following format: _<group-id>:<artifact-id>,<version>_
 * Standard maven directory structure plus the top level package
 * Empty `beans.xml` in the `src/main/resources/META-INF` directory. This is because Forge and its addons strongly
 rely on the CDI development model

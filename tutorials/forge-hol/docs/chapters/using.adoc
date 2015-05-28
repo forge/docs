@@ -476,7 +476,7 @@ NOTE: Don't forget to have a look at the available add-ons on http://forge.jboss
 
 ==== CLI
 
-The first thing to do is to setup Arquillian for WildFly by execute the following command: 
+The first thing to do is to setup Arquillian for WildFly by executing the following command: 
 
 [source, console]
 ----
