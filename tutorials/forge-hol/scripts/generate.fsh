@@ -154,12 +154,12 @@ java-add-annotation --annotation javax.persistence.Cacheable ;
 
 #  CreditCardType enumeration
 #  ############
-java-new-enum --named CreditCardType --targetPackage org.jboss.forge.hol.petstore.model ;
+java-new-enum --named CreditCardType --targetPackage ~.model ;
 java-new-enum-const VISA ;
 java-new-enum-const MASTER_CARD ;
 java-new-enum-const AMERICAN_EXPRESS ;
 
-java-new-class --named CreditCardConverter --targetPackage org.jboss.forge.hol.petstore.model ;
+java-new-class --named CreditCardConverter --targetPackage ~.model ;
 
 
 # CreditCard embeddable
@@ -231,38 +231,38 @@ constraint-add --constraint Size --min 5 --max 5 --onProperty creditCardExpDate 
 #  Creates utility classes  #
 #  #######################  #
 
-java-new-exception --named ValidationException --targetPackage org.jboss.forge.hol.petstore.exceptions ;
-java-new-class --named LoginContextProducer --targetPackage org.jboss.forge.hol.petstore.security ;
-java-new-class --named SimpleCallbackHandler --targetPackage org.jboss.forge.hol.petstore.security ;
-java-new-class --named SimpleLoginModule --targetPackage org.jboss.forge.hol.petstore.security ;
+java-new-exception --named ValidationException --targetPackage ~.exceptions ;
+java-new-class --named LoginContextProducer --targetPackage ~.security ;
+java-new-class --named SimpleCallbackHandler --targetPackage ~.security ;
+java-new-class --named SimpleLoginModule --targetPackage ~.security ;
 
 #  Config producer
 #  ############
-cdi-new-qualifier --named ConfigProperty --targetPackage org.jboss.forge.hol.petstore.util ;
-java-new-class --named ConfigPropertyProducer --targetPackage org.jboss.forge.hol.petstore.util ;
+cdi-new-qualifier --named ConfigProperty --targetPackage ~.util ;
+java-new-class --named ConfigPropertyProducer --targetPackage ~.util ;
 
 #  DatabaseProducer
 #  ############
-java-new-class --named DatabaseProducer --targetPackage org.jboss.forge.hol.petstore.util ;
+java-new-class --named DatabaseProducer --targetPackage ~.util ;
 java-new-field --named em --type javax.persistence.EntityManager --generateGetter=false --generateSetter=false --updateToString=false ;
 java-add-annotation --annotation javax.enterprise.inject.Produces --onProperty em ;
 java-add-annotation --annotation javax.persistence.PersistenceContext --onProperty em ;
 
 #  Logging Interceptor
 #  ############
-cdi-new-interceptor-binding --named Loggable --targetPackage org.jboss.forge.hol.petstore.util ;
-cdi-new-interceptor --named LoggingInterceptor --interceptorBinding org.jboss.forge.hol.petstore.util.Loggable --targetPackage org.jboss.forge.hol.petstore.util ;
+cdi-new-interceptor-binding --named Loggable --targetPackage ~.util ;
+cdi-new-interceptor --named LoggingInterceptor --interceptorBinding org.jboss.forge.hol.petstore.util.Loggable --targetPackage ~.util ;
 java-new-field --named logger --type org.apache.logging.log4j.Logger --generateGetter=false --generateSetter=false --updateToString=false --updateToString=false ;
 
 #  Logging Producer
 #  ############
-java-new-class --named LoggingProducer --targetPackage org.jboss.forge.hol.petstore.util ;
+java-new-class --named LoggingProducer --targetPackage ~.util ;
 
 #  Number producer
 #  ############
-cdi-new-qualifier --named Vat --targetPackage org.jboss.forge.hol.petstore.util ;
-cdi-new-qualifier --named Discount --targetPackage org.jboss.forge.hol.petstore.util ;
-java-new-class --named NumberProducer --targetPackage org.jboss.forge.hol.petstore.util ;
+cdi-new-qualifier --named Vat --targetPackage ~.util ;
+cdi-new-qualifier --named Discount --targetPackage ~.util ;
+java-new-class --named NumberProducer --targetPackage ~.util ;
 
 java-new-field --named vatRate --type java.lang.Float --generateGetter=false --generateSetter=false --updateToString=false ;
 java-add-annotation --annotation javax.enterprise.inject.Produces --onProperty vatRate ;
@@ -280,7 +280,7 @@ java-add-annotation --annotation javax.inject.Named --onProperty discountRate ;
 #  Adding a Service Tier  #
 #  #####################  #
 
-java-new-class --named AbstractService --targetPackage org.jboss.forge.hol.petstore.service ;
+java-new-class --named AbstractService --targetPackage ~.service ;
 ejb-new-bean --named CountryService ;
 ejb-new-bean --named CustomerService ;
 ejb-new-bean --named CategoryService ;
@@ -288,11 +288,11 @@ ejb-new-bean --named ProductService ;
 ejb-new-bean --named ItemService ;
 ejb-new-bean --named PurchaseOrderService ;
 ejb-new-bean --named OrderLineService ;
-java-new-class --named InventoryService --targetPackage org.jboss.forge.hol.petstore.service ;
-java-new-class --named ShippingService --targetPackage org.jboss.forge.hol.petstore.service ;
-java-new-class --named StatisticService --targetPackage org.jboss.forge.hol.petstore.service ;
-java-new-interface --named ComputablePurchaseOrder --targetPackage org.jboss.forge.hol.petstore.service ;
-cdi-new-decorator --named PurchaseOrderDecorator --delegate org.jboss.forge.hol.petstore.service.ComputablePurchaseOrder --targetPackage org.jboss.forge.hol.petstore.service ;
+java-new-class --named InventoryService --targetPackage ~.service ;
+java-new-class --named ShippingService --targetPackage ~.service ;
+java-new-class --named StatisticService --targetPackage ~.service ;
+java-new-interface --named ComputablePurchaseOrder --targetPackage ~.service ;
+cdi-new-decorator --named PurchaseOrderDecorator --delegate org.jboss.forge.hol.petstore.service.ComputablePurchaseOrder --targetPackage ~.service ;
 
 
 
@@ -310,25 +310,25 @@ scaffold-generate --targets org.jboss.forge.hol.petstore.model.PurchaseOrder ;
 
 #  AbstractBean
 #  ############
-faces-new-bean --named AbstractBean --targetPackage org.jboss.forge.hol.petstore.view ;
+faces-new-bean --named AbstractBean --targetPackage ~.view ;
 
 #  Utility beans
 #  ############
-faces-new-bean --named DebugBean --targetPackage org.jboss.forge.hol.petstore.view.util ;
-faces-new-bean --named LocalBean --targetPackage org.jboss.forge.hol.petstore.view.util ;
+faces-new-bean --named DebugBean --targetPackage ~.view.util ;
+faces-new-bean --named LocalBean --targetPackage ~.view.util ;
 
 #  CredentialsBean and AccountBean
 #  ############
-faces-new-bean --named AccountBean --targetPackage org.jboss.forge.hol.petstore.view.credentials ;
-faces-new-bean --named CredentialsBean --targetPackage org.jboss.forge.hol.petstore.view.credentials ;
-cdi-new-interceptor-binding --named LoggedIn --targetPackage org.jboss.forge.hol.petstore.view.credentials ;
+faces-new-bean --named AccountBean --targetPackage ~.view.credentials ;
+faces-new-bean --named CredentialsBean --targetPackage ~.view.credentials ;
+cdi-new-interceptor-binding --named LoggedIn --targetPackage ~.view.credentials ;
 
 #  ShoppingCartBean
 #  ############
-faces-new-bean --named ShoppingCartBean --targetPackage org.jboss.forge.hol.petstore.view.shopping ;
+faces-new-bean --named ShoppingCartBean --targetPackage ~.view.shopping ;
 # java-add-annotation --annotation javax.enterprise.context.ConversationScoped ;
 
-java-new-class --named ShoppingCartItem --targetPackage org.jboss.forge.hol.petstore.view.shopping ;
+java-new-class --named ShoppingCartItem --targetPackage ~.view.shopping ;
 java-new-field --named item --type org.jboss.forge.hol.petstore.model.Item ;
 java-new-field --named quantity --type java.lang.Integer ;
 # Constraints
@@ -344,14 +344,14 @@ constraint-add --constraint Min --onProperty quantity --value 1 ;
 
 #  FacesContext producer
 #  ############
-java-new-class --named FacesProducer --targetPackage org.jboss.forge.hol.petstore.view.util ;
+java-new-class --named FacesProducer --targetPackage ~.view.util ;
 java-new-field --named facesContext --type javax.faces.context.FacesContext --generateGetter=false --generateSetter=false --updateToString=false ;
 java-add-annotation --annotation javax.enterprise.inject.Produces --onProperty facesContext ;
 
 #  Exception
 #  ############
-cdi-new-interceptor-binding --named CatchException --targetPackage org.jboss.forge.hol.petstore.view.util ;
-cdi-new-interceptor --named ExceptionInterceptor --interceptorBinding org.jboss.forge.hol.petstore.view.util.CatchException  --targetPackage org.jboss.forge.hol.petstore.view.util ;
+cdi-new-interceptor-binding --named CatchException --targetPackage ~.view.util ;
+cdi-new-interceptor --named ExceptionInterceptor --interceptorBinding org.jboss.forge.hol.petstore.view.util.CatchException  --targetPackage ~.view.util ;
 java-new-field --named logger --type org.apache.logging.log4j.Logger --generateGetter=false --generateSetter=false --updateToString=false ;
 
 
