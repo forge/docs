@@ -1,0 +1,705 @@
+= JBoss Forge2, Java EE easily, so easily
+Jérôme Baton, great*great-grandson of a blacksmith <wadael@gmail.com>
+v1.0, 2015-06-10
+
+:toc:
+
+:imagesdir: ./images_en
+
+
+*The JBoss Forge framework offers powerful possibilities for Java EE applications creation and its extensibility is an asset in itself.*
+
+This document is the English version of my article published in the French GNU/Linux Magazine (issue 180, March 2015 http://boutique.ed-diamond.com/home/845-gnulinux-magazine-180.html[available here] ) published by Diamond Editions, under the Creative Commons licence (CC BY-NC-ND).
+
+
+image::Ccbyncnd_icon_svg.png[CC BY NC ND]
+
+== Presentation
+Forge is a tool and a *framework for the rapid development of Maven-based Java EE applications*. It is not a new release from the editor of the WildFly Java EE server as its v1.0 was released in February 2012 but today, with the v2.x, Forge got more mature that makes it even more interesting for Java developers, be they beginners or experts, in a hurry or hackers. +
+If creating applications is its first destination, Jboss Forge, being modular is open to your wild imagination. +
+We'll first see the insane productivity this tool offers, before to discover it deeper and to play with it. Because we do love that, it's our joy. +
+This software is a gift.
+
+== Pre-requisites
+The only prerequisite to use Forge is to have a JDK 7 or better. +
+Understand that it is enough to use Forge in discovery mode, but not for using the Java EE application we'll create. +
+To follow the steps of this article, knowledge in Java EE, Maven, application servers and databases is recommended. +
+The application created will need an application server t run and a database to persist the data held by the JPA entities used. +
+Thus, you'll need those two systems to test your application. Setup of those components is out of scope of this article.
+
+== Installation
+The first step of this discovery trip in the lands of code generation is the installation of the software. +
+Three kinds of installs are proposed : +
+* JBoss Developper studio, a dedicated version of the Eclipse IDE, containing the Jboss Tools,  packaged by Red Hat +
+* the Jboss Tools package to install it in your own Eclipse installation +
+* the command-line tools +
+In this article, we'll use first the command line version and then  JBoss Developper Studio +
+You will find them at http://forge.jboss.org/download  
+
+If you do not have an application server and a database installed on your machine, or simply no the envy to configure them, I advise you to use Jboss Developper Studio to ease the pain with preconfigured server. +
+Its already 2 MD saved.
+
+=== Command-line version installation
+Decompress the archive in a folder of your choice then declare its path as the value of the FORGE_HOME environment variable by editing your .profile or .bashrcfile in yourr home folder. +
+Then add $FORGE_HOME/bin to your PATH variable, then execute 
+
+----
+source _modifiedFile_
+----
+
+There we are for the command-line version installation ! See, no registry pollution !! Great ! Brilliant !
+ 
+== And now, for something totally Java EE !!
+Now, we'll create an application. Navigate (cd) to the folder where you wish to create your quickest Java application to this day. +
+In your terminal, type 
+
+----
+forge
+----
+
+
+A new prompt is displayed. Beware, its even more powerful than Bash. +
+With it, the *Tab key is your friend* too.
+
+
+----
+jerome@bosphore ~ $ forge
+
+    _____                    
+   |  ___|__  _ __ __ _  ___
+   | |_ / _ \| `__/ _` |/ _ \  \\
+   |  _| (_) | | | (_| |  __/  //
+   |_|  \___/|_|  \__, |\___|
+                   |___/      
+
+JBoss Forge, version [ 2.9.2.Final ] - JBoss, by Red Hat, Inc. [ http://forge.jboss.org ]
+
+[jerome]$
+
+----
+
+
+Just because we hear and read all the time that Java EE is heavy, long, we'll demonstrate that it can be just the opposite, so you appreciate the power of this tool. +
+In the Forge prompt, type what you are : a +
+
+----
+pro
+----
+
+then press Tab +
+the command auto-completes into +
+
+----
+project-new
+----
+
+Awesome. Unexpected. Some will live again that magic moment of discovery after switching from DOS to a real shell. +
+Press Tab again and its the command parameters that are proposed. Magical ! +
+
+----
+[jerome]$ project-new
+--named            --version          --targetLocation   --buildSystem      
+--topLevelPackage  --finalName        --type             
+[jerome]$ project-new
+----
+
+In your shell, except if you are pushing your hipsterness as far as using a monochrome display, the parameter named 'named' (here –named) will be displayed in a different color. Because. +
+Because it is mandatory. It is only in bold here, sorry. +
+So, named is the only value you must give, as good optionnal parmeters, the other parameters will take the default values set by the command's programmer(s). +
+Type
+
+----
+[jerome]$ project-new --named myNews --topLevelPackage org.me --type
+----
+
+then hit Tab, and those values are displayed +
+
+----
+war                     addon                   from-archetype          
+jar                     resource-jar            from-archetype-catalog  
+parent                  ear                     
+----
+
+Awwesome !!! No need to find the online documentation. I love it. I'd bet you do too.. +
+Let's remind this for our own projects !
+
+Let's choose the_ war_ type to continue our war on beliefs
+The complete command is +
+
+----
+[jerome]$ project-new --named mesNews --topLevelPackage org.moi --type war --finalName newsAngularJs
+***SUCCESS*** Project named 'mesNews' has been created.
+----
+
+Now that a project is created let's take a second for this well-named command +
+
+----
+command-list
+----
+
+which I invite you to execute and look at its output before to continue to the next commands. Keep it in a neuron, it will be useful to verify the availability of additionnal commands you will install. +
+Side note in a side note, note that the commands available depend of the context. Some are only available when a project is created (and in use). +
+Remember when I wrote that Forge is a super shell ? Well, it's even possible to use unix filters like_ more_. +
+Clever. Useful. Try : +
+
+----
+command-list|more
+----
+
+Now, execute those commands one after another : 
+
+----
+jpa-setup --provider Hibernate --container JBOSS_EAP6
+jpa-new-entity --named News --targetPackage org.moi.model --idStrategy AUTO
+jpa-new-field --named title --type String
+jpa-new-field --named text --type String
+----
+
+The parameters for_ jpa-setup_ are optionnal. By default, Forge will use an in-memory H2 database. +
+In a few lines/commands, you just generated this class :
+
+[source,java]
+----
+package org.me.model;
+
+import javax.persistence.Entity;
+import java.io.Serializable;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.Version;
+import java.lang.Override;
+import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@XmlRootElement
+public class News implements Serializable
+{
+
+   @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
+   @Column(name = "id", updatable = false, nullable = false)
+   private Long id;
+   @Version
+   @Column(name = "version")
+   private int version;
+
+   @Column
+   private String title;
+
+   @Column
+   private String text;
+
+   @Column
+   @Temporal(TemporalType.DATE)
+   private Date when;
+
+   public Long getId()   {
+      return this.id;
+   }
+
+   public void setId(final Long id)   {
+      this.id = id;
+   }
+
+   public int getVersion()   {
+      return this.version;
+   }
+
+   public void setVersion(final int version)   {
+      this.version = version;
+   }
+
+   @Override
+   public boolean equals(Object obj)   {
+      if (this == obj)
+      {
+         return true;
+      }
+      if (!(obj instanceof News))
+      {
+         return false;
+      }
+      News other = (News) obj;
+      if (id != null)
+      {
+         if (!id.equals(other.id))
+         {
+            return false;
+         }
+      }
+      return true;
+   }
+
+   @Override
+   public int hashCode()   {
+      final int prime = 31;
+      int result = 1;
+      result = prime * result + ((id == null) ? 0 : id.hashCode());
+      return result;
+   }
+
+   @Override
+   public String toString()   {
+      String result = getClass().getSimpleName() + " ";
+      if (id != null)
+         result += "id: " + id;
+      result += ", version: " + version;
+      if (title != null && !title.trim().isEmpty())
+         result += ", title: " + title;
+      if (text != null && !text.trim().isEmpty())
+         result += ", text: " + text;
+      if (quand != null)
+         result += ", when: " + when;
+      return result;
+   }	
+	
+	// Getters and setters are suppressed in order not to put useless bytes on the internet
+}
+----
+
+Excellent. Although a little verbose. +
+ 
+The methods hashCode and toString are generated too. Less work to do ! Good ! +
+Now,  have a look at the generated_ pom.xml_ file too. +
+And now for something compltely correlated, we'll have a user interface generated for our news, via scaffolding. And to be hype, it will be based on AngularJs
+
+[NOTE]
+_Scaffolding_ is automatic code generation by a program, using available information, usually a database to generate a basic (ugly) CRUD admin interface._ +
+Note that this is not part of the initial capacities of Forge but thanks Forge's extensibility and to the community, an AngularJS scaffolding addon exists. Congratulations to the author(s).
+
+To install this addon (read plugin), directly from github, type this command : 
+
+----
+addon-install-from-git --url https://github.com/forge/angularjs-addon.git --coordinate org.jboss.forge.addon:angularjs
+----
+
+My brave, welcome in a new world ! +
+This install may take some time, due to the typical Maven-backups-the-internet-on-my-machine effect. +
+
+Pause the chronometer and take a break.
+Thank the Architect, a plugin install needs only to be done once. +
+Now, let's do the UI generation.
+
+----
+scaffold-setup --provider AngularJS
+scaffold-generate --provider AngularJS  --targets org.me.model.News
+----
+
+then, start the build with  : +
+
+----
+build
+----
+
+The application is generated and ready to be deployed. The_ war_ archive can be found in the_ target_ folder. It is named_ newsAngularJs.war,_ which is the value of the_ finalName_ parameter given during the project creation. +
+Be curious and have a look in the project's folder.
+
+The deployable artefact generated is based upon generated sources which constitute a Maven-based project. +
+Therefore, you can import the generated project into Eclipse as an « Existing Maven project »with   +
+Import > Existing Maven Project and then do any update you decide as needed. +
+Then of course, you may deploy the application to your Java EE application server to test it.
+
+It looks like this.
+
+image::capture_home_webapp.png[Fig. 1 : Home page of the generated application]
+
+By clicking on News under the TODO enclume, you'll land on an admin page
+
+
+
+image::capture_webapp_creation_news.png[News creation page]
+
+Impressive but we shall admit that it cannot be put online unless its for a small group of power users without a few touches in order to rebrand the result. +
+It took very little time to get a working result that you can pass to a front-end expert who will be able to embelish it. +
+Take a second to evaluate the time you would have neede to produce the same result. +
+Did you just say wow !! ?? +
+In my humble opinion, this is a fascinating tool. +
+If you deploy the app and the creation of a piece of news does not work, don't worry that's normal because it uses REST endpoints that we have not created yet. +
+However, if you deploy the result of the JSF scaffolding, it will work.
+
+=== Bonus : REST endpoints
+To generate a REST endpoint for our news, the commands are   +
+
+----
+rest-setup --applicationPath rest --targetPackage org.me.rest --config APP_CLASS
+rest-generate-endpoints-from-entities --targets org.me.model.News  --persistenceUnit mesNews-persistence-unit  --generator JPA_ENTITY
+----
+
+And, shazam, Forge has created the org.me.rest package that contains two classes +
+The first is the Java EE classic RestApplication class that defines the entry point of the REST interface for the whole application (everytihing REST will have its path dependent of this).
+
+----
+@ApplicationPath("rest")
+public class RestApplication extends Application { }
+----
+
+And the second, NewsEndpoint is the entry point to our news. +
+Here is a shortened version, without any body in the methods, that shows how it respects the REST paradigm and the proper use of the GET, POST, PUT and DELETE  HTTP methods for accessing the News entities.
+
+[source,java]
+----
+@Stateless
+@Path("/news")
+public class NewsEndpoint
+{
+   @PersistenceContext(unitName = "mesNews-persistence-unit")
+   private EntityManager em;
+
+   @POST
+   @Consumes("application/json")
+   public Response create(News entity)
+  
+   @DELETE
+   @Path("/{id:[0-9][0-9]*}")
+   public Response deleteById(@PathParam("id") Long id)
+
+   @GET
+   @Path("/{id:[0-9][0-9]*}")
+   @Produces("application/json")
+   public Response findById(@PathParam("id") Long id)
+
+   @GET
+   @Produces("application/json")
+   public List<News> listAll(@QueryParam("start") Integer startPosition, @QueryParam("max") Integer maxResult)
+
+   @PUT
+   @Path("/{id:[0-9][0-9]*}")
+   @Consumes("application/json")
+   public Response update(News entity)
+}
+----
+
+As you can see, this code is very classical and you would certainly have written the same code. +
+However, you should see this code as a basis. Maybe you will want more, maybe you will want less. You may  annotate it with authorizations annotations for example. +
+The _listAll_ method will return, in JSON format, the parameterized list of all the news created (right now, none btw). Providing you have an application server running with the most common settings, you can access it with your favorite browser at the following URL : http://localhost:8080/newsAngularJs/rest/news?start=0&max=1610
+
+
+It is very possible that you get errors when clicking the Save button when creating news. Many things may fail. As the app has been generated with default values, the datasource used may not exist. That's when it doesn't work that you need all your Java EE skills.
+There it is for using Forge on the command line. +
+Considering that the downloads that occurred at the first use slowed down the process of creation of the application, let's start a new project in order to appreciate the (hyper) speed of this tool. +
+Why not creating a project of jokes, with a text, an author, a creation date, a NSFW flag and whatever info you see fit. Then generate the JSF version and the AngularJS version.
+
+=== Scripting
+It is possible to give a script to execute to the Forge console. +
+Use the _run_ command folowed by the script file name. +
+You may write this script out of your past executed commands. Have a look to the ~/.forge/history file +
+However, Forge is not only a powerful CLI tool.
+
+=== Text, GUI, make your choice!
+Do you remember the Java promise of « Write once, run anywhere » ? +
+Writing a code that will be identically executed on different hardware platforms. Its one of the strength of Java and its runtime engine (the JVM). And its mostly true. +
+In the same spirit, Forge has two runtime engines for its addons (and Forge is made of addons). One is text-based, we just saw it.The other is graphical, runs into Eclipse.
+
+Make your choice.+
+The first way to use Forge graphically, is to add Jboss Tools to your Eclipse. +
+The second way is to use JBoss Developper Studio. +
+And now, Forge can be used within NetBeans and IntelliJ (thus, maybe Android Studio too).
+
+== JBoss Developper Studio (JDS)
+
+Whether you love Vi(m) or Emacs and despise modern comfort, this Eclipse version will amaze you. +
+
+In order to compare with the CLI version, we'll create the MyNews application again. +
+Once JDS is started, press Ctrl-4 (Ctrl + Shift + ' on azerty keyboards). +
+You should see the window displayed, its the Forge wizard window.
+
+
+image::wizard_forge.png[The Forge window]
+
+[WARNING]
+Do not mistake the Forge window (in Eclipse), the Forge console(shell in shell) and Forge in console mode (shell)..
+
+
+If Ctrl+4 does not work, it's that the shortcut has changed again (I noticed this between different versions and platforms). In that case, you have to go information hunting. +
+Go in  _Window/Preferences_ then in _General/_Keys._+
+In the _Filter_ field, type _forge_, then click on the line _Run a Forge Command_.  Its _Binding_ column will tell you the keystroke to use. If ever its empty, choose your own. +
+
+This window is your interface with Forge within Eclipse. It displays the equivalent of the_ command-list_ command. Click the commands to execute them. Simple. +
+Here it is for the configuration, let's go back to the creation of the application. +
+In the filter box, type « new » then click on « new project ». +
+You will see this window displayed .
+
+image::wizardproject1.png[Project creation]
+
+_Fill it. Modify the top-level package at your will._
+
+image::wizardproject2.png[Project creation]
+
+Relaunch the Forge window, in the filter box, type entity and click on  _JPA:New Entity_ +
+Choose WildFly and Java EE.
+
+image::jpasetup.png[JPA Configuration]
+
+Then click on  Next.
+
+
+image::jpaentity2.png[JPA Configuration]
+
+Leave the default values, most importantly the database name. Take a look at_ Database Type_ to see all the supported databases. Then click on_ Next._   +
+Use the name News for the class.
+
+
+image::jpaent3.png[JPA entity creation]
+
+The entity is now created, now we have to add fields to it. +
+In the filter of the command window, type_ field_ to make displayed the choice_ JPA : New Field_
+
+
+image::field1.png[Creation of a field of a JPA entity]
+
+Do the same for a_ text_ field but increase its length. +
+Then a  _when_ field of type Date, defined like this :
+
+
+image::field3_caen.png[Creation of a Date fields for a JPA entity]
+
+To relaunch the scaffolding (do it after each entity update), use the command_  Scaffold : Generate_ +
+And to build, without surprise, its the_ build_  command !
+
+If like me you think its too much clicks to create a fields, know that you can use the Forge Console (within Eclipse), its a Forge shell like the one you could use in the command line. Take note to use the « two arrows » button to synchronize it with the editor. By default, they are independent. Note that you can « cd » into an entity and then execute the_ jpa-new-field_ command.
+
+=== And now, the disaster ...
+Because to err is human but a disaster needs a computer :) 
+We have just created a ground-breaking app but how will we deploy it ? +
+At the start of the article, I wrote that JDS was offering a complete environment. But there is no configured server in the latest version I use. I hope yours has one. But if yours has none, let's see how to configure a WildFly 8 server.
+
+If the content of your _Servers_ tab is not empty, advance to next paragraph. Else ..  
+
+
+image::Capture_du_2014-09-21_00:57:59.png[The Servers tab]
+
+
+Else click on the link in the tab and follow this click path.
+
+
+image::Capture_du_2014-09-21_00:58:27.png[Choose WildFly if you are wild and dream to fly]
+
+image::Capture_du_2014-09-21_00:58:33.png[WildFly adapter configuration]
+
+image::Capture_du_2014-09-21_00:58:48.png[WildFly Configuration]
+
+image::Capture_du_2014-09-21_00:58:57.png[Choose the latest WildFly version]
+
+Click on « Download and install runtime ».
+
+
+image::Capture_du_2014-09-21_00:59:09.png[Do as if you had read it]
+
+image::Capture_du_2014-09-21_00:59:47.png[A long wait starts here. Unless you have fiber. Else, its cool if you ate fibers.] +
+
+[NOTE]
+A 2p advice is to choose a path you'll easily remember.
+
+
+image::Capture_du_2014-09-21_01:00:21.png[Server is downloading]+
+
+Another download to wait for.
+
+
+image::Capture_du_2014-09-21_01:04:01.png[WildFly configuration]
+
+And click on_ Finish_ +
+Now, we have to add the application to the newly created server +
+In the_ Servers_ tab, right-click and select  « Add and remove ».
+
+
+image::Capture_du_2014-09-21_01:06:20.png[Application being published]
+
+image::Capture_du_2014-09-21_01:06:25.png[Application being published]
+
+Select the application then click on « Add » and « Finish ». +
+
+Now, start the server (right click on server then choose_ Start_) and browse to this URL: http://localhost:8080/MesNewsGui/ +
+
+== There is more
+I cannot end this article without evocating the collections. We are going to add an author to the news. This author will have a first name and last name. And may author several news. +
+You know what to do. +
+Then we have to link the Author (Auteur) and the News classes.
+
+In the Author class, add +
+
+[source,java]
+----
+@OneToMany(mappedBy = "auteur", cascade = CascadeType.ALL, fetch = FetchType.LAZY) +
+	private Set<News> news = new HashSet<News>();
+----
+
+and in the News class, add +
+
+[source,java]
+----
+@ManyToOne(cascade = CascadeType._ALL_, fetch=FetchType._EAGER) +
+@JoinColumn(name="auteur") +
+   private Auteur auteur;
+----
+
+For both files, make the IDE generate the accessors. Relaunch the scaffolding, and the build. +
+At this time, the result is slightly better with the JSF scaffolding than with the AngularJS one. The latest being more selfish by only showing the Author ID (and no name). I can hear all authors screaming « I'm not a number ». Quite uneasy to choose the right person. +
+Try both (its free, no extra credit needed) and see by yourself.
+
+You'll notice that the product of both scaffolding will be present in the application although, of course, only the last is active.
+
+== Conclusion
+Forge offers an impressive productivity, no denying is possible. +
+It does the job, in very little time a Maven-based project is created, initialized and wired, with JPA and REST. No mandatory file is forgotten. No syntax error, no typo. +
+With a minimum of commands and dev inputs. +
+
+My opinion is that its long since I have been impressed by a tool. +
+
+Certainly, it is not perfect (remember, there is no magical golden hammer) but I have not seen a major flaw in it yet, my theory is that no software is perfect. +
+
+Its availability in both text and graphical mode is a blessing. You will learn to use the most practical for each situation. +
+For example, it seems a bit awkward to me to use a (graphical) wizard to add a field in a JPA class. +
+When it can be done by hand so quickly. But in text mode, it means it can be part of a script. +
+If the GUIs generated in JSF and AngularJs are not your taste (or your tech choice), you may write your own GUI generator. +
+And of course, the GUI can also be generated separately, even by someone else, and still it could use the REST endpoint generated. +
+Besides simplistic projects, having Java EE skills is mandatory to use the project produced. +
+You still have to build it, deploy it. And maybe debug it. +
+Just like you shouldn't give a Stradivarius violin to a 5 year old violin learner, Forge will do marvels in expert hands that will greatly benefit from having a tool dealing with the boilerplate. +
+Forge is a step forward on the road of making coding simpler. From switches, punched cards, assembly then C, Java. We are now at the write-less-code step. Tomorrow could be « talk to your cloud's avatar » to get things done.
+
+== And now ?
+And now that you are positively flabbergasted by this tool, you may be wondering what will you do of all that power under your fingertips. +
+Because, its a developpers tool and because our most common activity as a community is doing code application maintenance (anybody else doing Struts 1 projects maintenance?) and not starting brand new projects  with shiny new libraries, what can Forge do for us on a daily basis ?
+
+We saw it can be used to prototype an application (we just did it), Forge can also be used to :
+ * go to your first investors with a working prototype.
+ * go to your supervisor with a working prototype  
+ * generate « parts », those bits of code we already wrote a hundred times with dozens of frameworks.
+ * create one's tools
+
+
+=== Start a startup ?
+Do you have an idea worth millions ? Good for you, with Forge and its productivity you can create and recreate the backend in a snap (with a script). +
+Create your business-holding entity beans, modify them, recreate them, get the REST API regenerated. You are good to go, again and again. +
+With a bit of scaffolding, you get in no time a web app to show to your investors (or supervisor). +
+2ct advice :  Team with a talented designer to improve the default look
+
+Test and deploy. +
+You can use JDS to deploy your application in OpenShift (yeah poorly chosen name), the cloud hosting from Red Hat. +
+Of course, deploying to other Java EE-compatible clouds is possible (but not integrated in JDS at this time).  
+ +
+Warn me if this article decided you to create your startup.
+
+=== Create one's tools ?
+Yes, build your own tools, Wow, much swag, such great idea. +
+Because we, programmers, are sometimes lazy (mostly on -day-ending days), and do not like to change of window, there is a lot of extensions for the IDEs and Eclipse in particular. +
+From the tea timer to the UML Modeler, via shell prompts, those extensions cover a large percentage of the programmer's needs.  But not all, and this is where custom tools enter the scene to save the day.
+
+Some needs only exist within a project. And a real coder does not like repetitive tasks because this is why computers got invented (besides video games). +
+Everyone of us, in our offices, we deal with very locale things (that may or may not imply UTF8). And for those, we have our own witty recipes.
+It may be a magical spreadsheet that generates SQL inserts from a few columns, a shell script that starts a java class that will scrap a website to augment a fortunes file (or a database). +
+Or even an AngularJS page that will display Java code for several classes (endpoint, service, dao and their interfaces) out of a few inputs like stored procedure name and a few inputs for fields names). +
+
+In short(s), we all have our hints to help us produce our bills-paying, daily code (night is for open source !). +
+Those examples may sound like amateur and question about their maintainability the people who lack faith, higher in the hierarchy. +
+Thus, a better kind of solution would be to create an IDE plugin and put it on the company's source control system. +
+But let's be realistic : Eclipse plugins are far from simple to develop for the little I have seen before to flee quick and far. +
+[NOTE]
+It was with the 3.X version, about RCP applications. I hope its simpler now. +
+
+Forge gives you a framework to create personalized actions (called addons) you can use without leaving your IDE. Which is awesome, all the more if you work at a customer that only lends you a dated machine with an heavy OS, a mandatory antivirus and less RAM that common sense advises. +
+With these personalized actions, you can program what you and only you use, be it special for a project or your company. +
+And, icing on the cake, those actions must be written in Java which means that you have the possibility to use more libraries that you will need. +
+Of course, you may develop actions useful to all and share them with your peers. +
+Thou shall not only receive open source software, thou shall giveth.
+
+=== Philosophy
+Forge really bases itself on its addons mecanism. Thus, the commands available after installing are addons. +
+I remind the most curious of you that the sources are available. +
+It is also possible to use those addons in our addons. That is inception-nal !! (and very common as the core Forge team published founding addons).
+
+== The first addon
+Because practice makes perfect, for this first addon, we will alter the traditional « Hello World » to say goodbye to http://en.wikipedia.org/wiki/Dennis_Ritchie[Dennis Ritchie] who passed away without all the merited hommages. Contrarily to someone else who, like us all was sitting on his shoulders of giant.
+
+As this is a vast subject, addon creation will only be overviewed here. It is the subject of another article. +
+After having closed all the projects opened in JDS, open the Forge window and choose : +
+Project : New +
+This allows to choose which available addon to use in our addon. +
+For a simple addon, we will only need_ core_ and_ UI._
+
+
+image::creaprojetAddon.png[Choose the addons used in the addons]
+
+Else to create an addon project via the console, type : +
+
+----
+project-new --named addonDR --type addon
+----
+
+which will create the project and will make it appear automagically in JDS (but you will have to add the needed _addons_ as Maven dependencies).
+
+My two cents tip : when unsure, use the GUI, add all the addons available then comment them in the pom.xml. This way, no typo :)
+
+Then, create a classs and paste the following code : +
+
+[source,java]
+------
+package addonDR;
+
+import org.jboss.forge.addon.ui.annotation.Command;
+import org.jboss.forge.addon.ui.result.Result; 
+import org.jboss.forge.addon.ui.result.Results;
+
+public class AddonDR {
+ public static String _COUCOU_ = "Goodby Dennis Ritchie. Thank you for all the toys you gave to geeks. Considering C, Unix and your beard, you must have been our very real Santa";
+	@Command(categories="LeKiff")
+	public Result helloDR(){
+		return Results.success(_COUCOU_);
+	}
+}
+
+------
+
+Now, in the Forge window, choose « Build and Install an Addon ». +
+Select the project path. +
+Be patient during the build (former CPC464 players, and last gen gamesystems users have an advantage here)..
+
+image::creaAddon.png[Patience thou must have]
+
+There we are, *your* addon is created, ready to use under the name helloDR +
+In the Forge window, choose helloDR
+
+Yes, I don't know why it says good bye and is named hello.
+
+image::fenetreForge.png[Your addon in the Forge window]
+
+As you have noticed, it was CoucouDR in the first version.
+
+At runtime, you will see the message in the bottom right hand corner of the screen.
+
+image::helloWorld01.png[Hommage popup]
+
+And now, you may legitimately think that the message was too long for the popup. I agree. +
+However, this simple example is the entrypoint to many command you may want to write and, when used in the console, your command displays its full text in its full glory.
+
+
+This is the end of this introductory article to JBoss Forge, I hope you liked it. +
+Addon development will be … developped with more ambitions in a next article which, after a delay following its publication in the French « GNU/Linux Magazine France » (Editions Diamond), shall be translated too.
+
+== Links
+|===
+|Author's Twitter|http://twitter.com/wadael[@wadael]
+|Author's website| http://www.wadael.org[www.wadael.org]
+|LinkedIn profile|https://www.linkedin.com/in/jeromebaton
+
+|A poll for your feedback on this article|http://goo.gl/forms/fmor963Ssp
+|JBoss Forge website|http://forge.jboss.org/
+|GNU/Linux Magazine website|http://www.gnulinuxmag.com/
+|===
+
+I thank http://antoniogoncalves.org/[Antonio Goncalves] (http://twitter.com/agoncal[@agoncal]), Philippe Prados and Alexis Maillot for reviewing the original article. +
+I thank the http://forge.jboss.org/community[Forge team] for this tool and http://twitter.com/gegastaldi[George Gastaldi] for being so helpful on the forum (I was a n00b too). +
+Thanks to Dan Allen (http://twitter.com/mojavelinux[@mojavelinux]) for asciidoc help w/ ODT format. +
+Thanks to Diamond Editions for allowing me to translate my article and proposing publication under CC to authors.
+
+
+*Thank you Sylvie for our amazing kids.*
+
+
+*Jérôme Baton, wadael at gmail.com*
