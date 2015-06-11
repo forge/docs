@@ -1,0 +1,42 @@
+Profiling Forge
+===============
+
+Forge can be easily profiled using the YourKit Java Profiler.
+
+== Copy the YourKit module into your forge installation
+----
+cp -R $FORGE_SOURCES/dist/src/main/resources/modules/com/yourkit $FORGE_HOME/modules/com
+----
+
+== Copy the YourKit JAR into the YourKit module
+----
+cp $YOURKIT_HOME/lib/yjp.jar $FORGE_HOME/modules/com/yourkit/profiler/main/yjp.jar
+----
+
+== Set the profiler JVM agent for your installation and OS_PATH, and add the module to the System module
+
+Make sure you use the appropriate path to your link:http://www.yourkit.com/docs/11/help/agent.jsp[installation directory and version] , and replace variables with those appropriate for your environment.
+
+=== OSX
+----
+export FORGE_OPTS="-Djboss.modules.system.pkgs=com.yourkit -agentpath:$YOURKIT_HOME/bin/mac/libyjpagent.jnilib=sampling,onexit=snapshot,delay=0"
+----
+
+=== Linux
+----
+export FORGE_OPTS="-Djboss.modules.system.pkgs=com.yourkit -agentpath:$YOURKIT_HOME/bin/$OS_ARCH/libyjpagent.$LIB_EXTENSION=sampling,onexit=snapshot,delay=0"
+----
+
+=== Windows
+----
+set FORGE_OPTS="-Djboss.modules.system.pkgs=com.yourkit -agentpath:%YOURKIT_HOME%/bin/%OS_ARCH%/libyjpagent.%LIB_EXTENSION%=sampling,onexit=snapshot,delay=0"
+----
+
+=== Start Forge
+----
+forge 
+----
+
+=== Run YourKit 
+
+And open the newly generated Snapshot located in  $HOME/Snapshots
