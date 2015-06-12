@@ -5,10 +5,11 @@ Forge can be used as a code generation engine, and can be accessed through multi
 - Command Line Interface (CLI)
 - JBoss Developer Studio (JBDS)
 - IntelliJ IDEA (not shown in this lab)
+- NetBeans (not shown in this lab)
 
-In this section you will be getting used to Forge by performing smaller tasks, either with CLI, JBDS, or both. It is worth noting that JBoss Forge doesn't create introduce any special or proprietary dependencies in your code, it just generates a functional starting point, and lets you continue as neede. This means you can switch from CLI, to JBDS, to your own IDE (unrelated to Forge) without getting in Forge's way, and without Forge getting in the way of your IDE. 
+In this section you will be getting used to Forge by performing small tasks, either with CLI, JBDS, or both. It is worth noting that JBoss Forge doesn't introduce any special or proprietary dependencies in your code, it just generates a functional starting point and lets you continue as needed. This means you can switch from CLI, to JBDS, to your own IDE (unrelated to Forge) without getting in Forge's way, and without Forge getting in the way of your IDE. 
 
-NOTE: In this section and the following sections, We will assume that you have already intstalled JBoss Forge.
+NOTE: In this section and the following sections, We will assume that you have already installed JBoss Forge.
 
 Let's get started!
 
