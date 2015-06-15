@@ -1,0 +1,71 @@
+== Forge 2.16.2.Final (Hammer) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.16.2.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Bug Fixes*: We fixed some minor UI bugs and added some unit tests to assert the quality of our commands;
+* *Component Upgrades*: We've upgraded Furnace and the Hibernate Validator used in the bean-validator addon. Check the release notes below.
+
+Contributors
+=============
+
+Many thanks to Antonio Goncalves who helped to make this release better than ever.
+
+Release Notes - Forge - Version 2.16.2.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2149'>FORGE-2149</a>] -         validation.xml doesn&#39;t have the  version=&quot;1.1&quot; in the xml
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2223'>FORGE-2223</a>] -         Unable to create xhtml file
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2338'>FORGE-2338</a>] -         UIProgressMonitor prints 0-based in shell
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2352'>FORGE-2352</a>] -         JPA: New Field creates an unknown B type for byte[] types
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2357'>FORGE-2357</a>] -         Invalid endpoint name in the rest-new-endpoint command
+</li>
+</ul>
+            
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2341'>FORGE-2341</a>] -         Upgrade to Hibernate Validator 5.1.3.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2360'>FORGE-2360</a>] -         Upgrade to Furnace 2.18.2.Final
+</li>
+</ul>
+                
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2336'>FORGE-2336</a>] -         UIValidationContext#addValidationWarning() doesn&#39;t show up in the shell
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2337'>FORGE-2337</a>] -         Make promptBoolean() print the message and assume the default value in shell.
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2349'>FORGE-2349</a>] -         maven-jar-plugin version should be set when creating an addon
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2359'>FORGE-2359</a>] -         command-list - Should output the commands sorted
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2351'>FORGE-2351</a>] -         addon-add-dependency fails to autocomplete
+</li>
+</ul>
+                                                            
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2350'>FORGE-2350</a>] -         In addon-new-annotated-ui-command name should be renamed to named
+</li>
+</ul>
+++++
