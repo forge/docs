@@ -3,3 +3,61 @@
 === Store state between command invocations? 
 
 You can use the *Configuration* addon for that. See link:https://github.com/forge/core/tree/master/configuration#features[this link] for an example.
+
+=== Have the full Project configured in my ProjectListener?
+
+`ProjectListener` is fired right after the project is created (in `ProjectFactory`), and therefore not all the data provided in the *Project: New* wizard will be available. The recommended approach is to create a `ProjectListener` and listen for the postCommandExecuted event, like the following:
+
+[source,java]
+----
+/**
+ * Copyright 2015 Red Hat, Inc. and/or its affiliates.
+ *
+ * Licensed under the Eclipse Public License version 1.0, available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
+
+package org.myaddon.project;
+
+import java.util.Stack;
+
+import javax.inject.Singleton;
+
+import org.jboss.forge.addon.projects.Project;
+import org.jboss.forge.addon.projects.ProjectListener;
+import org.jboss.forge.addon.projects.facets.MetadataFacet;
+import org.jboss.forge.addon.resource.FileResource;
+import org.jboss.forge.addon.ui.command.AbstractCommandExecutionListener;
+import org.jboss.forge.addon.ui.command.UICommand;
+import org.jboss.forge.addon.ui.context.UIExecutionContext;
+import org.jboss.forge.addon.ui.output.UIOutput;
+import org.jboss.forge.addon.ui.result.Result;
+
+/**
+ * 
+ * @author <a href="mailto:ggastald@redhat.com">George Gastaldi</a>
+ */
+@Singleton
+public class ShowProjectInfoListener extends AbstractCommandExecutionListener implements ProjectListener
+{
+   private final Stack<Project> projects = new Stack<Project>();
+
+   @Override
+   public void projectCreated(Project project)
+   {
+      // Push to a stack for later processing
+      projects.push(project);
+   }
+
+   @Override
+   public void postCommandExecuted(UICommand command, UIExecutionContext context, Result result)
+   {
+      while (!projects.isEmpty())
+      {
+         Project project = projects.pop();
+         UIOutput output = context.getUIContext().getProvider().getOutput();
+         output.info(output.out(), "Created project: " + project.getFacet(MetadataFacet.class).getProjectName());
+      }
+   }
+}
+----
