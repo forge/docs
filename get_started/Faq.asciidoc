@@ -59,5 +59,12 @@ public class ShowProjectInfoListener extends AbstractCommandExecutionListener im
          output.info(output.out(), "Created project: " + project.getFacet(MetadataFacet.class).getProjectName());
       }
    }
+
+   @Override
+   public void postCommandFailure(UICommand command, UIExecutionContext context, Throwable failure)
+   {
+      // Failure, discard all created projects in this case
+      projects.clear();
+   }
 }
 ----
