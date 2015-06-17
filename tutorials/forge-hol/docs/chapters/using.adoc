@@ -15,7 +15,7 @@ Let's get started!
 
 === Creating a new project
 
-Setting up a new project can involve quite a few activities. Typically, projects require a build and dependency management framework such as Maven, or Gradle. Even if you feel comfortable reading the respective configuration files, i.e. `pom.xml` or `build.gradle`, it can takes some time to create them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste them from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configurate - garbage that you will usually delete.
+Setting up a new project can involve quite a few activities. Typically, projects require a build and dependency management framework such as Maven, or Gradle. Even if you feel comfortable reading the respective configuration files, i.e. `pom.xml` or `build.gradle`, it takes some time to create them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configuration - garbage that you will usually delete.
 
 ==== CLI
 
@@ -55,7 +55,7 @@ To set up JPA and create a new JPA entity, let's use the `jpa-new-entity` comman
 
 This command has several effects. First of all, it has created a `persistence.xml` file in the right place (under the `META-INF` directory) with all the default configuration for Hibernate. Then, it has created a `Book` entity under the subpackage `model`. Notice that this entity already has an `id` and `version` with its getters/setters. As you can see, the good thing with Forge is that with only one command all is setup and ready to go. 
 
-If you do not wish to use the Java EE container default data-source, you can also specify additional connection options such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need configure your application server to provide this new data-source and/or database connection.
+If you do not wish to use the Java EE container default data-source, you can also specify additional connection options such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need to configure your application server to provide this new data-source and/or database connection.
 
 [source, console]
 ----
@@ -64,7 +64,7 @@ If you do not wish to use the Java EE container default data-source, you can als
 
 If you have executed the `jpa-setup` command, you've noticed that the prompt has changed: you went from `[cdbookstore]` to `[persistence.xml]`. In Forge, the prompt always tells you where you are. You can even enter the command `pwd` or `ls`. For now, let's go back into the `Book` entity: enter `cd~~` brings you to the root directory, and then `cd src/main/java/org/cdbookstore/model/Book.java`. 
 
-So, let's create a few fields in the `Book` entity. Again, one single command end Forge will do its best to simplify our lives :
+So, let's create a few fields in the `Book` entity. Again, one single command and Forge will do its best to simplify our lives:
 
 [source, console]
 ----
@@ -125,7 +125,7 @@ Forge takes care of all the JPA relational mapping between both entities. Now, o
 [Book.java]$ constraint-add --onProperty description --constraint Size --max 3000
 ----
 
-Behind the scenes Forge as created a `validation.xml` file, added the Bean Validation dependency and the needed constraints. If you want to take a glance at the code, and see a summary of progress, you can use the `more` command or even `ls` your class :
+Behind the scenes Forge has created a `validation.xml` file, added the Bean Validation dependency and the needed constraints. If you want to take a glance at the code, and see a summary of progress, you can use the `more` command or even `ls` your class :
 
 [source, console]
 ----
@@ -152,11 +152,11 @@ getPrice()::java.lang.Float                        setId(java.lang.Long)::void  
 While working from JBoss Developer Studio (JBDS), after opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), 
 you should choose _JPA: New Entity_ and you'll see a JPA configuration window. This window provides default values for the Java EE container default data-source, but if you not do wish to use it, you can change your configuration as specified before with CLI. 
 
-In first step you need setup JPA in your project:
+In the first step you need to setup JPA in your project:
 
 image::../images/using/jpa-setup.png[title="Setup JPA"]
 
-The next step you need configure your connection settings:
+The next step you need to configure your connection settings:
 
 image::../images/using/configure-connection-settings.png[title="Configuring Connection Settings"]
 
@@ -171,7 +171,7 @@ Finish:
 
 image::../images/using/new-field.png[title="Creating a new field in Entity"]
 
-Repeat the step to create all field's Book class:
+Repeat these steps to create the following fields in the Book class:
 [source]
 --
 Field name: description | Length: 2000
@@ -186,8 +186,8 @@ choose _Java: New Enum_ and enter _org.cdbookstore.model_ in Package name and _L
 
 image::../images/using/new-enum.png[title="Creating a new Enum"]
 
-Now you need add new constants to it. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Java: New Enum Const_
-and add all consts, this case:
+Now you need to add new constants to it. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _Java: New Enum Const_
+and add all constants, in this case:
 [source]
 --
 ENGLISH
@@ -198,11 +198,11 @@ and click Finish:
 
 image::../images/using/new-enum-const.png[title="Creating a new Enum Constant"]
 
-Now, you need add this enum as field in book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _JPA: New Field_ and select the _Book_ as Target Entity, enter _language_ as Field name and select _org.cdbookstore.model.Language_ as Field Type:
+Now, you need add this enum as a field in Book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose _JPA: New Field_ and select the _Book_ as Target Entity, enter _language_ as Field name and select _org.cdbookstore.model.Language_ as Field Type:
 
 image::../images/using/new-enum-jpa-field.png[title="Creating a new Enum field in Entity"]
 
-Now you need create a new Entity (Same that you did with Book):
+Now you need to create a new Entity (Same that you did with Book):
 [source]
 --
 Entity Name: Author
@@ -236,8 +236,8 @@ configurations. Click Next, and choose _org.cdbookstore.model.Book_ as Class:
 
 image::../images/using/add-constraint.png[title="Adding Constraint"]
 
-In next step you need specify the property on which to operate _Property_ and the _Constraint_ to configure. 
-In this case, let's add NotNull on _title_ property:
+In the next step you need to specify the property _Property_ and the _Constraint_ to configure. 
+In this case, let's add @NotNull on the _title_ property:
 
 image::../images/using/add-notnull-constraint.png[title="Adding NotNull Constraint"]
 
@@ -257,7 +257,7 @@ Constraint: Size | Max: 3000 |  Property: description
 --
 
 
-=== Scaffolding JSF
+=== Scaffolding JSF (Java Server Faces)
 
 JSF is the default Java EE user interface framework, and consequently JBoss Forge has a great support for it. In fact, Forge can scaffold an entire CRUD web application from JPA entities very easily, with only a single command. The JSF generated application follows several patterns and best practices: usage of CDI conversation scope, the extended persistence context, JSF converters and so on. If you don't believe it, just try it. 
 
@@ -305,7 +305,7 @@ image::../images/using/select-jpa-entities.png[title="Selecting JPA entities"]
 
 Click Finish and JBoss Forge will create your user interface.
 
-=== Scaffolding RESTEndpoints
+=== Scaffolding REST Endpoints
 
 REST is a very popular technology nowadays. If you want to create REST endpoints on our entities, or if you want to add a REST endpoint on your existing Java EE web application, Forge is there to help. Forge can quickly scaffold REST endpoints for each entity, giving you a set of CRUD methods. And again, generating all the code plumbing and following best practices. 
 
@@ -320,7 +320,7 @@ Now that we have a few entities (`Book` and `Author`), it’s time to generate R
 
 This is the easiest command to generate the REST endpoints, but like most Forge commands, you can customize a few options if you want, such as package name and so on.
 
-While "holding" most files as the current resource, you may inspect them using ls. This also works on REST endpoints. So, if you `cd` `BookEndpoint.java` and execute the command `ls`, this is what you get :
+While "holding" most files as the current resource, you may inspect them using `ls`. This also works on REST endpoints. So, if you `cd` `BookEndpoint.java` and execute the command `ls`, this is what you get :
 
 [source, console]
 ----
@@ -385,7 +385,7 @@ Now that you installed these new add-on, you get new `as-setup` command :
 [cdbookstore]$ as-setup --server wildfly8
 ----
 
-Wait a bit until WildFly is downloaded.... (in the meantime you can go to `~/.forge/addons` and have a look at what's happening... you can even check the logs under `~/.forge/log/forge.log`)... ok, now that JBoss is downloaded into your local Maven directory... there it is.... just type `as`, press `TAB` and you will see new commands : 
+Wait a bit until WildFly is downloaded.... (in the meantime you can go to `~/.forge/addons` and have a look at what's happening... you can even check the logs under `~/.forge/log/forge.log`)... ok, now that Wildfly is downloaded into your local Maven directory... there it is.... just type `as`, press `TAB` and you will see new commands : 
 
 [source, console]
 ----
