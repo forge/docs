@@ -68,3 +68,48 @@ public class ShowProjectInfoListener extends AbstractCommandExecutionListener im
    }
 }
 ----
+
+=== Adding steps on existing wizards
+
+Suppose you want to add a new step to the `Project: New` wizard. The easiest way to do that is by implementing a `UICommandTransformer`:
+
+[source,java]
+----
+public class NewProjectTransformer implements UICommandTransformer {
+	@Override
+	public UICommand transform(UIContext context, UICommand original) {
+		if (NewProjectWizard.class.isAssignableFrom(original.getMetadata(context).getType())) {
+			return new MyNewProjectCommand();
+		} else {
+			return original;
+		}
+	}
+}
+
+...
+
+public class MyNewProjectCommand extends AbstractUICommand implements UIWizard {
+
+	@Override
+	public UICommandMetadata getMetadata(UIContext context) {
+		return Metadata.forCommand(MyNewProjectCommand.class);
+	}
+
+	@Override
+	public void initializeUI(UIBuilder builder) throws Exception {
+	}
+
+	@Override
+	public Result execute(UIExecutionContext context) throws Exception {
+		return Results.success();
+	}
+
+	@Override
+	public NavigationResult next(UINavigationContext context) throws Exception {
+		NavigationResultBuilder builder = NavigationResultBuilder.create();
+		builder.add(NewProjectWizard.class);
+		builder.add(MyNextStep.class);
+		return builder.build();
+	}
+}
+----
