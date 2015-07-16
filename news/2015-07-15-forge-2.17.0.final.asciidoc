@@ -6,7 +6,7 @@ Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now
 
 What's new and noteworthy? 
 ===========================
-* *Support for ZIP files*: We´ve introduced `ZipFileResource` to our list of supported resources. You can now extract files without much fuzz.
+* *Support for ZIP files*: We have introduced `ZipFileResource` to our list of supported resources. You can now extract files without much fuzz.
 * *Auto-Update for Standalone shell*: Updating Forge using the IDE is easy: Just update the plugin. But what about the standalone shell? A new command `forge-update` is introduced to update your local Forge installation automatically to the latest version.
 * *Event firing on Facet installation/registration*: Do you want to listen for changes in your project and react to it? You can now listen for Facet installation and registration events and perform any action you like.
 * *Component Upgrades*: We've upgraded Furnace and Roaster. Check the release notes below.
@@ -60,7 +60,7 @@ Release Notes - Forge - Version 2.17.0.Final
 </li>
 <li>[<a href='https://issues.jboss.org/browse/FORGE-2319'>FORGE-2319</a>] -         Fire events on Facets installation
 </li>
-<li>[<a href='https://issues.jboss.org/browse/FORGE-2378'>FORGE-2378</a>] -         project-new gives error when parent POM inherits groupId from its own parent: [FATAL]  parent.groupId is missing
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2378'>FORGE-2378</a>] -         project-new gives error when parent POM inherits groupId from its own parent: parent.groupId is missing
 </li>
 </ul>
 ++++
