@@ -5,9 +5,14 @@
 
 project-new --named petstore --topLevelPackage org.jboss.forge.hol.petstore --type war --finalName petstore --version 7.0 ;
 
+#  ####################### #
+#  Add JavaEE 7 dependency #
+#  ####################### #
+javaee-setup --javaEEVersion 7;
 
+#  ########################################### #
 #  Setup the deployment descriptors to Java EE 7
-#  ############
+#  ########################################### #
 jpa-setup --persistenceUnitName applicationPetstorePU --jpaVersion 2.1 ;
 cdi-setup --cdiVersion 1.1 ;
 ejb-setup --ejbVersion 3.2 ;
@@ -366,32 +371,8 @@ rest-generate-endpoints-from-entities --targets org.jboss.forge.hol.petstore.mod
 rest-generate-endpoints-from-entities --targets org.jboss.forge.hol.petstore.model.Product --contentType application/xml application/json ;
 rest-generate-endpoints-from-entities --targets org.jboss.forge.hol.petstore.model.Item --contentType application/xml application/json ;
 
-
-
-#  ##################  #
-#  Cleans the pom.xml  #
-#  ##################  #
-
-project-remove-dependencies org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:: ;
-project-remove-dependencies javax.enterprise:cdi-api:jar:: ;
-project-remove-dependencies javax.ejb:javax.ejb-api:jar:: ;
-project-remove-dependencies javax.faces:javax.faces-api:jar:: ;
-project-remove-dependencies javax.servlet:javax.servlet-api:jar:: ;
-project-remove-dependencies org.jboss.spec.javax.servlet:jboss-servlet-api_3.0_spec:jar:: ;
-project-remove-dependencies javax.ws.rs:javax.ws.rs-api:jar:: ;
-project-remove-dependencies javax.validation:validation-api:jar:: ;
-
-project-remove-managed-dependencies org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar::1.0.0.Draft-16 ;
-project-remove-managed-dependencies javax.enterprise:cdi-api:jar::1.1 ;
-project-remove-managed-dependencies javax.ejb:javax.ejb-api:jar::3.2 ;
-project-remove-managed-dependencies javax.faces:javax.faces-api:jar::2.2 ;
-project-remove-managed-dependencies javax.servlet:javax.servlet-api:jar::3.1.0 ;
-project-remove-managed-dependencies javax.ws.rs:javax.ws.rs-api:jar::2.0
-project-remove-managed-dependencies org.jboss.spec:jboss-javaee-6.0:pom::3.0.2.Final ;
-
 #  Adding Java EE and Web Jars dependencies
 #  ############################
 project-add-dependencies org.apache.logging.log4j:log4j-core:2.0.2 ;
 project-add-dependencies org.webjars:bootstrap:2.3.2 ;
 project-add-dependencies org.primefaces:primefaces:5.1 ;
-project-add-dependencies org.jboss.spec:jboss-javaee-7.0:1.0.1.Final:provided:pom ;
