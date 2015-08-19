@@ -1,0 +1,117 @@
+== Forge 2.18.0.Final (Dagger) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.18.0.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Performance enhancements*: Some addons were migrated to simple container, thus reducing the number of Weld instances being created during startup. 
+* *New Script addon*: We introduced a script addon, introducing a ScriptFileResource in to ease execution of order Forge scripts.
+* *Java EE addon improvements*: Security commands (Add/Remove Role, Add security constraint) are now available from the Java EE addon, as well as commands to create new Servlet filters and SOAP Web services.
+* *Component Upgrades*: We've upgraded Aesh, Furnace, Hibernate Validator and JGit. Check the release notes below.
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Antonio Goncalves
+- Andrea Cosentino
+- Jeremie Lagarde
+- Ivan Ivannov
+
+Release Notes - Forge - Version 2.18.0.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2427'>FORGE-2427</a>] -         InputComponentFactory.createSelectX does not pre-populate value choices
+</li>
+</ul>
+            
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1975'>FORGE-1975</a>] -         Upgrade to Aesh 0.61
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2406'>FORGE-2406</a>] -         Upgrade to Furnace 2.20.1.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2418'>FORGE-2418</a>] -         Upgrade Hibernate Validator to version 5.2.1.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2420'>FORGE-2420</a>] -         Upgrade JGit to 4.0.1.201506240215-r
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2442'>FORGE-2442</a>] -         Upgrade to Furnace 2.21.0.Final
+</li>
+</ul>
+                
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2428'>FORGE-2428</a>] -         UIBuilder should provide a getInputComponentFactory()
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2438'>FORGE-2438</a>] -         Introduce AbstractXMLResource
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2440'>FORGE-2440</a>] -         AbstractJavaSourceCommand should not depend on CDI
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1266'>FORGE-1266</a>] -         Implement IgnoreEOF in Forge 2 Shell
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2400'>FORGE-2400</a>] -         Introduce script module
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2401'>FORGE-2401</a>] -         Introduce a ScriptFileResource
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2407'>FORGE-2407</a>] -         Command java-new-package to create new java packages
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2421'>FORGE-2421</a>] -         &#39;cat -c &#39; fails with &quot;scanner must be specified&quot; if extension is unknown
+</li>
+</ul>
+                
+<h2>        Quality Risk
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2441'>FORGE-2441</a>] -         Exception in log while shutting down
+</li>
+</ul>
+                                            
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-1792'>FORGE-1792</a>] -         Add scopes to a the faces-new-bean command
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2324'>FORGE-2324</a>] -         Being able to create Servlet Filter
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2381'>FORGE-2381</a>] -         Being able to create a new SOAP webservice
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2382'>FORGE-2382</a>] -         Add a serializable parameter to the cdi-new-bean command
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2390'>FORGE-2390</a>] -         Implement the mainstream features of Java EE security
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2398'>FORGE-2398</a>] -         Rework the web.xml support in javaee-descriptor project
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2413'>FORGE-2413</a>] -         websocket-setup command should also have 1.1 version
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2419'>FORGE-2419</a>] -         Refactoring the JSF Commands
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2424'>FORGE-2424</a>] -         Migrate templates addon to simple container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2425'>FORGE-2425</a>] -         Migrate git addon to simple container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2429'>FORGE-2429</a>] -         Migrate resources addon to simple container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2431'>FORGE-2431</a>] -         Migrate ui-spi addon to simple container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2435'>FORGE-2435</a>] -         Migrate maven addon to simple container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2437'>FORGE-2437</a>] -         Migrate scaffold addon to simple container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2439'>FORGE-2439</a>] -         Migrate addons addon to Simple container
+</li>
+</ul>
+++++
