@@ -1,0 +1,77 @@
+== Forge 2.19.0.Final (Scepter) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.19.0.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Performance enhancements*: Some addons were migrated to simple container, thus reducing the number of Weld instances being created during startup. 
+* *Bug Fixes*: Some bugs slipped by in 2.18.0.Final, and we crushed them in this new release.
+* *Component Upgrades*: We've upgraded Aesh and Furnace. Check the release notes below.
+
+Contributors
+=============
+
+Many thanks to Antonio Goncalves, who helped to make this the best release ever
+
+Release Notes - Forge - Version 2.19.0.Final
+============================================
+
+++++
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2448'>FORGE-2448</a>] -         REGRESSION: PackageRootConverter is not being set
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2451'>FORGE-2451</a>] -         forge --version displays Furnace version instead of Forge&#39;s
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2461'>FORGE-2461</a>] -         .properties keys are not colorized correctly
+</li>
+</ul>
+            
+<h2>        Component  Upgrade
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2452'>FORGE-2452</a>] -         Upgrade to Furnace 2.22.0.Final
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2455'>FORGE-2455</a>] -         Upgrade to Aesh 0.64
+</li>
+</ul>
+                
+<h2>        Enhancement
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2459'>FORGE-2459</a>] -         ShellTest implementation should not be a singleton
+</li>
+</ul>
+        
+<h2>        Feature Request
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2462'>FORGE-2462</a>] -         Add JBoss EAP7 to the list of supported JPA containers
+</li>
+</ul>
+                                        
+<h2>        Task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2456'>FORGE-2456</a>] -         Publish Forge binaries in download.jboss.org
+</li>
+</ul>
+                    
+<h2>        Sub-task
+</h2>
+<ul>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2397'>FORGE-2397</a>] -         Being able to create new Websocket Server endpoints
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2446'>FORGE-2446</a>] -         Migrate database-tools to simple container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2447'>FORGE-2447</a>] -         Migrate faces-scaffold addon to simple addon
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2449'>FORGE-2449</a>] -         Migrate addon-manager-spi addon to simple container
+</li>
+<li>[<a href='https://issues.jboss.org/browse/FORGE-2453'>FORGE-2453</a>] -         Migrate addon-manager addon to simple container
+</li>
+</ul>
+++++
