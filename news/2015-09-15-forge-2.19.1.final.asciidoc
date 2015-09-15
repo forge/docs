@@ -1,0 +1,48 @@
+== Forge 2.19.1.Final (Iron) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.19.1.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Bug Fixes*: More bugs were crushed in this new release.
+* *Component Upgrades*: We've upgraded Aesh, Roaster and Hibernate Tools. Check the release notes below.
+
+Contributors
+=============
+Many thanks to Antonio Goncalves, who helped to make this the best release ever
+
+Release Notes - Forge - Version 2.19.1.Final
+============================================
+
+++++
+<h2>Sub-task</h2>
+<ul>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2374">FORGE-2374</a> ] Being able to generate an abstract or final Java class implementing serializable or not</li>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2466">FORGE-2466</a> ] Cannot use '~'  in most of the command parameters</li>
+</ul>
+
+<h2>Feature Request</h2>
+<ul>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2475">FORGE-2475</a> ] Top level packages should be created in project-new</li>
+</ul>
+
+<h2>Bug</h2>
+<ul>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2463">FORGE-2463</a> ] Cannot use ~ with java-new-package and createPackageInfo parameter</li>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2464">FORGE-2464</a> ] Cannot use '~'  in the type parameter of a jpa-new-field</li>
+</ul>
+
+<h2>Task</h2>
+<ul>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2476">FORGE-2476</a> ] Generate SHA-256 checksums for distribution file</li>
+</ul>
+
+<h2>Component  Upgrade</h2>
+<ul>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2477">FORGE-2477</a> ] Upgrade Hibernate Tools to 4.3.1.Final</li>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2478">FORGE-2478</a> ] Upgrade to Roaster 2.16.0.Final</li>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2480">FORGE-2480</a> ] Upgrade to Aesh 0.65.1</li>
+</ul>
+++++
