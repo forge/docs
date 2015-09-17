@@ -1,0 +1,24 @@
+== Forge 2.19.1.Final (Patched Iron) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.19.2.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+* *Bug Fixes*: We fixed a regression bug that prevented Forge to work properly in JBoss Tools.
+
+Release Notes - Forge - Version 2.19.2.Final
+============================================
+
+++++
+<h2>Bug</h2>
+<ul>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2483">FORGE-2483</a> ] SLF4J jars are missing in database-tools</li>
+</ul>
+
+<h2>Task</h2>
+<ul>
+  <li>[ <a href="https://issues.jboss.org/browse/FORGE-2481">FORGE-2481</a> ] Generate Jandex index files during packaging</li>
+</ul>
+++++
