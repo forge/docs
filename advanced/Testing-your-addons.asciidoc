@@ -4,6 +4,12 @@ Forge offers several test harness to aid in writing tests for your addon. Each t
 
 This chapter assumes knowledge of Arquillian, so you might find it easier to read the Arquillian tutorials at http://arquillian.org if you're not acquainted with it.
 
+
+
+video::rPQoq7ThGAU[youtube]
+
+
+
 === Setup the Furnace test harness in your project
 
 The Furnace test harness offers the capability to deploy your and test addon to Furnace.
