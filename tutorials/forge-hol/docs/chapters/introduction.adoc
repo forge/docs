@@ -8,14 +8,14 @@ introduction from http://www.amazon.com/Continuous-Enterprise-Development-Andrew
 
 [quote, Continuous Enterprise Development]
 ____________________________________________________________________
-If you’ve spent any time developing Java EE–based projects (or any nontrivial application,
+If you’ve spent any time developing Java EE-based projects (or any nontrivial application,
 for that matter!), you’ve likely invested a good amount of energy in creating the
 project layout, defining dependencies, and informing the build system of the relevant
 class paths to be used in compilation and execution. Although Maven enables us to
 reduce that load as compared with undertaking project setup manually, there’s typically
-quite a bit of boilerplate involved in the `pom.xml` defining your requirements.
+quite a bit of boilerplate involved in the _pom.xml_ defining your requirements.
 
-JBoss Forge offers “incremental project enhancement for Java EE.” Implemented as a command shell and integration with some IDE, Forge gives us the ability to alter project files and folders. Some concrete tasks we might use Forge to handle are:
+JBoss Forge offers an incremental project enhancement for Java EE. Implemented as a command shell and integration with some IDE, Forge gives us the ability to alter project files and folders. Some concrete tasks we might use Forge to handle are:
 
 - Adding Java Persistence API (JPA) entities and describing their model
 - Configuring Maven dependencies
