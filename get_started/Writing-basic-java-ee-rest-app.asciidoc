@@ -23,7 +23,7 @@ $ project-new --named conference
 Once you have created fields in the entity, it's time to generate a REST endpoint for `Speaker`.
 
 ----
-[Speaker.java]$ rest-generate-endpoints-from-entities --targets org.example.model.Speaker
+[Speaker.java]$ rest-generate-endpoints-from-entities --targets org.conference.model.Speaker
 ***SUCCESS*** JAX-RS has been installed.
 ***SUCCESS*** Endpoint created
 [SpeakerEndpoint.java]$
@@ -38,7 +38,7 @@ While "holding" most files, you may inspect them using `ls`. This also works on 
 em::javax.persistence.EntityManager
 
 [methods]
-create(org.example.model.Speaker)::javax.ws.rs.core.Response  findById(java.lang.Long)::javax.ws.rs.core.Response           update(org.example.model.Speaker)::javax.ws.rs.core.Response
+create(org.conference.model.Speaker)::javax.ws.rs.core.Response  findById(java.lang.Long)::javax.ws.rs.core.Response           update(org.conference.model.Speaker)::javax.ws.rs.core.Response
 deleteById(java.lang.Long)::javax.ws.rs.core.Response         listAll(java.lang.Integer,java.lang.Integer)::java.util.List
 ----
 
