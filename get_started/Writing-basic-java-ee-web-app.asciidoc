@@ -56,7 +56,7 @@ getId()::java.lang.Long               hashCode()::int                       setS
 Once you have created fields in the entity, it's time to generate some scaffolding for `Speaker`.
 
 ----
-[Speaker.java]$ scaffold-generate --targets org.example.model.Speaker
+[Speaker.java]$ scaffold-generate --targets org.conference.model.Speaker
 ***SUCCESS*** CDI has been installed.
 ***SUCCESS*** EJB has been installed.
 ***SUCCESS*** Servlet API has been installed.
