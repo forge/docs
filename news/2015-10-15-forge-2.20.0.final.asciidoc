@@ -1,0 +1,70 @@
+== Forge 2.20.0.Final (Silver) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.20.0.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Better performance*: We improved the performance of the CDI container, by enabling https://github.com/wildfly/jandex[Jandex]. The core addons contain now a Jandex index generated automatically using the https://github.com/wildfly/jandex-maven-plugin[jandex-maven-plugin].
+* *Deprecate your old commands and options*: Forge now allows you to mark a command or an option as deprecated, thus discouraging its usage from users. That allows you to focus on new and improved commands without breaking compatibility. Just add a `@Deprecated` annotation on top of it or call `UIInput.setDeprecated(true)` and you should be set. Take a look of it in action: 
+++++
+<script type="text/javascript" src="https://asciinema.org/a/07n13avvcma6npqqcwgvau250.js" id="asciicast-07n13avvcma6npqqcwgvau250" async></script>
+++++
+
+* *Component Upgrades*: We have upgraded to https://issues.jboss.org/secure/ConfigureReport.jspa?versions=12328450&versions=12328371&versions=12328355&versions=12328350&versions=12327872&versions=12327852&sections=all&style=none&selectedProjectId=12316020&reportKey=org.jboss.labs.jira.plugin.release-notes-report-plugin%3Areleasenotes&Next=Next[Furnace 2.22.5.Final] and https://issues.jboss.org/secure/ConfigureReport.jspa?versions=12328403&versions=12328231&sections=all&style=html&selectedProjectId=12315122&reportKey=org.jboss.labs.jira.plugin.release-notes-report-plugin%3Areleasenotes&Next=Next[Roaster 2.17.1.Final] Enjoy! 
+
+Contributors
+=============
+Many thanks to the following contributors who helped to make this release better than ever
+
+- Antonio Goncalves
+- Martin Kouba
+
+
+What's next? 
+============
+
+This is the last 2.x version with new features. Future 2.x versions will focus primarily on bug fixes. The Forge team is right now working hard on the next release *3.0.0.Alpha1* (release date still TBD), which will include, among another things:
+
+* *JDK 8 as a minimum requirement*: the Forge sources will now take full advantage of the JDK 8 features. 
+* *Option names are now more unix-like*: Eg: `--targetPackage` is now `--target-package`.
+
+Here is a video showing it in action:
+++++
+<script type="text/javascript" src="https://asciinema.org/a/2fasp3sdpr33nc18gttu6mwx6.js" id="asciicast-2fasp3sdpr33nc18gttu6mwx6" async></script>
+++++
+
+Sources for the 3.x branch can be found https://github.com/forge/core/tree/3.x[here], along with instructions on how to build it
+
+Release Notes - Forge - Version 2.20.0.Final
+============================================
+
+== Sub-task
+
+*   [ https://issues.jboss.org/browse/FORGE-2430[FORGE-2430] ] Migrate projects addon to simple container
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2285[FORGE-2285] ] Allow commands to be deprecated
+*   [ https://issues.jboss.org/browse/FORGE-2486[FORGE-2486] ] Allow external UI validation to occur
+*   [ https://issues.jboss.org/browse/FORGE-2487[FORGE-2487] ] Allow inputs to be deprecated
+*   [ https://issues.jboss.org/browse/FORGE-2492[FORGE-2492] ] forge hangs on AbstractProjectCommand.getSelectedProject() when used inside fabric8-forge (the REST service)
+*   [ https://issues.jboss.org/browse/FORGE-2496[FORGE-2496] ] Deadlock while running tests
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2488[FORGE-2488] ] JavaEE setup commands producing JavaEE 6 even if project is JavaEE 7
+*   [ https://issues.jboss.org/browse/FORGE-2493[FORGE-2493] ] UISelectOne&lt;String&gt; accepts any input as a value
+*   [ https://issues.jboss.org/browse/FORGE-2495[FORGE-2495] ] WizardCommandController does not execute all steps when execute is called directly
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2485[FORGE-2485] ] Upgrade to Furnace 2.22.5.Final
+*   [ https://issues.jboss.org/browse/FORGE-2498[FORGE-2498] ] Upgrade to Roaster 2.17.1.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2436[FORGE-2436] ] InputComponentInjectionEnricher is bound to CDI API
+
