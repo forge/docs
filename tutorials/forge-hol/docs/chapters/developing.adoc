@@ -76,7 +76,7 @@ And the best of all, is that it works! To build the application, just do it in F
 
 ==== Running the application
 
-Before deploying the application on http://www.wildfly.org/[WildFly] you can grab the SQL script https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/import.sql and copy it to `petstore/src/main/resources`. This will add data to the database.
+Before deploying the application on http://www.wildfly.org/[WildFly] you can grab the SQL script https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/import.sql and copy it to `petstore/src/main/resources`. This will add data to the database.
 
 Then, just deploy the war file into WildFly, go to the URL http://localhost:8080/petstore and you should see the following homepage :
 
