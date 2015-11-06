@@ -1,0 +1,48 @@
+== Forge 3.0.0.Alpha1 is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Alpha1. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+This version features all the bug fixes from 2.20.1.Final, plus the following:
+
+* *JDK 8*: The minimum requirement for running Forge 3.0.0.Alpha1 is now the Java Development Kit 8.0. Hello lambdas and JDK 8 specific features!
+* *Option names are now more unix-like*: Eg: `--targetPackage` is now `--target-package`. Scripts targeted for 2.x may fail. The solution is to adjust the script manually for now.
+* *Component Upgrades*: We have upgraded Furnace to 2.22.7.Final and Roaster to 2.17.2.Final. 
+
+Stay tuned for more features on the next release.
+
+Release Notes - Forge - Version 3.0.0.Alpha1
+============================================
+
+== Sub-task
+
+*   [ https://issues.jboss.org/browse/FORGE-2279[FORGE-2279] ] Renaming parameters so their either use camel case or dash
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2499[FORGE-2499] ] Upgrade minimum version to JDK 1.8
+*   [ https://issues.jboss.org/browse/FORGE-2503[FORGE-2503] ] Display wait cursor for long-running tasks
+*   [ https://issues.jboss.org/browse/FORGE-2506[FORGE-2506] ] Trigger follow-up actions to other commands
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2500[FORGE-2500] ] Cant set Json array as FileResource content
+*   [ https://issues.jboss.org/browse/FORGE-2507[FORGE-2507] ] Project:New attempts to re-install already installed facets
+*   [ https://issues.jboss.org/browse/FORGE-2515[FORGE-2515] ] project-new prints null in the CLI
+*   [ https://issues.jboss.org/browse/FORGE-2517[FORGE-2517] ] "How to Customize" menu points to an unknown page
+*   [ https://issues.jboss.org/browse/FORGE-2524[FORGE-2524] ] UIInputMany<path> does not preserve the original path when InputComponents.setValue is called</path>
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2513[FORGE-2513] ] Upgrade to Furnace 2.22.7.Final
+*   [ https://issues.jboss.org/browse/FORGE-2523[FORGE-2523] ] Upgrade to Roaster 2.17.2.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2504[FORGE-2504] ] JsonResource.setContents should pretty-print output
+*   [ https://issues.jboss.org/browse/FORGE-2505[FORGE-2505] ] JsonResource should return a populated JsonArrayBuilder or JsonObjectBuilder
+*   [ https://issues.jboss.org/browse/FORGE-2522[FORGE-2522] ] addon-install-from-git should accept multiple coordinates per repository

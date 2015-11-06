@@ -1,0 +1,32 @@
+== Forge 2.20.1.Final (Halloween) is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 2.20.1.Final, a bug fix release. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+*Bug Fixes*: This release fixes 11 bugs and it should (hopefully) be the last 2.x release. We strongly encourage you to try the 3.0.0.Alpha1 version. All work is now focused on getting 3.0.0.Alpha1 out as soon as possible.
+
+Release Notes - Forge - Version 2.20.1.Final
+============================================
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2500[FORGE-2500] ] Cant set Json array as FileResource content
+*   [ https://issues.jboss.org/browse/FORGE-2501[FORGE-2501] ] CoordinateBuilder is not parsing correctly
+*   [ https://issues.jboss.org/browse/FORGE-2502[FORGE-2502] ] RunCommand leaks running processes
+*   [ https://issues.jboss.org/browse/FORGE-2507[FORGE-2507] ] Project:New attempts to re-install already installed facets
+*   [ https://issues.jboss.org/browse/FORGE-2515[FORGE-2515] ] project-new prints null in the CLI
+*   [ https://issues.jboss.org/browse/FORGE-2517[FORGE-2517] ] "How to Customize" menu points to an unknown page
+*   [ https://issues.jboss.org/browse/FORGE-2524[FORGE-2524] ] UIInputMany<path> does not preserve the original path when InputComponents.setValue is called</path>
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2513[FORGE-2513] ] Upgrade to Furnace 2.22.7.Final
+*   [ https://issues.jboss.org/browse/FORGE-2523[FORGE-2523] ] Upgrade to Roaster 2.17.2.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2504[FORGE-2504] ] JsonResource.setContents should pretty-print output
+*   [ https://issues.jboss.org/browse/FORGE-2522[FORGE-2522] ] addon-install-from-git should accept multiple coordinates per repository
