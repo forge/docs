@@ -127,7 +127,7 @@ Let's choose the_ war_ type to continue our war on beliefs
 The complete command is +
 
 ----
-[jerome]$ project-new --named mesNews --topLevelPackage org.moi --type war --finalName newsAngularJs
+[jerome]$ project-new --named mesNews --topLevelPackage org.me --type war --finalName newsAngularJs
 ***SUCCESS*** Project named 'mesNews' has been created.
 ----
 
@@ -150,7 +150,7 @@ Now, execute those commands one after another :
 
 ----
 jpa-setup --provider Hibernate --container JBOSS_EAP6
-jpa-new-entity --named News --targetPackage org.moi.model --idStrategy AUTO
+jpa-new-entity --named News --targetPackage org.me.model --idStrategy AUTO
 jpa-new-field --named title --type String
 jpa-new-field --named text --type String
 ----
