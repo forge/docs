@@ -1,0 +1,32 @@
+== Forge 3.0.0.Alpha2 is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Alpha2. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Selected index for UISelect components*: Now it's possible to know which index was selected in a UISelectOne or UISelectMany component. The ValueChangeEvent class has also been changed to include this information.
+* *Component Upgrades*: We have upgraded Furnace to 2.22.8.Final and Roaster to 2.17.3.Final. 
+
+Stay tuned for more features on the next release.
+
+Release Notes - Forge - Version 3.0.0.Alpha2
+============================================
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2526[FORGE-2526] ] UISelectOne - Allow to know which index was selected
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2537[FORGE-2537] ] Ambiguous facet error while creating gradle project
+*   [ https://issues.jboss.org/browse/FORGE-2538[FORGE-2538] ] Build command tries to run clean install on gradle builds
+*   [ https://issues.jboss.org/browse/FORGE-2539[FORGE-2539] ] org.jboss.forge.furnace.exception.ContainerException: No services of type [org.jboss.forge.addon.projects.ProjectFactory] could be found in any started addons.
+*   [ https://issues.jboss.org/browse/FORGE-2541[FORGE-2541] ] Can not create project using Netbens plugin
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2536[FORGE-2536] ] Upgrade to Roaster 2.17.3.Final
+*   [ https://issues.jboss.org/browse/FORGE-2540[FORGE-2540] ] Upgrade to Furnace 2.22.8.Final
