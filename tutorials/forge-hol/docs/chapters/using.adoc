@@ -59,7 +59,7 @@ If you do not wish to use the Java EE container default data-source, you can als
 
 [source, console]
 ----
-[cdbookstore]$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
+[cdbookstore]$ jpa-setup --provider Eclipse\ Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource
 ----
 
 If you have executed the `jpa-setup` command, you've noticed that the prompt has changed: you went from `[cdbookstore]` to `[persistence.xml]`. In Forge, the prompt always tells you where you are. You can even enter the command `pwd` or `ls`. For now, let's go back into the `Book` entity: enter `cd~~` brings you to the root directory, and then `cd src/main/java/org/cdbookstore/model/Book.java`. 
