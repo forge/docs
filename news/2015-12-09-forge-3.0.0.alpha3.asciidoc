@@ -1,0 +1,34 @@
+== Forge 3.0.0.Alpha3 is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Alpha3.
+This is a bug-fix release.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *UI Errors are no longer silently caught*: Whenever an exception is thrown from your UICommand, Forge will display the original exception in the UI, making it easier to debug possible issues.
+* *Component Upgrades*: We have upgraded Furnace to 2.22.9.Final
+
+Stay tuned for more features on the next release.
+
+Release Notes - Forge - Version 3.0.0.Alpha3
+============================================
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2530[FORGE-2530] ] IndexOutOfBoundsException in IDEA when running custom command
+
+== Task
+
+*   [ https://issues.jboss.org/browse/FORGE-2546[FORGE-2546] ] Upgrade license in logging.properties to 2016
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2550[FORGE-2550] ] Upgrade to Furnace 2.22.9.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2543[FORGE-2543] ] Default compiler version should be 1.8
+*   [ https://issues.jboss.org/browse/FORGE-2548[FORGE-2548] ] Better error message what is wrong in a custom wizard for addon developers
