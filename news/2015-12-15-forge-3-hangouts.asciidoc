@@ -1,4 +1,4 @@
-== Forge 3 Public Hangouts in January 2016
+= Forge 3 Public Hangouts in January 2016
 
 In 05/01/2016, 12/01/2016, 19/01/2016 and 26/01/2016, we'll be doing 1h public Google Hangouts focused on discussing the Forge roadmap and making sure that everything is ready for the 3.0.0.Final release in 15th March,2016. 
 
