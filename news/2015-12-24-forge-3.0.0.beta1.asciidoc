@@ -1,7 +1,7 @@
 == Forge 3.0.0.Beta1 is here!
 
 Christmas has come, and so the first Beta version. 
-The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Beta.
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Beta1.
 
 Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
 
