@@ -1,0 +1,44 @@
+== Forge 3.0.0.Beta1 is here!
+
+Christmas has come, and so the first Beta version. 
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Beta.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Better support for creation of generic projects*: Not every project is in Java nowadays (unfortunately), so we are introducing a new addon (project-generic) that should allow you to create commands for non-Java projects more easily.
+* *Component Upgrades*: We have upgraded Furnace to 2.22.10.Final and Roaster to 2.17.4.Final
+
+Stay tuned for more features on the next release.
+
+Release Notes - Forge - Version 3.0.0.Beta1
+============================================
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2558[FORGE-2558] ] Support creation of generic projects
+*   [ https://issues.jboss.org/browse/FORGE-2561[FORGE-2561] ] Wait cursor is messing up the output
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2531[FORGE-2531] ] Using mixed versions of slf4j causes SLF4J to print to console a WARN about this
+*   [ https://issues.jboss.org/browse/FORGE-2551[FORGE-2551] ] Formatter name is not being used in JavaResource
+*   [ https://issues.jboss.org/browse/FORGE-2552[FORGE-2552] ] Introduce JavaSourceFacet.saveJavaSourceUnformatted and saveTestJavaSourceUnformatted
+*   [ https://issues.jboss.org/browse/FORGE-2566[FORGE-2566] ] Provider apple.applescript.AppleScriptEngineFactory not found
+
+== Task
+
+*   [ https://issues.jboss.org/browse/FORGE-2570[FORGE-2570] ] Migrate artifact deployment to oss.sonatype.org
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2568[FORGE-2568] ] Upgrade to Roaster 2.17.4.Final
+*   [ https://issues.jboss.org/browse/FORGE-2569[FORGE-2569] ] Upgrade to Furnace 2.22.10.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2559[FORGE-2559] ] Disable Java-only commands when current project is not Java
+*   [ https://issues.jboss.org/browse/FORGE-2560[FORGE-2560] ] Allow FileResource to be set as executable/writable/readable
+*   [ https://issues.jboss.org/browse/FORGE-2562[FORGE-2562] ] ProjectType should allow return a better navigation flow instead of starting from a single UIWizardStep
