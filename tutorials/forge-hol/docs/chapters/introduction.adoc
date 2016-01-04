@@ -55,7 +55,7 @@ This lab should be as self explanatory as possible. So your job is to follow the
 
 The following software needs to be downloaded and installed:
 
-- http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 7]
+- http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
 - http://maven.apache.org/download.cgi[Maven 3.2.x]
 - http://forge.jboss.org/download[JBoss Forge 2.12.2] or higher
-- http://wildfly.org/downloads/[WildFly 8.1]
+- http://wildfly.org/downloads/[WildFly 9.0.x]

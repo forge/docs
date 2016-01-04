@@ -174,7 +174,7 @@ image::../images/using/new-field.png[title="Creating a new field in Entity"]
 Repeat these steps to create the following fields in the Book class:
 [source]
 --
-Field name: description | Length: 2000
+Field name: description | Type: java.lang.String| Length: 2000
 Field name: price | Type: java.lang.Float
 Field name: nbOfPages | Type: java.lang.Integer
 Field name: publicationDate | Type java.util.Date | Temporal Type: DATE
@@ -252,8 +252,8 @@ Click Finish.
 Now add two more constraints to the Book class:
 [source]
 --
-Constraint: Past | Property: publicationDate
-Constraint: Size | Max: 3000 |  Property: description
+Property: publicationDate | Constraint: Past 
+Property: description | Constraint: Size | Max: 3000 
 --
 
 
@@ -374,7 +374,6 @@ Enough, talking, let's install the http://forge.jboss.org/addon/org.jboss.forge.
 
 [source, console]
 ----
-[cdbookstore]$ addon-install-from-git --url https://github.com/forge/as-addon  --coordinate org.jboss.forge.addon:as
 [cdbookstore]$ addon-install-from-git --url https://github.com/forge/jboss-as-addon  --coordinate org.jboss.forge.addon:jboss-as-wf
 ----
 
@@ -410,20 +409,14 @@ WildFly is started, the application is deployed, you can now go to http://localh
 ==== Installing the JBoss AS Forge addon on JBDS
 
 Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose _Install an Addon from GIT_, enter
-_https://github.com/jerr/as-addon_ as GIT Repository URL ad _org.jboss.forge.addon:as,2.0.0-SNAPSHOT_ as Coordinate:
+_https://github.com/forge/jboss-as-addon_ as GIT Repository URL ad _org.jboss.forge.addon:jboss-as-wf_ as Coordinate:
 
 [source]
 --
-GIT Repository: https://github.com/jerr/as-addon | Coordinate: org.jboss.forge.addon:as,2.0.0-SNAPSHOT
+GIT Repository: https://github.com/forge/jboss-as-addon | Coordinate: org.jboss.forge.addon:jboss-as-wf
 --
 
 image::../images/using/addon-install.png[title="Installing an Addon"]
-
-Now perform the same action for:
-[source]
---
-GIT Repository: https://github.com/jerr/jboss-as-addon | Coordinate: org.jboss.forge.addon:jboss-as-wf8,2.0.0-SNAPSHOT
---
 
 It's now time to set up your server. Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose
 _AS: Setup_, then select _wildfly8_:
