@@ -9,7 +9,7 @@ If you are a command line addict or are more confortable with a Eclipse, you can
 
 Follow these steps to install a Forge distribution:
 
-- Ensure that you have already installed a http://www.oracle.com/technetwork/java/javase/downloads/index.html[Java 7+ JDK].
+- Ensure that you have already installed a http://www.oracle.com/technetwork/java/javase/downloads/index.html[Java 8+ JDK].
 - http://red.ht/1vEB0v0[Download] and Un-zip Forge into a folder on your hard-disk, this folder will be your `FORGE_HOME`
 - Add `$FORGE_HOME/bin` to your path (windows, linux, mac osx)
 - Run JBoss Forge by typing the `forge` command in your system terminal.
@@ -56,10 +56,10 @@ brew install jboss-forge
 
 Run JBoss Forge by typing the `forge` command in your system terminal.
 
-=== Installing JBDS 8.0 with EAP
+=== Installing JBDS 9.0 with EAP
 
 Installing JBDS is a piece of cake. Just download the installer from the 
-http://www.jboss.org/download-manager/file/jboss-devstudio-8.0.0.GA-jar_universal.jar[JBoss website] 
+http://www.jboss.org/products/devstudio/download/[JBoss website] 
 and in the target folder you enter:
 
 [source, console]
