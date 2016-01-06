@@ -1,13 +1,7 @@
 = Forge 3 Public Hangouts in January 2016
 
-In 05/01/2016, 12/01/2016, 19/01/2016 and 26/01/2016, we'll be doing 1h public Google Hangouts focused on discussing the Forge roadmap and making sure that everything is ready for the 3.0.0.Final release in 15th March,2016. 
+In 05/01/2016, 12/01/2016, 19/01/2016 and 26/01/2016, we'll be doing an 1h public video-conference meeting focused on discussing the Forge roadmap and making sure that everything is ready for the 3.0.0.Final release in 15th March,2016. 
 
 After the hangout, we'll have 30 min in #forge IRC for additional notes and discussions.
 
 Click link:https://redhat.bluejeans.com/467307336/[HERE] to join the hangout
-
-++++
-<h4>Add this event to your calendar now:
-<a target="_blank" href="https://calendar.google.com/calendar/hosted/redhat.com/event?action=TEMPLATE&amp;tmeid=bDRra2tnMjhlYnRrNnZmN2ttN2FwZnNucXNfMjAxNjAxMTJUMTUwMDAwWiB0aXUzaWpoNW5vbDlwdjc4dmR2dTNra2J1a0Bn&amp;tmsrc=tiu3ijh5nol9pv78vdvu3kkbuk%40group.calendar.google.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif"></a></h4>
-++++
-
