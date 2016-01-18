@@ -13,9 +13,9 @@ A forge script is just a file that contains a set of commands. The commands belo
 #  Country entity
 #  ############
 jpa-new-entity --named Country ;
-jpa-new-field --named isoCode --length 2 --columnName iso_code --not-nullable ;
+jpa-new-field --named isoCode --length 2 --column-name iso_code --not-nullable ;
 jpa-new-field --named name --length 80 --not-nullable ;
-jpa-new-field --named printableName --length 80 --columnName printable_name --not-nullable ;
+jpa-new-field --named printableName --length 80 --column-name printable_name --not-nullable ;
 jpa-new-field --named iso3 --length 3 ;
 jpa-new-field --named numcode --length 3 ;
 ----
@@ -131,7 +131,7 @@ Before creating the Envers addon, you need to start Forge. Before you continue, 
 
 [source, console]
 ----
-$ project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon
+$ project-new --named envers --type addon --top-level-package org.jboss.forge.addon
 ----
 
 If you run Forge from JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) then select _Project: New_ and specify _envers_ as project name, _org.jboss.forge.addon_ as top level package, enter project location per your preference and as a Project type select _Forge Addon_:
@@ -155,7 +155,7 @@ If you are running from the command line interface, type in: +
 
 [source, console]
 ----
-[envers]$ addon-new-ui-command --named EnversSetupCommand --commandName "Envers: Setup" --categories "Auditing"
+[envers]$ addon-new-ui-command --named EnversSetupCommand --command-name "Envers: Setup" --categories "Auditing"
 ----
 
 In JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), then choose _Addon: New UI Command_
@@ -285,7 +285,7 @@ We will create the class for the new command in the same way that we created the
 
 [source, console]
 ----
-[envers]$ addon-new-ui-command --named EnversAuditEntityCommand --commandName "Envers: Audit entity" --categories "Auditing"
+[envers]$ addon-new-ui-command --named EnversAuditEntityCommand --command-name "Envers: Audit entity" --categories "Auditing"
 ----
 
 Or alternatively in the JBDS choose _Addon: New UI Command_, enter _EnversAuditEntityCommand_ in the Type Name field, _Envers: Audit entity_ in the Command name field and add _Auditing_ to the Categories list box: +
@@ -444,11 +444,11 @@ Once we have our basic functionality, we can build and install our new addon. Fo
 $ addon-build-and-install
 ----
 
-If you don't specify the `projectRoot` parameter, Forge will look for the sources of your addon in the current folder. If this is not the intended behavior, in the CLI run the command like that:
+If you don't specify the `project-root` parameter, Forge will look for the sources of your addon in the current folder. If this is not the intended behavior, in the CLI run the command like that:
 
 [source, console]
 ----
-$ addon-build-and-install --projectRoot <path-to-the-addon-sources>
+$ addon-build-and-install --project-root <path-to-the-addon-sources>
 ----
 
 In JBDS, either select the addon project before running the command, or specify the correct path in the command dialog:

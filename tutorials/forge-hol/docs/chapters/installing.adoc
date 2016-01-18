@@ -35,7 +35,7 @@ The easiest way to install Forge is to extract the distribution archive, to the 
 
 [source, console]
 --
-export FORGE_HOME=/usr/local/jboss/forge-distribution-2.12.1.Final
+export FORGE_HOME=/usr/local/jboss/forge-distribution-3.0.0.Beta2
 --
 Add FORGE_HOME/bin environment variable to your path, e.g: 
 [source, console]

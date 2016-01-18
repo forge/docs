@@ -33,6 +33,10 @@ The following JBoss Forge community members have contributed, one way or another
 - Used during the conference Devoxx Belgium 2014
 - JIRA https://issues.jboss.org/browse/FORGE-2102
 
+=== Version 0.2 
+
+- Upgrade to Forge 3.0.0.Beta2
+
 === CLI Commands Quick Reference
 
 [width="15%"]
@@ -60,7 +64,7 @@ The following JBoss Forge community members have contributed, one way or another
 |Java |java-new-annotation | Creates a new Java Annotation
 |Java |java-new-class | Creates a new Java Class
 |Java |java-new-enum | Creates a new Java Enum
-|Java |java-new-enum-const | Creates a new Java Enum constant
+|Java |java-add-enum-const | Add a new Java Enum constant
 |Java |java-new-field | Creates a new field
 |Java |java-new-interface | Creates a new Java Interface
 |Java EE |javaee-setup | Setup Java EE in your project

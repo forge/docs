@@ -57,5 +57,5 @@ The following software needs to be downloaded and installed:
 
 - http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
 - http://maven.apache.org/download.cgi[Maven 3.2.x]
-- http://forge.jboss.org/download[JBoss Forge 2.12.2] or higher
+- http://forge.jboss.org/download[JBoss Forge 3.0.0.Beta1] or higher
 - http://wildfly.org/downloads/[WildFly 9.0.x]
