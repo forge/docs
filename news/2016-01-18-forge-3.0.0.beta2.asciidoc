@@ -1,0 +1,56 @@
+== Forge 3.0.0.Beta2 is here!
+
+Happy new year! Time for another exciting release!
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Beta2.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Stacks*: Starting in this version we have added support for Stacks. 
+** What is a stack? 
+*** A stack is simply a group of supported technologies for a given project. In Forge it is modeled as a Project facet including a set of project facets.
+** This looks great, how do I use it? 
+- The `Project: New` command introduces a `Stack` parameter. For example, if you create a new project using the JavaEE 7 stack, you no longer need to specify the spec versions while setting them up, also making only the supported JavaEE 7 commands to be enabled for a given project. Imagine the possibilities! :)
+
+* *Command line information*: If you always wanted to know which options where provided to your command when running in shell, you can using the newest `ShellContext.getCommandLine()` API.  
+
+* *Component Upgrades*: We have upgraded Roaster to 2.18.0.Final and Hibernate Validator to 5.3.0.Alpha1
+
+As usual, stay tuned for more features on the next release.
+
+Release Notes - Forge - Version 3.0.0.Beta2
+============================================
+
+== Sub-task
+
+*   [ https://issues.jboss.org/browse/FORGE-2080[FORGE-2080] ] Being able to enable CDI interceptors and decorators
+*   [ https://issues.jboss.org/browse/FORGE-2129[FORGE-2129] ] Parameters syntax should be more unix-like
+*   [ https://issues.jboss.org/browse/FORGE-2224[FORGE-2224] ] Rename attribute methodName in command java-new-method
+*   [ https://issues.jboss.org/browse/FORGE-2316[FORGE-2316] ] Brainstorming on introducing "Stacks"
+*   [ https://issues.jboss.org/browse/FORGE-2371[FORGE-2371] ] Use <h:graphicimage> instead of  in JSF scaffolding</h:graphicimage>
+*   [ https://issues.jboss.org/browse/FORGE-2372[FORGE-2372] ] The scaffold provider should be mandatory when there are more than one
+*   [ https://issues.jboss.org/browse/FORGE-2484[FORGE-2484] ] java-new-enum-const should follow the naming convention
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2572[FORGE-2572] ] Create YAML parser addon
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2343[FORGE-2343] ] project-new command causes exception in Eclipse
+*   [ https://issues.jboss.org/browse/FORGE-2345[FORGE-2345] ] NPE when starting up IDEA 14.x with Forge 2.16.1 installed
+*   [ https://issues.jboss.org/browse/FORGE-2574[FORGE-2574] ] Introduce ShellContext.getCommandLine()
+*   [ https://issues.jboss.org/browse/FORGE-2577[FORGE-2577] ] InputComponents.convertToUIInputValue should compare using labels as a last resort
+*   [ https://issues.jboss.org/browse/FORGE-2578[FORGE-2578] ] Shell allows execution of disabled commands
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2575[FORGE-2575] ] Upgrade to Roaster 2.18.0.Final
+*   [ https://issues.jboss.org/browse/FORGE-2579[FORGE-2579] ] Upgrade to Hibernate Validator 5.3.0.Alpha1
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2573[FORGE-2573] ] Introduce Optional<f> Faceted.getFacetAsOptional(Class<f>)</f></f>
+*   [ https://issues.jboss.org/browse/FORGE-2576[FORGE-2576] ] Configuration addon should store in properties file
