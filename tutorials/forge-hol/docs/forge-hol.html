@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
-<meta name="author" content="Antonio Goncalves, Koen Aers, Ivan St. Ivanov, Daniel Cunha">
+<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="author" content="Antonio Goncalves, Koen Aers, Ivan St. Ivanov, Daniel Cunha, George Gastaldi">
 <title>JBoss Forge Hands on Lab</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
-/* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -58,7 +58,6 @@ a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
 img{-ms-interpolation-mode:bicubic}
-#map_canvas img,#map_canvas embed,#map_canvas object,.map_canvas img,.map_canvas embed,.map_canvas object{max-width:none!important}
 .left{float:left!important}
 .right{float:right!important}
 .text-left{text-align:left!important}
@@ -66,10 +65,12 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-.antialiased,body{-webkit-font-smoothing:antialiased}
-img{display:inline-block;vertical-align:middle}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
 p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
@@ -112,12 +113,14 @@ blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
-h4{font-size:1.4375em}}table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7;font-weight:bold}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
@@ -125,7 +128,7 @@ h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title str
 *:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
 .keyseq{color:rgba(51,51,51,.8)}
-kbd{display:inline-block;color:rgba(0,0,0,.8);font-size:.75em;line-height:1.4;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:-.15em .15em 0 .15em;padding:.2em .6em .2em .5em;vertical-align:middle;white-space:nowrap}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
 .menuseq,.menu{color:rgba(0,0,0,.8)}
@@ -156,29 +159,33 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toc ul.sectlevel0>li>a{font-style:italic}
 #toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
 #toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
 #toc a{text-decoration:none}
 #toc a:active{text-decoration:underline}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media only screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
 #toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
-#toc.toc2 #toctitle{margin-top:0;font-size:1.2em}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
 #toc.toc2 ul ul{margin-left:0;padding-left:1em}
 #toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
 body.toc2.toc-right{padding-left:0;padding-right:15em}
-body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
 #toc.toc2{width:20em}
 #toc.toc2 #toctitle{font-size:1.375em}
 #toc.toc2>ul{font-size:.95em}
 #toc.toc2 ul ul{padding-left:1.25em}
-body.toc2.toc-right{padding-left:0;padding-right:20em}}#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
 #footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 .sect1{padding-bottom:.625em}
-@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}.sect1+.sect1{border-top:1px solid #efefed}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
 #content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
 #content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
 #content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
@@ -207,7 +214,9 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
 .literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
 .literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
-@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
 .listingblock pre.highlightjs{padding:0}
 .listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
 .listingblock pre.prettyprint{border-width:0}
@@ -217,7 +226,7 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
 .listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
 table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
 table.pyhltable td.code{padding-left:.75em;padding-right:0}
 pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
 pre.pygments .lineno{display:inline-block;margin-right:.25em}
@@ -238,13 +247,12 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 .verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
 .quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
 .quoteblock .attribution br,.verseblock .attribution br{display:none}
-.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.05em;color:rgba(0,0,0,.6)}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
 .quoteblock.abstract{margin:0 0 1.25em 0;display:block}
 .quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
 .quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
-table.spread{width:100%}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
 table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
 table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
@@ -290,8 +298,8 @@ ol.upperroman{list-style-type:upper-roman}
 ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table,.colist>table{border:0;background:none}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
-td.hdlist1{padding-right:.75em;font-weight:bold}
-td.hdlist1,td.hdlist2{vertical-align:top}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
 .colist>table tr>td:last-of-type{padding:.25em 0}
@@ -304,13 +312,14 @@ td.hdlist1,td.hdlist2{vertical-align:top}
 .image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
 .image.left{margin-right:.625em}
 .image.right{margin-left:.625em}
-a.image{text-decoration:none}
-span.footnote,span.footnoteref{vertical-align:super;font-size:.875em}
-span.footnote a,span.footnoteref a{text-decoration:none}
-span.footnote a:active,span.footnoteref a:active{text-decoration:underline}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
-#footnotes .footnote{padding:0 .375em;line-height:1.3;font-size:.875em;margin-left:1.2em;text-indent:-1.2em;margin-bottom:.2em}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
@@ -368,11 +377,10 @@ span.icon>.fa{cursor:default}
 pre .conum[data-value]{position:relative;top:-.125em}
 b.conum *{color:inherit!important}
 .conum:not([data-value]):empty{display:none}
-h1,h2{letter-spacing:-.01em}
-dt,th.tableblock,td.content{text-rendering:optimizeLegibility}
-p,td.content{letter-spacing:-.01em}
-p strong,td.content strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content{font-size:1.0625rem}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -383,9 +391,9 @@ a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
 a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
 abbr[title]:after{content:" (" attr(title) ")"}
-pre,blockquote,tr,img{page-break-inside:avoid}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
 thead{display:table-header-group}
-img{max-width:100%!important}
+svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
@@ -414,9 +422,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>JBoss Forge Hands on Lab</h1>
 <div class="details">
-<span id="author" class="author">Antonio Goncalves, Koen Aers, Ivan St. Ivanov, Daniel Cunha</span><br>
-<span id="revnumber">version 0.1,</span>
-<span id="revdate">Oct 28, 2014</span>
+<span id="author" class="author">Antonio Goncalves, Koen Aers, Ivan St. Ivanov, Daniel Cunha, George Gastaldi</span><br>
+<span id="revnumber">version 0.2,</span>
+<span id="revdate">Jan 16, 2016</span>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
@@ -438,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_mac_os_x_or_linux">Mac OS X or Linux</a></li>
 </ul>
 </li>
-<li><a href="#_installing_jbds_8_0_with_eap">Installing JBDS 8.0 with EAP</a></li>
+<li><a href="#_installing_jbds_9_0_with_eap">Installing JBDS 9.0 with EAP</a></li>
 </ul>
 </li>
 <li><a href="#_using_forge">Using Forge</a>
@@ -455,13 +463,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_jboss_developer_studio_jbds">JBoss Developer Studio (JBDS)</a></li>
 </ul>
 </li>
-<li><a href="#_scaffolding_jsf">Scaffolding JSF</a>
+<li><a href="#_scaffolding_jsf_java_server_faces">Scaffolding JSF (Java Server Faces)</a>
 <ul class="sectlevel3">
 <li><a href="#_cli_3">CLI</a></li>
 <li><a href="#_jbds_2">JBDS</a></li>
 </ul>
 </li>
-<li><a href="#_scaffolding_restendpoints">Scaffolding RESTEndpoints</a>
+<li><a href="#_scaffolding_rest_endpoints">Scaffolding REST Endpoints</a>
 <ul class="sectlevel3">
 <li><a href="#_cli_4">CLI</a></li>
 <li><a href="#_jbds_3">JBDS</a></li>
@@ -513,6 +521,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_version_0_1">Version 0.1</a></li>
 </ul>
 </li>
+<li><a href="#_version_0_2">Version 0.2</a></li>
 <li><a href="#_cli_commands_quick_reference">CLI Commands Quick Reference</a></li>
 </ul>
 </li>
@@ -532,15 +541,15 @@ introduction from <a href="http://www.amazon.com/Continuous-Enterprise-Developme
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
-<p>If you’ve spent any time developing Java EE–based projects (or any nontrivial application,
+<p>If you’ve spent any time developing Java EE-based projects (or any nontrivial application,
 for that matter!), you’ve likely invested a good amount of energy in creating the
 project layout, defining dependencies, and informing the build system of the relevant
 class paths to be used in compilation and execution. Although Maven enables us to
 reduce that load as compared with undertaking project setup manually, there’s typically
-quite a bit of boilerplate involved in the <code>pom.xml</code> defining your requirements.</p>
+quite a bit of boilerplate involved in the <em>pom.xml</em> defining your requirements.</p>
 </div>
 <div class="paragraph">
-<p>JBoss Forge offers “incremental project enhancement for Java EE.” Implemented as a command shell and integration with some IDE, Forge gives us the ability to alter project files and folders. Some concrete tasks we might use Forge to handle are:</p>
+<p>JBoss Forge offers an incremental project enhancement for Java EE. Implemented as a command shell and integration with some IDE, Forge gives us the ability to alter project files and folders. Some concrete tasks we might use Forge to handle are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -630,16 +639,16 @@ Get this tutorial from <a href="https://github.com/forge/docs/tree/master/tutori
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK 7</a></p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK 8</a></p>
 </li>
 <li>
 <p><a href="http://maven.apache.org/download.cgi">Maven 3.2.x</a></p>
 </li>
 <li>
-<p><a href="http://forge.jboss.org/download">JBoss Forge 2.12.2</a> or higher</p>
+<p><a href="http://forge.jboss.org/download">JBoss Forge 3.0.0.Beta1</a> or higher</p>
 </li>
 <li>
-<p><a href="http://wildfly.org/downloads/">WildFly 8.1</a></p>
+<p><a href="http://wildfly.org/downloads/">WildFly 9.0.x</a></p>
 </li>
 </ul>
 </div>
@@ -663,7 +672,7 @@ Get this tutorial from <a href="https://github.com/forge/docs/tree/master/tutori
 <div class="ulist">
 <ul>
 <li>
-<p>Ensure that you have already installed a <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java 7+ JDK</a>.</p>
+<p>Ensure that you have already installed a <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java 8+ JDK</a>.</p>
 </li>
 <li>
 <p><a href="http://red.ht/1vEB0v0">Download</a> and Un-zip Forge into a folder on your hard-disk, this folder will be your <code>FORGE_HOME</code></p>
@@ -720,7 +729,7 @@ If you have installed Forge 1.x before, make sure to remove all the files from t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">export FORGE_HOME=/usr/local/jboss/forge-distribution-2.12.1.Final</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">export FORGE_HOME=/usr/local/jboss/forge-distribution-3.0.0.Beta2</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -753,10 +762,10 @@ If you have installed Forge 1.x before, make sure to remove all the files from t
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installing_jbds_8_0_with_eap">Installing JBDS 8.0 with EAP</h3>
+<h3 id="_installing_jbds_9_0_with_eap">Installing JBDS 9.0 with EAP</h3>
 <div class="paragraph">
 <p>Installing JBDS is a piece of cake. Just download the installer from the
-<a href="http://www.jboss.org/download-manager/file/jboss-devstudio-8.0.0.GA-jar_universal.jar">JBoss website</a>
+<a href="http://www.jboss.org/products/devstudio/download/">JBoss website</a>
 and in the target folder you enter:</p>
 </div>
 <div class="listingblock">
@@ -858,6 +867,9 @@ illustrated using screenshots below.</p>
 <li>
 <p>NetBeans (not shown in this lab)</p>
 </li>
+<li>
+<p>Web (not shown in this lab)</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -881,7 +893,7 @@ In this section and the following sections, We will assume that you have already
 <div class="sect2">
 <h3 id="_creating_a_new_project">Creating a new project</h3>
 <div class="paragraph">
-<p>Setting up a new project can involve quite a few activities. Typically, projects require a build and dependency management framework such as Maven, or Gradle. Even if you feel comfortable reading the respective configuration files, i.e. <code>pom.xml</code> or <code>build.gradle</code>, it can takes some time to create them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste them from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configurate - garbage that you will usually delete.</p>
+<p>Setting up a new project can involve quite a few activities. Typically, projects require a build and dependency management framework such as Maven, or Gradle. Even if you feel comfortable reading the respective configuration files, i.e. <code>pom.xml</code> or <code>build.gradle</code>, it takes some time to create them from scratch. What you usually do is consulting manuals or textbooks, look in internet or most often - copy and paste from one of your recent projects. Some of you may decide to use archetypes or IDE wizards, but you will soon realize that these generate too much garbage in your project configuration - garbage that you will usually delete.</p>
 </div>
 <div class="sect3">
 <h4 id="_cli">CLI</h4>
@@ -898,7 +910,7 @@ In this section and the following sections, We will assume that you have already
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ project-new --named cdbookstore --topLevelPackage com.example.project --targetLocation /directory/path --finalName cdbookwebapp --version 1.0.0.Final</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">$ project-new --named cdbookstore --top-level-package org.cdbookstore --target-location /directory/path --final-name cdbookstore --version 1.0.0.Final</code></pre>
 </div>
 </div>
 </div>
@@ -935,18 +947,18 @@ In this section and the following sections, We will assume that you have already
 <p>This command has several effects. First of all, it has created a <code>persistence.xml</code> file in the right place (under the <code>META-INF</code> directory) with all the default configuration for Hibernate. Then, it has created a <code>Book</code> entity under the subpackage <code>model</code>. Notice that this entity already has an <code>id</code> and <code>version</code> with its getters/setters. As you can see, the good thing with Forge is that with only one command all is setup and ready to go.</p>
 </div>
 <div class="paragraph">
-<p>If you do not wish to use the Java EE container default data-source, you can also specify additional connection options such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need configure your application server to provide this new data-source and/or database connection.</p>
+<p>If you do not wish to use the Java EE container default data-source, you can also specify additional connection options such as JNDI data-source names, JDBC connection information, and data-source types. Note, however, that this means you will probably need to configure your application server to provide this new data-source and/or database connection.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[cdbookstore]$ jpa-setup --provider Eclipse Link --dbType POSTGRES --dataSourceName java:comp/DefaultDataSource</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[cdbookstore]$ jpa-setup --provider Eclipse\ Link --db-type POSTGRES --data-source-name java:comp/DefaultDataSource</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>If you have executed the <code>jpa-setup</code> command, you&#8217;ve noticed that the prompt has changed: you went from <code>[cdbookstore]</code> to <code>[persistence.xml]</code>. In Forge, the prompt always tells you where you are. You can even enter the command <code>pwd</code> or <code>ls</code>. For now, let&#8217;s go back into the <code>Book</code> entity: enter <code>cd~~</code> brings you to the root directory, and then <code>cd src/main/java/org/cdbookstore/model/Book.java</code>.</p>
 </div>
 <div class="paragraph">
-<p>So, let&#8217;s create a few fields in the <code>Book</code> entity. Again, one single command end Forge will do its best to simplify our lives :</p>
+<p>So, let&#8217;s create a few fields in the <code>Book</code> entity. Again, one single command and Forge will do its best to simplify our lives:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -969,9 +981,8 @@ In this section and the following sections, We will assume that you have already
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[Book.java]$ java-new-enum --named Language --targetPackage org.cdbookstore.model
-[Language.java]$ java-new-enum-const ENGLISH
-[Language.java]$ java-new-enum-const FRENCH</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[Book.java]$ java-new-enum --named Language --target-package org.cdbookstore.model
+[Language.java]$ java-add-enum-const --named ENGLISH FRENCH</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1000,7 +1011,7 @@ In this section and the following sections, We will assume that you have already
 <pre class="highlight"><code class="language-console" data-lang="console">[Book.java]$ jpa-new-entity --named Author
 [Author.java]$ jpa-new-field --named firstName
 [Author.java]$ cd ../Book.java
-[Book.java]$ jpa-new-field --named author --type org.cdbookstore.model.Author --relationshipType Many-to-One</code></pre>
+[Book.java]$ jpa-new-field --named author --type org.cdbookstore.model.Author --relationship-type Many-to-One</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1008,13 +1019,13 @@ In this section and the following sections, We will assume that you have already
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[Book.java]$ constraint-add --constraint NotNull --onProperty title
-[Book.java]$ constraint-add --constraint Past --onProperty publicationDate
-[Book.java]$ constraint-add --onProperty description --constraint Size --max 3000</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[Book.java]$ constraint-add --constraint NotNull --on-property title
+[Book.java]$ constraint-add --constraint Past --on-property publicationDate
+[Book.java]$ constraint-add --on-property description --constraint Size --max 3000</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Behind the scenes Forge as created a <code>validation.xml</code> file, added the Bean Validation dependency and the needed constraints. If you want to take a glance at the code, and see a summary of progress, you can use the <code>more</code> command or even <code>ls</code> your class :</p>
+<p>Behind the scenes Forge has created a <code>validation.xml</code> file, added the Bean Validation dependency and the needed constraints. If you want to take a glance at the code, and see a summary of progress, you can use the <code>more</code> command or even <code>ls</code> your class :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1043,7 +1054,7 @@ getPrice()::java.lang.Float                        setId(java.lang.Long)::void  
 you should choose <em>JPA: New Entity</em> and you&#8217;ll see a JPA configuration window. This window provides default values for the Java EE container default data-source, but if you not do wish to use it, you can change your configuration as specified before with CLI.</p>
 </div>
 <div class="paragraph">
-<p>In first step you need setup JPA in your project:</p>
+<p>In the first step you need to setup JPA in your project:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1052,7 +1063,7 @@ you should choose <em>JPA: New Entity</em> and you&#8217;ll see a JPA configurat
 <div class="title">Figure 14. Setup JPA</div>
 </div>
 <div class="paragraph">
-<p>The next step you need configure your connection settings:</p>
+<p>The next step you need to configure your connection settings:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1082,11 +1093,11 @@ Finish:</p>
 <div class="title">Figure 17. Creating a new field in Entity</div>
 </div>
 <div class="paragraph">
-<p>Repeat the step to create all field&#8217;s Book class:</p>
+<p>Repeat these steps to create the following fields in the Book class:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>Field name: description | Length: 2000
+<pre class="highlight"><code>Field name: description | Type: java.lang.String| Length: 2000
 Field name: price | Type: java.lang.Float
 Field name: nbOfPages | Type: java.lang.Integer
 Field name: publicationDate | Type java.util.Date | Temporal Type: DATE</code></pre>
@@ -1104,8 +1115,8 @@ choose <em>Java: New Enum</em> and enter <em>org.cdbookstore.model</em> in Packa
 <div class="title">Figure 18. Creating a new Enum</div>
 </div>
 <div class="paragraph">
-<p>Now you need add new constants to it. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose <em>Java: New Enum Const</em>
-and add all consts, this case:</p>
+<p>Now you need to add new constants to it. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose <em>Java: New Enum Const</em>
+and add all constants, in this case:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1123,7 +1134,7 @@ FRENCH</code></pre>
 <div class="title">Figure 19. Creating a new Enum Constant</div>
 </div>
 <div class="paragraph">
-<p>Now, you need add this enum as field in book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose <em>JPA: New Field</em> and select the <em>Book</em> as Target Entity, enter <em>language</em> as Field name and select <em>org.cdbookstore.model.Language</em> as Field Type:</p>
+<p>Now, you need add this enum as a field in Book. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) you should choose <em>JPA: New Field</em> and select the <em>Book</em> as Target Entity, enter <em>language</em> as Field name and select <em>org.cdbookstore.model.Language</em> as Field Type:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1132,7 +1143,7 @@ FRENCH</code></pre>
 <div class="title">Figure 20. Creating a new Enum field in Entity</div>
 </div>
 <div class="paragraph">
-<p>Now you need create a new Entity (Same that you did with Book):</p>
+<p>Now you need to create a new Entity (Same that you did with Book):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1192,8 +1203,8 @@ configurations. Click Next, and choose <em>org.cdbookstore.model.Book</em> as Cl
 <div class="title">Figure 24. Adding Constraint</div>
 </div>
 <div class="paragraph">
-<p>In next step you need specify the property on which to operate <em>Property</em> and the <em>Constraint</em> to configure.
-In this case, let&#8217;s add NotNull on <em>title</em> property:</p>
+<p>In the next step you need to specify the property <em>Property</em> and the <em>Constraint</em> to configure.
+In this case, let&#8217;s add @NotNull on the <em>title</em> property:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1221,14 +1232,14 @@ In this case, let&#8217;s add NotNull on <em>title</em> property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>Constraint: Past | Property: publicationDate
-Constraint: Size | Max: 3000 |  Property: description</code></pre>
+<pre class="highlight"><code>Property: publicationDate | Constraint: Past
+Property: description | Constraint: Size | Max: 3000</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scaffolding_jsf">Scaffolding JSF</h3>
+<h3 id="_scaffolding_jsf_java_server_faces">Scaffolding JSF (Java Server Faces)</h3>
 <div class="paragraph">
 <p>JSF is the default Java EE user interface framework, and consequently JBoss Forge has a great support for it. In fact, Forge can scaffold an entire CRUD web application from JPA entities very easily, with only a single command. The JSF generated application follows several patterns and best practices: usage of CDI conversation scope, the extended persistence context, JSF converters and so on. If you don&#8217;t believe it, just try it.</p>
 </div>
@@ -1239,7 +1250,7 @@ Constraint: Size | Max: 3000 |  Property: description</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[model]$ scaffold-generate --targets org.cdbookstore.model.*</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[model]$ scaffold-generate --provider Faces --targets org.cdbookstore.model.*</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1247,8 +1258,8 @@ Constraint: Size | Max: 3000 |  Property: description</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[model]$ scaffold-generate --targets org.cdbookstore.model.Book
-[model]$ scaffold-generate --targets org.cdbookstore.model.Author</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[model]$ scaffold-generate --provider Faces --targets org.cdbookstore.model.Book
+[model]$ scaffold-generate --provider Faces --targets org.cdbookstore.model.Author</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1259,7 +1270,7 @@ Constraint: Size | Max: 3000 |  Property: description</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ faces-setup --facesVersion 2.2</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">$ faces-setup --faces-version 2.2</code></pre>
 </div>
 </div>
 </div>
@@ -1301,7 +1312,7 @@ Constraint: Size | Max: 3000 |  Property: description</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scaffolding_restendpoints">Scaffolding RESTEndpoints</h3>
+<h3 id="_scaffolding_rest_endpoints">Scaffolding REST Endpoints</h3>
 <div class="paragraph">
 <p>REST is a very popular technology nowadays. If you want to create REST endpoints on our entities, or if you want to add a REST endpoint on your existing Java EE web application, Forge is there to help. Forge can quickly scaffold REST endpoints for each entity, giving you a set of CRUD methods. And again, generating all the code plumbing and following best practices.</p>
 </div>
@@ -1319,7 +1330,7 @@ Constraint: Size | Max: 3000 |  Property: description</code></pre>
 <p>This is the easiest command to generate the REST endpoints, but like most Forge commands, you can customize a few options if you want, such as package name and so on.</p>
 </div>
 <div class="paragraph">
-<p>While "holding" most files as the current resource, you may inspect them using ls. This also works on REST endpoints. So, if you <code>cd</code> <code>BookEndpoint.java</code> and execute the command <code>ls</code>, this is what you get :</p>
+<p>While "holding" most files as the current resource, you may inspect them using <code>ls</code>. This also works on REST endpoints. So, if you <code>cd</code> <code>BookEndpoint.java</code> (if you have not selected it already) and execute the command <code>ls</code>, this is what you get :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1389,8 +1400,8 @@ etc
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[cdbookstore]$ addon-install-from-git --url https://github.com/jerr/as-addon  --coordinate org.jboss.forge.addon:as,2.0.0-SNAPSHOT
-[cdbookstore]$ addon-install-from-git --url https://github.com/jerr/jboss-as-addon  --coordinate org.jboss.forge.addon:jboss-as-wf8,2.0.0-SNAPSHOT</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[cdbookstore]$ addon-install-from-git --url https://github.com/forge/as-addon  --coordinate org.jboss.forge.addon:as
+[cdbookstore]$ addon-install-from-git --url https://github.com/forge/jboss-as-addon  --coordinate org.jboss.forge.addon:jboss-as-wf</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1398,11 +1409,11 @@ etc
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[cdbookstore]$ as-setup --server wildfly8</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[cdbookstore]$ as-setup --server wildfly  --version 8.1.0.Final</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Wait a bit until WildFly is downloaded&#8230;&#8203;. (in the meantime you can go to <code>~/.forge/addons</code> and have a look at what&#8217;s happening&#8230;&#8203; you can even check the logs under <code>~/.forge/log/forge.log</code>)&#8230;&#8203; ok, now that JBoss is downloaded into your local Maven directory&#8230;&#8203; there it is&#8230;&#8203;. just type <code>as</code>, press <code>TAB</code> and you will see new commands :</p>
+<p>Wait a bit until WildFly is downloaded&#8230;&#8203;. (in the meantime you can go to <code>~/.forge/addons</code> and have a look at what&#8217;s happening&#8230;&#8203; you can even check the logs under <code>~/.forge/log/forge.log</code>)&#8230;&#8203; ok, now that Wildfly is downloaded into your local Maven directory&#8230;&#8203; there it is&#8230;&#8203;. just type <code>as</code>, press <code>TAB</code> and you will see new commands :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1431,11 +1442,12 @@ JBoss logs
 <h4 id="_installing_the_jboss_as_forge_addon_on_jbds">Installing the JBoss AS Forge addon on JBDS</h4>
 <div class="paragraph">
 <p>Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose <em>Install an Addon from GIT</em>, enter
-<em><a href="https://github.com/jerr/as-addon" class="bare">https://github.com/jerr/as-addon</a></em> as GIT Repository URL ad <em>org.jboss.forge.addon:as,2.0.0-SNAPSHOT</em> as Coordinate:</p>
+<em><a href="https://github.com/forge/jboss-addon" class="bare">https://github.com/forge/jboss-addon</a></em> as GIT Repository URL and <em>org.jboss.forge.addon:as</em> as Coordinate:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>GIT Repository: https://github.com/jerr/as-addon | Coordinate: org.jboss.forge.addon:as,2.0.0-SNAPSHOT</code></pre>
+<pre class="highlight"><code>GIT Repository|Coordinate
+https://github.com/forge/as-addon | org.jboss.forge.addon:as</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -1445,16 +1457,17 @@ JBoss logs
 <div class="title">Figure 32. Installing an Addon</div>
 </div>
 <div class="paragraph">
-<p>Now perform the same action for:</p>
+<p>Open the Forge wizard again (Ctrl + 4 or CMD + 4 on Mac) and choose <em>Install an Addon from GIT</em>, enter
+<em><a href="https://github.com/forge/jboss-as-addon" class="bare">https://github.com/forge/jboss-as-addon</a></em> as GIT Repository URL and <em>org.jboss.forge.addon:jboss-as-wf</em> as Coordinate:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>GIT Repository: https://github.com/jerr/jboss-as-addon | Coordinate: org.jboss.forge.addon:jboss-as-wf8,2.0.0-SNAPSHOT</code></pre>
+<pre class="highlight"><code>GIT Repository: https://github.com/forge/jboss-as-addon | Coordinate: org.jboss.forge.addon:jboss-as-wf</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>It&#8217;s now time to set up your server. Open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) and choose
-<em>AS: Setup</em>, then select <em>wildfly</em>:</p>
+<em>AS: Setup</em>, then select <em>wildfly8</em>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1563,7 +1576,7 @@ Don&#8217;t forget to have a look at the available add-ons on <a href="http://fo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[cdbookstore]$ arquillian-setup --arquillianVersion 1.1.5.Final --testFramework junit --testFrameworkVersion 4.11 --containerAdapter wildfly-remote --containerAdapterVersion 8.1.0.Final</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[cdbookstore]$ arquillian-setup --arquillian-version 1.1.10.Final --test-framework junit --test-framework-version 4.11 --container-adapter wildfly-remote --container-adapter-version 8.2.1.Final</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1578,15 +1591,27 @@ Don&#8217;t forget to have a look at the available add-ons on <a href="http://fo
 </div>
 </div>
 <div class="paragraph">
-<p>This creates the <code>BookBeanTest</code> under <code>src/test/java</code>. The way to run this test is first, make sure WildFly is up and running, second, use the right Maven profile:</p>
+<p>This creates the <code>BookBeanTest</code> under <code>src/test/java</code>. The way to run this test is first, make sure WildFly is up and running, second, open a command prompt (outside Forge) and run Maven using the right profile:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-console" data-lang="console">mvn install -Parquillian-wildfly-remote</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+the <code>build</code> command has a <a href="https://issues.jboss.org/browse/FORGE-2584">known bug</a> that prevents running the test specifying a profile name.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>The test might not work and you should look at the stack trace on the server side. If you get any <code>java.lang.ClassNotFoundException</code> (example <code>org.cdbookstore.model.Book</code>) that&#8217;s because you need to fix the <a href="http://arquillian.org/guides/shrinkwrap_introduction/">Shrinkwrap</a> packaging by adding the missing class. And if the persistent unit is unknown, you need to package it explicitly under the <code>META-INF</code> directory. For example, in the code below, Shrinkwrap wraps the <code>BookBean</code> and <code>Book</code> class into</p>
+<p>The test might not work and you should look at the stack trace on the server side. If you get any <code>java.lang.ClassNotFoundException</code> (example <code>org.cdbookstore.model.Book</code>) that&#8217;s because you need to fix the <a href="http://arquillian.org/guides/shrinkwrap_introduction/">Shrinkwrap</a> packaging by adding the missing class. And if the persistent unit is unknown, you need to package it explicitly under the <code>META-INF</code> directory. For example, in the code below, Shrinkwrap wraps the <code>BookBean</code> and its dependent classes into a single deployment:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1594,7 +1619,7 @@ Don&#8217;t forget to have a look at the available add-ons on <a href="http://fo
    public static JavaArchive createDeployment()
    {
       return ShrinkWrap.create(JavaArchive.class)
-            .addClass(Book.class)
+            .addClasses(Book.class, Language.class, Author.class)
             .addClass(BookBean.class)
             .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
             .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -1636,9 +1661,9 @@ Don&#8217;t forget to have a look at the available add-ons on <a href="http://fo
 <pre class="highlight"><code class="language-console" data-lang="console">#  Country entity
 #  ############
 jpa-new-entity --named Country ;
-jpa-new-field --named isoCode --length 2 --columnName iso_code --not-nullable ;
+jpa-new-field --named isoCode --length 2 --column-name iso_code --not-nullable ;
 jpa-new-field --named name --length 80 --not-nullable ;
-jpa-new-field --named printableName --length 80 --columnName printable_name --not-nullable ;
+jpa-new-field --named printableName --length 80 --column-name printable_name --not-nullable ;
 jpa-new-field --named iso3 --length 3 ;
 jpa-new-field --named numcode --length 3 ;</code></pre>
 </div>
@@ -1733,7 +1758,7 @@ jpa-new-field --named numcode --length 3 ;</code></pre>
 <div class="sect3">
 <h4 id="_running_the_application">Running the application</h4>
 <div class="paragraph">
-<p>Before deploying the application on <a href="http://www.wildfly.org/">WildFly</a> you can grab the SQL script <a href="https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/import.sql" class="bare">https://github.com/forge/docs/blob/master/tutorials/forge-hol/script/import.sql</a> and copy it to <code>petstore/src/main/resources</code>. This will add data to the database.</p>
+<p>Before deploying the application on <a href="http://www.wildfly.org/">WildFly</a> you can grab the SQL script <a href="https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/import.sql" class="bare">https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/import.sql</a> and copy it to <code>petstore/src/main/resources</code>. This will add data to the database.</p>
 </div>
 <div class="paragraph">
 <p>Then, just deploy the war file into WildFly, go to the URL <a href="http://localhost:8080/petstore" class="bare">http://localhost:8080/petstore</a> and you should see the following homepage :</p>
@@ -1855,7 +1880,7 @@ and modifying an existing project of the same type, or you can use a Forge wizar
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ project-new --named envers --type addon --topLevelPackage org.jboss.forge.addon</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">$ project-new --named envers --type addon --top-level-package org.jboss.forge.addon</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1899,7 +1924,7 @@ rely on the CDI development model</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[envers]$ addon-new-ui-command --named EnversSetupCommand --commandName "Envers: Setup" --categories "Auditing"</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[envers]$ addon-new-ui-command --named EnversSetupCommand --command-name "Envers: Setup" --categories "Auditing"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2053,7 +2078,7 @@ As we mentioned earlier, the command needs to add the Hibernate Envers dependenc
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">[envers]$ addon-new-ui-command --named EnversAuditEntityCommand --commandName "Envers: Audit entity" --categories "Auditing"</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">[envers]$ addon-new-ui-command --named EnversAuditEntityCommand --command-name "Envers: Audit entity" --categories "Auditing"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2264,11 +2289,11 @@ All the code manipulation that you&#8217;ve just seen come from an API called <a
 </div>
 </div>
 <div class="paragraph">
-<p>If you don&#8217;t specify the <code>projectRoot</code> parameter, Forge will look for the sources of your addon in the current folder. If this is not the intended behavior, in the CLI run the command like that:</p>
+<p>If you don&#8217;t specify the <code>project-root</code> parameter, Forge will look for the sources of your addon in the current folder. If this is not the intended behavior, in the CLI run the command like that:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ addon-build-and-install --projectRoot &lt;path-to-the-addon-sources&gt;</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">$ addon-build-and-install --project-root &lt;path-to-the-addon-sources&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2631,12 +2656,22 @@ resource. So, we&#8217;ll get the current selection, we&#8217;ll cast it to <cod
 </div>
 </div>
 <div class="sect2">
+<h3 id="_version_0_2">Version 0.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Upgrade to Forge 3.0.0.Beta2</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_cli_commands_quick_reference">CLI Commands Quick Reference</h3>
 <table class="tableblock frame-all grid-all" style="width: 15%;">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <tbody>
 <tr>
@@ -2756,8 +2791,8 @@ resource. So, we&#8217;ll get the current selection, we&#8217;ll cast it to <cod
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Java</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">java-new-enum-const</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new Java Enum constant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java-add-enum-const</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new Java Enum constant</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Java</p></td>
@@ -3272,8 +3307,8 @@ resource. So, we&#8217;ll get the current selection, we&#8217;ll cast it to <cod
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.1<br>
-Last updated 2014-12-04 13:37:33 BRST
+Version 0.2<br>
+Last updated 2016-01-16 16:48:48 BRST
 </div>
 </div>
 </body>
