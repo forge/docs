@@ -1,0 +1,32 @@
+== Forge 3.0.0.Beta3 is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Beta3.
+This fixes some bugs found shortly after the 3.0.0.Beta2 release. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *SLF4J classloader conflicts*: The Git addon was erroneously bundling the slf4j-api, causing some classloader conflicts. 
+
+IMPORTANT: If your addon uses SLF4J, add a dependency to the link::http://forge.jboss.org/addon/org.jboss.forge.addon:slf4j[SLF4J addon] and exclude any dependencies to the SLF4J jars from your addon's pom.xml
+
+* *Component Upgrades*: We have upgraded to Furnace 2.23.0.Final, which is finally compiled against JDK 8. This version also link:https://issues.jboss.org/browse/FURNACE-102[upgrades Weld to 2.3.2.Final] and link:https://issues.jboss.org/browse/FURNACE-103[Maven to 3.3.9], also introducing a link:https://issues.jboss.org/browse/FURNACE-98[Container lookup API]
+
+As usual, stay tuned for more features on the next release.
+
+Release Notes - Forge - Version 3.0.0.Beta3
+============================================
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2581[FORGE-2581] ] Git addon conflicts with SLF4J
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2582[FORGE-2582] ] Upgrade to Furnace 2.23.0.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2580[FORGE-2580] ] Stack field should be disabled for certain project types
