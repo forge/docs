@@ -10,7 +10,7 @@ If you are a command line addict or are more confortable with a Eclipse, you can
 Follow these steps to install a Forge distribution:
 
 - Ensure that you have already installed a http://www.oracle.com/technetwork/java/javase/downloads/index.html[Java 8+ JDK].
-- http://red.ht/1vEB0v0[Download] and Un-zip Forge into a folder on your hard-disk, this folder will be your `FORGE_HOME`
+- http://forge.jboss.org/download[Download] and Un-zip Forge into a folder on your hard-disk, this folder will be your `FORGE_HOME`
 - Add `$FORGE_HOME/bin` to your path (windows, linux, mac osx)
 - Run JBoss Forge by typing the `forge` command in your system terminal.
 
