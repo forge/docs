@@ -1,0 +1,36 @@
+== Forge 3.0.0.Beta4 is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Beta4.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Enhanced Project creation using Maven archetypes*: Now Forge allows you to create projects from Maven archetypes which don't use Maven (Forge won't create the `pom.xml` and `src/main/java` unless the archetype does it).
+* *Component Upgrades*: We have upgraded to Furnace 2.23.1.Final, which supports proxying of `java.util.Optional` objects and also JGit to the current latest version.
+
+As usual, stay tuned for more features on the next release.
+
+Contributors
+=============
+
+Many thanks to James Strachan for providing pull-requests and helping to make this release better than ever
+
+
+Release Notes - Forge - Version 3.0.0.Beta4
+============================================
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2588[FORGE-2588] ] support creating projects from archetypes which don't use maven
+*   [ https://issues.jboss.org/browse/FORGE-2590[FORGE-2590] ] add base classes so its easy to add a custom ProjectType using a set of maven archetype coordinates
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2583[FORGE-2583] ] Upgrade JGit to 4.1.1.201511131810-r
+*   [ https://issues.jboss.org/browse/FORGE-2591[FORGE-2591] ] Upgrade to Furnace 2.23.1.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2586[FORGE-2586] ] Install an Addon UI appears frozen in Eclipse
