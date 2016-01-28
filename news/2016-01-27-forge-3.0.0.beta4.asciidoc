@@ -25,6 +25,7 @@ Release Notes - Forge - Version 3.0.0.Beta4
 
 *   [ https://issues.jboss.org/browse/FORGE-2588[FORGE-2588] ] support creating projects from archetypes which don't use maven
 *   [ https://issues.jboss.org/browse/FORGE-2590[FORGE-2590] ] add base classes so its easy to add a custom ProjectType using a set of maven archetype coordinates
+*   [ https://issues.jboss.org/browse/FORGE-2585[FORGE-2585] ] Allow to obtain the cursor position of the current active editor window
 
 == Component  Upgrade
 
