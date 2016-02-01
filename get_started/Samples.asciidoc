@@ -67,4 +67,8 @@ java-add-enum-const --named FRENCH
 java-add-enum-const --named PORTUGUESE
 ----
 
+=== Open the manual page for the Project: New command
 
+----
+man project-new
+----
