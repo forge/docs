@@ -5,7 +5,7 @@ Want to get started using Forge, but not quite sure how to do the things you wan
 === Create a project with custom package
 
 ----
-$ project-new --named example --topLevelPackage org.mycomp.myapp --type war --finalName myExample
+$ project-new --named example --top-level-package org.mycomp.myapp --type war --final-name myExample
 $ ls
 ----
 
@@ -15,7 +15,7 @@ $ ls
 $ project-new --named example
 $ jpa-new-entity --named SampleEntity
 $ jpa-new-field --named sampleField
-$ jpa-new-field --named createdOn --type java.util.Date --temporalType TIMESTAMP
+$ jpa-new-field --named createdOn --type java.util.Date --temporal-type TIMESTAMP
 $ ls
 ----
 
@@ -25,7 +25,7 @@ $ ls
 $ project-new --named example
 $ jpa-new-entity --named Hurricane
 $ jpa-new-entity --named Continent
-$ jpa-new-field --named hurricanes --type org.example.model.Hurricane --relationshipType Many-to-Many --inverseFieldName continents
+$ jpa-new-field --named hurricanes --type org.example.model.Hurricane --relationship-type Many-to-Many --inverse-field-name continents
 ----
 
 === Add Bean Validation constraints on your @Entity
@@ -36,9 +36,9 @@ $ jpa-new-field --named firstname
 $ jpa-new-field --named surname 	
 $ jpa-new-field --named bio --length 2000 
 $ jpa-new-field --named twitter 
-$ constraint-add --onProperty firstname --constraint NotNull 
-$ constraint-add --onProperty surname --constraint NotNull 
-$ constraint-add --onProperty bio --constraint Size --max 2000
+$ constraint-add --on-property firstname --constraint NotNull 
+$ constraint-add --on-property surname --constraint NotNull 
+$ constraint-add --on-property bio --constraint Size --max 2000
 ----
 
 
@@ -55,16 +55,16 @@ $ rest-generate-endpoints-from-entities --targets org.example.model.SampleEntity
 
 ----
 $ project-new --named example
-$ jpa-generate-entities-from-tables --jdbcUrl jdbc:postgresql://localhost:5432/mydb --userName user --userPassword pwd --driverLocation /Users/bob/.m2/repository/org/postgresql/postgresql/9.3-1100-jdbc3/postgresql-9.3-1100-jdbc3.jar --hibernateDialect org.hibernate.dialect.PostgreSQLDialect
+$ jpa-generate-entities-from-tables --jdbc-url jdbc:postgresql://localhost:5432/mydb --user-name user --user-password pwd --driver-location /Users/bob/.m2/repository/org/postgresql/postgresql/9.3-1100-jdbc3/postgresql-9.3-1100-jdbc3.jar --hibernate-dialect org.hibernate.dialect.PostgreSQLDialect
 ----
 
 === Create a Java enum
 
 ----
 java-new-enum --named Language
-java-new-enum-const ENGLISH
-java-new-enum-const FRENCH
-java-new-enum-const PORTUGUESE
+java-add-enum-const --named ENGLISH
+java-add-enum-const --named FRENCH
+java-add-enum-const --named PORTUGUESE
 ----
 
 
