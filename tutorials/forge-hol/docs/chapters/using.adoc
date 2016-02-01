@@ -24,15 +24,17 @@ The `project-new` command is what we will use to quick start a project :
 
 [source, console]
 ----
-$ project-new --named cdbookstore
+$ project-new --named cdbookstore --stack JAVA_EE_7
 ----
 
-This will create an empty Maven project structure and a `pom.xml` file. The default `groupId` is `org.cdbookstore`, `artifactId` is `cdbookstore` and version number `1.0.0-SNAPSHOT`. Also, the default project created is a web application, that's why you can see a `packaging` of type `war` and `maven-war-plugin` defined. If you want to change any of these options, just press `TAB` after a command and you will get all the command options:
+This will create an empty Maven project structure and a `pom.xml` file. The default `groupId` is `org.cdbookstore`, `artifactId` is `cdbookstore` and version number `1.0.0-SNAPSHOT`. Also, the default project created is a web application, that's why you can see a `packaging` of type `war` and `maven-war-plugin` defined. The `stack` command option will automatically install the JavaEE 7 dependencies in your `pom.xml`. If you want to change any of these options, just press `TAB` after a command and you will get all the command options:
 
 [source, console]
 ----
-$ project-new --named cdbookstore --top-level-package org.cdbookstore --target-location /directory/path --final-name cdbookstore --version 1.0.0.Final
+$ project-new --named cdbookstore --top-level-package org.cdbookstore --target-location /directory/path --final-name cdbookstore --version 1.0.0.Final --stack JAVA_EE_7
 ----
+
+IMPORTANT: You don't need to specify any stack when creating a project, however choosing one will automatically add the necessary dependencies in your `pom.xml` and save you the trouble of choosing a specification version when configuring JPA, for example.
 
 ==== JBDS
 
@@ -284,7 +286,7 @@ By default Forge scaffolds a web application with JSF 2.0 but you can change thi
 
 [source, console]
 ----
-$ faces-setup --faces-version 2.2
+$ faces-setup
 ----
 
 ==== JBDS
@@ -293,7 +295,7 @@ In JBDS it's simple too. After opening the Forge wizard (Ctrl + 4 or CMD + 4 on 
 
 image::../images/using/faces-scaffold.png[title="Configuring Faces Scaffold"]
 
-Click Next to configure the Faces Scaffold:
+If you haven't selected the Java EE 7 stack when creating the project, click Next to configure the Faces Scaffold:
 
 image::../images/using/faces-configuration-scaffold.png[title="Setup Facets"]
 

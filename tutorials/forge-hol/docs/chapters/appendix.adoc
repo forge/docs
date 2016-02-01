@@ -37,133 +37,163 @@ The following JBoss Forge community members have contributed, one way or another
 
 - Upgrade to Forge 3.0.0.Beta2
 
+==== Version 0.3 
+
+- Added stacks information
+- Updated CLI Commands Quick Reference
+
 === CLI Commands Quick Reference
 
 [width="15%"]
 |=======
 |Category |Command | Comment
-|Configuration |config-clear |
-|Configuration |config-list |
-|Configuration |config-set |
-|Database/Connections |connection-create-profile | Command to create a database connection profile.
-|Database/Connections |connection-remove-profile | Command to remove a database connection profile.
-|Forge/Generate |addon-new-annotated-ui-command | Generates an annotated UICommand implementation
-|Forge/Generate |addon-new-test | Generates a Furnace test case for an addon
-|Forge/Generate |addon-new-ui-command | Generates a UICommand implementation
-|Forge/Generate |addon-test-setup | Add addon test setup to this project
-|Forge/Manage |addon-build-and-install | Command to build and install a Furnace 2 addon.
-|Forge/Manage |addon-install | Command to install a Furnace 2 addon.
-|Forge/Manage |addon-install-from-git | Command to build and install a Furnace 2 addon.
-|Forge/Manage |addon-list | Command to list all currently installed Addons.
-|Forge/Manage |addon-remove | Command to remove a Furnace 2 addon.
-|Forge/Setup |addon-add-dependency | Adds the provided addon as a dependency to the selected project
-|JPA |jpa-new-mapped-superclass | Creates a new Mapped Superclass
-|Java |java-add-annotation | Add annotation to class, property or method.
-|Java |java-generate-equals-and-hashcode | Generates equals and hashcode for the given class
-|Java |java-generate-getters-and-setters | Generates mutators and accessors for the given class
-|Java |java-new-annotation | Creates a new Java Annotation
-|Java |java-new-class | Creates a new Java Class
-|Java |java-new-enum | Creates a new Java Enum
-|Java |java-add-enum-const | Add a new Java Enum constant
-|Java |java-new-field | Creates a new field
-|Java |java-new-interface | Creates a new Java Interface
-|Java EE |javaee-setup | Setup Java EE in your project
-|Java EE/Bean Validation |constraint-add | Add a Bean Validation constraint
-|Java EE/Bean Validation |constraint-setup | Setup Bean Validation in your project
-|Java EE/Bean Validation |constraint-new-annotation | Create a Bean Validation constraint annotation
-|Java EE/Bean Validation |constraint-new-group | Create a Bean Validation group
-|Java EE/CDI |cdi-list-alternatives |
-|Java EE/CDI |cdi-list-decorators |
-|Java EE/CDI |cdi-list-interceptors |
-|Java EE/CDI |cdi-new-producer-field | Creates a new producer field
-|Java EE/CDI |cdi-setup | Setup CDI in your project
-|Java EE/CDI |cdi-new-bean | Creates a new CDI Managed bean
-|Java EE/CDI |cdi-new-conversation | Creates a conversation block in the specified method
-|Java EE/CDI |cdi-new-decorator | Creates a new CDI Decorator
-|Java EE/CDI |cdi-new-interceptor | Creates a new CDI Interceptor
-|Java EE/CDI |cdi-new-interceptor-binding | Creates a new CDI Interceptor Binding annotation
-|Java EE/CDI |cdi-new-qualifier | Creates a new CDI Qualifier annotation
-|Java EE/CDI |cdi-new-scope | Creates a new CDI Scope annotation
-|Java EE/CDI |cdi-new-stereotype | Creates a new CDI Stereotype annotation
-|Java EE/EJB |ejb-new-bean | Create a new EJB
-|Java EE/EJB |ejb-set-class-transaction-attribute | Set the transaction type of a given EJB
-|Java EE/EJB |ejb-set-method-transaction-attribute | Set the transaction type of a given EJB method
-|Java EE/EJB |ejb-setup | Setup EJB in your project
-|Java EE/JAX-RS |rest-generate-endpoints-from-entities | Generate REST endpoints from JPA entities
-|Java EE/JAX-RS |rest-new-cross-origin-resource-sharing-filter | Generate a Cross Origin Resource Sharing Filter
-|Java EE/JAX-RS |rest-setup | Setup REST in your project
-|Java EE/JAX-WS |soap-setup | Setup JAX-WS (SOAP) in your project
-|Java EE/JMS |jms-setup | Setup JMS in your project
-|Java EE/JPA |jpa-generate-daos-from-entities | Generate DAOs from JPA entities
-|Java EE/JPA |jpa-generate-entities-from-tables | Command to generate Java EE entities from database tables.
-|Java EE/JPA |jpa-new-embeddable | Create a new JPA Embeddable
-|Java EE/JPA |jpa-new-entity | Create a new JPA Entity
-|Java EE/JPA |jpa-new-entity-listener | Create a new JPA Entity Listener
-|Java EE/JPA |jpa-new-field | Create a new field
-|Java EE/JPA |jpa-setup | Setup JPA in your project
-|Java EE/JSF |faces-new-bean | Create a new JSF Backing Bean
-|Java EE/JSF |faces-new-converter | Create a new JSF Converter Type
-|Java EE/JSF |faces-new-validator | Create a new JSF Validator Type
-|Java EE/JSF |faces-new-validator-method | Create a new JSF validator method
-|Java EE/JSF |faces-set-project-stage | Set the project stage of this JSF project
-|Java EE/JSF |faces-setup | Setup JavaServer Faces in your project
-|Java EE/JSTL |jstl-setup | Setup JSTL in your project
-|Java EE/JTA |jta-setup | Setup JTA in your project
-|Java EE/Servlet |servlet-setup | Setup Servlet API in your project
-|Java EE/WebSocket |websocket-setup | Setup WebSocket API in your project
-|Java/ServiceLoader |service-register-as-serviceloader | Register a Java type as a service implementation.
-|Maven |archetype-add |
-|Maven |archetype-list |
-|Maven |archetype-remove |
-|Project |project-list-facets | Lists the facets associated with the current project
-|Project/Build |build | Build this project
-|Project/Generation |project-new | Create a new project
-|Project/Manage |project-add-dependencies | Add one or more arguments to the current project.
-|Project/Manage |project-add-managed-dependencies | Add one or more managed dependencies to the current project.
-|Project/Manage |project-add-repository | Add a repository to the current project descriptor.
-|Project/Manage |project-has-dependencies | Check one or more arguments in the current project.
-|Project/Manage |project-has-managed-dependencies | Check one or more managed dependencies in the current project.
-|Project/Manage |project-remove-dependencies | Remove one or more arguments from the current project.
-|Project/Manage |project-remove-managed-dependencies | Remove one or more managed arguments from the current project.
-|Project/Manage |project-remove-repository | Remove a repository configured in the current project descriptor.
-|Project/Manage |project-set-compiler-version | Set the java sources and the target compilation version
-|SCM / GIT |git-checkout | Checkout a branch from GIT repository or create a new one
-|SCM / GIT |git-clone | Clone a GIT repository
-|SCM / GIT |git-remove-pattern | Remove pattern from .gitignore
-|SCM / GIT |git-setup | Prepares the project for functioning in GIT context
-|SCM / GIT |gitignore-add-pattern | Add pattern to .gitignore
-|SCM / GIT |gitignore-create | Create .gitignore from templates
-|SCM / GIT |gitignore-edit | Open .gitignore and edit it
-|SCM / GIT |gitignore-list-patterns | List available .gitignore patterns
-|SCM / GIT |gitignore-list-templates | List all available .gitignore templates
-|SCM / GIT |gitignore-setup | Create .gitignore files based on template files from https://github.com/github/gitignore.git.
-|SCM / GIT |gitignore-update-templates | Update the local .gitignore template repository
-|Scaffold/Generate |scaffold-generate | Generates the scaffold
-|Scaffold/Setup |scaffold-setup | Setup the scaffold
-|Shell |cat | The cat utility reads files sequentially, writing them to the standard output.  The file operands are processed in command-line order.
-|Shell |cd | Change the current directory
-|Shell |clear | Clear the console
-|Shell |cp | Copy a file or directory
-|Shell |echo | display a line of text
-|Shell |edit | Edit files with the default system editor
-|Shell |exit | Exit the shell
-|Shell |ls | List files
-|Shell |mkdir | Create a new directory.
-|Shell |open | Open files with the default system application
-|Shell |pwd | Print the full filename of the current working directory.
-|Shell |rm | Remove (unlink) the FILE(s).
-|Shell |run | Execute/run a forge script file.
-|Shell |touch | Create a new file or modify file timestamp.
-|Shell |track-changes | Initiate a transaction for each executed command.
-|Shell |transaction-commit | Commits a transaction
-|Shell |transaction-rollback | Rollbacks a transaction
-|Shell |transaction-start | Starts a transaction
-|Shell |wait | Wait for ENTER.
-|Shell |about | Display information about this forge.
-|Shell |command-list | List all available commands.
-|Shell |date | print current date
-|Shell |system-property-get | Get one or all system properties
-|Shell |system-property-set | Set a system property
-|Shell |version | Displays the current Forge version.
-|Shell |wait | Wait for ENTER.
+|Configuration|config-clear|                                                                                                                       
+|Configuration|config-list|                                                                                                                        
+|Configuration|config-set|                                                                                                                         
+|Database/Connections|connection-create-profile|Command to create a database connection profile.                                                   
+|Database/Connections|connection-remove-profile|Command to remove a database connection profile.                                                   
+|Forge/Generate|addon-new-annotated-ui-command|Generates an annotated UICommand implementation                                                     
+|Forge/Generate|addon-new-test|Generates a Furnace test case for an addon                                                                          
+|Forge/Generate|addon-new-ui-command|Generates a UICommand implementation                                                                          
+|Forge/Generate|addon-test-setup|Add addon test setup to this project                                                                              
+|Forge/Manage|addon-build-and-install|Command to build and install a Furnace 2 addon.                                                              
+|Forge/Manage|addon-install|Command to install a Furnace 2 addon.                                                                                  
+|Forge/Manage|addon-install-from-git|Command to build and install a Furnace 2 addon.                                                               
+|Forge/Manage|addon-list|Command to list all currently installed Addons.                                                                           
+|Forge/Manage|addon-remove|Command to remove a Furnace 2 addon.                                                                                    
+|Forge/Manage|addon-update|Command to update a Furnace 2 addon. It may end up updating multiple addons.                                            
+|Forge/Manage|forge-update|Update this forge installation                                                                                          
+|Forge/Manage|forge-update-abort|Aborts a previous forge update                                                                                    
+|Forge/Setup|addon-add-dependency|Adds the provided addon as a dependency to the selected project                                                  
+|Java|java-add-annotation|Add annotation to class, property or method.                                                                             
+|Java|java-add-enum-const|Adds an Enum constant to an Enum class                                                                                   
+|Java|java-format-sources|command to format a file (or folder recursively) of Java source files                                                    
+|Java|java-generate-equals-and-hashcode|Generates equals and hashcode for the given class                                                          
+|Java|java-generate-getters-and-setters|Generates mutators and accessors for the given class                                                       
+|Java|java-new-annotation|Creates a new Java Annotation                                                                                            
+|Java|java-new-class|Creates a new Java Class                                                                                                      
+|Java|java-new-enum|Creates a new Java Enum                                                                                                        
+|Java|java-new-enum-const|Creates a new Java Enum constant                                                                                         
+|Java|java-new-exception|Creates a new Java Exception                                                                                              
+|Java|java-new-field|Creates a new field                                                                                                           
+|Java|java-new-interface|Creates a new Java Interface                                                                                              
+|Java|java-new-method|Generates methods for the given Java class                                                                                   
+|Java|java-new-package|Creates a new package                                                                                                       
+|Java|java-set-default-formatter|Sets the default formatter for the Java resources                                                                 
+|Java EE|javaee-setup|Setup Java EE in your project                                                                                                
+|Java EE/Bean Validation|constraint-add|Add a Bean Validation constraint                                                                           
+|Java EE/Bean Validation|constraint-new-annotation|Create a Bean Validation constraint annotation                                                  
+|Java EE/Bean Validation|constraint-new-group|Create a Bean Validation group                                                                       
+|Java EE/Bean Validation|constraint-new-payload|Create a Bean Validation payload                                                                   
+|Java EE/Bean Validation|constraint-setup|Setup Bean Validation in your project                                                                    
+|Java EE/CDI|cdi-add-injection-point|Adds a new injection point field to a bean                                                                    
+|Java EE/CDI|cdi-add-observer-method|Adds a new observer method to a bean                                                                          
+|Java EE/CDI|cdi-list-alternatives|                                                                                                                
+|Java EE/CDI|cdi-list-decorators|                                                                                                                  
+|Java EE/CDI|cdi-list-interceptors|                                                                                                                
+|Java EE/CDI|cdi-new-annotation-literal|Creates an Annotation Literal Type                                                                         
+|Java EE/CDI|cdi-new-bean|Creates a new CDI Managed bean                                                                                           
+|Java EE/CDI|cdi-new-conversation|Creates a conversation block in the specified method                                                             
+|Java EE/CDI|cdi-new-decorator|Creates a new CDI Decorator                                                                                         
+|Java EE/CDI|cdi-new-extension|Creates a new CDI Extension                                                                                         
+|Java EE/CDI|cdi-new-interceptor|Creates a new CDI Interceptor                                                                                     
+|Java EE/CDI|cdi-new-interceptor-binding|Creates a new CDI Interceptor Binding annotation                                                          
+|Java EE/CDI|cdi-new-qualifier|Creates a new CDI Qualifier annotation                                                                              
+|Java EE/CDI|cdi-new-scope|Creates a new CDI Scope annotation                                                                                      
+|Java EE/CDI|cdi-new-stereotype|Creates a new CDI Stereotype annotation                                                                            
+|Java EE/CDI|cdi-setup|Setup CDI in your project                                                                                                   
+|Java EE/EJB|ejb-new-bean|Create a new EJB                                                                                                         
+|Java EE/EJB|ejb-set-class-transaction-attribute|Set the transaction type of a given EJB                                                           
+|Java EE/EJB|ejb-set-method-transaction-attribute|Set the transaction type of a given EJB method                                                   
+|Java EE/EJB|ejb-setup|Setup EJB in your project                                                                                                   
+|Java EE/JAX-RS|rest-generate-endpoints-from-entities|Generate REST endpoints from JPA entities                                                    
+|Java EE/JAX-RS|rest-new-cross-origin-resource-sharing-filter|Generate a Cross Origin Resource Sharing Filter                                      
+|Java EE/JAX-RS|rest-new-endpoint|Creates a new REST Endpoint                                                                                      
+|Java EE/JAX-RS|rest-setup|Setup REST in your project                                                                                              
+|Java EE/JAX-WS|soap-new-service|Create a new JAX-WS Web Service                                                                                   
+|Java EE/JAX-WS|soap-setup|Setup JAX-WS (SOAP) in your project                                                                                     
+|Java EE/JMS|jms-setup|Setup JMS in your project                                                                                                   
+|Java EE/JPA|jpa-generate-daos-from-entities|Generate DAOs from JPA entities                                                                       
+|Java EE/JPA|jpa-generate-entities-from-tables|Command to generate Java EE entities from database tables.                                          
+|Java EE/JPA|jpa-new-embeddable|Create a new JPA Embeddable                                                                                        
+|Java EE/JPA|jpa-new-entity|Create a new JPA Entity                                                                                                
+|Java EE/JPA|jpa-new-entity-listener|Create a new JPA Entity Listener                                                                              
+|Java EE/JPA|jpa-new-field|Create a new field                                                                                                      
+|Java EE/JPA|jpa-new-mapped-superclass|Create a new JPA Mapped Superclass                                                                          
+|Java EE/JPA|jpa-new-named-query|Creates a @NamedQuery in a JPA Entity                                                                             
+|Java EE/JPA|jpa-setup|Setup JPA in your project                                                                                                   
+|Java EE/JSF|faces-new-bean|Create a new JSF Backing Bean                                                                                          
+|Java EE/JSF|faces-new-converter|Create a new JSF Converter                                                                                        
+|Java EE/JSF|faces-new-validator|Create a new JSF Validator                                                                                        
+|Java EE/JSF|faces-new-validator-method|Create a new JSF validator method                                                                          
+|Java EE/JSF|faces-set-project-stage|Set the project stage of this JSF project                                                                     
+|Java EE/JSF|faces-setup|Setup JavaServer Faces in your project                                                                                    
+|Java EE/JSTL|jstl-setup|Setup JSTL in your project                                                                                                
+|Java EE/JTA|jta-setup|Setup JTA in your project                                                                                                   
+|Java EE/Security|security-add-constraint|Add security constraint                                                                                  
+|Java EE/Security|security-add-login-config|Adds a login config element to the current project                                                     
+|Java EE/Security|security-add-role|Add security role                                                                                              
+|Java EE/Security|security-remove-role|Remove security role                                                                                        
+|Java EE/Servlet|servlet-new-filter|Creates a new Servlet Filter                                                                                   
+|Java EE/Servlet|servlet-new-servlet|Creates a new Servlet                                                                                         
+|Java EE/Servlet|servlet-setup|Setup Servlet API in your project                                                                                   
+|Java EE/WebSocket|websocket-new-server-endpoint|Create a new WebSocket Server Endpoint                                                            
+|Java EE/WebSocket|websocket-setup|Setup WebSocket API in your project                                                                             
+|Java/ServiceLoader|service-register-as-serviceloader|Register a Java type as a service implementation.                                            
+|Maven|archetype-add|Adds an archetype catalog to the Forge configuration file                                                                     
+|Maven|archetype-list|Lists the registered archetype catalogs from the Forge configuration file                                                    
+|Maven|archetype-remove|Removes an archetype catalog from the Forge configuration file                                                             
+|Project|project-list-facets|Lists the facets associated with the current project                                                                  
+|Project/Build|build|Build this project                                                                                                            
+|Project/Generation|project-new|Create a new project                                                                                               
+|Project/Manage|project-add-dependencies|Add one or more arguments to the current project.                                                         
+|Project/Manage|project-add-managed-dependencies|Add one or more managed dependencies to the current project.                                      
+|Project/Manage|project-add-repository|Add a repository to the current project descriptor.                                                         
+|Project/Manage|project-has-dependencies|Check one or more arguments in the current project.                                                       
+|Project/Manage|project-has-managed-dependencies|Check one or more managed dependencies in the current project.                                    
+|Project/Manage|project-remove-dependencies|Remove one or more arguments from the current project.                                                 
+|Project/Manage|project-remove-managed-dependencies|Remove one or more managed arguments from the current project.                                 
+|Project/Manage|project-remove-repository|Remove a repository configured in the current project descriptor.                                        
+|Project/Manage|project-set-compiler-version|Set the java sources and the target compilation version                                               
+|Project/Stack|project-list-stacks|Lists the stacks associated with the current project                                                                                                  
+|SCM / GIT|git-checkout|Checkout a branch from GIT repository or create a new one                                                                  
+|SCM / GIT|git-clone|Clone a GIT repository                                                                                                        
+|SCM / GIT|git-remove-pattern|Remove pattern from .gitignore                                                                                       
+|SCM / GIT|git-setup|Prepares the project for functioning in GIT context                                                                           
+|SCM / GIT|gitignore-add-pattern|Add pattern to .gitignore                                                                                         
+|SCM / GIT|gitignore-create|Create .gitignore from templates                                                                                       
+|SCM / GIT|gitignore-edit|Open .gitignore and edit it                                                                                              
+|SCM / GIT|gitignore-list-patterns|List available .gitignore patterns                                                                              
+|SCM / GIT|gitignore-list-templates|List all available .gitignore templates                                                                        
+|SCM / GIT|gitignore-setup|Create .gitignore files based on template files from https://github.com/github/gitignore.git.                           
+|SCM / GIT|gitignore-update-templates|Update the local .gitignore template repository                                                              
+|Scaffold/Generate|scaffold-generate|Generates the scaffold                                                                                        
+|Scaffold/Setup|scaffold-setup|Setup the scaffold                                                                                                  
+|Shell|cat|The cat utility reads files sequentially, writing them to the standard output.  The file operands are processed in command-line order.  
+|Shell|cd|Change the current directory                                                                                                             
+|Shell|clear|Clear the console                                                                                                                     
+|Shell|cp|Copy a file or directory                                                                                                                 
+|Shell|echo|display a line of text                                                                                                                 
+|Shell|edit|Edit files with the default system editor                                                                                              
+|Shell|exit|Exit the shell                                                                                                                         
+|Shell|ls|List files                                                                                                                               
+|Shell|mkdir|Create a new directory.                                                                                                               
+|Shell|mv|Move a file or directory                                                                                                                 
+|Shell|open|Open files with the default system application                                                                                         
+|Shell|pwd|Print the full filename of the current working directory.                                                                               
+|Shell|rm|Remove (unlink) the FILE(s).                                                                                                             
+|Shell|run|Execute/run a forge script file.                                                                                                        
+|Shell|touch|Create a new file or modify file timestamp.                                                                                           
+|Shell|track-changes|Initiate a transaction for each executed command.                                                                             
+|Shell|transaction-commit|Commits a transaction                                                                                                    
+|Shell|transaction-rollback|Rollbacks a transaction                                                                                                
+|Shell|transaction-start|Starts a transaction                                                                                                      
+|Shell|wait|Wait for ENTER.                                                                                                                        
+|Uncategorized|about|Display information about this forge.                                                                                         
+|Uncategorized|command-list|List all available commands.                                                                                           
+|Uncategorized|date|print current date                                                                                                             
+|Uncategorized|system-property-get|Get one or all system properties                                                                                
+|Uncategorized|system-property-set|Set a system property                                                                                           
+|Uncategorized|version|Displays the current Forge version.                                                                                         
+|Uncategorized|wait|Wait for ENTER.                                                                                                                                                                                                                           
 |=======
