@@ -42,6 +42,10 @@ The following JBoss Forge community members have contributed, one way or another
 - Added stacks information
 - Updated CLI Commands Quick Reference
 
+==== Version 0.4
+
+- Images are now Center-aligned
+
 === CLI Commands Quick Reference
 
 [width="15%"]

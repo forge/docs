@@ -136,7 +136,7 @@ $ project-new --named envers --type addon --top-level-package org.jboss.forge.ad
 
 If you run Forge from JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac) then select _Project: New_ and specify _envers_ as project name, _org.jboss.forge.addon_ as top level package, enter project location per your preference and as a Project type select _Forge Addon_:
 
-image::../images/developing/forge-new-project.png[title="Creating new addon project"]
+image::../images/developing/forge-new-project.png[title="Creating new addon project" align="center"]
 
 This will create a skeleton Maven project that has the following artifacts:
 
@@ -161,7 +161,7 @@ If you are running from the command line interface, type in: +
 In JBDS, open the Forge wizard (Ctrl + 4 or CMD + 4 on Mac), then choose _Addon: New UI Command_
 and enter _EnversSetupCommand_ in the Type Name field, _Envers: Setup_ in the Command Name field and add _Auditing_ to the Categories list box: +
 
-image::../images/developing/forge-envers-setup-command.png[title="Creating _Envers: Setup_ command"]
+image::../images/developing/forge-envers-setup-command.png[title="Creating _Envers: Setup_ command" align="center"]
 
 This will generate the `EnversSetupCommand` class in the `org.jboss.forge.addon.commands` package (unless you specify a different package). Forge makes this new command class extend `AbstractUICommand`, which provides some basic functionality like configuring the command name, the command dialog and the command execution. We will go through these in this and the next few sections. +
 
@@ -290,7 +290,7 @@ We will create the class for the new command in the same way that we created the
 
 Or alternatively in the JBDS choose _Addon: New UI Command_, enter _EnversAuditEntityCommand_ in the Type Name field, _Envers: Audit entity_ in the Command name field and add _Auditing_ to the Categories list box: +
 
-image::../images/developing/forge-envers-audit-entity-command.png[title="Creating _Envers: Audit entity_ command"]
+image::../images/developing/forge-envers-audit-entity-command.png[title="Creating _Envers: Audit entity_ command" align="center"]
 
 Then open the newly created class and make it extend `AbstractProjectCommand` instead of `AbstractUICommand` and also add the unimplemented methods the way you did it in the setup command. +
 
@@ -453,12 +453,12 @@ $ addon-build-and-install --project-root <path-to-the-addon-sources>
 
 In JBDS, either select the addon project before running the command, or specify the correct path in the command dialog:
 
-image::../images/developing/addon-project-root.png[title="Specifying the addon project location"]
+image::../images/developing/addon-project-root.png[title="Specifying the addon project location" align="center"]
 
 This will trigger a build of the addon, and if it is successful, Forge will install it in its addon repository. You don't have to restart the tool; Forge it will automatically load the new software once it is deployed. After
 you see the success message, you can re-run the Forge quick access menu and will see the new command in the command list:
 
-image::../images/developing/forge-envers-setup-command-wizard.png[title="_Envers: Setup_ command in the _Auditing_ category"]
+image::../images/developing/forge-envers-setup-command-wizard.png[title="_Envers: Setup_ command in the _Auditing_ category" align="center"]
 
 Now you can set up Hibernate Envers and open one of the JPA entities that you generated before starting to develop
 this addon, e.g. Country. You should be able to call now the other command. In the CLI:
@@ -470,7 +470,7 @@ this addon, e.g. Country. You should be able to call now the other command. In t
 
 Or in JBDS press Ctrl + 4 (or CMD + 4 on Mac) and then pick the _Envers: Audit entity_ from the command menu. Notice that the class that you opened in the editor (`org.jboss.forge.hol.petstore.model.Country`) was selected automatically for you:
 
-image::../images/developing/audit-entity.png[title="_Envers: Audit entity_ command dialog"]
+image::../images/developing/audit-entity.png[title="_Envers: Audit entity_ command dialog" align="center"]
 
 Just hit Enter and the entity will get the `@Audited` annotation. +
 

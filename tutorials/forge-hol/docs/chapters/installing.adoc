@@ -19,11 +19,11 @@ Follow these steps to install a Forge distribution:
 Extract the distribution archive, to the directory you wish to install Forge. + 
 Add the `FORGE_HOME` environment variable.
 
-image::../images/installing/windows/forge-cli-install1.png[title="Installing Forge CLI Step 1"]
+image::../images/installing/windows/forge-cli-install1.png[title="Installing Forge CLI Step 1" align="center"]
 
 In the same dialog, add `%FORGE_HOME%\bin` to the system path.
 
-image::../images/installing/windows/forge-cli-install2.png[title="Installing Forge CLI Step 2"]
+image::../images/installing/windows/forge-cli-install2.png[title="Installing Forge CLI Step 2" align="center"]
 
 Now open a system `cmd` or `command` prompt and run JBoss Forge by typing the `forge` command.
 
@@ -71,19 +71,19 @@ This will launch the installation process for your platform (Windows, Linux and 
 are supported). The wizard will take you through a number of consecutive steps that are
 illustrated using screenshots below.
 
-image::../images/installing/jbds-install-1.png[title="JBDS Installation Step 1"]
-image::../images/installing/jbds-install-2.png[title="JBDS Installation Step 2"]
-image::../images/installing/jbds-install-3.png[title="JBDS Installation Step 3"]
-image::../images/installing/jbds-install-4.png[title="JBDS Installation Step 4"]
-image::../images/installing/jbds-install-5.png[title="JBDS Installation Step 5"]
-image::../images/installing/jbds-install-6.png[title="JBDS Installation Step 6"]
-image::../images/installing/jbds-install-7.png[title="JBDS Installation Step 7"]
-image::../images/installing/jbds-install-9.png[title="JBDS Installation Step 9"]
+image::../images/installing/jbds-install-1.png[title="JBDS Installation Step 1" align="center"]
+image::../images/installing/jbds-install-2.png[title="JBDS Installation Step 2" align="center"]
+image::../images/installing/jbds-install-3.png[title="JBDS Installation Step 3" align="center"]
+image::../images/installing/jbds-install-4.png[title="JBDS Installation Step 4" align="center"]
+image::../images/installing/jbds-install-5.png[title="JBDS Installation Step 5" align="center"]
+image::../images/installing/jbds-install-6.png[title="JBDS Installation Step 6" align="center"]
+image::../images/installing/jbds-install-7.png[title="JBDS Installation Step 7" align="center"]
+image::../images/installing/jbds-install-9.png[title="JBDS Installation Step 9" align="center"]
 
 Congratulations! Now you are all set! Pressing `Done` will automatically launch JBDS.
 
-image::../images/installing/workspace.png[title="Choose Workspace"]
+image::../images/installing/workspace.png[title="Choose Workspace" align="center"]
 
 Choose an appropriate workspace and press `OK` to see JBDS in all its glory.
 
-image::../images/installing/jbds-welcome.png[title="JBDS Welcome"]
+image::../images/installing/jbds-welcome.png[title="JBDS Welcome" align="center"]
