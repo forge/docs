@@ -19,7 +19,7 @@ This can be done using the Forge `Project: New` command.
 
 [source,forge]
 ----
-project-new --named example --type addon
+project-new --named example --type forge-addon
 ----
 ====
 

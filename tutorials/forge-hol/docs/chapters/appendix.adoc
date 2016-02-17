@@ -46,6 +46,10 @@ The following JBoss Forge community members have contributed, one way or another
 
 - Images are now Center-aligned
 
+==== Version 0.5
+
+- Updated to 3.0.0.CR1
+
 === CLI Commands Quick Reference
 
 [width="15%"]

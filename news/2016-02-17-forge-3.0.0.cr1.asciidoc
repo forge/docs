@@ -1,0 +1,32 @@
+== Forge 3.0.0.CR1 is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.CR1.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Project type naming change*: We renamed the `addon` project type to `forge-addon`. As it only affects the shell UI, make sure to use `project-new --named demo --type forge-addon` when creating a new addon project type; 
+* *Component Upgrades*: We have upgraded to Furnace 2.23.2.Final and also Roaster to 2.18.2.Final.
+
+As usual, stay tuned for more features on the next release.
+
+Release Notes - Forge - Version 3.0.0.CR1
+=========================================
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2592[FORGE-2592] ] UISelectOne<JavaResource> no longer works in Shell
+*   [ https://issues.jboss.org/browse/FORGE-2594[FORGE-2594] ] Security: Add Constraint does not work
+*   [ https://issues.jboss.org/browse/FORGE-2596[FORGE-2596] ] addons installation instructions are wrong
+*   [ https://issues.jboss.org/browse/FORGE-2598[FORGE-2598] ] IndexOutOfBoundsException when scaffolding using Faces
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2593[FORGE-2593] ] Upgrade to Furnace 2.23.2.Final
+*   [ https://issues.jboss.org/browse/FORGE-2599[FORGE-2599] ] Upgrade to Roaster 2.18.2.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2597[FORGE-2597] ] project-new - rename addon to forge-addon
