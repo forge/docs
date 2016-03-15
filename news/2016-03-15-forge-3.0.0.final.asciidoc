@@ -1,0 +1,133 @@
+== JBoss Forge 3.0.0.Final is here!
+
+After ~1 year of hard work, the Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Final. This is the best and most stable release ever and we're pretty sure you'll have lots of fun, as much as we had enhancing it. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *JDK 8*: The minimum requirement for running Forge 3.0.0.Final is now the Java Development Kit 8.0. Hello lambdas and JDK 8 specific features!
+
+* *Option names are now more unix-like*: Eg: `--targetPackage` is now `--target-package`. Scripts targeted for 2.x may fail. The solution is to adjust the script manually for now.
+
+* *Stacks*: Starting in this version we have added support for Stacks. 
+** What is a stack? 
+*** A stack is simply a group of supported technologies for a given project. In Forge it is modeled as a Project facet including a set of project facets.
+** This looks great, how do I use it? 
+- The `Project: New` command introduces a `Stack` parameter. For example, if you create a new project using the JavaEE 7 stack, you no longer need to specify the spec versions while setting them up, also making only the supported JavaEE 7 commands to be enabled for a given project. Imagine the possibilities! :)
+
+* *Command line information*: If you always wanted to know which options where provided to your command when running in shell, you can using the newest `ShellContext.getCommandLine()` API.  
+
+* *Selected index for UISelect components*: Now it's possible to know which index was selected in a UISelectOne or UISelectMany component. The ValueChangeEvent class has also been changed to include this information.
+
+* *Better support for creation of generic projects*: Not every project is in Java nowadays (unfortunately), so we are introducing a new addon (project-generic) that should allow you to create commands for non-Java projects more easily.
+
+* *Project type naming change*: We renamed the `addon` project type to `forge-addon`. As it only affects the shell UI, make sure to use `project-new --named demo --type forge-addon` when creating a new addon project type; 
+
+* *SLF4J classloader conflicts*: The Git addon was erroneously bundling the slf4j-api, causing some classloader conflicts. 
+
+IMPORTANT: If your addon uses SLF4J, add a dependency to the link::http://forge.jboss.org/addon/org.jboss.forge.addon:slf4j[SLF4J addon] and exclude any dependencies to the SLF4J jars from your addon's pom.xml
+
+* *Enhanced Project creation using Maven archetypes*: Now Forge allows you to create projects from Maven archetypes which don't use Maven (Forge won't create the `pom.xml` and `src/main/java` unless the archetype does it).
+
+* *Component Upgrades*: We have upgraded to Furnace 2.23.3.Final and also Roaster to 2.18.3.Final.
+
+Contributors
+=============
+
+Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
+
+- Antonio Goncalves
+
+
+Full Release Notes - Forge - Version 3.0.0.Final
+================================================
+
+== Sub-task
+
+*   [ https://issues.jboss.org/browse/FORGE-2080[FORGE-2080] ] Being able to enable CDI interceptors and decorators
+*   [ https://issues.jboss.org/browse/FORGE-2129[FORGE-2129] ] Parameters syntax should be more unix-like
+*   [ https://issues.jboss.org/browse/FORGE-2224[FORGE-2224] ] Rename attribute methodName in command java-new-method
+*   [ https://issues.jboss.org/browse/FORGE-2279[FORGE-2279] ] Renaming parameters so their either use camel case or dash
+*   [ https://issues.jboss.org/browse/FORGE-2316[FORGE-2316] ] Brainstorming on introducing "Stacks"
+*   [ https://issues.jboss.org/browse/FORGE-2371[FORGE-2371] ] Use <h:graphicimage> instead of  in JSF scaffolding</h:graphicimage>
+*   [ https://issues.jboss.org/browse/FORGE-2372[FORGE-2372] ] The scaffold provider should be mandatory when there are more than one
+*   [ https://issues.jboss.org/browse/FORGE-2412[FORGE-2412] ] Being able to setup Java EE concurrency
+*   [ https://issues.jboss.org/browse/FORGE-2484[FORGE-2484] ] java-new-enum-const should follow the naming convention
+*   [ https://issues.jboss.org/browse/FORGE-2545[FORGE-2545] ] Set up unit testing framework in an existing project
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2499[FORGE-2499] ] Upgrade minimum version to JDK 1.8
+*   [ https://issues.jboss.org/browse/FORGE-2503[FORGE-2503] ] Display wait cursor for long-running tasks
+*   [ https://issues.jboss.org/browse/FORGE-2506[FORGE-2506] ] Trigger follow-up actions to other commands
+*   [ https://issues.jboss.org/browse/FORGE-2526[FORGE-2526] ] UISelectOne - Allow to know which index was selected
+*   [ https://issues.jboss.org/browse/FORGE-2558[FORGE-2558] ] Support creation of generic projects
+*   [ https://issues.jboss.org/browse/FORGE-2561[FORGE-2561] ] Wait cursor is messing up the output
+*   [ https://issues.jboss.org/browse/FORGE-2572[FORGE-2572] ] Create YAML parser addon
+*   [ https://issues.jboss.org/browse/FORGE-2585[FORGE-2585] ] Allow to obtain the cursor position of the current active editor window
+*   [ https://issues.jboss.org/browse/FORGE-2588[FORGE-2588] ] support creating projects from archetypes which don't use maven
+*   [ https://issues.jboss.org/browse/FORGE-2590[FORGE-2590] ] add base classes so its easy to add a custom ProjectType using a set of maven archetype coordinates
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-440[FORGE-440] ] A pom.xml which contains comments loses all of them after Forge operates on it.
+*   [ https://issues.jboss.org/browse/FORGE-2343[FORGE-2343] ] project-new command causes exception in Eclipse
+*   [ https://issues.jboss.org/browse/FORGE-2345[FORGE-2345] ] NPE when starting up IDEA 14.x with Forge 2.16.1 installed
+*   [ https://issues.jboss.org/browse/FORGE-2500[FORGE-2500] ] Cant set Json array as FileResource content
+*   [ https://issues.jboss.org/browse/FORGE-2507[FORGE-2507] ] Project:New attempts to re-install already installed facets
+*   [ https://issues.jboss.org/browse/FORGE-2515[FORGE-2515] ] project-new prints null in the CLI
+*   [ https://issues.jboss.org/browse/FORGE-2517[FORGE-2517] ] "How to Customize" menu points to an unknown page
+*   [ https://issues.jboss.org/browse/FORGE-2524[FORGE-2524] ] UIInputMany<path> does not preserve the original path when InputComponents.setValue is called</path>
+*   [ https://issues.jboss.org/browse/FORGE-2530[FORGE-2530] ] IndexOutOfBoundsException in IDEA when running custom command
+*   [ https://issues.jboss.org/browse/FORGE-2531[FORGE-2531] ] Using mixed versions of slf4j causes SLF4J to print to console a WARN about this
+*   [ https://issues.jboss.org/browse/FORGE-2537[FORGE-2537] ] Ambiguous facet error while creating gradle project
+*   [ https://issues.jboss.org/browse/FORGE-2538[FORGE-2538] ] Build command tries to run clean install on gradle builds
+*   [ https://issues.jboss.org/browse/FORGE-2539[FORGE-2539] ] org.jboss.forge.furnace.exception.ContainerException: No services of type [org.jboss.forge.addon.projects.ProjectFactory] could be found in any started addons.
+*   [ https://issues.jboss.org/browse/FORGE-2541[FORGE-2541] ] Can not create project using Netbens plugin
+*   [ https://issues.jboss.org/browse/FORGE-2551[FORGE-2551] ] Formatter name is not being used in JavaResource
+*   [ https://issues.jboss.org/browse/FORGE-2552[FORGE-2552] ] Introduce JavaSourceFacet.saveJavaSourceUnformatted and saveTestJavaSourceUnformatted
+*   [ https://issues.jboss.org/browse/FORGE-2566[FORGE-2566] ] Provider apple.applescript.AppleScriptEngineFactory not found
+*   [ https://issues.jboss.org/browse/FORGE-2574[FORGE-2574] ] Introduce ShellContext.getCommandLine()
+*   [ https://issues.jboss.org/browse/FORGE-2577[FORGE-2577] ] InputComponents.convertToUIInputValue should compare using labels as a last resort
+*   [ https://issues.jboss.org/browse/FORGE-2578[FORGE-2578] ] Shell allows execution of disabled commands
+*   [ https://issues.jboss.org/browse/FORGE-2581[FORGE-2581] ] Git addon conflicts with SLF4J
+*   [ https://issues.jboss.org/browse/FORGE-2592[FORGE-2592] ] UISelectOne<javaresource> no longer works in Shell</javaresource>
+*   [ https://issues.jboss.org/browse/FORGE-2594[FORGE-2594] ] Security: Add Constraint does not work
+*   [ https://issues.jboss.org/browse/FORGE-2596[FORGE-2596] ] addons installation instructions are wrong
+*   [ https://issues.jboss.org/browse/FORGE-2598[FORGE-2598] ] IndexOutOfBoundsException when scaffolding using Faces
+*   [ https://issues.jboss.org/browse/FORGE-2605[FORGE-2605] ] Forge addon - Changing the current file may cause a "file has changed in file vs memory" issue in IDEA
+*   [ https://issues.jboss.org/browse/FORGE-2612[FORGE-2612] ] Script downloads alpha3 version instead latest
+*   [ https://issues.jboss.org/browse/FORGE-2618[FORGE-2618] ] UIInput value should be null if empty string is set
+
+== Task
+
+*   [ https://issues.jboss.org/browse/FORGE-2546[FORGE-2546] ] Upgrade license in logging.properties to 2016
+*   [ https://issues.jboss.org/browse/FORGE-2570[FORGE-2570] ] Migrate artifact deployment to oss.sonatype.org
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2579[FORGE-2579] ] Upgrade to Hibernate Validator 5.3.0.Alpha1
+*   [ https://issues.jboss.org/browse/FORGE-2609[FORGE-2609] ] Upgrade to Roaster 2.18.3.Final
+*   [ https://issues.jboss.org/browse/FORGE-2613[FORGE-2613] ] Upgrade to Furnace 2.23.3.Final
+*   [ https://issues.jboss.org/browse/FORGE-2616[FORGE-2616] ] Upgrade JGit to version 4.2.0.201601211800-r
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2504[FORGE-2504] ] JsonResource.setContents should pretty-print output
+*   [ https://issues.jboss.org/browse/FORGE-2505[FORGE-2505] ] JsonResource should return a populated JsonArrayBuilder or JsonObjectBuilder
+*   [ https://issues.jboss.org/browse/FORGE-2522[FORGE-2522] ] addon-install-from-git should accept multiple coordinates per repository
+*   [ https://issues.jboss.org/browse/FORGE-2543[FORGE-2543] ] Default compiler version should be 1.8
+*   [ https://issues.jboss.org/browse/FORGE-2548[FORGE-2548] ] Better error message what is wrong in a custom wizard for addon developers
+*   [ https://issues.jboss.org/browse/FORGE-2559[FORGE-2559] ] Disable Java-only commands when current project is not Java
+*   [ https://issues.jboss.org/browse/FORGE-2560[FORGE-2560] ] Allow FileResource to be set as executable/writable/readable
+*   [ https://issues.jboss.org/browse/FORGE-2562[FORGE-2562] ] ProjectType should allow return a better navigation flow instead of starting from a single UIWizardStep
+*   [ https://issues.jboss.org/browse/FORGE-2573[FORGE-2573] ] Introduce Optional<f> Faceted.getFacetAsOptional(Class<f>)</f></f>
+*   [ https://issues.jboss.org/browse/FORGE-2576[FORGE-2576] ] Configuration addon should store in properties file
+*   [ https://issues.jboss.org/browse/FORGE-2580[FORGE-2580] ] Stack field should be disabled for certain project types
+*   [ https://issues.jboss.org/browse/FORGE-2586[FORGE-2586] ] Install an Addon UI appears frozen in Eclipse
+*   [ https://issues.jboss.org/browse/FORGE-2597[FORGE-2597] ] project-new - rename addon to forge-addon
+*   [ https://issues.jboss.org/browse/FORGE-2600[FORGE-2600] ] jpa-setup --container and --provider options should be renamed to --jpa-container and --jpa-provider
+*   [ https://issues.jboss.org/browse/FORGE-2601[FORGE-2601] ] Install forge addon - Have better title in dialog
+*   [ https://issues.jboss.org/browse/FORGE-2614[FORGE-2614] ] MavenModelResource.getModel() should return a cloned version of the underlying model
