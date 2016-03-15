@@ -40,6 +40,7 @@ Many thanks to the following contributors (in alphabetical order) who helped to 
 
 - Antonio Goncalves
 - Christian Posta
+- Claus Ibsen
 - Ivan St. Ivannov
 - James Bogosian
 - James Strachan
