@@ -39,7 +39,11 @@ Contributors
 Many thanks to the following contributors (in alphabetical order) who helped to make this release better than ever
 
 - Antonio Goncalves
-
+- Christian Posta
+- Ivan St. Ivannov
+- James Bogosian
+- James Strachan
+- Ralf D. Müller
 
 Full Release Notes - Forge - Version 3.0.0.Final
 ================================================
