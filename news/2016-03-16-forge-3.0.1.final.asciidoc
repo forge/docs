@@ -1,0 +1,22 @@
+== JBoss Forge 3.0.1.Final is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.0.0.Final. This version fixes a regression bug, preventing the creation of projects from Maven archetypes. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Component Upgrades*: We upgraded to Furnace 2.23.4.Final and Roaster to 2.18.4.Final.
+
+Release Notes - Forge - Version 3.0.1.Final
+===========================================
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2619[FORGE-2619] ] Stream Closed error while creating projects from maven archetype
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2622[FORGE-2622] ] Upgrade to Furnace 2.23.4.Final
+*   [ https://issues.jboss.org/browse/FORGE-2623[FORGE-2623] ] Upgrade to Roaster 2.18.4.Final
