@@ -1,0 +1,37 @@
+== JBoss Forge 3.1.0.Final is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.1.0.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Generate entities from tables allow catalog and schema selection*: To facilitate filtering, it's now possible to choose the catalog and schema of a database when choosing the tables to be imported. We have also improved the performance when fetching the table names.
+* *New commands*: Introducing a `java-generate-serialversionuid` to calculate and place the serialVersionUID field in any given class.
+* *JavaTargetFacet*: We introduced a JavaTargetFacet in order to provide the path to the compiled sources. This is useful when used together with ClassLoaderFacet to build a 
+* *Component Upgrades*: We upgraded to Roaster to 2.18.6.Final.
+
+Release Notes - Forge - Version 3.1.0.Final
+===========================================
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2627[FORGE-2627] ] Introduce a JavaTargetFacet for compiled resources
+*   [ https://issues.jboss.org/browse/FORGE-2629[FORGE-2629] ] Introduce a Java: Generate Serial Version UID command
+*   [ https://issues.jboss.org/browse/FORGE-2634[FORGE-2634] ] Allow selection of catalog and schema for generating entities from tables
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2624[FORGE-2624] ] Warnings in JBDS after generating forge-from-scratch quickstart
+*   [ https://issues.jboss.org/browse/FORGE-2630[FORGE-2630] ] man pages do not display unix-style options
+
+== Component  Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2631[FORGE-2631] ] Upgrade to Roaster 2.18.6.Final
+*   [ https://issues.jboss.org/browse/FORGE-2633[FORGE-2633] ] Upgrade Hibernate Tools to 5.1.0.Alpha2
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2628[FORGE-2628] ] ClassLoader facet should allow building a URLClassloader from directories containing .class files
+*   [ https://issues.jboss.org/browse/FORGE-2632[FORGE-2632] ] Addon installation should invalidate project caches
