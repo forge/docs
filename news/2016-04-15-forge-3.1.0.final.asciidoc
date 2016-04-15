@@ -9,7 +9,7 @@ What's new and noteworthy?
 
 * *Generate entities from tables allow catalog and schema selection*: To facilitate filtering, it's now possible to choose the catalog and schema of a database when choosing the tables to be imported. We have also improved the performance when fetching the table names.
 * *New commands*: Introducing a `java-generate-serialversionuid` to calculate and place the serialVersionUID field in any given class.
-* *JavaTargetFacet*: We introduced a JavaTargetFacet in order to provide the path to the compiled sources. This is useful when used together with ClassLoaderFacet to build a 
+* *JavaTargetFacet*: We introduced a JavaTargetFacet in order to provide the path to the compiled sources. This is useful when used together with ClassLoaderFacet to build a unified classloader for the project classes.
 * *Component Upgrades*: We upgraded to Roaster to 2.18.6.Final.
 
 Release Notes - Forge - Version 3.1.0.Final
