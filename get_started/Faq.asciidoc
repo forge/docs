@@ -1,5 +1,23 @@
 == How do I...
 
+== Keep the old 2.x syntax in my scripts or in Forge 3.x? 
+
+Forge 3.x has changed the option names syntax to a dashed and lowercased structure (eg. --target-package instead of --targetPackage as it was in 2.x).
+Run the following command if you want to get back to the old 2.x syntax: 
+
+[source,bash]
+----
+config-set --key org.jboss.forge.ui.shell_option_style --value 2.x
+----
+
+And the following command if you want to revert back to the 3.x style: 
+
+[source,bash]
+----
+config-clear --key org.jboss.forge.ui.shell_option_style
+----
+
+
 === Store state between command invocations? 
 
 You can use the *Configuration* addon for that. See link:https://github.com/forge/core/tree/master/configuration#features[this link] for an example.
