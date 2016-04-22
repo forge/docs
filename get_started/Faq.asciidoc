@@ -1,6 +1,6 @@
 == How do I...
 
-== Keep the old 2.x syntax in my scripts or in Forge 3.x? 
+=== Keep the old 2.x syntax in my scripts or in Forge 3.x? 
 
 Forge 3.x has changed the option names syntax to a dashed and lowercased structure (eg. --target-package instead of --targetPackage as it was in 2.x).
 Run the following command if you want to get back to the old 2.x syntax: 
