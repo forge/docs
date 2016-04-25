@@ -1,0 +1,13 @@
+== JBoss Forge 3.1.1.Final is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.1.1.Final. This is a minor bug-fix release.
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+Release Notes - Forge - Version 3.1.1.Final
+===========================================
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2624[FORGE-2624]] @PreMatching annotation issue 			
+*   [ https://issues.jboss.org/browse/FORGE-2641[FORGE-2641] ] Error running wildfly addon plugin in IDEA 15 			
+*   [ https://issues.jboss.org/browse/FORGE-2642[FORGE-2642] ] CCE when filling all fields in Security: Add Constraint 			
