@@ -5,7 +5,7 @@ The Forge Team is proud to announce the immediate availability of JBoss Forge 3.
 
 Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
 
-== What's new and noteworthy? 
+= What's new and noteworthy? 
 
 * *Support for Class Inheritance*: Wizards depending on `AbstractJavaSourceCommand` now allow choosing the superclasses and interfaces they might implement. This includes the `cdi-new-bean`, `jpa-new-entity` and the `java-new-class` wizards
 * *Component Upgrades*: Roaster is now upgraded to 2.18.7.Final.
@@ -15,7 +15,7 @@ Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now
 
 IMPORTANT: Add the `--local` option if these settings belong to the current project only.
 
-== Release Notes - Forge - Version 3.2.0.Final
+= Release Notes - Forge - Version 3.2.0.Final
 
 == Sub-task
 
