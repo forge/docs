@@ -1,0 +1,41 @@
+== JBoss Forge 3.2.0.Final is here!
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.2.0.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+===========================
+
+* *Support for Class Inheritance*: Wizards depending on `AbstractJavaSourceCommand` now allow choosing the superclasses and interfaces they might implement. This includes the `cdi-new-bean`, `jpa-new-entity` and the `java-new-class` wizards
+* *Component Upgrades*: Roaster is now upgraded to 2.18.7.Final.
+* *Support for custom JPA @Id and @Version property names*: Using a different pattern for `@Id` and/or `@Version` column names while running the `jpa-new-entity` command? No problem, just run:
+- `config-set --key javaee.jpa.id_property_name --value <NEW_VALUE>` to set the default name for JPA `@Id` field;
+- `config-set --key javaee.jpa.version_property_name --value <NEW_VALUE>` to set the default property name for the `@Version` field.
+
+IMPORTANT: Add the `--local` option if these settings belong to the current project only.
+
+Release Notes - Forge - Version 3.2.0.Final
+===========================================
+
+== Sub-task
+
+*   [ https://issues.jboss.org/browse/FORGE-1478[FORGE-1478] ] Being able to have inheritance in JPA
+*   [ https://issues.jboss.org/browse/FORGE-1808[FORGE-1808] ] Being able to have inheritance in CDI
+*   [ https://issues.jboss.org/browse/FORGE-1809[FORGE-1809] ] Being able to have inheritance in JSF Backing Beans
+*   [ https://issues.jboss.org/browse/FORGE-1810[FORGE-1810] ] Being able to have inheritance in Java
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-1807[FORGE-1807] ] Being able to have inheritance and implementation in most of the generated artifacts
+*   [ https://issues.jboss.org/browse/FORGE-2645[FORGE-2645] ] alternate names for @Id and @Version properties
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2643[FORGE-2643] ] java.util.ConcurrentModificationException when using wizards in a REST service
+*   [ https://issues.jboss.org/browse/FORGE-2644[FORGE-2644] ] Java: New Method creates private methods on interfaces
+*   [ https://issues.jboss.org/browse/FORGE-2646[FORGE-2646] ] ConcurrentModificationException while changing pom.xml purges the whole file contents
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2647[FORGE-2647] ] Upgrade to Roaster 2.18.7.Final
