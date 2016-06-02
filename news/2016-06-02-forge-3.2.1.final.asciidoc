@@ -1,0 +1,18 @@
+JBoss Forge 3.2.1.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.2.1.Final. 
+This release introduces some bug fixes just in time for the JBoss Tools 4.4.0.Final/GA release. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+= Release Notes 
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2648[FORGE-2648] ] XML Attribute not "saved" in the pom.xml
+*   [ https://issues.jboss.org/browse/FORGE-2651[FORGE-2651] ] JPA Generate Entities does not generate entities
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2652[FORGE-2652] ] Upgrade to Furnace 2.23.5.Final
