@@ -1,0 +1,17 @@
+JBoss Forge 3.2.2.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.2.2.Final. 
+This release changes the `Generate Entities from Tables` command to not display system tables and we promoted the AngularJS addon to be part of the distribution ZIP.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+= Release Notes 
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2654[FORGE-2654] ] Include AngularJS addon in default distribution
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2655[FORGE-2655] ] Default schema should be the default value when choosing to generate JPA entities from tables
