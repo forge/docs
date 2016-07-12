@@ -58,6 +58,14 @@ Configure your pom.xml like the following:
       </dependency>
       <dependency>
          <groupId>org.jboss.forge.addon</groupId>
+         <artifactId>maven-api</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge.addon</groupId>
+         <artifactId>ui-api</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge.addon</groupId>
          <artifactId>resources-api</artifactId>
          <exclusions>
             <exclusion>
@@ -185,8 +193,8 @@ public class Main
 
       Resource<File> projectDir = resourceFactory.create(underlyingResource);
 
-      // This could return more than one provider, but since the maven addon is the only one deployed, this is ok
-      ProjectProvider projectProvider = addonRegistry.getServices(ProjectProvider.class).get();
+      // We want it to be a Maven project, so we need the maven-api class in here
+      MavenBuildSystem projectProvider = addonRegistry.getServices(MavenBuildSystem.class).get();
 
       // Creating WAR project
       JavaWebProjectType javaWebProjectType = addonRegistry.getServices(JavaWebProjectType.class).get();
@@ -197,7 +205,7 @@ public class Main
       MetadataFacet facet = project.getFacet(MetadataFacet.class);
       facet.setProjectName("my-demo-project");
       facet.setProjectVersion("1.0.0-SNAPSHOT");
-      facet.setTopLevelPackage("com.mycompany.project");
+      facet.setProjectGroupName("com.mycompany.project");
 
       System.out.println("Project Created in: " + project);
    }
