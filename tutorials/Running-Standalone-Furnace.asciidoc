@@ -18,6 +18,7 @@ Configure your pom.xml like the following:
    <version>0.0.1-SNAPSHOT</version>
    <properties>
       <version.forge>3.2.2.Final</version.forge>
+      <version.furnace>2.23.5.Final</version.furnace>
    </properties>
    <dependencyManagement>
       <dependencies>
@@ -73,7 +74,7 @@ Configure your pom.xml like the following:
          <plugin>
             <groupId>org.jboss.forge.furnace</groupId>
             <artifactId>furnace-maven-plugin</artifactId>
-            <version>${version.forge}</version>
+            <version>${version.furnace}</version>
             <executions>
                <execution>
                   <id>deploy-addons</id>
