@@ -1,0 +1,28 @@
+JBoss Forge 3.2.3.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.2.3.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+= Release Notes 
+
+==         Bug
+
+*   [https://issues.jboss.org/browse/FORGE-2659[FORGE-2659]] -         Forge suggests using deprecated hibernate Postgresql dialect
+
+*   [https://issues.jboss.org/browse/FORGE-2662[FORGE-2662]] -         NullPointerException while running unit tests
+
+*   [https://issues.jboss.org/browse/FORGE-2669[FORGE-2669]] -         Improve error message for JPA: Generate Entities From Table
+
+==         Component Upgrade
+
+*   [https://issues.jboss.org/browse/FORGE-2668[FORGE-2668]] -         Upgrade to Roaster 2.19.0.Final
+
+==         Enhancement
+
+*   [https://issues.jboss.org/browse/FORGE-2663[FORGE-2663]] -         GIT commands should be camel cased
+
+==         Feature Request
+
+*   [https://issues.jboss.org/browse/FORGE-2658[FORGE-2658]] -         Introduce commands to add/remove ActivationConfigProperty values in MDBs
