@@ -1,0 +1,138 @@
+JBoss Forge 3.3.0.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.3.0.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+- Introduced addon-search and addon-install-from-catalog: It's now possible to query the available addons in http://forge.jboss.org/addons using the `addon-search` command and install them using the `addon-install-from-catalog --addon <addonId>`:
+
+[source,bash]
+----
+[bin]$ addon-search wildfly
+┌───────────────────────────────────┬─────────────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+│Id                                 │Name         │Description                                                                               │
+├───────────────────────────────────┼─────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│org.jboss.forge.addon:wildfly-swarm│WildFly Swarm│Create self-contained Java microservices based upon the normal WildFly application-server.│
+├───────────────────────────────────┼─────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│org.jboss.forge.addon:jboss-as     │WildFly AS   │Deployment and control for JBoss Wildfly and EAP                                          │
+└───────────────────────────────────┴─────────────┴──────────────────────────────────────────────────────────────────────────────────────────┘
+----
+
+Yes, we also introduced a nice tabular text format API in the text addon. More info in https://github.com/inamik/java_text_tables
+
+[source,bash]
+----
+[bin]$ addon-install-from-catalog --addon org.jboss.forge.addon:wildfly-swarm 
+addon-install-from-git --url https://github.com/forge/wildfly-swarm-addon.git --coordinate org.jboss.forge.addon:wildfly-swarm
+***INFO*** Installing Addon from Git 	[1/4] ...
+***INFO*** Installing Addon from Git:Cloning repository in /tmp/tmpdir8412644491802455556 	[1/4] ...
+***INFO*** Installing Addon from Git:Installing project into local repository 	[2/4] ...
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building wildfly-swarm 1.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ wildfly-swarm ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-java-version) @ wildfly-swarm ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-version) @ wildfly-swarm ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (get-scm-revision) @ wildfly-swarm ---
+[INFO] Executing: /bin/sh -c cd '/tmp/tmpdir8412644491802455556' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /tmp/tmpdir8412644491802455556
+[INFO] Storing buildNumber: 52e2838c46b044d480c7223c5c530a144f12fc37 at timestamp: 1470938509265
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ wildfly-swarm ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ wildfly-swarm ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 12 source files to /tmp/tmpdir8412644491802455556/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ wildfly-swarm ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ wildfly-swarm ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ wildfly-swarm ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ wildfly-swarm ---
+[INFO] Building jar: /tmp/tmpdir8412644491802455556/target/wildfly-swarm-addon.jar
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ wildfly-swarm ---
+[INFO] Building jar: /tmp/tmpdir8412644491802455556/target/wildfly-swarm-addon-sources.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (create-forge-addon) @ wildfly-swarm ---
+[INFO] Building jar: /tmp/tmpdir8412644491802455556/target/wildfly-swarm-addon-forge-addon.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ wildfly-swarm ---
+[INFO] Installing /tmp/tmpdir8412644491802455556/target/wildfly-swarm-addon.jar to /home/ggastald/.m2/repository/org/jboss/forge/addon/wildfly-swarm/1.0.1-SNAPSHOT/wildfly-swarm-1.0.1-SNAPSHOT.jar
+[INFO] Installing /tmp/tmpdir8412644491802455556/pom.xml to /home/ggastald/.m2/repository/org/jboss/forge/addon/wildfly-swarm/1.0.1-SNAPSHOT/wildfly-swarm-1.0.1-SNAPSHOT.pom
+[INFO] Installing /tmp/tmpdir8412644491802455556/target/wildfly-swarm-addon-sources.jar to /home/ggastald/.m2/repository/org/jboss/forge/addon/wildfly-swarm/1.0.1-SNAPSHOT/wildfly-swarm-1.0.1-SNAPSHOT-sources.jar
+[INFO] Installing /tmp/tmpdir8412644491802455556/target/wildfly-swarm-addon-forge-addon.jar to /home/ggastald/.m2/repository/org/jboss/forge/addon/wildfly-swarm/1.0.1-SNAPSHOT/wildfly-swarm-1.0.1-SNAPSHOT-forge-addon.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.519 s
+[INFO] Finished at: 2016-08-11T15:01:51-03:00
+[INFO] Final Memory: 77M/1095M
+[INFO] ------------------------------------------------------------------------
+***INFO*** Installing Addon from Git:Removing previous addon installation (org.jboss.forge.addon:wildfly-swarm,1.0.1-SNAPSHOT) 	[3/4] ...
+***INFO*** Installing Addon from Git:Installing addon (org.jboss.forge.addon:wildfly-swarm,1.0.1-SNAPSHOT) 	[4/4] ...
+***SUCCESS*** Success [Addon(s) [org.jboss.forge.addon:wildfly-swarm,1.0.1-SNAPSHOT] installed successfully.]
+
+----
+
+
+- Introduced `UIRegionBuilder`: After executing a command, it was always possible to set the current selection using `UIContext.setSelection(FileResource)` so a file is opened inside an IDE. In some scenarios, it would be desirable to also have a selected region inside the opened file (to display what changed, for example). You can now specify the selected region using the `UIRegionBuilder`: 
+
+[source,java]
+----
+    FileResource<?> resource = ...;
+    UIContext uiContext = context.getUIContext();
+    UISelection<FileResource<?>> selection = Selections.from(
+       (r) -> UIRegionBuilder.create(r)
+                .startPosition(1)
+                .endPosition(5)
+                .startLine(1)
+                .endLine(1),
+            Arrays.asList(resource));
+    uiContext.setSelection(selection);
+----
+
+Release Notes
+=============
+
+==         Component Upgrade
+
+*   [https://issues.jboss.org/browse/FORGE-2672[FORGE-2672]] -         Upgrade to Furnace 2.23.7.Final
+
+*   [https://issues.jboss.org/browse/FORGE-2673[FORGE-2673]] -         Upgrade to Metawidget 4.2
+
+==         Enhancement
+
+*   [https://issues.jboss.org/browse/FORGE-2404[FORGE-2404]] -         'addon-install' command should accept simpler (consolidated) arguments
+
+==         Feature Request
+
+*   [https://issues.jboss.org/browse/FORGE-2671[FORGE-2671]] -         UIContext - Allow to open a file on a specific element / line number
+
+==         Sub-task
+
+*   [https://issues.jboss.org/browse/FORGE-1742[FORGE-1742]] -         When having a build command in a script, it times out
+
+*   [https://issues.jboss.org/browse/FORGE-1817[FORGE-1817]] -         Create an `addon-search` command that uses the website REST services as a data-source.
+    
