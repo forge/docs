@@ -1,0 +1,27 @@
+JBoss Forge 3.3.1.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.3.1.Final, just in time for JBoss Tools 4.4.1.Final.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+- Component upgrades: We have upgraded Furnace to 2.23.8.Final which now avoids proxying of `java.io` and `java.nio` classes.
+
+Release Notes
+=============
+
+==         Component Upgrade
+
+*   [https://issues.jboss.org/browse/FORGE-2675[FORGE-2675]] -         Upgrade to Furnace 2.23.8.Final
+
+==         Feature Request
+
+*   [https://issues.jboss.org/browse/FORGE-2676[FORGE-2676]] -         NewCrossOriginResourceSharingFilter should contain a "Access-Control-Expose-Headers" for "Location"
+
+==         Task
+
+*   [https://issues.jboss.org/browse/FORGE-2677[FORGE-2677]] -         Test projects should not be installed locally or deployed to central
+                            
