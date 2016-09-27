@@ -5,14 +5,14 @@ Want to get started using Forge, but not quite sure how to do the things you wan
 === Create a project with custom package
 
 ----
-$ project-new --named example --top-level-package org.mycomp.myapp --type war --final-name myExample
+$ project-new --named example --top-level-package org.mycomp.myapp --type war --final-name myExample --stack JAVA_EE_7
 $ ls
 ----
 
 === Create a new JPA @Entity class
 
 ----
-$ project-new --named example
+$ project-new --named example --stack JAVA_EE_7
 $ jpa-new-entity --named SampleEntity
 $ jpa-new-field --named sampleField
 $ jpa-new-field --named createdOn --type java.util.Date --temporal-type TIMESTAMP
@@ -22,7 +22,7 @@ $ ls
 === Add an @N-To-N relationship between two @Entity classes
 
 ----
-$ project-new --named example
+$ project-new --named example --stack JAVA_EE_7
 $ jpa-new-entity --named Hurricane
 $ jpa-new-entity --named Continent
 $ jpa-new-field --named hurricanes --type org.example.model.Hurricane --relationship-type Many-to-Many --inverse-field-name continents
@@ -45,7 +45,7 @@ $ constraint-add --on-property bio --constraint Size --max 2000
 === Create a REST endpoint from @Entity
 
 ----
-$ project-new --named example
+$ project-new --named example --stack JAVA_EE_7
 $ jpa-new-entity --named SampleEntity
 $ jpa-new-field --named sampleField
 $ rest-generate-endpoints-from-entities --targets org.example.model.SampleEntity
@@ -54,7 +54,8 @@ $ rest-generate-endpoints-from-entities --targets org.example.model.SampleEntity
 === Generate entites from an existing database
 
 ----
-$ project-new --named example
+$ project-new --named example --stack JAVA_EE_7
+$ jpa-setup
 $ jpa-generate-entities-from-tables --jdbc-url jdbc:postgresql://localhost:5432/mydb --user-name user --user-password pwd --driver-location /Users/bob/.m2/repository/org/postgresql/postgresql/9.3-1100-jdbc3/postgresql-9.3-1100-jdbc3.jar --hibernate-dialect org.hibernate.dialect.PostgreSQLDialect
 ----
 
