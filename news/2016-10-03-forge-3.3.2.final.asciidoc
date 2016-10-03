@@ -1,0 +1,49 @@
+JBoss Forge 3.3.2.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.3.2.Final. 
+
+This release adds some small enhancements to the Shell UI (you will notice when booting Forge in standalone mode) and component upgrades.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Bug Fixes*: We some GUI bugs with the `JPA: Generate Entities from Tables` and `Project: Add dependencies` commands.
+* *Component upgrades*: We upgraded to the latest Furnace, Roaster and Hibernate Tools.
+
+Contributors
+=============
+Many thanks to the following contributors who helped to make this release better than ever
+
+- Charles Moulliard
+- Jess Sightler
+
+Release Notes
+=============
+
+==         Bug
+
+*   [https://issues.jboss.org/browse/FORGE-2332[FORGE-2332]] -         ClassLoaderFacet.getClassLoader() does not work for Web projects
+
+*   [https://issues.jboss.org/browse/FORGE-2681[FORGE-2681]] -         Project : Add dependencies generates such characters "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[" within the coordinates field
+
+*   [https://issues.jboss.org/browse/FORGE-2684[FORGE-2684]] -         eclipse jpa-generate-entities-from-tables only allows mysql fabric driver
+
+*   [https://issues.jboss.org/browse/FORGE-2687[FORGE-2687]] -         Improve help message in ./forge --help
+
+==         Component Upgrade
+
+*   [https://issues.jboss.org/browse/FORGE-2683[FORGE-2683]] -         Upgrade to Furnace 2.24.0.Final
+
+*   [https://issues.jboss.org/browse/FORGE-2685[FORGE-2685]] -         Upgrade to Hibernate Tools 5.2.0.Beta1
+
+*   [https://issues.jboss.org/browse/FORGE-2688[FORGE-2688]] -         Upgrade to Roaster 2.19.1.Final
+
+==         Enhancement
+
+*   [https://issues.jboss.org/browse/FORGE-2679[FORGE-2679]] -         Improve text displayed by the Forge CLI
+
+*   [https://issues.jboss.org/browse/FORGE-2680[FORGE-2680]] -         Explain what the red & green text means for the command listed
+                                                                                
