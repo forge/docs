@@ -1,0 +1,31 @@
+JBoss Forge 3.3.3.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.3.3.Final. 
+
+This release fixes some minor bugs and upgrades some dependencies.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Cleaner pom.xml for web projects*: The `maven-war-plugin` is no longer declared in the pom.xml. The `failOnMissingWebXml` property is now set inside the `<properties>` section. 
+* *Component upgrades*: We've upgraded to the latest Furnace, jGit and Hibernate Validator.
+
+Release Notes
+=============
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2690[FORGE-2690] ] Commands.shellifyCommandName may add trailing dash
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2689[FORGE-2689] ] Upgrade to Furnace 2.24.2.Final
+*   [ https://issues.jboss.org/browse/FORGE-2691[FORGE-2691] ] Upgrade to Hibernate Validator 5.3.1.Final
+*   [ https://issues.jboss.org/browse/FORGE-2694[FORGE-2694] ] Upgrade jGit to 4.4.1
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2692[FORGE-2692] ] WAR projects may declare failOnMissingWebXml as a user property instead of using the maven-war-plugin
