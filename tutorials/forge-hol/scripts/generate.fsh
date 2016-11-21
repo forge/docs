@@ -305,13 +305,13 @@ cdi-new-decorator --named PurchaseOrderDecorator --delegate org.jboss.forge.hol.
 #  Generates JSF beans and pages  #
 #  #############################  #
 
-scaffold-generate --targets org.jboss.forge.hol.petstore.model.Country ;
-scaffold-generate --targets org.jboss.forge.hol.petstore.model.Customer ;
-scaffold-generate --targets org.jboss.forge.hol.petstore.model.Category ;
-scaffold-generate --targets org.jboss.forge.hol.petstore.model.Product ;
-scaffold-generate --targets org.jboss.forge.hol.petstore.model.Item ;
-scaffold-generate --targets org.jboss.forge.hol.petstore.model.OrderLine ;
-scaffold-generate --targets org.jboss.forge.hol.petstore.model.PurchaseOrder ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Country --provider "Faces" ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Customer --provider "Faces" ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Category --provider "Faces" ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Product --provider "Faces" ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.Item --provider "Faces" ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.OrderLine --provider "Faces" ;
+scaffold-generate --targets org.jboss.forge.hol.petstore.model.PurchaseOrder --provider "Faces" ;
 
 #  AbstractBean
 #  ############
