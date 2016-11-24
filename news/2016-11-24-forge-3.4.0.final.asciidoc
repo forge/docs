@@ -1,0 +1,43 @@
+JBoss Forge 3.4.0.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.4.0.Final. 
+
+This release fixes some minor bugs and upgrades some dependencies.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Support for Effective POMs*: MavenFacet now introduces a getEffectiveModel() method that returns a Model object containing an effective version of the associated project (the pom.xml info + super poms + managed dependencies with imported scope). 
+* *Shrinkwrap addon available in BOM*: Do you want to use link::http://arquillian.org/modules/shrinkwrap-shrinkwrap/[ShrinkWrap] in your addons? Now you can just add the following addon dependency to your addons and you should have the ShrinkWrap API in your classpath:
+[source,xml]
+----
+<dependency>
+   <groupId>org.jboss.forge.addon</groupId>
+   <artifactId>shrinkwrap</artifactId>
+   <classifier>forge-addon</classifier>
+</dependency>
+----
+
+* *Component upgrades*: We've upgraded to the latest Furnace and Roaster.
+
+Release Notes
+=============
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2696[FORGE-2696] ] JPA: Generate entities from tables gives "At least one table must be specified"
+*   [ https://issues.jboss.org/browse/FORGE-2697[FORGE-2697] ] FacetNotFoundException when checking if Testing facets are available
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2698[FORGE-2698] ] Upgrade to Furnace 2.24.3.Final
+*   [ https://issues.jboss.org/browse/FORGE-2702[FORGE-2702] ] Upgrade to Roaster 2.19.3.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2695[FORGE-2695] ] Add Shrinkwrap addon to Forge BOM
+*   [ https://issues.jboss.org/browse/FORGE-2699[FORGE-2699] ] Support generation of effective models
+*   [ https://issues.jboss.org/browse/FORGE-2701[FORGE-2701] ] Remove Forge version from AddonProjectConfigurator
