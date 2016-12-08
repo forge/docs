@@ -4,7 +4,7 @@
 == How to get your addon listed in the website
 
 . Fork the link:https://github.com/forge/website-data/fork[forge/website-data] repository
-. Create a YAML file under *addons/community* named after your addon (_twitter.yaml_) in this example) containing the following addon info:
+. Create a YAML file under *addons/community* named after your addon (*twitter.yaml* in this example) containing the following addon info:
 +
 [source,yaml]
 ----
