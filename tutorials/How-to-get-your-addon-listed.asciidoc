@@ -4,11 +4,10 @@
 == How to get your addon listed in the website
 
 . Fork the link:https://github.com/forge/website-data/fork[forge/website-data] repository
-. Add the necessary addon info in the *addons-community.yaml* file:
+. Create a YAML file under *addons/community* named after your addon (_twitter.yaml) in this example) containing the following addon info:
 +
 [source,yaml]
 ----
----
 id: org.george.twitter:twitter
 name: Twitter
 description: Setup a Twitter account and tweet away!
@@ -19,7 +18,6 @@ repo: https://github.com/gastaldi/twitter-addon.git
 ref: master
 tags: Twitter
 logo: https://abs.twimg.com/a/1403183846/images/oauth_application.png
----
 ----
 
 - id: the groupId:artifactId of your addon
