@@ -1,0 +1,61 @@
+JBoss Forge 3.5.0.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.5.0.Final. 
+This release fixes some minor bugs and upgrades some dependencies.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Depend on a JDBC Driver*: Need to add a dependency to your JDBC driver but can't remember the maven gav? No problem! Just use the following command and we'll add it for you (the version and scope parameters are optional):
+
+[source,bash]
+----
+jdbc-add-dependency --db-type H2 --version 1.4.192 --scope runtime
+----
+
+* *AssertJ addon available in BOM*: Do you want to use link::http://arquillian.org/modules/shrinkwrap-shrinkwrap/[AssertJ] in your tests? Now you can just add the following addon dependency to your addons and you should have the AssertJ API in your classpath:
+[source,xml]
+----
+<dependency>
+   <groupId>org.jboss.forge.addon</groupId>
+   <artifactId>assertj</artifactId>
+   <classifier>forge-addon</classifier>
+</dependency>
+----
+
+* *Component upgrades*: we have upgraded a lot of dependencies, check the list below for more information.
+
+Release Notes
+=============
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2711[FORGE-2711] ] Introduce a command to add a dependency to JBDC drivers
+*   [ https://issues.jboss.org/browse/FORGE-2717[FORGE-2717] ] Introduce a FileResource.resolve method
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2712[FORGE-2712] ] JPA: New Field should select the field in outline view and editor
+*   [ https://issues.jboss.org/browse/FORGE-2720[FORGE-2720] ] FacetNotFoundException when scaffold-generate is called without setting up first
+
+== Task
+
+*   [ https://issues.jboss.org/browse/FORGE-2705[FORGE-2705] ] Move ArchetypeHelper to maven-api
+*   [ https://issues.jboss.org/browse/FORGE-2718[FORGE-2718] ] Add assertj addon to forge bom
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2708[FORGE-2708] ] Upgrade to Hibernate Validator 5.3.4.Final
+*   [ https://issues.jboss.org/browse/FORGE-2714[FORGE-2714] ] Upgrade to Hibernate Tools 5.2.0.Final
+*   [ https://issues.jboss.org/browse/FORGE-2715[FORGE-2715] ] Upgrade JGit to 4.6.0.201612231935-r
+*   [ https://issues.jboss.org/browse/FORGE-2719[FORGE-2719] ] Upgrade to Furnace 2.25.0.Final
+*   [ https://issues.jboss.org/browse/FORGE-2721[FORGE-2721] ] Upgrade to Roaster 2.19.5.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2704[FORGE-2704] ] Output the file name when attempting to create user config file and it fails
+*   [ https://issues.jboss.org/browse/FORGE-2706[FORGE-2706] ] ScriptFileResourceGenerator can be a singleton
+*   [ https://issues.jboss.org/browse/FORGE-2716[FORGE-2716] ] project-new should support specifying a different target location than the artifactId
