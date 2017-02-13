@@ -1,0 +1,28 @@
+JBoss Forge 3.5.1.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.5.1.Final. 
+This release updates Furnace with a fix preventing its usage in an environment with a SecurityManager enabled and upgrades some dependencies.
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Component upgrades*: we have upgraded Furnace to 2.25.2.Final and Hibernate Validator to 5.4.0.Final.
+
+Release Notes
+=============
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2723[FORGE-2723] ] Quick search in NetBeans is broken
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2724[FORGE-2724] ] Upgrade to Hibernate Validator 5.4.0.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2725[FORGE-2725] ] Allow disabling build listener after command execution
+*   [ https://issues.jboss.org/browse/FORGE-2727[FORGE-2727] ] Upgrade to Furnace 2.25.2.Final
