@@ -12,16 +12,15 @@ It is often included in your addon via the following dependencies:
 
 [source,xml]
 ----
+
 <dependency>
    <groupId>org.jboss.forge.furnace.test</groupId>
    <artifactId>furnace-test-harness</artifactId>
-   <version>FURNACE_VERSION</version>
    <scope>test</scope>
 </dependency>
 <dependency>
    <groupId>org.jboss.forge.furnace.test</groupId>
    <artifactId>arquillian-furnace-classpath</artifactId>
-   <version>FURNACE_VERSION</version>
    <scope>test</scope>
 </dependency>
 ----
@@ -51,12 +50,6 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class ExampleFurnaceTest {
 
-   @Deployment
-   public static ForgeArchive getDeployment() {
-      ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class);
-      return archive;
-   }
-
    @Test
    public void testSomething() throws Exception {
       Assert.fail("Not implemented");
@@ -64,57 +57,13 @@ public class ExampleFurnaceTest {
 }
 ----
 
-Then you'll need to add some configuration so that your addon will be deployed to the test environment. This is done
-using the `@AddonDependency` annotation. You'll also need to add an addon dependency link from your test case
-to your addon (otherwise the test case will not be able to use any of your addon's classes or services.)
+Now that the test case deploys and depends on your addon, you may access services from it via injection (if your addon has a dependency on the CDI Furnace container):
 
 [source,java]
 ----
 @RunWith(Arquillian.class)
 public class ExampleFurnaceTest {
 
-   @Deployment
-   @Dependencies({
-       @AddonDependency(name = "org.example:example", version = "YOUR_VERSION")
-   })
-   public static ForgeArchive getDeployment() {
-      ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class)
-         .addBeansXML()
-         .addAsAddonDependencies(
-            AddonDependencyEntry.create("org.example:example", "YOUR_VERSION"),
-         );
-      return archive;
-   }
-
-   @Test
-   public void testSomething() throws Exception {
-      Assert.fail("Not implemented");
-   }
-}
----- 
-
-NOTE: The `@Dependencies` annotation is used to specify addons that must be deployed before the addon-under-test is deployed in Furnace. The `AddonDependencyEntry.create(...)` method is used to specify addons that the addon-under-test depends on.
-
-Now that the test case deploys and depends on your addon, you may access services from it via injection:
-
-[source,java]
-----
-@RunWith(Arquillian.class)
-public class ExampleFurnaceTest {
-
-   @Deployment
-   @Dependencies({
-       @AddonDependency(name = "org.example:example", version = "YOUR_VERSION")
-   })
-   public static ForgeArchive getDeployment() {
-      ForgeArchive archive = ShrinkWrap.create(ForgeArchive.class)
-         .addBeansXML()
-         .addAsAddonDependencies(
-            AddonDependencyEntry.create("org.example:example", "YOUR_VERSION"),
-         );
-      return archive;
-   }
-   
    @Inject
    private ExampleService service;
 
