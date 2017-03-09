@@ -1,0 +1,36 @@
+JBoss Forge 3.6.0.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.6.0.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Faster addon development turnaround*: We've introduced an `addon-watch-start` command that watches the deployed addons with SNAPSHOT versions in your local maven repository and automatically redeploys them. Just `mvn clean install` your addon and it will be re-deployed. 
+
+* *Component upgrades*: we have upgraded Roaster to 2.20.0.Final
+
+Release Notes
+=============
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2074[FORGE-2074] ] easy way to auto-reload addons being developed
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2584[FORGE-2584] ] Build command always skip tests and fails if a profile is set
+*   [ https://issues.jboss.org/browse/FORGE-2731[FORGE-2731] ] Servlet: New Servlet command generates a new Servlet with an empty method body
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2730[FORGE-2730] ] Upgrade to Roaster 2.20.0.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2729[FORGE-2729] ] Enhance metadata with total number of pages and page names
+*   [ https://issues.jboss.org/browse/FORGE-2732[FORGE-2732] ] ResourceEvent should be an interface
+*   [ https://issues.jboss.org/browse/FORGE-2734[FORGE-2734] ] Result should allow an entity POJO to be added
+*   [ https://issues.jboss.org/browse/FORGE-2735[FORGE-2735] ] CompositeResult.getMessage should return a composite message of the result messages
