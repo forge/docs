@@ -1,0 +1,26 @@
+JBoss Forge 3.6.1.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.6.1.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Component upgrades*: we have upgraded Furnace to 2.25.4.Final
+
+Release Notes
+=============
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2074[FORGE-2074] ] Cannot start Forge on Mac OS X
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2740[FORGE-2740] ] Upgrade to Furnace 2.25.4.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2736[FORGE-2736] ] Allow firing project created events outside ProjectFactory
