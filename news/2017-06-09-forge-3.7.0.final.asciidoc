@@ -1,0 +1,36 @@
+JBoss Forge 3.7.0.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.7.0.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+* *Bug fixes*: This release contains some bug fixes to the JSF scaffold
+* *Component upgrades*: we have upgraded Furnace to 2.26.0.Final which supports CDI 2.0.
+
+Contributors
+============
+Many thanks to https://github.com/metacosm[Chris Laprun] who helped to make this release better than ever.
+
+
+Release Notes
+=============
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2744[FORGE-2744] ] Extract interfaces for Java EE addon commands
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2737[FORGE-2737] ] JSF Scaffold throws java.lang.IllegalArgumentException: forgeview:display(_itemProfile)
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2742[FORGE-2742] ] Upgrade to Furnace 2.26.0.Final
+*   [ https://issues.jboss.org/browse/FORGE-2747[FORGE-2747] ] Upgrade to eGit 4.7.0.201704051617-r
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2745[FORGE-2745] ] Make it possible for AbstractJavaSourceCommand to externalize the code decoration
