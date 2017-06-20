@@ -1,0 +1,24 @@
+JBoss Forge 3.7.1.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.7.1.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+* *Component upgrades*: we have upgraded Furnace to 2.26.1.Final, Maven to 3.5.0 and eGit to 4.7.1.201706071930-r.
+
+Release Notes
+=============
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2746[FORGE-2746] ] project-new duplicates child module name when re-creating a module after having deleted it
+*   [ https://issues.jboss.org/browse/FORGE-2753[FORGE-2753] ] Use Target Location Root in New Project wizard does not work appropriately
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2750[FORGE-2750] ] Upgrade to Maven 3.5.0 and replace Aether with Maven Resolver
+*   [ https://issues.jboss.org/browse/FORGE-2751[FORGE-2751] ] Upgrade to Furnace 2.26.1.Final
+*   [ https://issues.jboss.org/browse/FORGE-2754[FORGE-2754] ] Upgrade eGit to 4.7.1.201706071930-r
