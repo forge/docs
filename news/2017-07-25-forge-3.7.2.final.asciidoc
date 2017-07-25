@@ -1,0 +1,28 @@
+JBoss Forge 3.7.2.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.7.2.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Component upgrades*: we have upgraded Furnace to 2.26.2.Final, so you should see less warnings in the logs.
+
+Release Notes
+=============
+
+== Task
+
+*   [ https://issues.jboss.org/browse/FORGE-2759[FORGE-2759] ] Review optional dependencies in core addons
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2755[FORGE-2755] ] Upgrade to Roaster 2.20.1.Final
+*   [ https://issues.jboss.org/browse/FORGE-2756[FORGE-2756] ] Upgrade JGit to 4.8.0.201706111038-r
+*   [ https://issues.jboss.org/browse/FORGE-2758[FORGE-2758] ] Upgrade to Furnace 2.26.2.Final
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FORGE-2757[FORGE-2757] ] WizardController.getStepsMetadata should return all steps, without validating while navigating the whole flow
