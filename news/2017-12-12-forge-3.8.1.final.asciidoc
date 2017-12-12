@@ -1,0 +1,47 @@
+JBoss Forge 3.8.1.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.8.1.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Enhancements to the CDI commands in the Java EE addon*: Forge got your back when creating producer methods. Try out the newest `cdi-add-producer` command:
+
+```bash
+java-new-class --named LoggingProducer
+
+cdi-add-producer-method --named produceLogger --return-type org.apache.logging.log4j.Logger
+```
+* *Component upgrades*: we have upgraded Furnace to 2.27.0.Final and Hibernate Validator to 5.4.2.Final.
+
+
+Contributors
+=============
+
+Many thanks to Martin Kouba for the CDI enhancements contribution.
+
+Release Notes
+=============
+
+== Sub-task
+
+*   [ https://issues.jboss.org/browse/FORGE-2225[FORGE-2225] ] Being able to add a new CDI producer method to an existing class
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-2762[FORGE-2762] ] Dependent beans created by CDINewBeanCommand should declare scope annotation if CDI 1.1 project facet is used
+*   [ https://issues.jboss.org/browse/FORGE-2764[FORGE-2764] ] Allow to enable interceptors/decorators/alternatives globally using @javax.annotation.Priority
+*   [ https://issues.jboss.org/browse/FORGE-2766[FORGE-2766] ] CDIAddObserverMethodCommand - list container lifecycle event types if the target class is a portable extension
+*   [ https://issues.jboss.org/browse/FORGE-2769[FORGE-2769] ] Add configuration to disable project caching in project addon
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2771[FORGE-2771] ] WELD-000018 warnings in log when using the UI addon with furnace-embedded
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2770[FORGE-2770] ] Upgrade to Furnace 2.27.0.Final
+*   [ https://issues.jboss.org/browse/FORGE-2772[FORGE-2772] ] Update Hibernate Validator to 5.4.2.Final
