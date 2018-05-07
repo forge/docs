@@ -1,0 +1,47 @@
+JBoss Forge 3.9.0.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.9.0.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Support for JDK 8, 9 and 10*: Starting in this version, Forge can now safely run in JDK 9 and 10.
+* *Support for @EmbeddedId in `jpa-new-entity`*: Thanks to Christoph Schulz, you can now create EmbeddedId classes using the jpa-new-entity command.
+* *Component upgrades*: we have upgraded Furnace to 2.28.1.Final (which fully supports JDK 9), Maven to 3.5.3 and Weld 3.0.4.Final.
+
+
+Contributors
+=============
+
+Many thanks to link:https://github.com/criztovyl[Christoph Schulz] for the new JPA enhancements contribution.
+
+Release Notes (includes Furnace 2.8.1.Final)
+============================================
+
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FURNACE-150[FURNACE-150] ] Illegal reflective access by org.jboss.forge.furnace.impl.LoggingRepair$1
+*   [ https://issues.jboss.org/browse/FURNACE-156[FURNACE-156] ] Maven 3.3.9 artifacts are still used in Arquillian test harness
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FURNACE-152[FURNACE-152] ] Migrate to javassist 3.22.0-GA
+*   [ https://issues.jboss.org/browse/FURNACE-153[FURNACE-153] ] Migrate to jboss-modules 1.8.3.Final
+*   [ https://issues.jboss.org/browse/FURNACE-154[FURNACE-154] ] Upgrade to Weld 3.0.4.Final
+*   [ https://issues.jboss.org/browse/FURNACE-155[FURNACE-155] ] Upgrade to Maven 3.5.3
+*   [ https://issues.jboss.org/browse/FORGE-2780[FORGE-2780] ] Upgrade to Furnace 2.8.1.Final
+*   [ https://issues.jboss.org/browse/FORGE-2781[FORGE-2781] ] Upgrade to Maven 3.5.3
+
+== Enhancement
+
+*   [ https://issues.jboss.org/browse/FURNACE-151[FURNACE-151] ] Support Java 9+
+
+
+== Feature Request
+
+*   [ https://issues.jboss.org/browse/FORGE-1525[FORGE-1525] ] Being able to create custom Id for JPA entities
+*   [ https://issues.jboss.org/browse/FORGE-2761[FORGE-2761] ] Provide compatibility with Java 9+
