@@ -1,0 +1,29 @@
+JBoss Forge 3.9.1.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.9.1.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *Component upgrades*: we have upgraded to Hibernate Tools 5.2.11.Final.
+
+
+Contributors
+=============
+
+Many thanks to link:https://github.com/rajeshduggal[Rajesh Duggal] for fixing the startup scripts.
+
+Release Notes
+=============
+
+== Bug
+
+*   [ https://issues.jboss.org/browse/FORGE-2784[FORGE-2784] ] Forge.bat shows error with JDK version 10
+*   [ https://issues.jboss.org/browse/FORGE-2785[FORGE-2785] ] Script does not wait until execution is finished to return on a Wizard command
+
+== Component Upgrade
+
+*   [ https://issues.jboss.org/browse/FORGE-2782[FORGE-2782] ] Upgrade to Hibernate Tools 5.2.11.Final
