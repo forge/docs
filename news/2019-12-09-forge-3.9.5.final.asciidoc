@@ -1,0 +1,11 @@
+JBoss Forge 3.9.5.Final is here!
+================================
+
+The Forge Team is proud to announce the immediate availability of JBoss Forge 3.9.5.Final. 
+
+Head to the link:http://forge.jboss.org/download[Downloads] page and grab it now!
+
+What's new and noteworthy? 
+==========================
+
+* *JDK 11 Compatibility*: we have upgraded Furnace to 2.18.3.Final, which brings more stability when using JDK 11.
